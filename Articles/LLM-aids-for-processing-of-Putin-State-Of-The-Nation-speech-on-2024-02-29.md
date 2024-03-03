@@ -11,7 +11,7 @@ March 2024
 
 ## Introduction
 
-![](http://static.kremlin.ru/media/events/photos/big2x/yOcwEC7CgATJomZ91n7fh3rCnMJhcLWU.jpg){width=1000}
+![](http://static.kremlin.ru/media/events/photos/big2x/yOcwEC7CgATJomZ91n7fh3rCnMJhcLWU.jpg)
 
 In this notebook we provide aids and computational workflows for the analysis of Vladimir Putin's 
 [State Of The Nation speech](http://www.kremlin.ru/events/president/news/73585) given on February 29th, 2024.
@@ -20,7 +20,7 @@ We use Large Language Models (LLMs). We walk through various steps involved in e
 The speech transcript is taken from [kremlin.ru](http://www.kremlin.ru/events/president/news/73585).
 
 The computations are done with a [Raku chatbook](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AAp6, AAv1÷AAv3]. The LLM functions used in the workflows are explained and demonstrated in [AA1, AAv3].
-The workflows are done with OpenAI's models [AAp1]. Currently the models of Google's (PaLM), [AAp2], and MistralAI, [AAp3], cannot be used with the workflows below because their input token limits are too low.
+The workflows are done with OpenAI's models [AAp1]. Currently, the models of Google's (PaLM), [AAp2], and MistralAI, [AAp3], cannot be used with the workflows below because their input token limits are too low.
 
 A similar set of workflows described in ["LLM aids for processing of the first Carlson-Putin interview"](https://rakuforprediction.wordpress.com/2024/02/12/llm-aids-for-processing-of-the-first-carlson-putin-interview/), [AA2] -- that set has been reused in below to a large degree.
 
@@ -102,13 +102,9 @@ my $res = .<content>.decode with HTTP::Tiny.post: $url,
     };
 
 from-json($res)<tokens>.elems
+
+# 36502
 ```
-
-
-
-
-    36502
-
 
 
 ### LLM access configuration
@@ -119,14 +115,9 @@ Here we configure LLM access -- we use OpenAI's model "gpt-4-turbo-preview" sinc
 ```raku
 my $conf = llm-configuration('ChatGPT', model => 'gpt-4-turbo-preview', max-tokens => 4096, temperature => 0.7);
 $conf.Hash.elems
+
+#  22
 ```
-
-
-
-
-    22
-
-
 
 ### LLM functions
 
@@ -137,26 +128,12 @@ Here we define an LLM translation function:
 my &fTrans = llm-function({"Translate from $^a to $^b the following text:\n $^c"}, e => $conf)
 ```
 
-
-
-
-    -> **@args, *%args { #`(Block|6457697885808) ... }
-
-
-
 Here we make a function of extracting *significant* parts from the interview:
 
 
 ```raku
 my &fProv = llm-function({"Which are the top $^a most $^b in the following speech? Answer in English.\n\n" ~ $txtRU}, e => $conf)
 ```
-
-
-
-
-    -> **@args, *%args { #`(Block|6457697871192) ... }
-
-
 
 ------
 
@@ -174,11 +151,9 @@ my $summary = llm-synthesize([
 text-stats($summary)
 ```
 
-
-
-
-    (chars => 1625 words => 217 lines => 5)
-
+```
+# (chars => 1625 words => 217 lines => 5)
+```
 
 
 Show the summary in Markdown format:
@@ -188,9 +163,6 @@ Show the summary in Markdown format:
 #% markdown
 $summary
 ```
-
-
-
 
 In his address, Vladimir Putin emphasized the vision for Russia's future, focusing on strategic tasks crucial for the country's long-term development. He highlighted the importance of direct engagement with citizens, including workers, educators, scientists, and military personnel, acknowledging their role in shaping government actions and initiatives. Putin expressed gratitude to various professionals and emphasized plans for large-scale investments in social services, demographics, the economy, science, technology, and infrastructure.
 
@@ -218,9 +190,9 @@ my $llmParts = llm-synthesize([
 deduce-type($llmParts)
 ```
 
-
-    Vector(Assoc(Atom((Str)), Atom((Str)), 2), 10)
-
+```
+# Vector(Assoc(Atom((Str)), Atom((Str)), 2), 10)
+```
 
 Here we tabulate the found themes:
 
@@ -229,7 +201,6 @@ Here we tabulate the found themes:
 #%html
 $llmParts ==> data-translation(field-names => <theme content>)
 ```
-
 
 <table border="1"><thead><tr><th>theme</th><th>content</th></tr></thead><tbody><tr><td>Introduction</td><td>Addressing the Federal Assembly, focusing on the future, strategic tasks, and long-term development.</td></tr><tr><td>Economic Development and Strategic Goals</td><td>Action program formed through dialogs, addressing real people&#39;s needs, and focusing on strategic development tasks.</td></tr><tr><td>National Projects and Strategic Initiatives</td><td>Efforts in various sectors including regional development, technology, economy, and social programs.</td></tr><tr><td>Social Programs and Demographics</td><td>Initiatives aimed at supporting families, increasing birth rates, and improving living standards.</td></tr><tr><td>Education and Youth Development</td><td>Improving education systems, supporting youth, and creating opportunities for professional growth.</td></tr><tr><td>Technological Development and Innovation</td><td>Investing in new technologies, supporting startups, and enhancing Russia&#39;s competitiveness.</td></tr><tr><td>Infrastructure Development</td><td>Improvements in transportation, utilities, and urban development to enhance quality of life.</td></tr><tr><td>Environmental Protection and Sustainability</td><td>Programs for ecological conservation, waste management, and promoting green technologies.</td></tr><tr><td>Defense and Security</td><td>Acknowledging the role of military personnel and veterans in national security and development.</td></tr><tr><td>National Unity and Future Vision</td><td>Emphasizing solidarity, resilience, and the collective effort towards Russia&#39;s prosperity.</td></tr></tbody></table>
 
@@ -247,8 +218,6 @@ Here we get the most important statements:
 #% markdown
 &fProv(3, "important statements")
 ```
-
-
 
 
 Given the extensive nature of the speech, identifying the top 3 most important statements depends on the context of what one considers "important"—whether it be strategic goals, domestic policies, military actions, or socio-economic initiatives. However, based on the broad significance and impact, the following three statements can be highlighted as critically important:
@@ -311,11 +280,9 @@ my $westTellPOV = llm-synthesize([
 text-stats($westTellPOV)
 ```
 
-
-
-
-    (chars => 1651 words => 236 lines => 5)
-
+```
+# (chars => 1651 words => 236 lines => 5)
+```
 
 
 Here we render the LLM result as in Markdown format:
@@ -325,9 +292,6 @@ Here we render the LLM result as in Markdown format:
 #% markdown
 $westTellPOV
 ```
-
-
-
 
 Addressing Western politicians, it is imperative to recognize that Russia stands as a formidable power, possessing a formidable arsenal and an economy resilient to sanctions. Our strategic nuclear forces remain on high alert, including the deployment of avant-garde hypersonic systems like "Kinzhal" and the "Tsirkon" hypersonic missile, which have already been proven in combat efficiency. Additionally, the "Avangard" hypersonic glide vehicles and "Peresvet" laser systems bolster our defensive capabilities, alongside the ongoing tests of the "Burevestnik" nuclear-powered cruise missile and the "Poseidon" unmanned underwater vehicle. These advanced weapons systems underscore our technological prowess and military readiness.
 
@@ -357,12 +321,9 @@ my $weapons = llm-synthesize([
 deduce-type($weapons)
 ```
 
-
-
-
-    Vector(Assoc(Atom((Str)), Atom((Str)), 5), 7)
-
-
+```
+# Vector(Assoc(Atom((Str)), Atom((Str)), 5), 7)
+```
 
 Here we render the table:
 
@@ -371,8 +332,6 @@ Here we render the table:
 #%html
 $weapons ==> data-translation(field-names => <name type status description damage>)
 ```
-
-
 
 
 <table border="1"><thead><tr><th>name</th><th>type</th><th>status</th><th>description</th><th>damage</th></tr></thead><tbody><tr><td>Кинжал</td><td>Hypersonic Airborne Missile System</td><td>Operational</td><td>A hypersonic missile capable of striking targets with high precision over long distances at speeds exceeding Mach 5.</td><td>High</td></tr><tr><td>Циркон</td><td>Hypersonic Cruise Missile</td><td>Operational</td><td>A sea-based hypersonic cruise missile designed to attack naval and ground targets.</td><td>High</td></tr><tr><td>Авангард</td><td>Hypersonic Glide Vehicle</td><td>Operational</td><td>Mounted on an intercontinental ballistic missile, it can carry a nuclear payload and maneuver at high speeds to evade missile defense systems.</td><td>Very High</td></tr><tr><td>Пересвет</td><td>Laser Weapon System</td><td>Operational</td><td>A laser system purportedly designed to counter aerial threats and possibly to disable satellites and other space assets.</td><td>Variable</td></tr><tr><td>Буревестник</td><td>Nuclear-Powered Cruise Missile</td><td>In Testing</td><td>Claimed to have virtually unlimited range thanks to its nuclear power source, designed for strategic bombing missions.</td><td>Potentially Very High</td></tr><tr><td>Посейдон</td><td>Nuclear-Powered Underwater Drone</td><td>In Development</td><td>An autonomous underwater vehicle intended to carry nuclear warheads to create radioactive tsunamis near enemy coastlines.</td><td>Catastrophic</td></tr><tr><td>Сармат</td><td>Intercontinental Ballistic Missile</td><td>Operational</td><td>A heavy missile intended to replace the aging Soviet-era Voevoda, capable of carrying multiple nuclear warheads.</td><td>Catastrophic</td></tr></tbody></table>
@@ -394,11 +353,9 @@ $weapons
 deduce-type($weaponsEN);
 ```
 
-
-
-
-    Vector(Assoc(Atom((Str)), Atom((Str)), 5), 7)
-
+```
+# Vector(Assoc(Atom((Str)), Atom((Str)), 5), 7)
+```
 
 
 Here we derive a dictionary of weapon names and corresponding Wikipedia URLs:
@@ -416,26 +373,15 @@ deduce-type(%urlTbl);
 ```
 
 
-
-
-    ()
-
-
-
 Here is a direct assignment of one the results of the code above, for which we have verified the hyperlinks:
 
 
 ```raku
 my %urlTbl = {:Avangard("https://en.wikipedia.org/wiki/Avangard_(hypersonic_glide_vehicle)"), :Burevestnik("https://en.wikipedia.org/wiki/9M730_Burevestnik"), :Kinzhal("https://en.wikipedia.org/wiki/Kh-47M2_Kinzhal"), :Peresvet("https://en.wikipedia.org/wiki/Peresvet_(laser_weapon)"), :Poseidon("https://en.wikipedia.org/wiki/Status-6_Oceanic_Multipurpose_System"), :Sarmat("https://en.wikipedia.org/wiki/RS-28_Sarmat"), :Zircon("https://en.wikipedia.org/wiki/3M22_Zircon")};
 %urlTbl.elems;
+
+# 7
 ```
-
-
-
-
-    7
-
-
 
 Here we craft a prompt with which we merge the Russian names column of the weapons table derived first into the translated table:
 
@@ -450,25 +396,9 @@ my $weaponsEN2 = llm-synthesize([
 deduce-type($weaponsEN2)
 ```
 
-
-
-
-    Vector(Assoc(Atom((Str)), Atom((Str)), 6), 7)
-
-
-
-
-```raku
-#% html
-# $weaponsEN2 ==> data-translation(field-names => <name russian_name type status description damage>)
 ```
-
-
-
-
-()
-
-
+# Vector(Assoc(Atom((Str)), Atom((Str)), 6), 7)
+```
 
 Here we make a corresponding HTML table and modify the (English) names column to have hyperlinks:
 
@@ -481,8 +411,6 @@ $weaponsEN3.subst(&reg, {
     "<td><span><a href=\"{%urlTbl{$0.Str}}\">{$0.Str}</a></span></td>"
 }, :g)
 ```
-
-
 
 
 <table border="1"><thead><tr><th>name</th><th>russian_name</th><th>type</th><th>status</th><th>description</th><th>damage</th></tr></thead><tbody><tr><td><span><a href="https://en.wikipedia.org/wiki/Kh-47M2_Kinzhal">Kinzhal</a></span></td><td>Кинжал</td><td>Hypersonic Airborne Missile System</td><td>Operational</td><td>A hypersonic missile capable of striking targets with high precision over long distances at speeds exceeding Mach 5.</td><td>High</td></tr><tr><td><span><a href="https://en.wikipedia.org/wiki/3M22_Zircon">Zircon</a></span></td><td>Циркон</td><td>Hypersonic Cruise Missile</td><td>Operational</td><td>A sea-based hypersonic cruise missile designed to attack naval and ground targets.</td><td>High</td></tr><tr><td><span><a href="https://en.wikipedia.org/wiki/Avangard_(hypersonic_glide_vehicle)">Avangard</a></span></td><td>Авангард</td><td>Hypersonic Glide Vehicle</td><td>Operational</td><td>Mounted on an intercontinental ballistic missile, it can carry a nuclear payload and maneuver at high speeds to evade missile defense systems.</td><td>Very High</td></tr><tr><td><span><a href="https://en.wikipedia.org/wiki/Peresvet_(laser_weapon)">Peresvet</a></span></td><td>Пересвет</td><td>Laser Weapon System</td><td>Operational</td><td>A laser system purportedly designed to counter aerial threats and possibly to disable satellites and other space assets.</td><td>Variable</td></tr><tr><td><span><a href="https://en.wikipedia.org/wiki/9M730_Burevestnik">Burevestnik</a></span></td><td>Буревестник</td><td>Nuclear-Powered Cruise Missile</td><td>In Testing</td><td>Claimed to have virtually unlimited range thanks to its nuclear power source, designed for strategic bombing missions.</td><td>Potentially Very High</td></tr><tr><td><span><a href="https://en.wikipedia.org/wiki/Status-6_Oceanic_Multipurpose_System">Poseidon</a></span></td><td>Посейдон</td><td>Nuclear-Powered Underwater Drone</td><td>In Development</td><td>An autonomous underwater vehicle intended to carry nuclear warheads to create radioactive tsunamis near enemy coastlines.</td><td>Catastrophic</td></tr><tr><td><span><a href="https://en.wikipedia.org/wiki/RS-28_Sarmat">Sarmat</a></span></td><td>Сармат</td><td>Intercontinental Ballistic Missile</td><td>Operational</td><td>A heavy missile intended to replace the aging Soviet-era Voevoda, capable of carrying multiple nuclear warheads.</td><td>Catastrophic</td></tr></tbody></table>
