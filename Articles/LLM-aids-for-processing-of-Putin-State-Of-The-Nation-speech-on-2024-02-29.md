@@ -313,9 +313,9 @@ $weapons ==> data-translation(field-names => <name type status description damag
 
 
 **Remark:** We could have specified in the prompt the following column names to be used: "name_english, name_russian, type, status, description, damage".
-But it turns out that (with the LLM current models) the results are less reproducible. Hence we use "name, type, status, description, damage" and adjust with corresponding translations below.
+But it turns out that (with the LLM current models) the results are less reproducible. Hence, we use "name, type, status, description, damage" and adjust with corresponding translations below.
 
-Since the results of the above LLM synthesis are often given in Russian or interlaced Russian and English names or phrases here we translate the LLM result into English:
+Since the results of the above LLM synthesis are often given in Russian or have interlaced Russian and English names or phrases here we translate the LLM result into English:
 
 
 ```raku
