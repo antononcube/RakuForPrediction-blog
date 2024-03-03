@@ -13,7 +13,9 @@ March 2024
 
 ![](http://static.kremlin.ru/media/events/photos/big2x/yOcwEC7CgATJomZ91n7fh3rCnMJhcLWU.jpg)
 
-In this notebook we provide aids and computational workflows for the analysis of Vladimir Putin's 
+In this document
+([notebook](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/LLM-aids-for-processing-of-Putin-State-Of-The-Nation-speech-on-2024-02-29.md)) 
+we provide aids and computational workflows for the analysis of Vladimir Putin's 
 [State Of The Nation speech](http://www.kremlin.ru/events/president/news/73585) given on February 29th, 2024.
 We use Large Language Models (LLMs). We walk through various steps involved in examining and understanding the speech in a systematic and reproducible manner.
 
@@ -22,7 +24,7 @@ The speech transcript is taken from [kremlin.ru](http://www.kremlin.ru/events/pr
 The computations are done with a [Raku chatbook](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AAp6, AAv1÷AAv3]. The LLM functions used in the workflows are explained and demonstrated in [AA1, AAv3].
 The workflows are done with OpenAI's models [AAp1]. Currently, the models of Google's (PaLM), [AAp2], and MistralAI, [AAp3], cannot be used with the workflows below because their input token limits are too low.
 
-A similar set of workflows described in ["LLM aids for processing of the first Carlson-Putin interview"](https://rakuforprediction.wordpress.com/2024/02/12/llm-aids-for-processing-of-the-first-carlson-putin-interview/), [AA2] -- that set has been reused in below to a large degree.
+A similar set of workflows is described in ["LLM aids for processing of the first Carlson-Putin interview"](https://rakuforprediction.wordpress.com/2024/02/12/llm-aids-for-processing-of-the-first-carlson-putin-interview/), [AA2], and it has been reused to a large degree below.
 
 The following table -- derived from Putin's speech -- should be of great interest to people living in Western countries (with governments that want to fight Russia):
 
@@ -61,12 +63,6 @@ sub text-stats(Str:D $txt) { <chars words lines> Z=> [$txt.chars, $txt.words.ele
 ```
 
 
-
-
-    &text-stats
-
-
-
 ### Ingest text
 
 Here we ingest the text of the speech:
@@ -80,30 +76,8 @@ $txtRU .= subst(/ \v+ /, "\n", :g);
 text-stats($txtRU)
 ```
 
-
-
-
-    (chars => 93212 words => 12797 lines => 290)
-
-
-
-
-```raku
-use JSON::Fast;
-use HTTP::Tiny;
-
-my $url = 'http://127.0.0.1:8080/tokenize';
-my $res = .<content>.decode with HTTP::Tiny.post: $url,
-    headers => {
-        Content-Type => 'application/json'
-    },
-    content => to-json {
-        content => $txtRU,
-    };
-
-from-json($res)<tokens>.elems
-
-# 36502
+```
+(chars => 93212 words => 12797 lines => 290)
 ```
 
 
