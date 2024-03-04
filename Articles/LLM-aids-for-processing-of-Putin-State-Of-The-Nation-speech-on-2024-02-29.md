@@ -19,10 +19,12 @@ we provide aids and computational workflows for the analysis of Vladimir Putin's
 [State Of The Nation speech](http://www.kremlin.ru/events/president/news/73585) given on February 29th, 2024.
 We use Large Language Models (LLMs). We walk through various steps involved in examining and understanding the speech in a systematic and reproducible manner.
 
-The speech transcript is taken from [kremlin.ru](http://www.kremlin.ru/events/president/news/73585).
+The speech transcript (in Russian) is taken from [kremlin.ru](http://www.kremlin.ru/events/president/news/73585).
 
 The computations are done with a [Raku chatbook](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AAp6, AAv1÷AAv3]. The LLM functions used in the workflows are explained and demonstrated in [AA1, AAv3].
 The workflows are done with OpenAI's models [AAp1]. Currently, the models of Google's (PaLM), [AAp2], and MistralAI, [AAp3], cannot be used with the workflows below because their input token limits are too low.
+
+**Remark:** An important feature of the LLM workflows (and underlying models) is that although the speech transcript is in Russian, the LLM results are in English.
 
 A similar set of workflows is described in ["LLM aids for processing of the first Carlson-Putin interview"](https://rakuforprediction.wordpress.com/2024/02/12/llm-aids-for-processing-of-the-first-carlson-putin-interview/), [AA2], and it has been reused to a large degree below.
 
@@ -279,7 +281,7 @@ In light of these capabilities and our steadfast resolve, it is crucial for West
 
 ## Weapons tabulation
 
-From Western's citizens and politicians point of view of great interest (should be) the statements in the speech that discuss weapons for mass destruction and weapons that give decisive military advantage. Here we synthesize an LLM response that tabulates mentioned weapons' names, status, and descriptions:
+From the point of views of Western citizens and politicians of great interest (should be) the statements in the speech that discuss weapons for mass destruction and weapons that give decisive military advantage. Here we synthesize an LLM response that tabulates mentioned weapons' names, status, and descriptions:
 
 
 ```raku
