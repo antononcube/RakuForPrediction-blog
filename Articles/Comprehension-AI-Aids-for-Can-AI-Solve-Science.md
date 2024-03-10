@@ -9,7 +9,8 @@ March 2024
 
 ## Introduction
 
-In this notebook we use the Large Language Model (LLM) prompts [”ThemeTableJSON”](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/ThemeTableJSON/), ["ExtractArticleWisdom"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/ExtractArticleWisdom/), ["FindHiddenMessage"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/FindHiddenMessage/), and ["FindPropagandaMessage"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/FindPropagandaMessage/) to facilitate the reading and comprehension of the Stephen Wolfram’s article ["Can AI Solve Science?"](https://writings.stephenwolfram.com/2024/03/can-ai-solve-science/), [SW1].
+In this notebook we use the Large Language Model (LLM) prompts [”ThemeTableJSON”](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/ThemeTableJSON/), ["ExtractArticleWisdom"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/ExtractArticleWisdom/), ["FindHiddenMessage"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/FindHiddenMessage/), and ["FindPropagandaMessage"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/FindPropagandaMessage/) 
+to facilitate the reading and comprehension of Stephen Wolfram’s article ["Can AI Solve Science?"](https://writings.stephenwolfram.com/2024/03/can-ai-solve-science/), [SW1].
 
 **Remark:** We use “simple” text processing, but since the article has lots of images multi-modal models would be more appropriate.
 
