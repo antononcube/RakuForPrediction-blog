@@ -29,7 +29,7 @@ Similar set of workflows and prompts are described in:
 - ["LLM aids for processing Putin’s State-Of-The-Nation speech"](https://rakuforprediction.wordpress.com/2024/03/03/llm-aids-for-processing-putins-state-of-the-nation-speech/), [AA3]
 - ["Comprehension AI Aids for “Can AI Solve Science?”](https://rakuforprediction.wordpress.com/2024/03/09/comprehension-ai-aids-for-can-ai-solve-science/), [AA4]
 
-The prompt of the latter are used below.
+The prompts of the latter are used below.
 
 The following table -- derived from Biden's address -- has the most important or provocative statements (found by an LLM):
 
