@@ -16,7 +16,7 @@ March 2024
 In this notebook we provide aids and computational workflows for the analysis of Joe Biden's State of the Union address given on March 7th, 2024.
 We use Large Language Models (LLMs). We walk through various steps involved in examining and understanding the speech in a systematic and reproducible manner.
 
-The speech transcript (in Russian) is taken from [whitehouse.gov](https://www.whitehouse.gov/briefing-room/speeches-remarks/2024/03/07/remarks-of-president-joe-biden-state-of-the-union-address-as-prepared-for-delivery-2/).
+The speech transcript is taken from [whitehouse.gov](https://www.whitehouse.gov/briefing-room/speeches-remarks/2024/03/07/remarks-of-president-joe-biden-state-of-the-union-address-as-prepared-for-delivery-2/).
 
 The computations are done with a [Raku chatbook](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AAp6, AAv1÷AAv3]. The LLM functions used in the workflows are explained and demonstrated in [AA1, AAv3].
 The workflows are done with OpenAI's models [AAp1]. Currently the models of Google's (PaLM), [AAp2], and MistralAI, [AAp3], cannot be used with the workflows below because their input token limits are too low.
