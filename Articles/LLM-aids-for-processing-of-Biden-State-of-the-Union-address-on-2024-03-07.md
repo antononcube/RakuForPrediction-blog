@@ -21,8 +21,6 @@ The speech transcript is taken from [whitehouse.gov](https://www.whitehouse.gov/
 The computations are done with a [Raku chatbook](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AAp6, AAv1÷AAv3]. The LLM functions used in the workflows are explained and demonstrated in [AA1, AAv3].
 The workflows are done with OpenAI's models [AAp1]. Currently the models of Google's (PaLM), [AAp2], and MistralAI, [AAp3], cannot be used with the workflows below because their input token limits are too low.
 
-**Remark:** An important feature of the LLM workflows (and underlying models) is that although the speech transcript is in Russian, the LLM results are in English.
-
 Similar set of workflows and prompts are described in:
 
 - ["LLM aids for processing of the first Carlson-Putin interview"](https://rakuforprediction.wordpress.com/2024/02/12/llm-aids-for-processing-of-the-first-carlson-putin-interview/), [AA2]
