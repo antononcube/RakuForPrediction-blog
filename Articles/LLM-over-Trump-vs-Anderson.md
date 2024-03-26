@@ -1,6 +1,6 @@
 # LLM over Trump vs. Anderson
 
-#### ***LLM analysis of the slip opinion of Supreme Court of the United States***
+#### ***LLM analysis of the slip opinion of the Supreme Court of the United States***
 
 Anton Antonov   
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com)   
@@ -15,7 +15,7 @@ March 2024
 
 In this notebook we ingest the text of the slip opinion 
 [No. 23-219, "Donald J. Trump, petitioner, v. Norma Anderson, et al."](https://www.supremecourt.gov/opinions/23pdf/23-719_19m2.pdf) 
-of Supreme Court of the United States, [SCUS1], and analyze it using Large Language Models (LLMs). 
+of the Supreme Court of the United States, [SCUS1], and analyze it using Large Language Models (LLMs).
 
 In order to do the LLM analysis we ingest and file two dedicated prompts from the GitHub repository "Fabric", [DMr1]:
 
@@ -156,7 +156,7 @@ In [this script](https://github.com/antononcube/Raku-LLM-Prompts/blob/main/examp
 we form a list of _two_ specifications for the prompts "ExtractArticleWisdom" and "FindHiddenMessage", and then we ingest and file them using a loop.
 The procedure is general -- the rest of prompts (or patterns) in [DMr1] can be ingested and filed with the same code.
 
-**Remark:** The ingestion and filing of new prompt is somewhat too technical and boring. Hence we just link to an example script that does that. (Which has a fair amount of comments.)
+**Remark:** The ingestion and filing of new prompts is somewhat too technical and boring. Hence, we just link to an example script that does that. (Which has a fair amount of comments.)
 
 Here we verify that the ingested prompts are ready for use:
 
@@ -174,7 +174,7 @@ Here we verify that the ingested prompts are ready for use:
 ## Extract wisdom 
 
 Here we use the [Fabric](https://github.com/danielmiessler/fabric/tree/main) 
-prompt [extract_article_wisdom](https://github.com/danielmiessler/fabric/tree/main/patterns/extract_article_wisdom) 
+prompt [extract_article_wisdom](https://github.com/danielmiessler/fabric/tree/main/patterns/extract_article_wisdom), [DMr1],
 that summarizes and extracts ideas, quotes, and references (i.e. wisdom) from any text.
 
 The prompt (as filed in "LLM::Prompts") is a function:
@@ -318,7 +318,7 @@ The Supreme Court of the United States issued a ruling in the case DONALD J. TRU
 ## Hidden messages and propaganda
 
 Here we use the [Fabric](https://github.com/danielmiessler/fabric/tree/main)
-prompt [find_hidden_message](https://github.com/danielmiessler/fabric/tree/main/patterns/find_hidden_message)
+prompt [find_hidden_message](https://github.com/danielmiessler/fabric/tree/main/patterns/find_hidden_message), [DMr1],
 that tries to find hidden messages (propaganda) in any text.
 
 ```raku
