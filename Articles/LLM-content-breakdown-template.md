@@ -26,7 +26,6 @@ if $ytID {
    $source = "{$ytID}.txt";
 } else {
    $source = $*CWD ~ '/../Data/Integrating-Large-Language-Models-with-Raku-YouTube.txt';
-   #$source = 'https://simplicius76.substack.com/p/sitrep-4324-zelensky-steps-closer';
 }
 my $txtEN = data-import($source, 'plaintext');
 text-stats($txtEN)
