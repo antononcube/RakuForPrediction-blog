@@ -22,11 +22,11 @@ The presentation explores using OpenAI, PaLM (Google's large language model), an
 
 **Remark:** The transcription software had problems parsing the names of the participants. Some of the names were manually corrected.
 
-**Remark:** The applied "main" LLM prompt — "ExtractingArticleWisdom" —
+**Remark:** The applied "main" LLM prompt — ["ExtractingArticleWisdom"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/ExtractArticleWisdom/) —
 is a modified version of a prompt (or pattern) with a similar name from
 ["fabric"](https://github.com/danielmiessler/fabric/), [DMr1].
 
-**Remark:** The themes table was LLM obtained (with a prompt named "ThemeTableJSON".)
+**Remark:** The themes table was LLM obtained with the prompt ["ThemeTableJSON"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/ThemeTableJSON/).
 
 **Remark:** The content of this post was generated with the computational Markdown file 
 ["LLM-content-breakdown-template.md"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/LLM-content-breakdown-template.md), 
