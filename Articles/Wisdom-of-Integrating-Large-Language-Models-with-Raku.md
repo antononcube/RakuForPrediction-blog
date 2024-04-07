@@ -41,8 +41,6 @@ Post’s structure:
    An even better summary replacement!
 3. **Summary, ideas, and recommendations**     
    The main course.
-4. **Hidden and propaganda messages**     
-   Didactic POV.
 
 -----
 
