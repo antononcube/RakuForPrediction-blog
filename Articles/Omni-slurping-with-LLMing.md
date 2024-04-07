@@ -513,7 +513,7 @@ group-by($resFuel2, 'Date').map({ $_.key => $_.value.map(*<Value>).sum })
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
 
-[JB1] Jeffrey Bryant​,
+[JB1] Jeffrey Bryant,
 ["Sympathetic solar flare and geoeffective coronal mass ejection​"](​https://community.wolfram.com/groups/-/m/t/3146725),
 (2024),
 [Wolfram Community](​https://community.wolfram.com).
