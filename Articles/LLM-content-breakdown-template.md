@@ -1,6 +1,8 @@
 # [LLM] Extracting wisdom and hidden messages
 
-[Complexia The Sinker](https://complexiathesinker.substack.com)
+Anton Antonov   
+[RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com)   
+[RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog)      
 ```perl6, results=asis, echo=FALSE
 Date.today.Str
 ```
