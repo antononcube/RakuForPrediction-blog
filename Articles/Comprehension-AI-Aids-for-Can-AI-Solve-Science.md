@@ -547,7 +547,7 @@ Stephen Wolfram's writings explore the capabilities and limitations of AI in the
 
  In this section we convince ourselves that the article is apolitical and propaganda-free. 
 
-**Remark:** We leave to reader as an exercise to verify that both the overt and hidden messages found by the LLM below are explicitly stated in article.
+**Remark:** We leave to the reader as an exercise to verify that both the overt and hidden messages found by the LLM below are explicitly stated in article.
 
 Here we find the hidden and “propaganda” messages in the article:
 

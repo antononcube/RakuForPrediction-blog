@@ -145,7 +145,7 @@ $sumIdea.subst(/ ^^ '#' /, '###', :g)
 
 In this section we try to find is the text apolitical and propaganda-free.
 
-**Remark:** We leave to reader as an exercise to verify that both the overt and hidden messages found by the LLM below are explicitly stated in the text.
+**Remark:** We leave to the reader as an exercise to verify that both the overt and hidden messages found by the LLM below are explicitly stated in the text.
 
 **Remark:** The LLM prompt "FindPropagandaMessage" has an explicit instruction to say that it is intentionally cynical. 
 It is also, marked as being "For fun."

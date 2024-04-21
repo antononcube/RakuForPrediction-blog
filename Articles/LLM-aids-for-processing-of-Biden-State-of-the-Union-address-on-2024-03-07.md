@@ -338,7 +338,7 @@ President Joe Biden delivered the State of the Union Address on March 7, 2024, f
 
  In this section we try to find is the speech apolitical and propaganda-free. 
 
-**Remark:** We leave to reader as an exercise to verify that both the overt and hidden messages found by the LLM below are explicitly stated in article.
+**Remark:** We leave to the reader as an exercise to verify that both the overt and hidden messages found by the LLM below are explicitly stated in article.
 
 Here we find the hidden and “propaganda” messages in the article:
 
