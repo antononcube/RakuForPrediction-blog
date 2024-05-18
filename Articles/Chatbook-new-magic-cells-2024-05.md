@@ -16,11 +16,10 @@ In this notebook, we showcase the recently added "magic" cells (in May 2024) to 
 Here is a mind-map that shows the Raku packages that are "pre-loaded" and the available interactive cells:
 
 
-```raku
-#% mermaid, format=svg, background=SlateGray
+```mermaid
 mindmap
-**Chatbook**
-    Direct **LLM** access
+((**Chatbook**))
+    (Direct **LLM** access)
         OpenAI
             ChatGPT
             DALL-E
@@ -29,23 +28,23 @@ mindmap
             Gemini
         MistralAI
         LLaMA
-    Direct **DeepL** access
+    (Direct **DeepL** access)
         Plain text result
         JSON result
-    **Notebook wide chats**
+    (**Notebook-wide chats**)
         Chat objects
            Named
            Anonymous
         Chat meta cells              
         Prompt DSL expansion 
-    Direct **MermaidJS** access
+    (Direct **MermaidInk** access)
         SVG result
         PNG result
-    Direct **Wolfram|Alpha** access
+    (Direct **Wolfram|Alpha** access)
         wa1["Plain text result"]
         wa2["Image result"]
         wa3["Pods result"]
-    **Pre-loaded packages**
+    (**Pre-loaded packages**)
         LLM::Functions
         LLM::Prompts
         Text::SubParsers
@@ -59,6 +58,7 @@ mindmap
         WWW::OpenAI
         WWW::PaLM
         WWW::Gemini
+        WWW::WolframAlpha
         Lingua::Translation::DeepL
 ```
 
