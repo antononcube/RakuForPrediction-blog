@@ -8,10 +8,10 @@ May 2024
 ## Introduction
 
 In this notebook, we showcase the recently added "magic" cells (in May 2024) to the notebooks of ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AA1, AAp5, AAv1]. 
-"Jupyter::Chatbook" is "LLM-ready" and is built on ["Jupyter::Kernel"](https://github.com/bduggan/raku-jupyter-kernel), [BDp1], created by Brian Duggan.
 
-In "Jupyter::Chatbook" a general principle is that Raku packages used for implementing interactive service access cells are also *pre-loaded* into the notebook's Raku context.
-(I.e. at the beginning of notebook's Raku session.)
+"Jupyter::Chatbook" gives "LLM-ready" notebooks and it is built on ["Jupyter::Kernel"](https://github.com/bduggan/raku-jupyter-kernel), [BDp1], created by Brian Duggan.
+"Jupyter::Chatbook" has the general principle that Raku packages used for implementing interactive service access cells are also *pre-loaded* into the notebooks Raku contexts.
+(I.e. at the beginning of notebooks' Raku sessions.)
 
 Here is a mind-map that shows the Raku packages that are "pre-loaded" and the available interactive cells:
 
@@ -64,7 +64,7 @@ mindmap
 
 **Remark:** Recent improvement is Mermaid-JS cells to have argument for output format and background. 
 Since two months aga (beginning of March, 2024) by default the output format is SVG. In that way diagrams are obtained 2-3 times faster. 
-Before March 9, 2023, PNG was the default format (and the only one available.)
+Before March 9, 2023, "PNG" was the default format (and the only one available.)
 
 The structure of the rest of the notebook:
 
