@@ -9,7 +9,11 @@
 
 ## Въведение
 
-В тази статия (и съответният *тефтер*) ние зареждаме таблиця от данни за създаването на езици за програмиране от ["](https://pldb.io/index.html)**[P](https://pldb.io/index.html)**[rogramming ](https://pldb.io/index.html)**[L](https://pldb.io/index.html)**[anguage ](https://pldb.io/index.html)**[D](https://pldb.io/index.html)**[ata](https://pldb.io/index.html)**[B](https://pldb.io/index.html)**[ase"](https://pldb.io/index.html) и визуализираме няколко статистики върху тях.
+В тази статия (и съответният [*тефтер*](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Age-of-creation-for-programming-languages-stats.ipynb)) 
+ние зареждаме таблица от данни характеризиращи създаването 
+на различни езици за програмиране от страницата
+["](https://pldb.io/index.html)**[P](https://pldb.io/index.html)**[rogramming ](https://pldb.io/index.html)**[L](https://pldb.io/index.html)**[anguage ](https://pldb.io/index.html)**[D](https://pldb.io/index.html)**[ata](https://pldb.io/index.html)**[B](https://pldb.io/index.html)**[ase"](https://pldb.io/index.html) 
+и визуализираме няколко статистики върху тях.
 
 Ние не разглеждаме тук източника на данните и не желаем особено да разсъждаваме твърде много върху данните. 
 (Използвайки тези статистики и въобще.) 
@@ -148,7 +152,7 @@ deduce-type(@dsData)
     - т.е. "През коя година езикът за програмиране е обявен?"
 
 
-```raku, results=asis
+```raku, results=asis, eval=FALSE
 #% js
 my %opts = title-color => 'Silver', background => 'none', bins => 40, format => 'html', div-id => 'hist';
 js-d3-histogram(@dsData.map(*<ageAtCreation>), title => 'Възраст при създаване', |%opts) 
@@ -160,7 +164,7 @@ js-d3-histogram(@dsData.map(*<appeared>), title => 'Появил се', |%opts)
 Ето съответните Box-Whisker графики:
 
 
-```raku, results=asis
+```raku, results=asis, eval=FALSE
 #% js
 my %opts = :horizontal, :outliers, title-color => 'Silver', stroke-color => 'White', background => 'none', width => 400, format => 'html', div-id => 'box';
 js-d3-box-whisker-chart(@dsData.map(*<ageAtCreation>), title => 'Възраст при създаване', |%opts)
@@ -176,8 +180,9 @@ my @field-names = <ageAtCreation appeared>;
 sink records-summary(select-columns(@dsData, @field-names), :@field-names)
 ```
 
+-----
 
-## Проявление на принципа на Парето
+## Проява на принципа на Парето
 
 ### Брой творения
 
@@ -193,7 +198,7 @@ my @paretoStats = pareto-principle-statistic(%creations);
 Ето съответната графика:
 
 
-```raku, results=asis
+```raku, results=asis, eval=FALSE
 #% js
 js-d3-list-plot( @paretoStats>>.value, 
     title => 'Принцип на Парето: брой езици на екип от създатели', 
@@ -214,7 +219,7 @@ js-d3-list-plot( @paretoStats>>.value,
 Парето принципа за "умствения дял" на езиците въз основа на *оценките* на броя на потребителите.
 
 
-```raku, results=asis
+```raku, results=asis, eval=FALSE
 #% js
 my %users = @dsData.map({ $_<name> => $_<numberOfUsersEstimate>.Int });
 my @paretoStats = pareto-principle-statistic(%users);
@@ -237,7 +242,7 @@ js-d3-list-plot( @paretoStats>>.value,
 
 ## Корелации
 
-За да видим смислена корелации, (графики на двойки от колони), вземаме логаритми от колоните с големи стойности:
+За да видим смислени корелации, (графики на двойки от колони), вземаме логаритми от колоните с големи стойности:
 
 
 ```raku
@@ -257,7 +262,7 @@ deduce-type(@dsDataVar)
 Тук правим декартово произведение на фокус-колоните и правим точкова графика за всяка двойка от това произведение:
 
 
-```raku, results=asis
+```raku, results=asis, eval=FALSE
 #% js
 (@corColnames X @corColnames)>>.reverse>>.Array.map( -> $c {
     my @points = @dsDataVar.map({ %( x => $_{$c.head}, y => $_{$c.tail} ) });
@@ -273,7 +278,7 @@ deduce-type(@dsDataVar)
 
 В този раздел правим информативна 2D балонна графика ("bubble chart") с динамични подсказки.
 
-Тук правим набор от данни за балонната графика:
+Тук правим масив от асоциации (речници) за балонната графика:
 
 
 ```raku
@@ -287,7 +292,7 @@ deduce-type(@dsData2)
 Ето балонната графика:
 
 
-```raku, results=asis
+```raku, results=asis, eval=FALSE
 #% js
 js-d3-bubble-chart(@dsData2, 
         z-range-min => 1,
@@ -312,9 +317,13 @@ js-d3-bubble-chart(@dsData2,
 
 ## Следи от ефекта на втората система
 
-В тази секция се опитваме -- и не успяваме -- да покажем, че колкото повече езици за програмиране прави един екип от създатели, толкова по-малко успешни са тези езици. (Може би, защото са по-тромави и страдат от [ефекта на втората система](https://en.wikipedia.org/wiki/Second-system_effect)?)
+В тази секция се опитваме -- и не успяваме -- да покажем, че колкото повече езици за програмиране прави един екип от създатели, толкова по-малко успешни са тези езици. 
+(Може би, защото са по-тромави и страдат от [ефекта на втората система](https://en.wikipedia.org/wiki/Second-system_effect).)
 
-**Забележка:** Този раздел е направен предимно "за забавление". Не е вярно, че всеки набор от езици на екип от създатели е съставен от сравними езици. Например, допълващи се езици могат да бъдат в един и същ набор. (Вижте HTTP, HTML, URL.) Някои набори са направени от един и същ език, но с различни имена. (Вижте Perl 6 и Raku, и Mathematica и Wolfram Language.) Също така, по-старите езици биха имали [предимството на първия ход](https://en.wikipedia.org/wiki/First-mover_advantage).
+**Забележка:** Този раздел е направен предимно "за забавление". Не е вярно, че всеко множество от езици на екип от създатели е съставен от сравними езици. 
+Например, допълващи се езици могат да бъдат в едно и също множество. (Вижте HTTP, HTML, URL.) 
+Някои множества са направени от един и същ език, но с различни имена. (Вижте Perl 6 и Raku, и Mathematica и Wolfram Language.) 
+Също така, по-старите езици имат [предимството на първия ход](https://en.wikipedia.org/wiki/First-mover_advantage).
 
 Създаване на асоциация на създатели към индекс:
 
@@ -347,7 +356,7 @@ deduce-type(@nUsers)
 Ето съответната балонна графика:
 
 
-```raku, results=asis
+```raku, results=asis, eval=FALSE
 #% js
 js-d3-bubble-chart(@nUsers, 
         z-range-min => 1,
