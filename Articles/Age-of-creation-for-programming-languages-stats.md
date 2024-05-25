@@ -53,21 +53,19 @@ use JavaScript::D3;
 
 ## Data ingestion
 
-Here we get the TSV file:
+Here we ingest the TSV file:
 
 ```raku
 my $url = "https://pldb.io/posts/age.tsv";
-my @dsDataLines = data-import($url).lines.map({ $_.split("\t") })>>.Array;
-deduce-type(@dsDataLines)
-```
-
-Make the dataset:
-
-```raku
-my @field-names = @dsDataLines.head.Array;
-my @dsData = @dsDataLines.tail(*-2).map({ @field-names.Array Z=> $_.Array })>>.Hash;
+my @dsData = data-import($url, headers => 'auto');
 
 deduce-type(@dsData)
+```
+
+Here we define a preferred order of the columns:
+
+```raku
+my @field-names = ['id', 'name', |(@dsData.head.keys (-) <id name>).keys.sort];
 ```
 
 Convert suitable column values to integers:
