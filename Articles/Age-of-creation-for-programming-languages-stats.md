@@ -164,6 +164,7 @@ my @field-names = <ageAtCreation appeared>;
 sink records-summary(select-columns(@dsData, @field-names), :@field-names)
 ```
 
+------
 
 ## Pareto principle manifestation
 

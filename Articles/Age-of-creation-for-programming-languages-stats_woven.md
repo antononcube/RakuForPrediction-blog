@@ -189,7 +189,7 @@ js-d3-histogram(@dsData.map(*<ageAtCreation>), title => 'Age at creation', |%opt
 js-d3-histogram(@dsData.map(*<appeared>), title => 'Appeared', |%opts)
 ```
 
-![](./Diagrams/Age-of-creation-for-programming-languages-stats/Distributions-histograms.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Age-of-creation-for-programming-languages-stats/Distributions-histograms.png)
 
 Here are corresponding Box-Whisker plots:
 
@@ -202,7 +202,7 @@ js-d3-box-whisker-chart(@dsData.map(*<ageAtCreation>), title => 'Age at creation
 js-d3-box-whisker-chart(@dsData.map(*<appeared>), title => 'Appeared', |%opts)
 ```
 
-![](./Diagrams/Age-of-creation-for-programming-languages-stats/Distributions-box-plots.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Age-of-creation-for-programming-languages-stats/Distributions-box-plots.png)
 
 Here are tables of the corresponding statistics:
 
@@ -224,6 +224,7 @@ sink records-summary(select-columns(@dsData, @field-names), :@field-names)
 # +---------------------+-----------------------+
 ```
 
+-------
 
 ## Pareto principle manifestation
 
@@ -256,7 +257,7 @@ js-d3-list-plot( @paretoStats>>.value,
 )
 ```
 
-![](./Diagrams/Age-of-creation-for-programming-languages-stats/Pareto-principle-for-number-of-creations.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Age-of-creation-for-programming-languages-stats/Pareto-principle-for-number-of-creations.png)
 
 **Remark:** We can see that ≈30% of the creators correspond to ≈50% of the languages.
 
@@ -282,7 +283,7 @@ js-d3-list-plot( @paretoStats>>.value,
 )
 ```
 
-![](./Diagrams/Age-of-creation-for-programming-languages-stats/Pareto-principle-for-number-of-users.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Age-of-creation-for-programming-languages-stats/Pareto-principle-for-number-of-users.png)
 
 **Remark:** Again, the plot above is "wrong" -- programmers use more than one programming language.
 
@@ -366,7 +367,7 @@ js-d3-bubble-chart(@dsData2,
 );
 ```
 
-![](./Diagrams/Age-of-creation-for-programming-languages-stats/BubbleChart-age-appeard-users.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Age-of-creation-for-programming-languages-stats/BubbleChart-age-appeard-users.png)
 
 **Remark:** The programming language J is a clear outlier because of creators' ages.
 
@@ -439,7 +440,7 @@ js-d3-bubble-chart(@nUsers,
 );
 ```
 
-![](./Diagrams/Age-of-creation-for-programming-languages-stats/BubbleChart-2nd-system-effect-trace.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Age-of-creation-for-programming-languages-stats/BubbleChart-2nd-system-effect-trace.png)
 
 From the plot above we *cannot* decisively say that:
 
