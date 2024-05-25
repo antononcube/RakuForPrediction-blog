@@ -323,6 +323,8 @@ Here make a Cartesian product of the focus columns and make scatter points plot 
 }).join("\n")
 ```
 
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Age-of-creation-for-programming-languages-stats/Pairwise-correlation-plots.png)
+
 **Remark:** Given the names of the data columns and the corresponding obvious interpretations we can say that the stronger correlations make sense.
 
 --------
