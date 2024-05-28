@@ -19,7 +19,7 @@ Notebooks:
 
 -------
 
-## EDN comment by *raiph*
+## [EDN comment by *raiph*](https://www.reddit.com/r/rakulang/comments/1d079vg/comment/l5nh36j)
 
 
 As I think you know, what you've been doing caught my attention a few years ago and has remained compelling since then.
@@ -41,3 +41,58 @@ Are you aware of the EDN term/market? If you are -- or even if you're not but ar
 -------
 
 ## Answer to *raiph*
+
+### Sure, it is just EDN
+
+Exploratory Data Notebooks (EDN) is a fairly valid -- and narrow -- way of characterizing what I am doing in Raku's Ecosystem (RE).
+
+About the validity:
+
+- My [latest video](https://youtu.be/YCnjMVSfT8w) showcases my data wrangling, data summarization, graphics work RE exactly as an EDN effort.
+
+- The script ["raku-data-science-install.sh"](https://github.com/antononcube/RakuForPrediction-book/blob/main/scripts/raku-data-science-install.sh)
+shows that:
+  - 60%+ of the packages I have published in Raku's Ecosystem are about Data Science
+  - ≈ 30% are about Data Wrangling (hence EDN)
+ 
+Why do I think EDN is too narrow:
+
+- My notebook-centric work is not needed for EDN
+  - It is first and foremost about using Large Language Models (LLMs) with ease
+  - Brian Duggan's "Jupyter::Kernel" is fairly sufficient for EDN
+
+### Meta language
+
+I started Raku for Prediction (R4P) in order to simplify Machine Learning (ML) teachings and explanations.
+Turned 
+
+*TBF...*
+
+### The narrowing instinct
+
+I understand the "narrowing instinct" to compact, communicate, or understand efforts like mine into 
+a narrower scope, like, exploratory data analysis, or some other single paradigm point of view.
+
+This happens consistently for Mathematica and, more generally, for the efforts of Wolfram Research, Inc. (WRI).
+Stephen Wolfram and WRI are often asked questions like:
+
+> Why don't you make Mathematica more Data Science friendly?
+
+and similar.
+
+Simply (and cynically) put, Mathematica is made for brilliant physicists, not for people who try to sell their skills in
+USA's IT job market. Physicists tend to have a very wide and diverse mathematical education, and for them mathematics 
+and computer science are "just tools." Most IT professionals want to feel or sell themselves as experts -- 
+that is not a scientific pre-disposition.
+
+So, similarly, with R4P (damn I hate that acronym now!) I try to address a wide scope of computational workflows 
+that include not just Data Science and Machine Learning, but also Scientific Computing and Mathematical Modeling.
+
+At this point Raku can be only (barely) used to *do* Data Science and Machine Learning. Most Raku users / developers / practitioners
+are not interested in doing Science and Mathematical Modeling with Raku. Hence, the inclination to see efforts like R4P
+as data-centric in one way or the other -- data manipulation and wrangling is universally understood. 
+
+
+
+
+
