@@ -42,13 +42,13 @@ Are you aware of the EDN term/market? If you are -- or even if you're not but ar
 
 ## Answer to *raiph*
 
-### Sure, it is just EDN
+### Part 1: Sure, it is just EDN
 
 Exploratory Data Notebooks (EDN) is a fairly valid -- and narrow -- way of characterizing what I am doing in Raku's Ecosystem (RE).
 
 About the validity:
 
-- My [latest video](https://youtu.be/YCnjMVSfT8w) showcases my data wrangling, data summarization, graphics work RE exactly as an EDN effort.
+- My [latest video](https://youtu.be/YCnjMVSfT8w) showcases my RE work -- data wrangling, data summarization, graphics -- exactly as an EDN effort.
 
 - The script ["raku-data-science-install.sh"](https://github.com/antononcube/RakuForPrediction-book/blob/main/scripts/raku-data-science-install.sh)
 shows that:
@@ -60,9 +60,62 @@ Why do I think EDN is too narrow:
 - My notebook-centric work is not needed for EDN.
   - It is first and foremost about using Large Language Models (LLMs) with ease.
   - Brian Duggan's "Jupyter::Kernel" is fairly sufficient for EDN.
-- With Raku, I more interested in facilitating the specification of computational workflows.
-  - Not performing/executing those workflows with Raku.
-  - (Next section elaborates on that)
+- With Raku, I am more interested in facilitating the specification of computational workflows.
+  - Not that much in performing/executing those workflows with Raku.
+  - See ["Simplified Machine Learning Workflows Overview (Raku-centric)"](https://www.youtube.com/watch?v=p3iwPsc6e74)
+  - ***This is much more general than data exploration.***
+
+### Part 2: Concrete answers 
+
+This second part gives answers to the posted questions.
+
+#### 1
+
+> Would you agree that AI features/data are a natural drop-in addition for EDNs, so don't alter the appropriateness of the EDN label for its field/market?
+
+Yes, AI features are a natural drop-in addition to EDNs.
+And, no, adding the AI features, makes the "EDN" label inappropriate -- we can have LLM-ready notebooks with a system not suitable for EDN.  
+
+#### 2
+
+> Do you feel EDNs would be a good label for most if not all of the Raku blog posts you've published in the last couple years? 
+> If you think EDNs mostly captures what you've been publishing, yet misses key elements, what are those elements? 
+> If EDNs so seriously misses the mark you think it would be a poor label, why do you feel that way?
+
+Good and important question. I answered it in Part 1. (TL;DR -- "sort of, but no.") 
+
+#### 3
+
+> Are you aware of ExplainED and can you imagine it being another useful piece of the puzzle?
+
+
+No, I was not aware of that work. I see it as interesting and not that important. 
+
+My main feedback is: "Yeah, statisticians always try to see without looking. (Whatever.)"
+
+In addition:
+
+- In principle LLMs can:
+  - Make obtaining of these kind of explanations easier.
+  - Provide alternative mechanisms for deriving the explanations.
+    - (But not currently in my opinion.)
+- If "Jupyter::Kernel" facilitates the easy plug-in of new types fo notebook cells, 
+then functionalities like those can become easy to experiment with, once the core algorithms are implemented (and packaged.)
+  - As discussed [here](https://www.youtube.com/watch?v=-OxKqRrQvh0&t=2520s).
+
+
+#### 4 
+
+> Can you imagine EDNs, using the same techniques you've been using, that explore the EDN field (the tech) and/or market?
+
+Yeah, sure. That is demonstrated in the video ["Exploratory Data Analysis with Raku"](https://youtu.be/YCnjMVSfT8w).
+
+Note, that the EDN-features of Raku come from the natural development and maturity of general purpose packages in 
+Raku's ecosystem. (Like file importing/ingestion, notebooks, and graphics.)
+
+------
+
+## Further elaboration on the answer to *raiph*
 
 ### Meta language
 
