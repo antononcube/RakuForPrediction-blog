@@ -57,16 +57,89 @@ shows that:
  
 Why do I think EDN is too narrow:
 
-- My notebook-centric work is not needed for EDN
-  - It is first and foremost about using Large Language Models (LLMs) with ease
-  - Brian Duggan's "Jupyter::Kernel" is fairly sufficient for EDN
+- My notebook-centric work is not needed for EDN.
+  - It is first and foremost about using Large Language Models (LLMs) with ease.
+  - Brian Duggan's "Jupyter::Kernel" is fairly sufficient for EDN.
+- With Raku, I more interested in facilitating the specification of computational workflows.
+  - Not performing/executing those workflows with Raku.
+  - (Next section elaborates on that)
 
 ### Meta language
 
-I started Raku for Prediction (R4P) in order to simplify Machine Learning (ML) teachings and explanations.
-Turned 
+I started Raku *for* Prediction (R4P) in order to simplify Machine Learning (ML) teachings and explanations.
+I am used and using Raku to facilitate or speed-up the workflows for making predictions -- 
+predictions *with* Raku can be made for a fairly small set of problems in Machine Learning or Scientific Computing. 
 
-*TBF...*
+To be more precise R4P solves the following problem:
+
+> Specifications of computational workflows using Natural Domain Specific Languages (DSLs) are translated
+> into concrete executable code of different programming languages, libraries, or systems. 
+> (Like, Wolfram Language, R, Python, Julia.)
+ 
+#### Example 1
+
+For example, the following Raku code produces a Wolfram Language (WL) workflow/pipeline for Epidemiological Modeling simulations:
+
+```raku
+create with the model susceptible exposed infected two hospitalized recovered;
+assign 100000 to the susceptible population;
+set infected normally symptomatic population to be 0;
+set infected severely symptomatic population to be 1;
+assign 0.56 to contact rate of infected normally symptomatic population;
+assign 0.58 to contact rate of infected severely symptomatic population;
+assign 0.1 to contact rate of the hospitalized population;
+simulate for 240 days;
+plot populations results;
+```
+
+```mathematica
+ECMMonUnit[SEI2HRModel[t]] ⟹
+ECMMonAssignInitialConditions[<|SP[0] -> 100000|>] ⟹
+ECMMonAssignInitialConditions[<|INSP[0] -> 0|>] ⟹
+ECMMonAssignInitialConditions[<|ISSP[0] -> 1|>] ⟹
+ECMMonAssignRateRules[<|β[INSP] -> 0.56|>] ⟹
+ECMMonAssignRateRules[<|β[ISSP] -> 0.58|>] ⟹
+ECMMonAssignRateRules[<|β[HP] -> 0.1|>] ⟹
+ECMMonSimulate["MaxTime" -> 240] ⟹
+ECMMonPlotSolutions[ "Stocks" -> __ ~~ "Population"]
+```
+
+#### Example 2
+
+Here is another example for creating a Latent Semantic Analysis (LSA) pipeline in R:
+
+```raku
+DSL MODULE LSAMon;
+create from textHamlet;
+make document term matrix with stemming FALSE and automatic stop words;
+apply LSI functions global weight function IDF, local term weight function TermFrequency, normalizer function Cosine;
+extract 12 topics using method NNMF and max steps 12 and 20 min number of documents per term;
+show topics table with 12 terms;
+show thesaurus table for king, castle, denmark;
+```
+
+
+```r
+LSAMonUnit(textHamlet) %>%
+LSAMonMakeDocumentTermMatrix( stemWordsQ = FALSE, stopWords = NULL) %>%
+LSAMonApplyTermWeightFunctions(globalWeightFunction = "IDF", localWeightFunction = "None", normalizerFunction = "Cosine") %>%
+LSAMonExtractTopics( numberOfTopics = 12, method = "NNMF",  maxSteps = 12, minNumberOfDocumentsPerTerm = 20) %>%
+LSAMonEchoTopicsTable(numberOfTerms = 12) %>%
+LSAMonEchoStatisticalThesaurus(words = c("king", "castle", "denmark"))
+```
+
+#### Not with Raku
+
+Note that Raku is not equipped to Epidemiological Modeling simulations or LSA.
+Yes, with Raku we can outsource the computations to Python/R/WL or LLMs, but we currently cannot make those computations with Raku. 
+
+#### Using Data Wrangling workflows
+
+I thought the teaching of ML is going to be simple with those natural DSLs. Turned out that audience / students are
+too concerned and focuses on "why is this working" / "what is the concrete code I need to type in" etc.
+Basically, interested into the concrete know-how not in the general mathematical principles. 
+
+So, at that point I decided to program and use the construction of Data Wrangling pipelines in R4P project. 
 
 ### The narrowing instinct
 
@@ -74,10 +147,7 @@ I understand the "narrowing instinct" to compact, communicate, or understand eff
 a narrower scope, like, exploratory data analysis, or some other single paradigm point of view.
 
 This happens consistently for Mathematica and, more generally, for the efforts of Wolfram Research, Inc. (WRI).
-Stephen Wolfram and WRI are often asked questions like:
-
-> Why don't you make Mathematica more Data Science friendly?
-
+Stephen Wolfram and WRI are often asked questions like "Why don't you make Mathematica more Data Science friendly?"
 and similar.
 
 Simply (and cynically) put, Mathematica is made for brilliant physicists, not for people who try to sell their skills in
