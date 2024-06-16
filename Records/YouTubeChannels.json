@@ -1,0 +1,17 @@
+{
+  "AAA4Prediction" : {
+    "type" : "video",
+    "channel" : "https://www.youtube.com/@AAA4Prediction",
+    "channel-name" : "Anton Antonov"
+  },
+  "RakuForPrediction" : {
+    "type" : "post",
+    "author" : "Anton Antonov",
+    "site" : "https://rakuforprediction.wordpress.com"
+  },
+  "MathematicaForPrediction" : {
+    "type" : "post",
+    "author" : "Anton Antonov",
+    "site" : "https://mathematicaforprediction.wordpress.com"
+  }
+}
