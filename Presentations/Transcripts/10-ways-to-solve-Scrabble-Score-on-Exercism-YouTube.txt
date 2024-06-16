@@ -1,0 +1,855 @@
+hey everyone welcome to another deep
+dive video with me and Eric this week
+we're looking at the Scrabble score
+exercise now Eric and I both have
+drilling happening in the background
+both of our neighbors seem to be having
+some sort of works going on today so
+hopefully it won't come through and you
+won't be able to hear it but if you do
+hear a bit of background noise apologies
+in advance um so we're looking at
+Scrabble score it's again a pretty
+simple exercise um it's representing
+what happens in a game of Scrabble you
+make words out of a certain amount of
+letters and then you calculate
+how many points that word has earned by
+the values of the different letters and
+by adding those up um but we're going to
+be looking at a lot of different ways to
+do it we're going through quite a few
+different uh languages we've got some
+nice pattern matching and some
+functional stuff got a bit of rust later
+on got one of my Ruby Solutions U we've
+got some python we've got a bit of myips
+assembly um so a whole variety of stuff
+um lots to cover it's going to be a nice
+fun one and we're going to start off
+nice and easy with a solution in go uh
+this solution you can see on the screen
+here is probably the most basic
+implementation you can do of this uh and
+it warm us up nicely Eric do you want to
+take us through it yeah so this is a
+very imperative version as you probably
+expect from go where uh you're defining
+a variable score on line six assigned
+initial value of zero and then you Loop
+through all the letters in the string
+but you do that uppercase so um if you
+wouldn't do that you would have to
+account for the fact that you would have
+lower and upper letters so you would
+have double the lines of code so just
+converting it to uppercase makes it a
+little bit easier to do the
+normalization and basically everybody
+that that ever doeses this exercise does
+this up front so I haven't seen anybody
+use both so kudos to all of you yeah
+nice and simple straight forward and
+then within the loop you just have a
+case statement um in some languages
+you'll have to do um separate cases so
+we have case a case e and then you might
+have a fall through but in go you could
+actually do a case and then have a list
+of elements to match on so that makes it
+slightly more ergonomic and in this case
+it's just listing all the letters that
+are um give you the score of one well of
+course you increment the score by one
+etc etc etc and in the end you return it
+so I guess nothing really really fancy
+here but but very readable and easy to
+understand yeah nice I like use the word
+ergonomic I'm going to use that to
+describe code more in future um okay
+cool I don't think we need to linger on
+here for for very long um so let's jump
+straight into the next one uh and this
+is uh we're getting a nice functional
+solution in early we often tend to leave
+those until later in the video but today
+we're looking at this functional
+solution as our second one um yeah Eric
+talk us through this bit of f for us
+yeah so um as often the case in
+functional languages people tend to
+split up things inun functions so the Go
+version had just one big function and
+that was fine but in functional language
+you are um usually defining things in
+very smallish functions so what the
+author did here was to extract the bit
+where a letter is associated with a
+score into a separate function and it's
+called letter score here um they are
+using the function keyword which is
+slightly weirdly named uh keyword
+because it's actually sort of like a
+shorthand for pattern matching where you
+patter matching on a single value um so
+in this case you could read this as
+letter A score has a single parameter
+and then you do a patter match on that
+single parameter but this is just a
+Shand notation so don't get confused
+about the naming because I'm not a fan
+of it myself but then you can do
+something like what go did you can
+patter match on a lot of values in this
+case they have to separate by pipes and
+then you return that value so um one
+thing that is different here is that um
+you have to account for the fact that um
+that could could be another letter so
+not one it could be the case that none
+of the letters match maybe there's some
+some bug in the input I don't know maybe
+there's a number uh and in FP the
+compiler will complain and in many
+function language that you haven't
+handled all the cases so as the catch
+all you could either well fail maybe
+throw an exception and in this case they
+just return zero which is I guess it's
+fine so um that's just design choice
+this exercise leaves it up to you um and
+then within the actual score function
+well again converting to uppercase first
+and then uh there's a pipe signal uh
+pipe operator where we pipe the result
+of the word into sequence. Su by and
+sequence. Su is a higher order function
+where the first argument is a function
+that is uh called for on every single
+element in the thing that you are piping
+into so word is a string and if you pipe
+it into a sequence um the that function
+that you pass into it is gets called for
+every single letter as you probably
+expect and then sum by means well uh res
+return the sum of all of those calls so
+this is sort of like a shorthand for
+doing a map first and then doing maybe a
+reduce or or some but now you can
+combine that in two so that's a a neat
+little trick that you can use in
+F nice do you know off the top of your
+head what the somebody is actually
+passing in is it like car vors is it
+graphemes we've talked about this a bit
+in this series what's actually the the
+sort of thing that gets indexed in a
+string in F shop they those are uh they
+are I think they are udf8 uh characters
+so the're graphes I think I'm fairly
+certain that it's not brunes or or Cod
+points or anything like that so they're
+graphes but
+nice cool um yeah really nice solution
+uh again nice uh nice example of a bit
+functional program in um a really
+straightforward readable one there um so
+move on now to python um Your pites
+solution in Python uh and yeah this is
+uh sort of another looping one I guess
+looking at the bottom Eric but with an
+enum this time I guess yeah so um the
+previous Solutions were all um um well
+not directly map based there were PanAm
+matching in the f one the other was like
+imperative version
+but the I would say almost the canonical
+solution to this exercise at least the
+one that most people would use is to
+Define some sort of map where uh you put
+in a letter and you get back from but
+the map is then like a thing so the
+paging is a function but in this case
+you have a class letters and that's
+using the in enum class is based on the
+in enum class and that allows you to um
+Define a mapping between things and then
+mapping them to integers so in this case
+we are mapping all the letters so there
+is a very concise syntax so you can do
+equals equals equals and then at the end
+have the actual value so this sort of
+defines a a data structure as you as you
+would like where you can index into an
+instance of that letters class but you
+don't have to create that letters class
+actually so that's uh that's a bit a
+Nifty trick here so you see on line 25
+that you don't actually have to create
+an instance of that letters class you
+can just index into that class class by
+character so um that's what's happened
+here so we have the sum um function
+being called and then between the
+parentheses that's like that's a
+generator so it's like creating a list
+but not actually materializing it so it
+it has a bunch of properties that that
+are good for performance but it's also
+great for readability so word. uper of
+course convert to upper case forc in
+word upper is going over all the
+characters in that um
+in that sequence and then you uh index
+into that letters thingy that you
+created to get the actual value so
+there's no error error handling here to
+and of course it doesn't need to because
+the exercise doesn't require it but it's
+uh it's basically a very uh shorthand
+solution and it's almost equivalent to
+the f one except for f one uses a
+function but this is more like a
+map nice yeah that's really nice nice
+and simple
+um yeah this syntax always confuses me
+the whole um using brackets as a sort of
+inheritance thing in Python um always
+catches me out I always think
+something's been passed into something
+but yeah this is this is just
+effectively inheritance with this as a
+base class right Eric I think
+so yeah okay neither of us are
+particularly
+sorry um okay let's look at this next
+one then in uh grieving um so yeah talk
+us through this so this takes a slightly
+different approach so um previously it
+was all letter based uh and this time
+it's string based so um you are we are
+defining a a scores U mapping um and
+that scores mapping has as their keys
+strings instead of characters so the
+string AI blah blah blah is mapped to
+the value one so um you don't have the
+comma or the other pipes so this is
+slightly more um succinct but the
+downside is that when you actually have
+to um determine the letter scores you
+can't just index into that thing you
+have to first index into a value and
+then check if the character is in the
+string so that's what's happening here
+so um the word is converted to a list so
+that's converting to the individual
+characters then uh the sum uh method is
+called it's starting out with the value
+zero because otherwise um it would fail
+if there aren't any elements in it and
+then there is a Lambda like an anonymous
+function that says hey X is probably not
+the best name but that's the the
+character so I prefer maybe C or maybe
+even something longer and then it tries
+to find um the the the entry in that
+scores um mapping where uh the key
+contains the uppercase version of the
+letter so um that's what's being done
+there so K comma V are are well Nam so
+key Comm values so it finds the key
+value pair where the key contains the
+letter and then you do dot value to get
+to the actual uh the letter score and
+that is what's being used by the Su but
+um this H this is sort of a trade-off
+where it looks very nice in the
+definition but um well it is less nice
+in actual execution because you have to
+go through all of them and potentially
+it could be like the letter Z then you
+would have to do uh well seven
+comparisons before you get to that and I
+would also maybe have liked to move the
+upper casing to the to the beginning
+because now for each letter and if it is
+was Q you do seven upper cases for the
+same letter so performance- wise it
+probably doesn't matter at all because
+Scrabble score is such a limited domain
+but if you were to try to optimize this
+move the upper casing U to the left so
+that you don't have to do it within the
+loop I always think through things like
+this if you've got like some program
+where you're trying to calculate the
+Scrabble score for every word in the
+whole English dictionary then actually
+performance starts to matter because
+you're running this you know millions of
+times how many words I not Millions but
+a lot of times anyway um and yeah so
+it's a trade-off between if you're just
+running this in a normal game it
+probably doesn't matter but if you're
+trying to build an online Scrabble game
+that's going to have a million people
+simultaneously playing it this sort of
+performance actually matters because
+this is going to be costing you money as
+you have have to have more servers
+running to do more things in parallel so
+um yeah always tradeoffs to consider
+with uh with this stuff with speed we'll
+have a a more performance oriented
+approach later
+on yes we will um some Rust some
+assembly we've got fun stuff coming up
+uh so this is my solution in Ruby um
+this wasn't one you actually chose Eric
+but you we looked the Raku one coming
+it's very similar to this um yeah but
+maybe this is slightly more readable
+I'll let you talk people through this
+I'm going to talk through you solution
+okay so um yeah this is sort of like a
+mixture between the the previous
+versions where you still get the
+readability of having to define the the
+strings without the the commas and the
+pipes Etc so quite succinctly that's
+what's happening on line 13 to 19 so
+percentage W is creating a list of words
+so uh and those words are AE i o blah
+blah blah so and then mapping them to
+one but uh we want to be able to index
+it by character so instead of having um
+maybe some uh some finding and string
+contains what's actually happening here
+is that um you're defining a separate
+class which is well- named multi- key
+hash so um you start with pairs uh and
+that those are lists uh to and those are
+mapped to a value and then you sort of
+for each of the values in each uh yeah
+so there letters values so and then
+you're saying letter is product which is
+a fancy way of sort of zipping them
+together so all the individual elements
+within the letters are paired with value
+so a iio blah blah blah it becomes a to
+one e to1 i to1 Etc and then you append
+that to that array you convert it to a
+hash afterwards and then then later on
+you can uh index it so this is um this
+is a mixture um where you still get the
+benefit of allowing you to index into
+that element list uh by letter that's
+what's happening on line 25 so we have
+letters square brackets letter but the
+definition still looks quite nicely and
+it looks a lot like a well uh like a
+regular string so I I like this uh it's
+different yeah what I uh I mean what I
+liked about it was that this is just
+quite a useful sort of um construct to
+have in general like I could see just
+having this in a sort of uh standard
+libr of functions or classes that you
+bring into your own program so this is
+very sort of multi-usable but then um
+yeah it then allows you to Define this
+and the percentage W you mentioned but
+it just breaks a string by spaces and
+then turns that into an array of all of
+the individual things these could be
+longer strings they don't have to be
+individual letters
+um yeah uh and then this is just pretty
+straightforward I think there's some uh
+uh uh something in the Ruby test where
+it passes nilin one time so you need to
+check that you actually have a string
+which is why that happens and there's
+another sort of era handling one where
+it has white space either side so that's
+why we use the 2s and strip which we
+haven't needed to do in some of the
+other ones um but yeah um yeah I had I
+wrote this years ago and I hadn't seen
+it for a long time but uh it's quite
+nice I quite like it um and this shows
+off nicely as well Ruby's oneline
+methods which came out a couple of years
+ago um which you can you can now do as
+well which so that's weird named like
+endless methods I
+think yeah endless methods yeah don't
+have don't have yeah but um yeah they're
+not really endless um so that's uh a 30
+line version of this um this is
+basically the same code in Raku again
+for a reminder Raku is Pearl six so it's
+a a fork of pearl um but this is a much
+more concise version of the of the same
+thing Eric do you want to talk us
+through that make it slightly bigger um
+do you want to talk us through that yeah
+on um so the on line three you have my
+percentage letter dashcore that's
+creating um that's defining the hash so
+it's similar to what you did and then
+the definition on line four is you have
+between the the the angle brackets you
+have those strings and those strings are
+then maaps so that's the dot map and
+star. means convert them to the
+individual letters so at first we have a
+a collection of strings but then you
+have a collection of a collection of
+characters so the first element in that
+resulting collection is the collection
+with a eii but all as as separate
+things and then you have the the special
+uh operator so you not only have the
+equals uh greater than sign but you also
+have a version where you're applying
+them
+um like pair wise almost so um there is
+a special name I just forgot it but
+there is a special name aru where you
+can combine these operators on um on two
+lists but this essentially means the
+same thing what you did you're you're
+applying that operator to the individual
+values but you have like a multi- key so
+uh for that first list where it contains
+AI o u you're saying a and then the
+equals Maps 2 one e maps to one etc etc
+and then it does that for the second
+element in the list for the second
+element in that other list so that will
+be D Maps 2 two G Maps 22 so it's doing
+that like um if you're used to
+functional program that might be called
+zip where you have two Collections and
+you're sort of merging them together in
+a in a fancy way and you're basically
+merging them together to put an
+association of a key and a value pair
+and that that's what's in that hash and
+then the actual uh the summing is also
+quite concise so you have convert the
+word to characters so that's the do com
+then you do the map and the map is just
+um indexing into the letter score with
+the uppercase version of the letter and
+then doing sum so that's that you see so
+it it is incredibly concise um but it's
+not unreadable I think so uh uh you do
+have to know a little bit about the
+special operator so how that works
+but
+yeah it's the sort of thing where if I
+came across this cold and I was having
+to maintain it I feel like I would be
+I'd have to use a lot of my mental
+energy to work it out but that might not
+be the case when you um when you're more
+used to Pearl of course it could just be
+that I'm not used to it so things like
+this don't immediately feel feel obvious
+um yeah cool okay so two quite different
+uh quite different levels of verbosity
+to do the same same the same thing um so
+moving on we now have a different
+approach this is in uh rust and it's one
+of Bob hops yeah talk us through this
+Eric yeah so I mentioned that we would
+have a version that is quite um tasked
+to have great performance so even though
+Maps can be incredibly uh fast but they
+are still a a a data structure so they
+have data associated with it and there's
+a little bit of um cost associated with
+it so in general the best data Str to
+use when you want performance are arrays
+so what this uh approach does is it
+defines a single array of length 26 and
+you probably can guess why it is 26
+because there are 26 letters and then
+you use the fact that the letter a is
+the zeroth element in the alphabet list
+so if you convert the letter A to the
+number zero it's index and you index
+into that array you get the value one
+uh for the letter B that's the of course
+the the first index or zero base then
+you get the first index at the lookup ET
+etc etc so then um you can just the one
+thing that you have to do is you have to
+convert the letter A to the the number
+zero and that's what's happening on line
+eight so um it says converted to asky
+lowercase uh minus 97 and 97 is the SK
+value for low case is a so if it was an
+a you do 97 minus 97 is zero the B would
+be 98 etc etc so um that's the trick
+that's being used here and other than
+that it's actually quite a functional
+approach so um it has a like a pipeline
+hars filter uh mapping and um I know
+this is something that Bob did in other
+Solutions too where um actually lower
+casing things is only being done when
+need it so um you could say I'm
+converting the entire string to
+lowercase but if it would have I don't
+know uh 90% of it would be letters
+somehow or or spaces that would be quite
+wasteful but you only need to lowercase
+it uh when you're actually doing the
+lookup so that's also something for to
+consider for
+performance and then you do just a sum
+at the
+end yeah very cool yeah I mean find this
+really not readable in terms of if I
+want to know what the letter M is it's
+like okay well I have to start the
+beginig ABC D um but uh but super fast
+super uh yeah well I mean one thing I do
+wonder is this is obviously happening at
+compile time right so it's a static
+thing I sort of feel like you could
+create the array out of a a more visual
+map so there would be a little longer at
+pile time but you would still endend up
+with a with a an array like this for
+runtime um yeah R has
+might yeah and you could even if you
+wanted to to completely optimize you
+could also create the array with um
+placeholder values for all the other
+characters so that you don't even have
+to do minus 97 so for example you have
+an an array I think 97 plus 26 that's
+like
+123 so you would have an array of 124
+values and then you would everything so
+you have the up the lowercase letters
+have to duplicate it for the uppercase
+letters and then the rest doesn't matter
+because you wouldn't be indexing into
+that anyways uh and then you could just
+do the map without having to do the
+minus 97 I don't know how much it gains
+you you the offset is that you have a
+larger array so you might get data
+locality issues there but that would be
+something to at least try out to see if
+that would help but uh always measure
+could also just
+yeah you could always also just
+duplicate this line and then just get
+rid of the two Lev and then you would
+have the same thing for upper or lower
+case and I think you're right they just
+roll next to each other you could still
+do yeah go uh let me see I think there
+there was an issue uh because yeah yeah
+then you could just take away they
+aren't consecutive so the asky table
+isn't not no so the
+uh code for uppercase Z is 90 and
+lowercase a is 97 so there are a couple
+of characters in between them so that's
+quite
+unfortunate yeah bad design by the
+original creators ofas yeah horrible
+um Okay cool so looking at myips
+assembly then um I know people are
+always a bit scared of assembly but um
+this really is is just the same thing
+we've we've seen Eric um yeah so yeah
+you get the you get the scores AR again
+um so same order of course um and then
+um on line nine is where it actually
+starts so Scrabble score that's that's
+our our label of the of the thing that
+we're defining so first we're putting
+zero in do v0 which is the output um
+then we're loading the value of uh
+0x20 and we'll use that later on into
+T1 uh and we're loading the value of
+lowercase a uppercase Z and we'll be
+doing that to uh for some some
+performance thingies later on uh but the
+most important part is the loop so uh on
+line 16 we're doing we're loading a bite
+uh so a z is is our input string um and
+we're going to keep on uh incrementing
+that to move on to the next character
+which is actually what's being happening
+in line 17 so we're loading the bite and
+then immediately moving to the next
+character so that we don't have to do
+that later
+on um and then there's a a bit of a
+trick where you have that
+0x20 um to convert to lower case so um I
+could try to explain it here but it's
+best done visually but there is a
+lowercase trick that you can use where
+you um you can see that the difference
+between the the characters has a certain
+um uh variance in it and it happens to
+be 0x20 which I think is 32 in a hexad
+decimal so you if you see a a 32 with an
+or somewhere uh you probably know that
+it's this is doing a lower casing so um
+o oring with a value always adds
+something so um because it only adds
+it's not an add so you could either have
+the same value or you could have the
+same plus a little bit more and that's
+why because um in ask the uppercase
+characters come first so if you want to
+convert to lowercase you have to move up
+basically um so okay and oring with the
+value of 32 is is actually flipping a
+single bit so um 32 is like one two four
+is I don't know the the X bit the nth
+bit so you're basically setting a single
+bit so that's being and if you if you
+write this out you're actually if you
+have an uppercase character it will
+become uh the corresponding lowercase
+character just by doing that that simple
+trick so if you ever see a magical value
+of
+32 it's often converting lower and
+uppercase upper to lower that is so what
+we're saying there is in the end of the
+last solution we said oh it's a shame
+that the ASI the creators of aski didn't
+think to uh you know leave these numbers
+back to back what we're actually now
+saying is by just shifting one bit in a
+uh a bit bite representation binary
+representation then we're actually able
+to shift between upper and lower case so
+in a different base it works perfectly
+but in so when we're looking at it in
+just consecutive numbers it doesn't is
+that have I got that right yeah so if we
+um if we looked at the SQ value for
+uppercase a that's 65 and the S value
+for lower case a is 97 so that's a
+difference of 32 and if you want to you
+could add 32 um but if you or it with
+the bid it will still will be the
+lowercase will remain the same you don't
+want to change the lowercase thingy
+because it will already have that that
+32 bit set but for the uppercase
+versions you would add that that bit so
+you would basically add 32 only when it
+doesn't already have that that value
+so so that's that's a neat
+lift
+yeah yeah so uh then there are um the
+next two lines are basically saying if
+it is lower than an a um we can we can
+we can stop because it's an invalid
+character um if it is greater then we do
+the same thing um other than that we're
+going to find the index so you do the
+basically the minus uh the lowercase a
+value uh and and then you index into
+that scores well array I'm not sure if
+that's actually the proper assembly name
+is probably not but uh so you get the
+actual score and then you add that to
+what you already had so that's store in
+v0 the result of adding v0 with
+T5 and then you Loop so that's line
+23 up until last nice straightforward
+yeah yeah but it's fun to see that
+little low upper to lower case um or
+trick and to realize that it yeah it it
+converts it but it doesn't change the
+lowercase version so it's quite
+fancy yeah yeah the whole that's really
+nice the more I see assembly and the
+more I
+you know I've not used it probably since
+University 20 years ago but the more
+actually just it is really readable and
+really nice for these sorts of things
+it's quite is fun to work with isn't it
+yeah it is definitely fun okay cool
+nicely explained and it will be very
+fun yeah yeah very very fast um okay so
+so this is orc next um by principal uh
+is the creator of this solution um and
+these last two solutions uh both of them
+made me chuckle when you showed them
+earlier Eric so um yeah talk us talk us
+through what's happening here so um on
+line three the begin is something that
+happens before anything is executed so
+we're just setting a a variable scores
+to zero and then between the curly
+braces are things that are happening U
+for each um for the input so uh there
+just a single one so we're converting it
+to Upper first one time we've seen it
+like a million times already and then
+the real trick here is G sub so G sub
+means um substitute a value in a string
+with another value um so we're saying G
+sub then we get a regular expression and
+you'll notice those that is a regular
+expression that matches any of the
+letters that have the score one with
+them Associated um it says replace that
+with an empty string so basically it's
+removing them and gup will alter the
+third um the third input so the word
+basically you're saying remove all the
+uh the single letter characters from the
+word but the trick is what G sub returns
+is the number of substitutions so the
+number of times that it actually removed
+a thing so U and of course if you want
+to get the score for all the zero
+letters um if there are if there were
+like four of those G would turn four so
+you do one time four is four and you
+increment the score by that and then on
+the next line you do the same thing for
+the letters that have the value two D
+and G and if there were like
+three of those letters you would have to
+add six so you do two times three and
+you have six so um I'm not sure if this
+is very intuitive to people um I had to
+look at once once you see it once you
+get it it's really nice like it's a
+really clever way of doing it it is a
+really it's a is a very fun solution I
+think yeah and if you're in languages
+that use regular Expressions a lot of
+which orc is want then it probably
+actually feels relatively natural to
+another orc developer
+um yeah I like it I think it's very cool
+yeah I think it's also a very cool
+solution so a sort of similar approach
+yeah definitely unique a sort of
+similarish approach um in a way in terms
+of G Subs but that uses this is just
+brilliant this is massive credit to I
+think Sadia is is the name of this
+person yeah massive massive credit
+because this is my favorite solution
+I've seen to this um yeah Eric talk us
+through this so it's doing a similar
+version where we have a regular
+expression and we're doing a replacement
+but instead of relying on like the the
+number of substitutions we're replacing
+each um occurrence of that that one
+letter score with plus one so we're
+basically creating an equation so um if
+we have the the letter the word a a b or
+whatever the a would will be replaced by
+plus one the second a also with plus one
+and then the B with plus three so you
+get plus one plus one plus three uh and
+then in the end the trick is uh that
+they're using eile so that's uh
+basically you're running arbitrary
+JavaScript now so you're you're asking
+the the runtime to evaluate the result
+of this string as a JavaScript a bit of
+JavaScript code and uh evil is evil I've
+I've heard that a lot of times because
+it's basically not something that you
+would normally do but it is a lot of fun
+in this little exercise so um I think
+the plus one is there for if you if you
+don't have any value just to have it be
+evaluated to a number uh if it was empty
+but uh just the idea of replacing
+everything with u well basically
+additions I find it very
+clever yeah I love it
+um yeah I I have nothing really more to
+say about this um I think it's uh yeah
+fantastic the only one thing I'd say is
+if you'd put the zero in front of the
+value then you could have got rid of the
+one extra character but the other thing
+I like about this as well is that it's
+using um case insensitive regexes so
+we're not even having to do the two
+upper or two lower or anything um but
+yeah I think just a great solution just
+absolute credit to uh Sadia um and
+there's been apparently 21 submissions
+of these so um I don't for a second
+believe 21 people have come up with this
+um uniquely I think 20 people have gone
+and browsed the solutions and then gone
+yes want this this is mine and copied
+and paste it so that tells you it's a
+little bit a little bit popular as well
+that people are are claiming this for
+their own but um cool those are the
+solutions Eric um this was a nice a nice
+little fun one um if you haven't tried
+scrubble score go and try it for
+yourself um I think this is quite a fun
+exercise to try in a few different
+languages as well um it's so simple um
+but it as you've seen it can be done you
+can make use of individual languages
+different features um so yeah again I
+think this is a good good one if you've
+not tried functional programming before
+maybe you can go and try that it's also
+something for meta programming or macros
+that you could do a little bit in and
+definitely for assembly as well so yeah
+loads of fun fun you can have with this
+um and if somebody wants you enjoyed
+watching this please sorry if somebody
+wants to I would be very interested to
+see what would be the most performant uh
+version maybe try rust and and try out
+the different versions i' just be really
+curious how how fast can you get this to
+go and what what are the tricks that
+you're
+using yeah definitely um leave a comment
+on the video if you've tried to get some
+cool performant version um and let us
+know if you've benchmarked it even
+better uh and also just leave a comment
+if you've enjoyed this just tell us just
+give us a link to your solution tell us
+which of these you've liked the most
+it's always really encouraging to hear
+from you thank you so much to everyone
+that does comment on our videos it means
+a lot to me and Eric and please give
+this a thumbs up as well if you enjoy it
+that really helps us with YouTube's
+algorithm and and don't forget subscribe
+if you've not already so that you don't
+miss out on any future videos have fun
+thanks Eric for your time thanks
+everyone for watching see you in the
+next video bye-bye
