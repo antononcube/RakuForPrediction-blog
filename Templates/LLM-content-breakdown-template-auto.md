@@ -22,8 +22,8 @@ my %knownRecords = data-import($*CWD ~ '/../Records/YouTubeChannels.json');
 sub pretty-name(Str $nm) is export { $nm.subst(/\W/,'-',:g).subst(/ '-' + /, '-', :g).subst(/'-' $/) };
 
 my $conf4 = llm-configuration('ChatGPT', model => 'gpt-4o', max-tokens => 4096, temperature => 0.5);
-my $conf = $conf4;
-#my $conf = llm-configuration('Gemini', model => 'gemini-1.5-pro-latest', max-tokens => 8192, base-url => 'https://generativelanguage.googleapis.com/v1beta/models', temperature => 0.5);
+#my $conf = $conf4;
+my $conf = llm-configuration('Gemini', model => 'gemini-1.5-pro-latest', max-tokens => 8192, base-url => 'https://generativelanguage.googleapis.com/v1beta/models', temperature => 0.5);
 my $pauseTime = $conf.Hash<name>.lc eq 'gemini' ?? 60 !! 0;
 ```
 
@@ -36,7 +36,7 @@ my %record =
    title => "Geographics data in Raku demo",
    channel => 'MISSING CHANNEL',
    channel-name => 'MISSING CHANNEL NAME',
-   transcript-file-name => $*CWD ~ '/../Presentations/Transcripts/' ~ 'Geographics-data-in-Raku-demo.txt',
+   transcript-file-name => $*CWD ~ '/../Data/' ~ '/Geographics-data-in-Raku-demo-YouTube.txt',
    type => 'video',
    video-id => '',
    video-link => 'https://www.youtube.com/watch?v=Rkk_MeqLj_k';
@@ -52,7 +52,7 @@ if %record<type> eq 'video' {
       %record<video-link> = 'https://www.youtube.com/watch?v=' ~ %record<video-id>;
    }
 
-   my Bool $transcriptFileExists = try %record<transcript-file-name>.IO.f;
+   $transcriptFileExists = try %record<transcript-file-name>.IO.f;
    say '$transcriptFileExists :', $transcriptFileExists.raku; 
    if $! || !$transcriptFileExists {
       %record<transcript-file-name> = $*CWD ~ '/../Data/' ~ %record<gen-file-name> ~ '-YouTube.txt';
