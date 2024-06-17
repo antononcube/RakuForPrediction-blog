@@ -22,8 +22,8 @@ my %knownRecords = data-import($*CWD ~ '/../Records/YouTubeChannels.json');
 sub pretty-name(Str $nm) is export { $nm.subst(/\W/,'-',:g).subst(/ '-' + /, '-', :g).subst(/'-' $/) };
 
 my $conf4 = llm-configuration('ChatGPT', model => 'gpt-4o', max-tokens => 4096, temperature => 0.5);
-#my $conf = $conf4;
-my $conf = llm-configuration('Gemini', model => 'gemini-1.5-pro-latest', max-tokens => 8192, base-url => 'https://generativelanguage.googleapis.com/v1beta/models', temperature => 0.5);
+my $conf = $conf4;
+#my $conf = llm-configuration('Gemini', model => 'gemini-1.5-pro-latest', max-tokens => 8192, base-url => 'https://generativelanguage.googleapis.com/v1beta/models', temperature => 0.5);
 my $pauseTime = $conf.Hash<name>.lc eq 'gemini' ?? 60 !! 0;
 ```
 
@@ -37,13 +37,13 @@ my %record =
    channel => 'MISSING CHANNEL',
    channel-name => 'MISSING CHANNEL NAME',
    transcript-file-name => $*CWD ~ '/../Presentations/Transcripts/' ~ 'Geographics-data-in-Raku-demo.txt',
-   type => 'Rkk_MeqLj_k',
+   type => 'video',
    video-id => '',
    video-link => 'https://www.youtube.com/watch?v=Rkk_MeqLj_k';
 
 %record<gen-file-name> = pretty-name(%record<title>);
         
-%record = merge-hash(%record, %knownRecords<TheDuran> // %());
+%record = merge-hash(%record, %knownRecords<AAA4Prediction> // %());
  
 my Bool $transcriptFileExists = False;
       
