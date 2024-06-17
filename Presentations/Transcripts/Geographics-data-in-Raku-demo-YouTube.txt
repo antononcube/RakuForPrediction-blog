@@ -1,0 +1,772 @@
+hello this presentation is titled
+Geographics data in Raku demo my name is
+Anton Antonov today is June 16th
+2024 this presentation is  mostly
+about these two Raku packages
+"Data::Geographics" and "JavaScript::Google::Charts"
+you can see here in this plot um the
+data from the first has been used and I
+have invoked a function from the second
+package to to make this geographical
+plot so before going further I would
+like to mention that there are three
+panels I'm going to be using for this
+presentation the leftmost panel is with
+a mind map  which is going
+to get us oriented where we add and I'm
+going to use it to summarize the
+presentation in the middle is the
+presentation itself and to the right
+most panel there is a browser with which
+I'm going to show some relevant data
+um all right so um what is this about
+looking at the Mind
+map the "Data::Geographics"  package is
+the protagonist of this presentation it
+has country data and city data
+visualization in  Geographics and in
+data science in particular which I kind
+of specialize is very important so
+initially I wrote this presentation with
+JavaScript D3 but it was  difficult
+for me to make a geographic
+plots with JavaScript D free I'm not
+saying it's impossible it is
+possible it was much easier  to it
+seemed and it is actually in  in in
+practice to program  this  Raku
+package JavaScript Google charts which
+interfaces to Google charts Google
+charts is a relatively old framework for
+making pre-cannedd  types of charts like
+you you can see them here d3.js which is used in
+"JavaScript::D3" D3.js is another JavaScript library for
+graphics but it's a lower level and it's
+much more flexible and you can do
+variety of of plots so  I'm going to
+so the presentation is using Javas
+script Google charts um the package DSL
+entity Geographics is um going to be
+demonstrated very briefly actually we
+can do named entity recognition with it
+and say if you um if you make
+conversational agents and you want to
+recognize um recognize  city names or
+country names you can use this package
+this package  DSL entity Geographics
+is very closely related to data
+Geographics but they're independent
+right now data Geographic is a little
+bit too big  I'm going to explain that
+and I need to figure out how to make it
+smaller how to make the data  in it in
+it  smaller and  to make it more
+sharable then I'll introduce more
+dependencies Based on "Data::Geographics"
+so  we're going to see countries
+data  some kind of rudimentary
+analysis with say linear regression over
+the gross domestic domestic product and
+electricity
+production  so  the package  data
+Geographics has also cities data and I'm
+going to be showing some  some related
+
+statistics again  probably a very
+convenient way to Showcase  the charts
+in JavaScript Google charts I'm also
+going to use this package DSL English
+data query workflows which  allows for
+generation of code this is a minor point
+and um with  the city data we're going
+to do some nearest neighbors graphs we
+are going to do some proximity search
+I'm going to be using using another new
+package called MAF nearest so MAF
+nearest MAF fitting  JavaScript Google
+charts very very new packages within a
+week or two  they have been proclaimed
+in the Raku
+ecosystem all right so  with the
+presentation here I was discussing
+already  the fre Gs versus Google
+charts I'm not sure should I go further
+here with
+that probably not  so  Google charts
+well Google charts is an old package
+like 10 years old same with def GS but
+Google chart since since is prant and it
+has extensive documentation like for
+example if I take this bar charts here
+right and if I look at say the
+parameters which is which it has so
+quite a lot of parameters very well
+documented relatively old at least  10
+years old so this makes it very good um
+Target so to speak for large language
+models so large language models should
+be extensively trained in a sense with
+ discussions or documents or whatever
+right about Google charts and it is the
+case I'm actually here I'm making a
+specific prompt which a Persona if you
+will  L L Persona  with using some
+of the most recent  models of chat GPT
+and so here I'm going to to  request
+um
+certain certain elements for example
+yeah how do you do tuning of certain
+plots like say you know in this plot
+here  we can see that say  the
+countries which are known by
+"Data::Geographics" are in some shades of
+green and in Gray are the rest of the
+countries but how exactly do you tune
+the those colors right so figuring out
+ the is it background is it just
+background color right so it's like for
+example the dataless regions which are
+in Gray right so these are the ones
+which the package doesn't know about
+again I I didn't necessarily know the
+names of these options and so this
+you can see  we get the result here
+because I did say that I want the  the
+result the result of the options to be a
+Raku code it did put um the large
+language mod he did put this code fences
+Raku here but otherwise this is this is
+Javascript right all right  so let's
+actually demonstrate something else you
+can tell me well but why why I use Ru at
+all for this can you just generate
+um  plots
+directly yes we can this is exactly what
+happened here  I did say what I want
+um  some let me show you what what
+this the result is so automatically when
+I have this   large language model
+chat cells in a Raku chat book
+automatically the output is being copied
+in the clipboard that's why I was able
+to just put the output above I was able
+to put it here and um so yeah we can see
+that this is the the Google charts type
+of framework right so we have a Jo um
+chart and um and so forth right and the
+countries they have been
+colored between green and orange exactly
+what I requested here and I asked for
+the HTML-div Cuba to be used and so forth so
+um this um this Raku chatbook is using
+the Jupiter framework the jupyter
+framework is B based on browser
+technology and so that's why we can
+visualize this kind of outputs easily
+you know in a Jupiter
+notebook and um all right I'm going to
+continue  further with the
+presentation so um I'm going to be
+discussing um countries and  what kind
+of metadata we have for them as I
+mentioned  the package
+"Data::Geographics" is a little bit  too large
+right now it's around 30 megabytes with
+all of the data I have for countries and
+cities I want to figure out how to make
+it smaller what kind of um ways we can
+make the data in print smaller if it is
+not possible then well um some other
+things some other steps need to be
+taken but for now I have um 29 countries
+so you can see these are like say each
+column has 10 countries except the last
+one so 29 countries for this  for each
+of this   29 countries I have um
+approximately 200  metadata points not
+metadata the metadata here for  these
+countries is being shown
+they're approximately 200 I think
+195 and so just to demonstrate um
+what kind of um a smaller data set right
+a subset of this 195 data points I have
+made this um table  we have the name
+the full native name ISO name area
+population  gross domestic product and
+electricity production so um I'm using
+camel case and it's just not convenient
+to use the Raku Kebab case for this kind
+of data or at least for me it seems very
+unnatural also in Google chats you can
+see you know it's not me who is imposing
+this they do use the camel case so so
+I'm sticking with the camel case for the
+geographical data so this data here I'm
+going to use um this two last columns
+and  make a correlation plot so you
+can see it here so we have  we we have
+this um  we have plotted here the GDP
+in the X and the electricity production
+on the Y and you can see this a
+logarithmic it's a logarithmic scale if
+I put here if I disable the logarithmic
+scale this plot becomes um very
+uninformative because  China and USA
+dominate the whole um the whole plot and
+all of the other data points are in the
+left bottom corner and and  here
+though with this plot I can show what I
+can  show tread trend lines right I
+can fit this regression Line This is a
+this is coming as a functionality
+built-in functionality in Google charts
+now if I make this logarithmic scale and
+I think  let me see if I make it
+logarithmic
+scale this  might still work at least
+to a point maybe
+maybe not with all of them right okay
+yeah so it works you know if it works it
+works if I make  one of them
+logarithmic more precisely if I make
+the the H scale logarithmic if I make
+both of them logarithmic I do not get
+sorry  both logarithmic I do not get
+this  what I expect here so  not
+necessarily a great motivation but a
+motivation nevertheless let's use this
+ property or this inability to  to
+make the the fitting in the logarithmic
+ plots  to make the fitting line
+let's use that as a motivation to make
+our own fitting so here I'm using this
+um new package MAF fitting which  can
+do at this point it can do linear
+regression only in two Dimensions or
+the the regressor variable is
+one-dimensional the regressand is also one
+dimensional
+I'm going to extend it very soon further
+to be multi-dimensional anyway  so
+here we get linear Morel  fit  it's
+an object  and this object  it's an
+object which is also cable and you can
+see I can call it with certain
+parameters get the parameters here do
+some summary we see that um the summary
+is actually not of the the summaries of
+the residuals so this object also knows
+the residuals of the approximation and
+if I plot residuals if you follow here
+the zero axis you can see what this they
+look like white noise in a sense and
+this means that we have a good fit which
+is not a big surprise if you just look
+at the logarithmic plot and so let me
+redo it here if you look at the
+logarithmic plot right it's a very nice
+obvious very nice line which is here
+maybe we have couple of outliers like
+Iran and Denmark and Botswana but in
+general it's like a very very tight kind
+of rectangle around obviously some kind
+of um line it can be fit easily through
+it or faithfully and so this what is
+happening here I have I have used this
+ fun I have added this um I have added
+this  column fit to to the data and
+here I'm actually making a combination
+chart and I'm saying that my plot is a
+scatter plot but treat the treat the
+serious with index one treat it as a
+line and so what happens here is that
+when you have this combo charts in in
+Google Charts the first column in this case GDP
+this is just what is on your X
+electricity production has a index zero
+this is your first y column and then the
+second one is fit and of course we are
+using indexing from zero so that's why I
+need to say serus one and so this is
+what you see we we are basically
+plotting the fit and we have this kind
+of nice  nice  nice kind of looking
+fit all right so um there's some other
+data which um country data which  is
+being um put into the package and um as
+I said nearly 200 data points so what
+you see here it's basically  Contours
+right Contours which is a contour plot
+is being made for the coordinates of the
+boundary of a certain country United
+States so this what you see here country
+data United States I have extracted it
+and then you know get the coordinates so
+this is an hierarchical this is an
+hierarchical kind of structure it's um
+it's a hash map of hash maps and so I
+can retrieve different data from it now
+um I can do this kind of plots with um
+with defs so you can see here right if
+you if if I find this yeah I can do that
+but actually doing geographical plots
+like the one I was showing in the
+opening here it's not it's not that easy
+at least for me with the fre GS to
+figure out what to do and how to do it
+and it was fairly easy to  have fairly
+good results using Google Charts fairly
+quickly using um  with Raku Raku
+though  is um is just a conduit so to
+speak to Google Charts I'm not I'm I'm
+not trying to put my own options or  I
+kind of accommodate some more common
+type of um inputs like say single
+single dimensional list of one
+dimensional list of numbers I can still
+plot it which is not necessarily Allowed
+by Google charts but in general
+there's no much  there's not much kind
+of change in the way  Google charts
+work with this package the GS when I use
+it in Raku I mean this is
+definitely a certain opinionated use so
+to speak of different GS so yes I'm
+using the underlying functionalities but
+I'm kind of Designing my own  type of
+interface which I think should be at
+least to a point appealing to generic
+generic Ru users all right so let's
+continue with the city data so city data
+it's um it's not that it's not that
+um populated with different types of
+data points it has locations populations
+actually it has also links and this is
+something fun to to show so here  you
+can see I have um 32,000 33,000 cities
+from United States I filtered them here
+so I took the city data it's
+a it's a hashmap of  of arrays of hash
+Maps
+so  here you can see from this  data
+set city data I have extracted um
+7even eight columns  ID the country
+the state the city the population
+latitude longitude elevation and
+location link I think this is the this
+is the only data I have for the cities
+now the location link is   is kind
+of nice because we can visualize it with
+Google all right so we can if I click on
+this location links I can go to the
+browser and see where this is and so um
+I had to work so to speak for it a
+little bit I had to replace  in this
+HTML table which is being made with this
+function to HTML which is you know
+coming by default so to speak if you use
+"Raku::Chatbook"  so  yeah I had to replace
+ the the text or text sub strings that look
+like um URLs I had to replace them with
+this um  syntax from HTML for links
+but  yeah that was very convenient
+let's pick some bigger city here let me
+actually see can we get some bigger city
+with larger population and I don't see
+very large populations yet maybe 25,000
+I know let's let's pick this one
+so  so yeah I mean  okay it's kind
+of nice kind of convenient to have this
+visualization  I'm not sure is it
+possible to visualize this type of
+charts directly here in the Jupiter
+chart book probably that's possible it's
+not something in I I'm very interested
+to do it it's just not something I it's
+a high priority and I haven't
+investigated it that much all right so
+um we're going to look into the
+distributions of um of  across the
+states of population and number of
+cities and in order to do that
+ I have to actually  aggregate the
+data so my data here and go back to this
+mind map I only have countries data as a
+as an entity right I have a entity as a
+countries and I have another entity
+cities yes they do refer cities do refer
+to States but there's no separate entity
+state for which I aggregate or
+accumulate or have specific information
+maybe I should have but at this point I
+don't so in order to see for example
+some um
+interesting interesting analysis or
+exploratory analysis over the
+distributions of the populations and the
+number of cities per state in United
+States I need to do something something
+like this right I'm basically taking the
+city data I'm grouping by state and I am
+finding the the number of the cities in
+ in each state and the and I'm summing
+the population this is what is happening
+here when I say say summarized
+population what you see here this
+generates um this generates this Raku
+code  which tells me that the column
+population from the data set is going to
+be summarized with the function LMS Min
+and Max I have replaced Min and Max with
+some and we get what I what I just said
+right we get for each state we get the
+the number of cities because population
+is pity right so if I find the number of
+elements of the population
+population  elements right in the the
+column population if I find the number
+of elements this is going to give me the
+number of the cities and then the sum of
+course is the population itself and so
+here I am I'm basically doing this and
+more or less um  just  preparing the
+data for
+plotting
+and sometimes  with Google charts you
+need to spend some time to to massage
+the  the columns in order to get say
+like the tool tips I want to get here so
+I am getting the tool tips I want but I
+had to somewhat work work for it too
+hard now in  in some of the Google
+charts tool tips they come by default
+but they didn't have this default here
+didn't have the form I wanted and you
+can see here for example for Illinois I
+wanted to be Illinois in Bolt and you
+know I have certain format for the tool
+tip it is definitely possible it's
+you know it's just  you know we need
+to basically look into the documentation
+and see the examples and then
+something like this  can be can be
+made now you can see I'm having
+logarithmic plot again but it's not on
+both scales it's only on  on the on
+the horizontal scale and what does this
+mean so if I do this again so
+actually I don't want to have
+logarithmic scales apologies so it is
+actually on the on the vertical on the
+vertical um axis the logarithmic scale
+it should be right because right now you
+can see some kind of exponential
+dependency here but it's also becoming
+very spread out and so forth right so if
+I  logarithmized
+the  the x-axis what is going to
+happen right it's not informative at all
+and if I
+logarithmized to have something
+something like I mean it's not exactly
+linear but it is somewhat of a
+rectangular shape so it is a linear
+dependence here I can claim it's a
+linear dependence here with a large
+dispersion so this is something to be
+expected this means that um  the
+population it has some exponential
+dependency when it comes to the number
+of cities and makes sense the more
+cities you have in a state the more
+likely  they will be cities which are
+with  much more  citizens you know
+in them so basically large cities and so
+that's why we we get this this can be
+done  this can be Illustrated in some
+other way  for example here we just I
+have just ported the number of cities
+now  we're going to look into the
+Pareto statistic so this here is yeah so
+here you can see this is say New York
+whatever right Pennsylvania whatever and
+so I have the numbers here so  I want
+to make the so-called Pareto principle
+PL op par principal adherence
+verification with the suitable plot what
+happens here is that I have sorted the
+ cities according to the  States
+according to the number of cities they
+have then I accumulate those numbers
+here progressively and I normalize by
+the total and so this is what the Pareto
+statistic is 8020 rule if you will  so
+here we can see that I have done this
+both for populations and for number of
+cities so we can see that say what is
+this approximately 30 30% of the states
+have 50 no have 60% of the cities and
+similarly approximately approximately
+what like say  20% of the states have
+60% of the population I mean the 8020
+rule is actually in a different manner
+displayed here so this is more this is
+like   yeah  like 40% 40% % of the
+states have 80% of the populations all
+right yeah fair enough whatever  this
+can be done in a slightly different way
+I don't need to show it here  it's
+just different styling in case you use
+this notebook to do charts you might
+look into this alternative um
+representation all right so  this here
+I'm going to move to  to actually
+doing proximity searches and using this
+ new package M nearest so  so here
+I'm taking
+again this um city data I have filtered
+it in some way there are some outliers I
+think just to make the data kind of
+smaller to get this more familiar way of
+visualizing visualizing qsa so what is
+happening here I mean I yeah I have made
+the plot data but before going to the
+plotting  what I'm extracting um I'm
+making  map or hash of the ID of each
+City with its du
+latitude and longitude now I'm making
+this um  nearest I'm calling this
+function nearest which makes a functor
+right it's another functor it makes this
+um  function object for with the
+distance  function
+geo-distance and over this  over this
+locations and here um I um I'm basically
+trying to I want to use this function to
+find the nearest neighbor Neighbors of
+Las Vegas Las Vegas you know the Raku
+and pearl conference is happening I
+think this month in Las Vegas so that's
+why we're using Las Vegas here so
+um there's an alternative way to find
+this ID it's  this is the entity name
+recognition and I think you know I this
+is actually  I'm going to return to
+that let's actually continue with the
+nearest neighbors so here I'm finding
+the actual nearest neighbors with u
+within 100 kilometers so the the geo-distance
+function this one here by default
+uses meters geo-distance is a function
+which comes from "Data::Geographics"  so
+here I'm going to use the opportunity to
+mention some of the other geographical
+pack packages in  in the Raku
+ecosystem I'm mostly familiar with
+"Geo::Basic" which is very new actually and
+ well-known text so geob basic has
+also distances all right and so but
+Geographics "Data::Geographics" has also
+geographical distance because well why
+not um and um I'm using this this
+geodistance is from from the package
+"Data::Geographics" I'm using the H sign
+formula which is maybe not that precise
+but it's considered to be a very good
+approximation so  so this  this
+functor right NF I can use it to find um
+to find nearest Neighbors
+and um I have found the nearest
+neighbors here  and here I'm just
+preparing I'm preparing my search point
+so to speak  and  the found nearest
+neighbors and all of the all of the
+Cities which have more than 1,000
+citizens okay just a moment so this is
+the plot but so here when I make this
+here you see I'm picking  from the
+from the set of 33,000 cities from USA
+I'm picking the ones which have
+population more than 1,000 and so this
+is how this plot looks like so if I go
+here right so this here should be Las
+Vegas right so this red point the points
+in yellow these are the nearest
+neighbors within say 100
+kilometers I'm going to show how this 100 K
+if I if you want to use miles right we
+can use something else you can see here
+there are a couple of signatures to be
+used when you use this  nearest
+neighbor functions function in this
+particular case the second argument has
+a list of two elements whatever this
+means whatever neighbors whatever number
+of neighbors you have within 100 kilometers so
+the most straightforward way to call
+that would have been to just say  that
+I want the the top 20 neighbors or
+something like that all right so before
+actually going further with the nearest
+neighbor graphs I wanted to discuss the
+IDs and the name entity recognition so I
+did mention here but this I can have
+this name entity recognition in this way
+ this function  is provided by by um
+"DSL::Entity::Geographics" and um it has um it has some
+nice properties I would say for example
+if you say
+Atlanta  it's not going to  it's not
+going to give you an idea like this
+because Atlanta is a generic name but if
+I say   United States then they're
+more than  more than   one
+atlantas in United States so if I say
+that I want exhaustive match then I'm
+going to get a bunch of a bunch of
+atlantas being matched across USA so yeah
+and all right I guess I guess that that
+was it for the name entity recognition
+so um let's move to the nearest neighbor
+graphs this is very very interesting
+application of course to the nearest
+functionalities In Math nearest so
+here  you can see that um I am
+actually  picking um certain States I
+want to reduce the search space but I
+have  picked um  States cities in
+Nevada which  have more than 30,000
+citizens again I'm taking the an ID a
+pairs from the identifier of that of
+those cities to the GE
+coordinates and then I'm kind of
+reducing the label the label sizes and
+basically replacing this United States
+right United States Nala whatever we saw
+here I'm replacing it with an empty
+string right so so this what is
+happening here then  I'm calling the
+function nearest neighbor graph and I'm
+asking  the format to be given into
+into mermaid  mermaid is a a type of
+um type of formalism for specifying
+graphs and diagrams and then I can
+visualize this  I can visualize this
+graph in in this jup notebook using U
+using the package ww mermaid Inc so it's a
+service  web service right mermaid
+think which this package provides access
+to so  the alternative here and since
+I mentioned that I'm using the fre GS
+let me see I should have I mean I have I
+have everything I said I presented so
+far it's also written in JavaScript
+with JavaScript d3e right using D3 GS so
+you can see here like this is Las Vegas
+and this is the search point and the the
+the tool tip is not on top of the the
+the chart but it's actually here at the
+bottom you'll see it at the bottom of
+the screen all right so the the grass
+them themselves
+I can actually use the  D3 GS
+graphs the so-called Force graphs it's
+very nice very interesting if I let me
+see I think this is I already executed
+yeah so there's some kind of  settings
+for this force or whatever but the
+nearest neighbors their you know um
+nearest neighbors graph and you know can
+be can be set in such a way but to look
+in a you know somewhat like this if I
+say remove some of this default um
+default parameters I put this might look
+somewhat much less appealing for example
+or you know or whatever right but
+yeah I'm not going to go further with
+that I'm just saying but  this is a
+this is graph for plot visual plot type
+of visualization this graph plot is in
+ in Raku right so it comes with theu I
+don't need to go to an external service
+for it this is what I'm doing with
+mermaid-ink right with with mermaid think
+when I when I'm here this actually goes
+to you need to have a web connection it
+it goes to an external web service to
+make this graphs and here I have made um
+the graph instead of U taking the  the
+top  the closest neighbor to make the
+graph here I can take all of the
+Neighbors which are within radius of um
+ 8 Miles and so this is what I was
+saying if I want the distance function
+to be something not to be using the
+units meters I can Define it in this way
+I can say that I want the distance
+function to be within miles and if we
+want to convince ourselves that um we
+get meaningful results we can make this
+cross tabulation I can make this
+this  Cartesian product of the
+locations find the Geo distances it
+basically make this kind of  this this
+table and you can see on the diagonal
+they're all zeros so basically the C HS
+correspond to the rows and so these are
+the distances between the the different
+cities so um I do have some future plans
+ for this quite a lot of this probably
+needs to be needs to be upgraded in some
+way I'm not going to to discuss this too
+much but some of my future plans about
+JavaScript D3 they become much lower
+priority because I have  I have
+Google charts I have this access to
+Google charts
+ I want to mention something else here
+since I I did U let me see  some of
+the things  I can not do with charts
+ first about the graphs I don't think
+you can you can  plot this kind of
+graphs maybe you can if you use the
+maps of  Maps
+functionalities but you you need to have
+ Google Maps API key so they do have
+some kind of nicer functionalities here
+but you need to have the key for it as
+far as I can tell and I haven't seen
+actually actual graphs being plotted so
+maybe I haven't looked   hard enough
+ some of the things I can do here
+which are more specialized and they
+don't necessarily come from the GS right
+but I have done it so I'm going to
+demonstrate this kind of one of my
+favorite things examples to be honest so
+actually it's not graph plot it's a
+random
+mandala and so  this is just  not
+easy to do
+ just not easy to do with um with
+um with Google charts right and but you
+know I I could figure out how to use the
+fre GS to make this kind of
+plots so um I mean I'm going to return
+to the  to the  top image here so in
+summary I would say  you know we
+considered all of this  all of these
+elements I put into the Mind map so yeah
+"Data::Geographics" it has countries data
+it has cities data with some additional
+packages we can do some
+statistical  statistical analysis
+maybe rudimentary maybe not so
+rudimentary but it's very informative
+all of all of this  fittings and
+distributions we ploted and we can
+we can make um informative plots over
+this Geographics data using both of this
+packages "JavaScript::D3" and
+"JavaScript::Google::Charts" all right thank you for
+your attention
