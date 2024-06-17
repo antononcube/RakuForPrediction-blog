@@ -82,9 +82,10 @@ and um with  the city data we're going
 to do some nearest neighbors graphs we
 are going to do some proximity search
 I'm going to be using using another new
-package called MAF nearest so MAF
-nearest MAF fitting  JavaScript Google
-charts very very new packages within a
+package called "Math::Nearest" so "Math::Nearest"
+"Math::Fitting"
+"JavaScript::Google::Charts"
+are very new packages within a
 week or two  they have been proclaimed
 in the Raku
 ecosystem all right so  with the
@@ -110,7 +111,7 @@ be extensively trained in a sense with
 right about Google charts and it is the
 case I'm actually here I'm making a
 specific prompt which a Persona if you
-will  L L Persona  with using some
+will  LLM Persona  with using some
 of the most recent  models of chat GPT
 and so here I'm going to to  request
 um
@@ -240,7 +241,7 @@ make the the fitting in the logarithmic
  plots  to make the fitting line
 let's use that as a motivation to make
 our own fitting so here I'm using this
-um new package MAF fitting which  can
+um new package "Math::Fitting" which  can
 do at this point it can do linear
 regression only in two Dimensions or
 the the regressor variable is
