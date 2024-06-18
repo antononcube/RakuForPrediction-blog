@@ -1,0 +1,37 @@
+﻿Geographical data demo (Raku)
+	Data
+		Data::Geographics
+		Country data
+		City data
+	Visualization
+		JavaScript::D3
+		JavaScript::Google::Charts
+	Named Entity Recognition
+		DSL::Entity::Geographics
+		Types
+			Conitnent
+			State
+			City
+			City-&-state
+		Languages
+			English
+			Bulgarian
+	Countries
+		Metadata
+		Which countries?
+		GDP vs Electricity production
+		Contours
+		Math::Fitting
+	Cities
+		Locations
+		Populations
+		DSL::English::DataQueryWorkflows
+		Distributions
+			Number of cities per state
+			Population per state
+			Correlations
+			Pareto principle
+		Proximity search
+	Nearest neighbors graphs
+		Math::Nearest
+		WWW::MermaidInk
