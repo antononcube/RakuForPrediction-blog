@@ -73,45 +73,45 @@ Here is a mind-map summarizing the text:
 
 ```mermaid
 mindmap
-  root((Geographics Data in Raku Demo))
-    subroot((Presentation Details))
+  root((Geographics Data<br>in<br>Raku Demo))
+    subroot(Presentation Details)
       Anton_Antonov
       June_16_2024
-    subroot((Raku Packages))
+    subroot(Raku Packages)
       Data_Geographics
       JavaScript_Google_Charts
-    subroot((Panels))
+    subroot(Panels)
       Left_Panel
-        summary((Summary))
+        summary(Summary)
       Middle_Panel
-        presentation((Presentation))
+        presentation(Presentation)
       Right_Panel
-        browser((Browser))
-    subroot((Geographics Package))
+        browser(Browser)
+    subroot(Geographics Package)
       country_data
       city_data
       data_science
       visualization
-    subroot((JavaScript Package))
+    subroot(JavaScript Package)
       Google_Charts
         chart_types
         color_tuning
         large_language_models
-    subroot((City Data Analysis))
+    subroot(City Data Analysis)
       location
       population
       links
       proximity_search
       neighbors_graph
-    subroot((Country Data Analysis))
+    subroot(Country Data Analysis)
       metadata_points
       GDP_vs_Electricity
       contour_plot
-    subroot((Package Dependencies))
+    subroot(Package Dependencies)
       DSL_English
       Math_Nearest
       WWW_MermaidInk
-    subroot((Future Plans))
+    subroot(Future Plans)
       JavaScript_D3
 ```
 
