@@ -1,0 +1,2276 @@
+when the conference team invited me to
+give this talk they asked me for a
+presentation about where we've been and
+what's been accomplished and I actually
+found that something of a challenge
+because while I don't actively dislike
+the past I'm simply so focused on what's
+coming next that I'm more or less just
+comfortably indifferent to what's gone
+before so I thought the easiest way for
+me to start then would be to give you
+some
+statistics in the past quarter Century
+I've written about 3.8 million lines of
+Open Source Pearl and Raku and uploaded
+something to the cpan about once every 3
+weeks in the form of 81 separate modules
+most of which were actually
+serious in the same time I've given over
+300 presentations on average about one
+every month for a total of just in
+excess of a thousand hours of speaking
+and I gave those presentations
+in 66 cities in 22 countries across four
+continents that involved over 1500 days
+of travel about 4 years and 4 months
+away from home and that four months was
+actually spent off the surface of the
+Earth in
+Flight the total distance I covered in
+that time was around about 1.4 million
+miles or if you prefer that's the
+equivalent of going 56 times around the
+earth or three times from the earth to
+the moon and
+back so if you're wondering why I no
+longer travel that's a large part of the
+reason and all of that work all of that
+development all of that travel all of
+that speaking was made possible by
+people just like you the international
+Pearl
+community in the early days it was
+through two large P Foundation grants
+more recently through five separate
+travel grants again two from the Pearl
+Foundation one from the Frankfurt Pearl
+mongers and two from some very special
+private individuals who sponsored me to
+come and speak at particular
+conferences in addition to that I've had
+the support of over a dozen quite
+extraordinary people who have
+consistently found me paid speaking and
+training opportunities that have given
+me the free time to do all of that other
+stuff some of them over periods in
+excess of five or even 10 years
+and of course the grants that I received
+were the result of the donations from
+hundreds of very generous people and
+there were literally thousands of people
+who simply showed up to the
+presentations that I was
+giving and to everyone of you I am more
+grateful for the opportunities for the
+adventure than I can possibly
+say now interestingly that four months
+that I spent on aircraft had an
+interesting side effect because it
+turned turn out when you do a large
+amount of traveling you're also doing a
+very small amount of time
+traveling because of Lorent contraction
+the formula looks like this and it boils
+down to the faster your traveling the
+slower time passes for you and that's
+why when you come back from the Stars
+your young daughter is now a senior
+citizen so if we look at the physics of
+this if I'm traveling around the world
+World either west or east then I'm
+moving at a different velocity from if
+I'd stayed at home relative to the
+stationary center of the earth if I'm
+traveling west then I'm actually
+traveling slower than I would have been
+at home if I'm traveling East then I'm
+traveling significantly
+faster and there's another effect going
+on here as well because I'm in an
+aircraft and not on the surface of the
+Earth the gravitational force I'm
+experiencing is again very slightly
+different and time varies according to
+the gravitational force that you're
+experiencing according to this equation
+which basically just means the higher
+you are the faster time will travel for
+you and that's why if you go down onto
+the hypergravity planet when you come
+back the young guy you left behind is
+now also a senior
+citizen so those two effects on the
+passage of time either add up or
+subtract from one another depending on
+which direction your travel traveling
+and in 1972 a couple of physicists
+actually tested this by taking two
+atomic clocks on aircraft traveling
+around the world in each Direction and
+measuring the difference from an atomic
+clock that they left behind and what
+they found was that when you traveling
+to the West you actually age about 275
+nond faster than if you stayed at home
+and if you're traveling to the east then
+the two effects cancel each other out to
+a certain extent and you age 40 nond
+slower so on average when you're
+traveling around the world in either
+direction or half the time in each
+Direction then you're aging about 120
+nond faster than if you stayed at home
+which means for someone like me who's in
+the past 25 years traveled around the
+earth 56
+times I now live just under 7 micros in
+the future which gives me a kind of
+useless superpower called micro
+precognition so for most people the
+world looks like this for those of us
+with micro precognition we live a tiny
+fraction of a second into the future and
+the world then becomes a little bit
+blurred it's not terribly useful it's
+pretty much like uh the guy who is
+bulletproof but only to every 13th
+bullet or the goddess whose arms
+detached but she has no control over
+them when they're
+detached or the man with absolute
+immunity except in New York when it's
+stormy so having that ability to see
+just under seven micros seconds in the
+future is nevertheless the ability of
+seeing possible Futures and the
+interesting thing about that is seeing
+possible Futures is kind of the same as
+being able to see alternative pasts and
+that's what I'd like to talk about today
+so obviously those four Images were
+created by Ai and at the moment we all
+thinking is AI going to be the future
+but for me that's not the interesting
+question for me the interesting question
+is what if AI had been the alterate
+ative past what if I could take current
+large language model technology jump in
+my DeLorean and go back in time
+specifically I'd like to go back to
+September
+1999 for those of you who don't remember
+that time everyone pretty much looked
+like this except the people who looked
+like this but in September 1999 I
+released a module on cpan called koi and
+the idea of the koi module was that it
+would rewrite your ER messages it would
+change the behavior of croak and carb
+and die and warn so that when you gave
+them an error message it would take that
+message and it would compose a haiku for
+you to try and soften the blow of
+receiving this bad news you get a
+soothing Haiku to start you
+off back in the day that was pretty
+spectacular but now of course it's so
+last Millennium if I wanted a haiku to
+ease the burden of receiving an error
+message I would just fire up something
+like cled and specifically ask it here's
+an error message could you please
+compose a soothing Hau that's relevant
+to this error message and it would
+produce something gorgeous and
+regardless of the error message you gave
+it you get something relevant something
+that's scanned properly something that
+was
+poetic so let's jump forward a little
+bit back in the DeLorean and up to May
+2000 where I released a module called
+text Auto format and the idea of this
+module was you would give it some text
+that You' taken out of an email and ask
+it to reformat that to a particular
+width and it would do that respecting
+all of the conventions of email quoting
+and other things like being able to
+recognize any kind of bulleted point and
+preserve the bullets or if you have
+numbered bullets then renumber it to
+make it
+sensible so of course I had to find out
+whether a large language model could do
+this so I fired up llama 3 gave it that
+request and sure enough it had no
+trouble whatsoever doing the same thing
+for me and it understood the bullet
+points and it was even able to rumber
+them when I asked it to if we jump
+further ahead to July
+2014 I released a module called lingua n
+inflection the idea of this module was
+it gave you an inflect sub rutine which
+you could pass a string in which you had
+annotated important numbers and nouns
+and
+verbs and inflect would then inflect the
+noun and the verb to match the number
+that you had also noted so you would get
+grammatically correct output where the
+verbs and the nouns match the
+number now of course it's not going to
+be any surprise that a large language
+model can do that so here for example is
+Google's Gemini model taking the same
+input and producing the correctly
+inflected
+output the last time I gave a keynote
+was in fact June 2020 and in that
+keynote I announced a module called
+codart and the idea of codart was you
+hook this module into your editor and
+then wherever your cursor is in your
+Pearl code it highlights all of the uses
+of the variable that the cursor is
+sitting over and as you move through the
+code onto different variables you get
+different parts of the code highlighted
+indicating where those variables are
+being used and it knows to ignore other
+variables of the same name in different
+scopes
+so I thought to myself there's no way
+that a large language model is going to
+be able to replace this
+module but I tried I gave chat GTP a
+short tutorial on how lexical scoping of
+variables Works in Pearl I gave it that
+code and sure enough it gave me back an
+annotated version of that code in which
+it had correctly identified the scope
+and relationship of every single
+variable in that
+code so it turns out that the last 25
+years of advanced programming that I've
+been trying to do can now effectively be
+completely replaced by glorified
+autocomplete I wasn't in fact the mad
+scientist of pearl I was merely the
+large language model of Pearl version
+1.0 so might wonder why I'm not more
+upset about that why am I so calm about
+it well codart did more than just
+recognize the scope of variables if you
+put your cursor over a variable you
+could ask codart to change
+it and all of the instances where it's
+used without messing with any others and
+that's a bit better than regular
+substitution so I thought well I wonder
+if cat GTP can do that as well I asked
+it to do
+so it took that variable that I
+mentioned and was able to replace it
+about 60% of the time in other words it
+missed a couple of instances which is
+the same as to say as it was putting a
+bug in the code by changing what
+variable that actually refers to so I
+tried again with a variable of wider
+scope and once again it was only able to
+change about 2/3 of the actual instances
+and in this case it did even worse
+because not only did it fail to change
+that variable but for some reason it
+converted it from an array to a scaler
+it should have been the array values
+instead so from this I concluded that
+chat GTP at least is able to pass the
+hunt Thomas version of the cheering test
+you might remember that Andy Hunt and
+Dave Thomas were the two guys that
+coined the term end bugging for the
+process of unconsciously putting bugs
+into your code which we all do all the
+time so it turns out that large language
+models can in buug code now at near
+human levels of performance I'm not sure
+whether that's a good thing but that's
+what they seem to do so I went back a
+little bit and I thought well with my
+lingua and inflect module I didn't just
+sit there translating
+and verbs into the correct inflection I
+actually wrote code that did that I
+wonder what happens if you ask an AI to
+write code to do that so I asked CH ggp
+and It produced quite a bit of pearl
+code all of which compiled it even had a
+little test Suite associated with it and
+when I ran that sure enough it was able
+to translate again only about 2/3 of
+these sentences into grammatically
+correct English it missed these last two
+examples became ties ladies became dyes
+so then I spent about half an hour
+trying to work out what was wrong with
+this trying to coax chat GTP into
+debugging it for me and chat GTP was
+just not able to do that it couldn't
+find what the problem was and it
+couldn't fix the problem in the end I
+had to go into the code myself and
+recognize that what was going on was
+that it was matching consonant followed
+by Y and replacing it with consonant
+followed by I which is a valid rule for
+English inflection but all it was doing
+was matching the consonant and only
+returning that consonant with the IES
+what it needed to be doing was something
+more like this where it would capture
+the whole preceding prefix of the word
+and return that as well and when I
+changed
+that then the whole test Suite ran
+correctly but I had to change it chat
+GTP I just could not convince to debug
+and fix that so that means that chat GTP
+also passes the kernigan version of the
+touring test you recall that kernigan
+said that debugging is at least twice as
+hard is writing code in the first place
+so if you write code to the best of your
+ability as cleverly as you can then by
+definition you're not smart enough to
+debug it and so far AI is debugging at
+that kind of near human level of
+performance not smart enough to debug
+its own
+code so that's why I'm not excessively
+worried about the rise of AI my next job
+probably won't be writing code to solve
+someone's problem but I don't think it's
+going to be telling an AI to write code
+to solve the problem either
+I think it's going to be telling an AI
+to solve the problem directly without
+writing that buggy code that it can't
+fix so at this point if you've seen one
+of my Keynotes before you're probably
+expecting that I'm going to announce a
+whole series of modules that have this
+kind of AI augmented behavior in them
+and say they're all now on cpan but it
+turns out that's not necessary because
+on cpan already there are a number of
+excellent modules that will hook you in
+to any of the large language models that
+are currently
+available and with those you can create
+your own Auto inflection sub routine
+which takes some text and hooks into in
+this case chat
+GTP Builds an object with which you can
+interface with the chat GTP
+API you then just build an English
+language request or any language you
+like for that matter interpolate in the
+specifics of this call to Auto inflect
+fire off that prompt and whatever you
+get back that is your answer and indeed
+at that point you can Auto inflect a
+whole series of grammatically incorrect
+statements and get them back
+grammatically corrected and you could do
+exactly the same thing for auto format
+once again you build an interface to the
+remote service you build a prompt for
+that request you interpolate whatever
+information is needed to specialize that
+prompt for this particular call you fire
+it off get it back and now you have ai
+based Auto
+formatting we can even do it for the
+ancient koi
+module set up the infrastructure to
+communicate with the language model
+build a prompt that asks for what you
+want interpolate the components that are
+specific to this error
+message send off the prompt get back the
+response format it into a nice elegant
+format and now we have Hau that are far
+better far more relevant far more
+elegant than anything the koi module
+could ever
+produce now of course all of those
+examples are following exactly the same
+structural format all of them simply set
+up the interface build the request
+interpolate specific details that need
+to be part of that request fire off the
+prompt get back the result so whenever I
+see something like this where I'm doing
+the same thing over and over and over
+again then I immediately jump in the
+DeLorean go back to 2 15 when I released
+keyword
+declare and I can use the keyword
+declare module to take those
+infrastructure components that are not
+interesting in themselves and hide them
+away in a keyword so I created a keyword
+do what I mean which takes a curly
+bracketed block of
+text and then simply replaces that Curly
+bracketed block of text with all of that
+infrastructure for calling out to the
+large language model interpolating the
+actual block of text as a double qued
+string into the
+prompt and now if I want to Auto inflect
+that's just uh do what I mean and ask it
+for what you want and if I want to autof
+format it's just a do what I
+mean and if I want koi to be
+implemented I just do what I mean within
+the scope of calling
+C and in all of those cases the key word
+is simply replaced with the
+infrastructure and it does what I mean
+the only problem here of course is
+because it's a keyword and because
+keywords can only appear at the start of
+a statement in this case where I wanted
+to interpolate it into another called C
+I have to put it in some kind of do
+block to make it the statement inside
+the do
+block and that's kind of annoying it' be
+much better if it didn't have to be like
+that if I could just Implement koi in
+three lines of code
+but you can't do that with keyword
+declarations to do that you've got to
+get back in the time machine go all the
+way back to 2001 when I released the
+filter simple module and with Filter
+simple you can set up a source code
+filter whenever your code loads this
+module The Source following that load is
+going to be passed to this filter in
+doore and then you can just do a big
+substitution on it so you can look for
+any instance of dwim with curly brackets
+not just at the start of a statement but
+anywhere you like and you can replace
+those extracting out the curly brackets
+turning them into a double quoted string
+and then just calling the infrastructure
+in some little sub
+routine and that
+works too well the problem here is that
+that substitution is completely
+undiscriminating it will find dwim and
+curly brackets anywhere in your code and
+replace it anywhere in your code not
+only in the places where you want it to
+do that but in literal strings in
+comments in any other part of the code
+where you don't want that to
+happen and that's why people don't like
+Source filters why they're kind of
+looked upon with horror and with Dread
+because yes they are an incredibly
+powerful tool for extending the Pearl
+language but what they really are is an
+incredibly powerful tool for putting in
+very subtle and hard to find bugs into
+the Pearl
+language but fortunately time moves on
+if we Zoom back up to 2017 I released a
+module that solves that problem and that
+module was the PPR module PPR is a
+module that provides you with a Rex that
+matches correctly any valid piece of
+pearl so I could replace this simple but
+dangerous substitution filter with a
+very much safer one I would use the
+extension version of the regular
+expression and I would say I want to
+match an entire Pearl document when you
+run this filter I want to match an
+entire Pearl document except that I want
+to extend the existing rules for control
+blocks and for subon calls and I want to
+extend them by adding the new dwim
+syntax but correctly paed as proper
+Pearl and I want to every time I match
+one of those new dwim blocks I want to
+capture the relevant
+information within some kind of lexical
+variable that's currently in scope and
+then my actual ual substitution just
+works like this I match that entire
+Pearl with dwim block syntax assuming it
+matches then it may have captured one or
+more of these dwim blocks so I just
+iterate through each of
+those I extract out the requests convert
+them into the dwim code that I need and
+substitute that back in to the original
+source
+code and so now I can have dwim anywhere
+that I could have either a control block
+or or a sub rtin call and nowhere
+else and this then just works and makes
+heartrendingly beautiful error messages
+for
+you the module is called drim block and
+yep it's now on cpan but I have to say
+if you are seriously considering de
+ploying code that applies an arbitrary
+source code filter and then pipes half
+of your Source out to a large language
+model then I think you really have to go
+home and rethink your life
+but of course as usual the real treasure
+was not that but it was the modules that
+we made along the way because what I
+just showed you was a source code filter
+that understands Pearl syntax I think
+that's actually worthy of exclamation
+marks rather than question marks it' be
+even cooler if you didn't have to write
+all of this horrible code to make it
+work but of course as soon as I looked
+at that I realized the only bits of the
+code that were specific to solving the
+problem were these little bits of code
+so once again that's a perfect
+opportunity to create a module to
+simplify that
+syntax so I created a module that gives
+you a new filter declarator and the
+filter
+declarator says I want to filter only
+this syntactic component of pearl only
+control blocks or only sub routin calls
+and I want to extend the existing
+syntax with this new dwim syntax but
+using the internal PPR code to make sure
+that I pass
+correctly and whenever I find this new
+syntax I want to replace it with this
+standard syntax in other words I want to
+return a string that's going to be
+interpolated by the filter and that
+string is simply going to take the
+request and where does it get that it
+gets that from the named captures of the
+new
+syntax and it all just works it gives
+you a way of creating source code
+filters that understand and respect the
+existing pear syntax and which you can
+now extend that Pearl syntax safely how
+does it actually do that the module
+itself is one of those syntactic filters
+but it's a meta filter in other words
+it's a filter that I wrote that takes
+your module code with Filter
+declarations in it and filters those
+back to other syntactic filters which
+you can then use to safely filter your
+source
+code the module obviously enough
+therefore is called filter syntactic
+it's also now on
+cpan but if you're seriously considering
+deploying code that applies syntactic
+filters to your
+Source you know what that's probably
+okay Force go W1 says go for
+it so so far I've talked about the idea
+of applying effectively future
+Technologies to upgrade some of the
+modules that I created in Pearl's past
+but I'd also like to look at the flip
+side of that applying past Technologies
+to upgrade some of pe's future and to do
+that we have to go back to earlier times
+back only a few years to May 2020 when I
+received an email from the most
+dangerous Pearl programmer on the planet
+over at the time he and I were working
+on the Karina project and that project
+was the one that produced the use
+feature class syntax that is now being
+added into Pearl slowly and what you get
+effectively
+is keyword definable classes with fields
+and
+methods and attributes which can
+generate accesses for you
+automatically and the methods can refer
+directly to the field variables as if
+they were closures over them so you
+don't have to go through Dollar Self
+anymore and it's all built straight into
+the language so you don't have to use a
+framework you just use Pearl to do
+it and back in May 2020 when I re
+received this email from over he was
+asking about a particular situation that
+he'd come across in trying to use this
+new feature and specifically he said
+I've got a tree class and that tree
+class I want the accesses for the
+children for the left and right child
+nodes to be the usual kind of pearl
+accesses so if you pass an argument in
+then it will set the left child of this
+node to that value and if you don't pass
+an argument in it will just return the
+current value of the left
+child his point was that that was what
+these attributes were supposed to do if
+you declared a field to be reader and
+writer then you get a method of the same
+name left in this case which just does
+that behavior in other words that's just
+a shortcut for writing a method like
+this where if you pass no argument then
+you just get the value of the field back
+and if you pass an argument then that
+gets put in the field but ob's point was
+that this standard kind of structure for
+an accessor doesn't actually work
+correctly in this case for a tree and
+the reason is of course you can't just
+put some string that someone's passed in
+as the argument to left into the tree as
+its left child it needs to be another
+tree node so you have to wrap that up
+specifically in another tree object so
+you can't actually use the automatic
+reader and writer because it's not going
+to give you the right Behavior you have
+to write your own method and that's okay
+that's expected the problem is of course
+that it's ugly and we're using doore 0
+which we should never really use we
+should at least unpack atore into a
+named variable for maintenance purposes
+but here again we're still using at
+underscore which again is so last
+Millennium and over's question was well
+what I'd really want to be able to do is
+use the modern signature Syntax for
+subroutines and methods to do to remove
+that instead and he suggested well I
+think I know how to do it I could do it
+like this
+where I provide left with a single
+parameter but that parameter is optional
+and if it's not passed if the argument
+is not passed in then I simply set it to
+unde the default value of the parameter
+is unde and then I can just test for the
+undefinedness of that new value and if
+it's undefined I just return the current
+value because no argument was passed and
+otherwise I execute the assignment
+instead but the problem that he
+recognized with this was that it works
+in the majority of cases if you pass an
+argument in sure enough the default
+value doesn't get assigned the value is
+defined so it does the assignment if you
+don't pass an argument in the undef does
+get assigned to the parameter and you
+just get the value back without any
+assignment the problem was what if you
+actually want to pass in as your value
+the value unde and that's not
+unreasonable to want to do but it
+doesn't work that silently doesn't do
+any assignment at all because because it
+trips the not defined of new value even
+though the new value was actually passed
+in it's still undefined so the question
+was is there some other way that I can
+set up this signature and this test so
+that that doesn't happen so there are no
+special values that get passed in that
+then do the wrong thing and I said yeah
+yeah there is but you're not going to
+like it you can do this you can declare
+a lexical variable inside the signature
+and then take a reference to that
+variable as the default value when no
+argument is passed in and that lexical
+variable is lexically scoped to the
+block of the method and so the only
+place that you can actually access that
+variable and therefore get a reference
+to it is inside that block so now if no
+argument is passed in the new value gets
+assigned a unique value that simply
+cannot be found anywhere else so it's
+absolutely
+safe and of course of it immediate
+reaction was is there any other way of
+doing that cuz that's pretty damn clunky
+I said yep there is but you're probably
+not going to like it any more than that
+you can do this you can simply say that
+when no argument is passed in the
+default value is the result of return
+left and of course the return has a side
+effect of immediately returning from the
+method that it's inside which is the
+left method so at that point when no
+arguments passed in we immediately short
+circuit immediately return left and
+we're done and then the body will only
+execute if there was an argument ped and
+it can just take whatever argument that
+is and put it into the tree and that is
+the most concise possible solution to
+this inst standard P now if you're
+thinking to yourself wow that is
+extremely clever then you my friend are
+part of the
+problem because that's another way of
+saying that's essentially undeb figan
+has taught us
+that so I said to over look the real
+solution here has been a around for a
+long long time in Pearl it's been
+available for a quarter of a
+century and that solution is to use
+multiple dispatch in 1999 I released the
+module class multi methods and since
+then there have been any number of other
+modules put on cpan that give Frameworks
+for doing multiple
+dispatch all the way up to Christmas
+2015 when the Raku language was
+released because it too has full
+multiple
+dispatch what is multiple dispatch it's
+simply the ability to declare two or
+more versions of the same named
+method which have different
+signatures and then you select based on
+the number of arguments that are
+actually passed so rather than writing
+this highly clever thing you simply
+write two versions of the left method
+one of which takes no arguments and just
+Returns the value one of which takes one
+argument and does the appropriate
+assignment now the interesting thing is
+you can actually write this in Pearl
+today but if you do it's not going to do
+what you hoped because as soon as you
+declare the second version of left that
+overwrites the first version with an
+error message and you only get the
+second version which is not what you
+want what we want is to be able to have
+both versions operating and to be
+selected at runtime according to the
+number of arguments that we're actually
+passed and that's something that's
+incredibly easy to do in Raku with
+almost the same code because Raku has
+this multi modifier that you can put on
+a method to just say look there really
+are meant to be two of these with
+different signatures and you're supposed
+to work out which one to call depending
+on the number of arguments that were
+placed now in any of the Frameworks
+including my own dos object-oriented
+framework you can do the same sort of
+thing they have this ability to specify
+this is not a regular method this is a
+multi method there are multiple versions
+of this same method and you have to work
+out what to do and even back in 1999 you
+could have done that with the class
+multi methods module except that the
+syntax would have been considerably
+clunkier so that's what I wanted I
+wanted to make that work with Pearl's
+new builtin
+classes so that's exactly what I did I
+created a module that when you load it
+it gives you a new declarator it gives
+you a multimethod declarator which say
+these are both valid for different cases
+and now the case where you pass no
+argument calls the first version and the
+case where you pass one argument calls
+the second version even if that one
+argument is
+unde and that was going to be it that
+was going to be all that it was going to
+be just the ability to have two or the
+more methods with the same name but
+different numbers of parameters selected
+by the number of arguments that were
+passed
+but of course I reckoned without the
+Temptations of the dark
+side so obviously that wasn't going to
+be all and the reason it wasn't going to
+be all became almost immediately
+apparent when I went back to look at
+that example because there's actually a
+bug in this example even with the multi
+methods in place and that bug appears
+because I'm not always going to be
+passing in strings as the value of my
+left child what if I pass in an actual
+tree object already or what if I
+sometimes pass in a tree object and
+sometimes I don't and sometimes I'm not
+sure till runtime whether I am or I'm
+not well then I have a problem because
+the body of the left assignment version
+always wraps up whatever you pass in a
+tree node so if you're passing a tree
+node you now get the tree node wrapped
+in another tree node before it's put in
+the tree and that's inherently incorrect
+so immediately I saw this second version
+of the multi method has to get more
+complicated I have to have a test
+initially that says is this new value
+already a tree object if it is then I
+just assign it directly without wrapping
+it up and otherwise I wrap it up and
+then assign
+it and of course as soon as I have two
+or more possibilities within that one
+multi
+method then what I really have is two
+multi
+methods one multi method where I pass
+one argument where that argument has the
+additional constraint of being a tree
+object and another version where I pass
+the argument and it doesn't have that
+constraint and that's perfectly possible
+to write with this new
+module so in addition to doing number
+based multiple dispatch it also does
+type based multiple dispatch so having
+any kind of type sensitive multiple
+dispatch solves another common well not
+even an O problem just a general problem
+of coding and that General problem is
+the number of times we have to write
+code like this where I have this long
+Cascade of if else if else if where I'm
+testing and condition and then making
+some response on the basis of which
+condition actually applies and it might
+not be written like that it might be
+written as just one big turnery operator
+but it's the same fundamental idea and
+anytime you see this structure that is
+an opportunity for multiple dispatch so
+here's an example that's a little bit
+more practical I guess like most of us
+I've written my own data dumper module
+any number of times and so here is an
+implementation of a DD sub rutine that
+takes some kind of data and data dumps
+it and it does that by just working out
+what kind of data it's looking at and
+then producing the appropriate string
+based representation of that data and
+then you can pass in different bits of
+data and you get back the appropriate
+printout so anytime you have that
+cascaded turnery or the cascaded if else
+if else if that's an opportunity for
+multiple dis bch so I could have written
+that same thing in this way instead
+where I have five different variants of
+DD Each of which have some kind of
+constraint on them saying you only use
+this variant when this constraint is
+true except for the last one which has
+no constraint upon it so the first
+constraint here is not even a constraint
+on the parameter it's a constraint on
+the call it says if you call DD where
+want a is not defined that means you're
+in void context and in void context what
+we want to do is print out whatever
+being data dumped so we do that by
+saying what is being data dumped and
+recursively calling
+DD or you can say I want to do these
+variants when this particular constraint
+applies when the data is an array
+reference or a hash reference or it
+matches this rex that I've developed for
+numbers so it's a number and then you
+got the last case where anything else we
+basically just print out as if it were a
+string now these two cases where I'm
+looking at the type effectively of the
+argument being passed in is it an array
+is it a hash reference that's a little
+bit clunky the attribute-based where
+syntax is kind of a little bit verbose
+you are probably expecting something a
+little bit more concise and easier to
+read and of course the module while
+allowing you to do this also gives you a
+more concise syntax you can just write
+this if the data is an array do this if
+the data is a hash reference do that now
+of course it's still saying that you're
+passing in a reference because it's
+going into a scale
+so you still have to explicitly
+dreference it yourself and that's also a
+little bit annoying especially since
+Pearl now has a better way of doing
+that and nowadays in Pearl you can write
+this instead not in a sub routine but in
+other places you can say if I'm going to
+assign to a reference to an array that
+is going to Alias that named array to
+this Anonymous array reference and you
+can even do that in for Loops you can't
+yet do it in subroutine
+but I've got a suspicion that eventually
+you'll be able to in the meantime if
+you're using my module you can do it in
+multisubs so you can say I still expect
+to receive a reference to a
+array but I want you to Alias that array
+reference to at data and now of course
+accessing at data becomes a little bit
+cleaner and the same thing down here
+with a hash you can simply say I want to
+pass in a reference to this hash which
+I'm locally going to Alias to percentage
+data and now all of that syntax gets
+cleaner as
+well now down here where I'm doing uh
+where it matches this red JX for a
+number I thought well the module ought
+to let you do that too you can also just
+say I want to match this by using an
+infix operator you can say I want this
+variable to match this
+number and you can do that with the base
+case as well you could say well what I'm
+really wanting to do here is match
+something that isn't an empty string
+because if it's an empty string I'd like
+to just put out a special optimized
+version of that for the empty string but
+back here numbers are still hard to get
+right in Rex's so you might prefer to
+use Toby iner approach and Toby's
+approach would just be to say I'm going
+to put a type tiny type object the
+number type object as the constraint on
+this parameter and that just
+works going back to the very first
+example where we would detecting that
+there was a void context call going on
+well that works but it's hardly obvious
+that that's what we're detecting so the
+module also gives you an abbreviated way
+of writing that where you can just say
+where we're in void
+context and of course you can also say
+where we're in list context or where
+we're in scaler context now when we're
+in void context of course we have to
+recursively call this multi-ub again to
+actually get the thing that we're going
+to print out that's kind of annoying
+because it introduces a whole second
+level of calling so I thought it'd be
+much nicer if we could just do what we
+can do with method in Pearl which is in
+in Pearl with methods you can say I just
+want the next method in this hierarchy
+to take care of this for me and here you
+can do the same sort of thing and say I
+want the next available variant to
+handle this for me now if you're going
+to do that then it's not going to recall
+the same DD it's just going to go back
+to the dispatcher and keep finding the
+next available DD that matches the
+argument the only thing there of course
+is you want to make sure that this is
+the first one that gets called so the
+module also provides a little mechanism
+by which you can say I want you to try
+this one before you try all the
+others so that's it data dumper in six
+lines of mully dispatched very readable
+Cod the module has other very handy
+features one of those is a feature that
+I stole from Raku but that's okay
+because originally I stole it for Raku
+from H and that feature is called a
+signature literal the idea here is that
+when you're writing these kinds of
+multiply dispatched sub routines or
+methods what you find is very often you
+write something in this form where
+you're trying to match against a
+particular pattern or a particular value
+like empty string or unde and do
+something special in that case a more
+common example of that would be the
+Fibonacci function in general you just
+compute Fibonacci n minus1 plus nus 2
+but there's the special case where n is
+one and special case when n is zero in
+which case they both return one or you
+might want to have some kind of function
+that outputs fatal error messages and if
+it's a general message then you print
+fatal error and the message but if the
+message is empty then you don't want to
+have that kind of colon and nothing so
+you just have a special case for dealing
+with empty fatal error messages and
+probably another one for dealing with
+undefined fatal error messages which are
+just weird and the thing that I noticed
+about all of these special case variants
+is that in very many cases when you look
+at the body of the code that's going to
+be executed in that case the body of the
+code doesn't actually use the variable
+at all and that makes sense because the
+constraint that we're placing on that
+variable tells us exactly what the value
+is going to be so we kind of don't need
+to examine that value
+directly so in many languages that have
+multiple dispatch there's a shortcut for
+that particular
+case if you're trying to match
+particular value and you don't care
+about the parameter value itself apart
+from it being that special value you can
+just write this the Fatal behavior for
+an empty string is this the Fatal
+behavior for an unde is this and you put
+the literal value that you're expecting
+to be there as the signature and of
+course that works equally well for the
+Fibonacci function you can just say
+Fibonacci of zero is one Fibonacci of
+one is one and Fibonacci of n is the
+usual you can even do it up here because
+none of these use their parameter
+directly either so again you can just
+get rid of that binary uh constraint and
+say when it matches this Rex when it is
+this an empty string when it is unde do
+these
+things the last feature that I'd like to
+tell you about which is also stolen
+indirectly from Haskell is a much more
+powerful one called
+destructuring so here's a slightly
+larger example of the merge sort
+algorithm and if you're not familiar
+with the merge sort algorithm it kind of
+works like this when you want to sort a
+list if that list has less than two
+elements in it then it is inherently
+already sorted so you just return it and
+otherwise you break the list into two
+approximately equal half
+you recursively sort those two halves
+and then you merge the two sorted
+sublists together by taking the smallest
+element from each of the lists at any
+one time and making a single sorted list
+and that merge behavior is itself
+relatively simple if one of the two
+lists you're trying to merge is empty
+then you just return the other one
+because it's kind of the merge of the
+two then and if both of them are not
+empty then you compare the first element
+in each of the lists and you return the
+smaller of those two first elements and
+then you recursively merge the remainder
+of that list with the other
+list and that's a well-known pure
+functional algorithm the merge sort now
+the obvious thing here is the merge sord
+itself has a cascaded turnery so it
+could be written as a multi-ub the merge
+sord of nothing is nothing the merge
+sort of a single element is that single
+element and then the merge sord of any
+other list is just the recursive split
+sort
+merge and of course we could also apply
+multiple dispatch to the merge part of
+the algorithm as well the first thing
+that we could do is we could make these
+more useful rather than just saying
+we're passing into array references and
+let's just hope that we actually get
+array references we could put
+constraints on there and say they have
+to be array references and when you get
+the array references Alias them to these
+two local arrays and when you do that
+then all of that syntax gets a whole lot
+simpler now of course again we have a
+cascaded turnery with a couple of
+preliminary simple cases so we could
+Factor those out into multiple variants
+of merge we could
+say if you get an array reference where
+the array itself is empty then you just
+return the other one but again that's
+kind of a little bit ugly a little bit
+verose a bit hard to read so in most
+languages that have this kind of
+multiple dispatch feature there's
+another way of writing it and that makes
+sense because in Pearl there's another
+way of writing a reference to an array
+that has no Elements which is much
+cleaner and much easier to follow and we
+simply write it like that where I
+literally say what I'm expecting here is
+an array with literally nothing inside
+it and of course I could do the same
+thing in this case where the Y array is
+supposed to be empty and I could write
+it like
+that and that's just a special case of a
+more General feature
+which is that using this destructuring
+mechanism you can describe the internal
+structure of a container that you're
+passing by
+reference so we could do the same down
+here we could say well I expect that the
+X array must consist of at least one
+scalar element and then possibly some
+more elements that I would slurp up into
+an array parameter and these are like
+sub parameters that's still only one
+parameter but when you find that array
+reference deconstruct it into the
+initial scalar and the greedy extras if
+there are any and you do the same thing
+with the
+Y and now this syntax gets a whole lot
+easier and this syntax gets a whole lot
+easier and you can't win everywhere this
+syntax gets a little bit more
+complicated because we've done away with
+those actual arrays they're now
+deconstructing when the signature
+matches so we have to Recon construct
+the arrays that we don't pull an element
+off but overall it's still syntactically
+a
+win and of course now we notice hey
+that's a turn operator testing some
+condition so I could convert that one
+variant into two variants and I could
+say something like this when you unpack
+the first element of the second array
+reference compare it against the first
+element of the first array reference
+which you've already
+unpacked and if it's in fact less than
+then return it and the merge of the
+remainder and otherwise return the other
+element and the merge of the remainder
+the only thing here of course is we're
+now doing more work than we need to
+because we're deconstructing that y
+array only to immediately reconstruct it
+we're never actually looking inside it
+in this variant so we could just convert
+that back to the ordinary Y and save
+ourselves a little bit of effort as
+well and now we have pure functional
+multi dispatch merge sort which would
+look virtually identical in Raku or even
+in has except now we can do it in
+po so that's pretty much everything that
+I ever wanted from a pearl sub rutine or
+method dispatch
+mechanism but now there's a problem and
+the problem is now I'm declaring three
+different versions of merge sort and
+four different versions of merge and how
+the heck when I call merge sort does the
+multi know which of its variants to call
+it was really easy when I was just
+deciding on different numbers of
+parameters because all I had to do was
+find the variant that had the same
+number of actual parameters as there
+were
+arguments but it's not as easy when I've
+got different numbers of parameters and
+they have different type constraints on
+them or different value constraints or
+they some of them required and some of
+them optional or they have different
+destructuring beh
+behaviors this actually is quite an
+ancient puzzle and it boils down to when
+there's only one choice if you're
+passing in two arrays and only one of
+your variants takes two arrays then
+you're golden you can just go and do
+that immediately but if you got eight
+variants half of which actually will
+take to array references how do you
+choose and it's not even just array
+references if you have four variants
+that all will take two integers which
+variant do you select
+and generally the goal here is to choose
+what we would think of as the best
+variant or to be more precise the most
+relevant to the argument list and
+usually that boils down to which one is
+most specifically matching the nature of
+the arguments that you pass in and this
+is actually quite a complicated problem
+because there are all kinds of different
+requirements for such a selection
+algorithm you want it to deal with every
+possible case you want it to be
+unambiguous in terms of it will always
+choose something that you can predict
+you want it to be unsurprising so when
+you look at a series of variants you can
+pretty much guess which one is going to
+be called for any particular set of
+arguments you also want the opposite you
+want it to be predictable you want to be
+able to easily write multiple variants
+and have them called at the time you
+expected when you have multiple variants
+and you're ordering them by which one
+should be tried first you want that
+process to also be stable so if I later
+add another variant that shouldn't mess
+around with the order of the ones that
+were already there and above all you
+want this process to be quick you want
+most of it to be achieved at compile
+time so that runtime dispatch is as
+quick as possible and if possible you
+want it to be easy to understand as well
+and as usual you get to choose about any
+three of those in most of the algorithms
+that are available for
+this this has been a long subject of
+research if we go all the way back to
+August 1982 the first paper that
+seriously addressed it in a real
+language was the paper that introduced
+the common lisp object system but since
+then over the following 40 years there
+have been lots of papers on lots of
+languages and lots of multiple dispatch
+module including by some very
+disreputable
+characters so over the last quarter of a
+century that I've been thinking about
+this for Pearl I have put a great deal
+of effort into finding an algorithm that
+meets all those
+criteria ideally I wanted it to be as
+easy as ABC in practice what I achieved
+was something that was as easy as
+ABCDEF ghi which I'm uncomfortably aware
+is bordering on
+AI the algorithm works like this a
+stands for
+arity so if you're passing three
+arguments in you can ignore and dispense
+with any version that doesn't accept
+three arguments that's an obvious
+starting point B
+stands for beforehand so if you've got a
+multi method or a multi-ub that is
+specifically marked as try this first
+well you just promote that and try that
+first the C stands for checking the
+constraints on each version of the multi
+method or
+multi-ub and here the rule is very
+simple if a particular signature has
+more constraints upon the parameters
+then that is inherently more specific
+about its requirements and therefore you
+should try that
+first and those constraints don't have
+to be type constraints they can be value
+constraints aware constraints and as you
+add constraints that simply makes it
+more likely that the algorithm will
+choose that particular variant to try
+first now of course that works great
+until you reach the point of saturation
+where you've constrained every
+parameter and then how do we work out
+which one to try first well fortunately
+in many situations the constraints have
+an inherent order of their own and here
+for example we can think of an INT as a
+special kind of numb and a num as a
+special kind of string so we should
+naturally try the int one first before
+the num before the string that works
+also very well in object oriented
+constraints on arguments if we're
+passing in an object then we could
+should try the constraint of the most
+derived type
+first and that works great as long as
+all of the constraints agree on that
+ordering but of course that's not always
+going to
+happen it might well be that the actual
+constraints were like this where some of
+them say this one this one this one and
+some of them go the opposite direction
+and some of them go inside
+out and that's why it can't just be
+simple as a b c because you can get
+constraint situations where there's no
+obvious ordering at which point we move
+on to the D Criterion which stands for
+destructuring any kind of signature
+where you're destructuring an argument
+to break it out and say has to have a
+particular structure that's inherently
+more specific than not saying anything
+about its internal structure so we
+simply promote those variants that have
+more destructuring in
+them if they all have the same amount of
+destructuring which often will be none
+then we can look at how many required
+arguments do they have because having a
+required argument is implicitly more
+specific than having an optional
+argument it'll match the same thing so
+we promote those versions that have
+required arguments over those versions
+that only have optional
+arguments we can do the same thing
+looking at the optional arguments if we
+haven't got a unique ordering yet we can
+just say well which of these have more
+optional arguments they obviously have
+the same number of required arguments
+but of course having optional arguments
+is less
+specific facultative just means optional
+but I had to have a word that started
+with f so if they've got more
+facultative arguments then they are less
+specific so we should demote those
+variants instead and the same for any
+kind of slurpie argument slurpie
+arguments are effectively less specific
+than saying I must have exactly this
+number of arguments so once again we
+demote the greedy
+versions if that's still not enough to
+tell us the unique ordering of these
+things then we can fall back at least
+for methods on heredity now when you
+have a regular method and you call it on
+an object you always start at the most
+derived available class for that method
+and we should do the same thing with
+multi methods so we can look at the
+class in which these various multis were
+defined and we can organize them so that
+the most arrived one is matched
+first and if all of those criteria fail
+to give us a unique
+ordering then we just fall back on
+Inception what that means of course is
+that we simply throw all of the
+contestants in into a non- ukian
+multi-dimensional dream space and we
+just let them fight it out no what it
+really means is we order them in the
+order of their Inception in the order in
+which they were
+declared and when you put all of that
+together you get an algorithm which can
+be completely determined at compile time
+where you simply look at all your
+variants check their arities and order
+them by arity check whether any of them
+are beforehand they are not
+count the number of constraints that
+each of them
+have count the number of dest
+structures how many essential arguments
+do they have well two each do they have
+any optional no any greedy arguments yes
+within the dest structures they do so
+that weighs Against The Ordering of
+those ones there's no hereditary here
+they're already in their Inception order
+and now all you do is you float the good
+stuff the ABCs to the top and the bad
+stuff to the bottom
+and that gives you a unique ordering for
+those and if you think about it a little
+bit more you'll see that that ordering
+is completely comprehensive it'll cover
+every possible signature
+unambiguously and it actually provides
+relatively unsurprising and predictable
+patterns of behavior basically the more
+constraints you have on it the fewer
+optional arguments you have on it the
+more likely it is to be chosen it's also
+stable and very quick because it's being
+done predominantly at compal time so it
+matches six of the seven criteria
+whether it's easy not one I'm not so
+sure about in the four years that I've
+been developing this software it seems
+to do what I mean most of the time and I
+hope that if you start to use it it will
+do what you mean at least some of the
+time now I'm pretty sure I know what
+you're thinking at this point something
+that complicated something that powerful
+something frankly that Damian there is
+no way we're ever getting that in core
+even though it's core in
+Raku even though it's core in hcll even
+though it's core in a dozen other
+languages as well but of course you
+don't have to wait for it to be put into
+Pearl 7even or more likely Pearl 17 all
+you have to do is load the module and
+all of the examples that I've shown you
+will just
+work so how does it work well there are
+monsters ahead
+here the module simply uses the PPR
+module to PA that new syntax so I wrote
+a big regular expression about 136 lines
+long that implements all of the variants
+that I've shown you of that syntax in
+correctly paed
+Pearl and then I simply installed the
+PPR grammar which turned it into a 2,136
+line Rex but now it will PA any Pearl
+file and correctly identify the new
+multi
+components so the code itself is
+relatively simple we simply create a new
+keyword called
+multi that keyword gets past the source
+code and it simply looks for a match
+against this new multipara Pearl syntax
+if it finds it then the syntax will have
+captured in named captures all the
+relevant information we need to
+translate that multi method or multi-ub
+back into regular Pearl so we just call
+a sub that does that for us that
+generates the standard replacement code
+which we just insert back in place of
+the
+keyword and that means that any time
+that I create a multi like this which
+has a couple of parameters which have
+some constraints upon
+them that module will translate that
+into this code
+instead and that code is all in a begin
+block so it's all happening a compile
+time and mostly what it's doing is
+installing a sub
+rutine that manages is the dispatch of
+this particular calls to report so
+anytime report is called if we haven't
+already installed something that works
+out which variant to call we installed
+this sub rutine and that sub rutine just
+goes through and looks up a table that's
+kept in the module of all of the
+variants that have the name report that
+belong in this package and that gives
+you back a list of records of the
+different variants and you then simply
+go through those variants shifting each
+one off in turn
+and the first thing you do is check
+whether this variant happens to take
+that many arguments and if it doesn't
+then you go straight on to the next
+variant but if it does then you do a
+more sophisticated test you test whether
+the signature of this particular variant
+satisfies the arguments that have been
+passed so you call this sub routine that
+works out whether this variant is
+suitable for handling this particular uh
+call and that sub
+returns one of two things if this
+variant is not suitable it returns
+undeath if it is suitable it returns a
+Handler which is effectively just the
+body of that variant so this is what you
+do if in fact this thing works so if you
+get back a proper Handler rather than
+unde then you simply execute that
+Handler by replacing the current
+dispatcher on the stack with a called to
+that variant so it's as if you
+originally call that variant now of
+course if you go through the list of
+variants and none of them will accept
+this argument list then you simply throw
+an exception saying hey this is a bad
+call you can't do
+that and then for each variant that you
+declare you have to add that to the
+table of variants for this particular
+multisub in this particular package so
+in other words you just assign to that
+table all of the existing variants plus
+a record of the new variant and that
+record records what package it belongs
+to records its minimum and maximum
+number of arguments it records its a
+bcde e f g h
+characteristics it also records its
+signature so you can compare signatures
+to see if there's an inherent ordering
+between
+variants and it includes that sub rutine
+that tests whether or not this
+particular variant will match a certain
+set of arguments and the way that that
+works is it simply goes through and
+applies each of the constraints that you
+mentioned in the Declaration of the
+variant to the argument list so for
+example the second argument for this
+variant has to be a hash because we're
+going to assign it to Hash Alias so it's
+not then we immediately return undef
+indicating not this variant thank you
+very much otherwise we unpack the
+parameter list into the same signature
+as the variant specified and then we do
+the individual tests on the variant
+arguments so this example required that
+the first argument had to be defined so
+if it's not defined again we return
+undef saying this particular variant
+won't handle this but if we get through
+that Gauntlet of all of those tests then
+we can just return a sub rutine
+consisting of the actual body of the
+variant the code that the variant is
+supposed to execute and that body is
+simply put into an anonymous sub rutine
+which closes over the parameter list
+that we've already unpacked so we don't
+have to re unpack it we don't have to
+check any of the arguments within the
+body because it's already been done by
+the filtering mechanism that determines
+which version of the method we are or
+subroutine we are going to call and so
+we simply take that sub routine and
+return that as our Handler and then we
+simply execute that now having added
+this new record to the list of variants
+we have to make sure that the list of
+variants is in its appropriate most
+specific to least specific order and we
+do that by sorting it and that sort
+should really be called sort
+topologically on the signature and if
+that fails to give you an answer sort on
+the precedent string so in other words
+we compare the constraints of the
+signature to find the most specific and
+order them by that and if that doesn't
+give us unique ordering then we simply
+do a string comparison of these
+precedents and we promote those which
+have the highest
+precedence and that gives us our unique
+set of variants to be
+executed now if the multi also happens
+to use that next variant Behavior then
+we need something a little bit more
+sophisticated to support that because
+here in the dispatch Loop when we find a
+variant we're actually replacing the
+entire dispatching sub routine with a
+call to that variant so it's very hard
+to say no go back and keep dispatching
+to do that we have to factor the
+dispatch Loop out into a sub
+rutine and then within that sub routine
+we're going to capture the set of
+variants that we're iterating through
+and carry that along with us but what
+we're also going to do is we're going to
+pass some extra information into the
+ultimate Handler that gets Chosen and
+we're going to do that by just adding an
+extra pretend parameter to the end of
+the argument list and that's simply
+going to be a reference to the sub
+routine that we are inside and we'll see
+how that works in just a minute but now
+of course we don't have a dispatch Loop
+anymore we have a sub rutine reference
+there that's not actually going to be
+executed so we have to make sure that
+it's executed at that point so we have
+to put it in a magic goto as well and
+when you magically go to an anonymous
+sub rutine that's just the same as
+executing that block of code in this
+position except that because it's now
+sub rutine we can pass in a reference to
+it to the Handler that we eventually
+dispatch
+to and then in that Handler we can
+simply unpack that reference it off the
+argument list before we do any of the
+testing and we can Alias that dispatch
+loop as next variant so when you call
+next variant it just
+executes the sub routine that we passed
+in which is the sub routine that has the
+dispatch Loop which is the closure over
+all the variants that we were all
+dispatching so the next shift will shift
+the next one off and we resume our
+dispatch Loop
+told you it was
+monstrous a good friend of mine recently
+asked me what is my favorite ever use of
+closures and that piece of code is it
+it's elegant it's efficient it's clean
+it just works
+brilliantly it's the favorite bit of
+code that I think I've ever
+written so this module has plenty of
+other clever tricks that you can
+discover cover plenty of other features
+and abilities that will make your coding
+better it's called multi- dispatch it's
+on the cpan now will it ever be in
+core well I certainly submit these ideas
+for consideration by the steering
+committee and I will use all of my
+limited Jedi Mind powers to try and
+encourage them to look at
+it but it's there as a module for you to
+use right now
+so that was my attempt at applying past
+Technologies to improve Pearl's
+future now I want to switch it around in
+the last third of this talk and appli
+present Technologies to Pear's future by
+Reinventing its past because I haven't
+even talked yet about the very best
+feature of multiple dispatch and to
+understand that we have to go all the
+way back to July 2000 when I released
+the switch module now of course nowadays
+here in the future the switch module is
+also extremely last Millennium not the
+least of which because in 2007 it was
+replaced by a built-in feature that gave
+us the ability to replace staries with
+this nice given when syntax where you
+could say I'm interested in this value
+when it matches any of these do
+something else and of course that's
+available today in the most recent
+version of pearl you can use switch and
+it's smart matching characteristics but
+it's not going to be available next year
+in PE five 42 that feature is going away
+after a quarter of a century of being
+available in some form and a sixth of a
+century of being in the core switch and
+smart matching are now officially a dead
+parrot now I'd probably be more
+concerned about all of the code that's
+going to break out there when 542 comes
+out if it weren't for the fact that I
+just released a module that's capable of
+giving you the same behavior in a
+cleaner and neater format with multiple
+dispatch because multiple dispatch at
+least with the multi- dispatch module
+can do everything that are given and
+when sequence can do just breaking it up
+into multiple different versions of the
+same subretinal
+method and so I thinking to myself well
+you know what if multiple dispatch has
+all of the capacity of given and when
+and smart matching so maybe smart
+matching and switches aren't actually
+going to have to die when they're
+removed from the core because I have
+keyword declaration and I have now
+multiple dispatch so how hard could it
+be to resurrect switches in a module
+after they gone from the core and of
+course turns out not very hard at all I
+actually timed it it took me 37 minutes
+all I did was create a series of
+keywords and a series of multiple
+dispatched implementation of the smart
+match
+algorithm and those keywords simply take
+your code with the now illegal given
+when continue break
+Etc identify the keyword and replace it
+with still valid Pearl the Givens become
+unconditional ifs which uniquely Mark
+each given block with a unique
+identifier which they store in the
+lexical hint hash so it's available at
+compile time throughout that scope but
+nowhere else and then they do what a
+given does they localize the underscore
+they copy across
+the expression that was in the given
+block they execute the given block and
+then I add a special empty label at the
+end of the block as a Target to jump out
+from if you ever do a
+break and then the when does pretty much
+exactly the same thing it converts to an
+if statement that smart matches doore
+against whatever the when value was it
+also creates its own unique label for
+the Wind Block this time in lexically
+scoped entry in the hints has executes
+the when block and puts in the automatic
+break at the end of any when and then
+once again we add a target for jumping
+out of a wi block but not jumping out of
+the given the default works exactly the
+same way except it's an unconditional if
+because there's no condition to
+test the break command simply gets
+converted into a jump into a go-to and
+it jumps to whatever the current value
+of the end of this given block is which
+of course is in that lexical hint hash
+so we effectively copy that down at
+compile time and now we have a hardcoded
+jump out of the given block and likewise
+the continue does the same thing a goto
+to the end of the when and we simply
+again at compile time copy that out of
+the lexical hints hash and now we have a
+hardcoded jump out of the when and on to
+the next
+alternative so that's the syntactic
+element of it the semantic element of it
+of course is we have to reimplement
+Smart match which is also disappearing
+in 542 and to do that I literally just
+went to the documentation grabbed that
+table of values and converted it into
+multis and those 43 lines of code that I
+wrote implemented about 80% of the
+complete built-in functionality of given
+when and smart
+match so according to the 820 principle
+the rest of it should have taken maybe
+about 2 and a half hours and a couple
+hundred lines of code and of course the
+8020 principle is a loot of
+it's the 8080 principle so it actually
+took about 10 times as long as that but
+the result is the switch module is back
+baby and the module is going to be
+called switch back it has no nasty
+source code filters it has no edge cases
+where it won't understand the Pearl
+syntax
+properly and it's not going to go away
+in 2025 when the built-in feature ceases
+to be built in it's on cpan now
+so for those of you who need that
+backwards
+compatibility it's now available you'd
+think I'd be fairly happy with
+that but you know what I really
+wasn't because in my experience the
+whole point of being able to time travel
+is so that you can revisit the past in
+order to change something that changes
+the present and the reason we want to
+change the present is because we have to
+improve or save the future because we
+really don't want Biff Tannon running
+everything
+the point here is switch and smart match
+are going away next year for very good
+reasons and those very good reasons are
+simply this enormous table these 23
+rules that no same person can actually
+remember here they are they'll be on the
+test later memorize
+them and it's even worse if you're using
+given and when because in addition to
+using the 23 rules of smart matching
+given and when have an extra 23 special
+cas rules for
+when and those extra rules are even
+weirder because two-thirds of them don't
+even use the leftand argument in the
+smart match they simply say if there's a
+Boolean expression just take the value
+of that Boolean expression as the result
+of the smart match without even
+considering the left-hand argument and
+the last five do exactly the opposite
+not only do they require the left-hand
+argument but they kind of sprinkle it
+like fairy dust into the middle of the
+expression in a way that nothing else in
+Pearl
+does so if someone asks you why switch
+and smart match had to go there are 46
+incredibly good reasons for
+that now I think the basic idea of the
+switch statement is a good one it's a
+clean syntax that makes some things
+easier to maintain and I think the idea
+of matching on the basis of what you're
+given is also a good idea but I don't
+think that having 46 impossible rules
+that you have to remember in order to do
+that is a good idea at all so I think my
+original mistake was in the naming of
+this I shouldn't have called it smart
+matching if I just called it clever
+matching instead then kerigan could have
+rushed into the room and told me if you
+design a feature cleverly as possible
+then by definition you and no one else
+is going to be able to use
+it so of course that was a case where my
+youthful superpower of micro
+precognition didn't help at all but like
+most people I actually also have the
+opposite superpower that of macro poost
+cognition of slow hindsight of being
+able to recognize about 25 years later
+just how stupid you were at the
+time and that really is a superpower
+because if you can envisage what you
+could have done better in the past then
+you can probably think of ways to make
+the future
+brighter so in this case I thought to
+myself well what if smart matching
+hadn't required 40 six rules to work
+what if it had required maybe just six
+rules maybe it wouldn't have to
+die what if it had these six
+rules what if I took the 46 rules and
+just picked out the sensible bits of it
+the bits people can remember and maybe
+added one extra thing and that one extra
+thing deals with a lot of the other
+cases and it's this Pearl now has
+canonical true and false value values
+that you can recognize as being intended
+to be bullly and true and bullly and
+false not just some arbitary number or
+some arbitrary string or an
+undeath so the First new rule would be
+that a smart match against true is
+always true and a smart match against
+false is always false no matter what the
+other argument is and Yep this is
+something I stole straight out of Raku
+but it works so well because it means
+that any time your right hand argument
+is a bulling expression that returns a
+canonical true false value then smart
+match just uses that expression like
+those 18 weird rules of when except now
+it's just one rule if it's a bullion you
+just take the bullion value and that
+means that all of these given and wns
+would continue to
+work only now with 95% fewer rules to
+remember about why they work now of
+course that would also mean that people
+would do silly things like this and say
+okay I'm going to put a Boolean
+expression in my given and if it's true
+I'll do this and if it's false I'll do
+that of course that doesn't work because
+true and false don't care what's in the
+given they just always return true or
+always return false but of course in
+that case because it's a fixed and
+obvious value you could just have the
+compiler point out you know what that's
+not going to do what you think it's
+going to do you need to go home and
+rethink your
+life so that one rule replaces those 18
+special
+cases the next five entries in the table
+are in fact just one rule and that one
+rule is if you have two refs of the same
+type if you have two references of the
+same type then those two things must
+match exactly if they're to arrays the
+arrays must have the same number and
+type of elements and the same values if
+it's a hash has to have the same keys
+and those keys have to have the same
+values if it's two code references they
+have to refer to the same sub routine if
+it's two rexes they have to have the
+same patent inside them if it's two unds
+they have to both be
+unds and then the last four rules are
+simpler
+variance on the well-known rules what do
+you do if you match a code reference
+well you just pass the argument to the
+code reference and see what happens what
+happens when you match a Rex you just
+can't match against that Rex what
+happens if you match something that's a
+number then you actually just do equals
+equals anything else you do EQ the only
+thing here is that two of those I'm
+changing the behavior very slightly
+because in the current implementation of
+smart matching if I for example match a
+a reference to an array against a sub
+rutine reference then rather than
+passing that array reference into the
+sub rutine and getting back a result it
+actually does this thing it passes each
+of the values of the array separately
+into multiple calls to the sub routine
+and it requires that all of those calls
+return true for the smart match to occur
+and that's just too complicated no one
+remembers that so instead I'm just going
+to suggest hey we just pass it in in all
+cases if you got a subroutine reference
+on the right you just pass the left
+argument in even if it's an a or a hash
+reference and there's something similar
+going on in the current version of smart
+matching if you do a Rex match against
+array reference in that case it simply
+takes all of the elements of the array
+and matches them against the Rex and if
+any of them match it does now why that's
+any and the other one was all nobody
+seems to
+know it's just one of those magical
+things you have to remember which is too
+damn hard so I'm just going to change
+that I'm just going to say if you try
+and match an array reference against a
+Rex that's just automatically going to
+be false from now on because arrays are
+only going to match against other arrays
+and hashes are only going to match
+against other hashes you're not going to
+have any of these magic try to match all
+of them or try and match any of them at
+least not
+yet so that's the new table and of
+course it translates directly into a
+single page of smart match
+multis which Implement all of those
+entries of the table the only parts of
+the table it doesn't Implement correctly
+are the ones that's doing all of that
+distributed ANS or distributed ORS the
+n's and the alls and all of that magic
+the magical conjunctives and
+conjunctives so set membership list
+membership matching n tests all at once
+matching any of end tests one at a time
+but no one knows what it's doing so how
+can we support those in a way that don't
+require me to learn another 40 rules the
+answer is we can do that by going back
+to June 2000 when at yapi 2000 I
+released the quantum super positions
+module and with the quantum super PHS
+module you could say don't match this
+value against a list of things and have
+it have to do a look up to find if any
+of them match use the quantum two
+position and just say match against any
+of these things explicitly and what that
+should do then is distribute the test
+across each match and say if any of the
+match were okay and then of course all
+would do the same thing but require that
+all of the match
+and none would do the same thing but
+require that none of them
+match
+unfortunately even though that would
+work perfectly in Raku which has exactly
+this syntax available it doesn't work
+under Quantum superpositions because
+Quantum superpositions can't intercept
+function calls and distribute them
+across the values of a junction instead
+what it does is any all and none convert
+your list into a disjunction or a
+conjunction or an injunction object and
+they pass that object in and then the
+sub retine has to work that out and of
+course it doesn't because smart matching
+against an object is immediately a
+violation of
+encapsulation so how could we add these
+kinds of any all or none to multis well
+we do that the same way that we add
+anything else to multis we justify a few
+more variants so in addition to these
+two argument smart matches we could
+Define a couple of three argument smart
+matches where the extra argument has has
+to be any all or none in front of either
+the left or the right upper end and all
+you do then is you say well if I get
+that explicit extra argument saying I
+want any all or none then make the test
+any all or none of the appropriate list
+matches the other argument and then of
+course you do the same providing the
+nine variations of having both of those
+extra arguments on there so if you have
+any of this matches any of that then you
+would Nest those two distributed tests
+and get the final result at which point
+you can explicitly say I want to Smart
+this smart match this value against
+anything in this list so any of the keys
+of this hash or I want to match all of
+these requirements or none of these I
+don't want it to be unde and I don't
+want it to be a prime number or I could
+say none of the values can match unde or
+none of the keys of this hash can be an
+empty string or all of these Nam names
+have to match a particular name format
+or any of these names can be one of the
+suspects or all of these Keys can't be
+empty string or have a digit in
+them and of course to make that work
+with given and when then we need a
+couple of extra variants of those
+keywords where you're allowed to put any
+all or none followed by a comma in front
+of the expression that you're passing to
+the given or the when and if you put an
+any or none in front of the given then
+it simply records in the lexical hints
+hash that this given block is an any
+given block or an all given block or a
+non-iv block and then in any call to
+Smart match within that context you
+simply insert that any all or none as an
+argument in front of the leftmost
+argument and then you do the same thing
+with when if the when has an any all or
+none as part of the expression then you
+simply interpolate that in front of the
+right- hand argument and now in addition
+to writing smart matches with explicit
+conjunctions and
+disjunctions you can write Givens and
+say given this value win all of these
+match and now it's not secret magic now
+it's not 46 rules that you have to
+remember now it just says what it wants
+and does what you
+mean and ultimately this demonstrates
+the very best thing about
+multis not only do they do half the
+thinking for you in working out which
+version to call for you they let you do
+the half of the thinking that you have
+to do incrementally I hadn't initially
+thought of having any all and none in my
+given and when but it was perfectly
+possible to add it to Smart match
+afterwards when that hindsight showed me
+what I needed and it lets someone else
+do that as well because any kind of
+multiply dispatched sub rutine or method
+is inherently extensible at any later
+time even if you're not in charge of the
+original variance you don't have to
+change the original variance you can
+just add something new so for example
+smart matching against objects always
+fails and it fails in part because
+overloaded smart matching operator is
+soon going to be going away so I
+couldn't implement it that way but
+mostly it fails because it doesn't
+matter that it fails because if you have
+a given when with various kinds of tests
+being done and one of those tests
+happens to be say an ID validator object
+then obviously that's going to fail
+because you can't smart match against an
+object except that because smart
+matching is multiply dispatched you can
+decide when you create this object to
+tell smart matching how to do it you can
+add a new variant which takes an ID and
+an ID validator object and simply calls
+the appropriate method of that object on
+the ID and now you can put that in there
+because now there's a smart match
+variant that will handle it and it just
+works and that that my friends is the
+best thing about
+multis as a designer of language as a
+designer of a module I don't have to
+think of everything in advance and as a
+user of that language and a user of that
+module I don't have to hope that the
+designer thought of Everything at
+Once because any interface that is based
+on multiple dispatch will inherently be
+adaptable to new needs without breaking
+the old code and that's why I think
+multiple dispatch is the be's niece
+so switches back twice and going into
+the future what to call this new and
+improved version of switch well the old
+version the backwards compatibility
+version was called switch back so
+initially I thought maybe just back
+switch forth or switch to or switch up
+or switch on or switch over and then I
+thought no it needs a catchier name than
+that and I thought maybe I should call
+it the
+given or perhaps when given
+lemons and I was so tempted by that one
+it was
+terrible but what I realized is what's
+really going on here is that I've
+redesigned smart matching with the right
+number of rules just six of
+them and with a principle that only the
+right argument determines the behavior
+of any smart match so in other words
+it's like the original switch but done
+right this time at that point the name
+was obvious it's called switch right
+it's on the cpan now will it ever be in
+core well I highly doubt that but you
+never know the lure of the dark side has
+turned more people than just the
+steering
+committee so let's just finish off by
+updating my steps in the last quarter
+Century I've now written just over 3.8
+million lines of code representing
+around 2 to the8th cpan releases of 86
+modules given 306 presentations totaling
+closer to 1,20 hours I apologize for the
+length but that doesn't tell the real
+story throughout the last 25 years Pearl
+has been my mad science laboratory it's
+been my playground it's been my
+community and I'm proud of what I've
+been able to contribute to this
+community and I'm thankful for the
+opportunity that I've had to do that for
+the adventure that it's been doing it
+and above all I am profoundly grateful
+to every one of you for your friendship
+for your encouragement and for the very
+practical kinds of support that you've
+given me that made that
+possible so now after 25 years the only
+thing I have left to say is the thing
+that I always say from the bottom of my
+heart thank you
+and so I'm
+back from outer space you just walked in
+and found me here with that mad look
+upon my face you should have purged this
+Holo vid you should have guessed how it
+would be if you had known for just one
+second I'd corrupt
+tprc so now I'll go lay waste your dream
+don't Pearl to CEOs was my 25 years
+schem weren't you with those who tried
+to hurl me down to die did you think I'd
+tumble to that reactor core and Fry oh
+no not I I will survive as long as I
+embrace the dark side switch will stay
+alive and go for which I live to bring
+back smart match to the Sith I shall
+contrive that it
+revives he he
