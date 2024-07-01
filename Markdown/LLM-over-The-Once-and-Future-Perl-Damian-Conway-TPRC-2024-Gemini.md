@@ -29,6 +29,9 @@ This post applies various Large Language Model (LLM) summarization prompts to th
 [«The Once and Future Perl - Damian Conway - TPRC 2024»](https://www.youtube.com/watch?v=0x9LD8oOmv0)
 by the YouTube channel [MISSING CHANNEL NAME](MISSING CHANNEL).
 
+In the program, Damian Conway, a prominent Perl programmer, reflects on his 25 years of contributions to the Perl community.
+He explores the impact of AI on programming, revisits past projects, and introduces his new "multi-dispatch" module, which enhances Perl's capabilities.
+
 
 Here is a table of themes discussed in the text:
 
