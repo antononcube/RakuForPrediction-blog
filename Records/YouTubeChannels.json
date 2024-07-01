@@ -13,5 +13,10 @@
     "type" : "post",
     "author" : "Anton Antonov",
     "site" : "https://mathematicaforprediction.wordpress.com"
+  },
+  "TPRC-2024" : {
+    "type" : "video",
+    "author" : "TPRC 2024 - Las Vegas, Nevada",
+    "site" : "https://www.youtube.com/@YAPCNA"
   }
 }
