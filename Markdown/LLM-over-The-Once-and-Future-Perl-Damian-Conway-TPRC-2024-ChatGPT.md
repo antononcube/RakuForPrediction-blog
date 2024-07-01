@@ -27,7 +27,7 @@
 
 This post applies various Large Language Model (LLM) summarization prompts to the transcript of the program
 [«The Once and Future Perl - Damian Conway - TPRC 2024»](https://www.youtube.com/watch?v=0x9LD8oOmv0)
-by the YouTube channel [MISSING CHANNEL NAME](MISSING CHANNEL).
+by the YouTube channel [TPRC 2024 - Las Vegas, Nevada](https://www.youtube.com/@YAPCNA).
 
 In the program, the speaker, Damian Conway, reflects on their contributions to open-source programming, focusing on Perl and Raku, 
 and explores the implications of AI and multiple dispatch in programming.
