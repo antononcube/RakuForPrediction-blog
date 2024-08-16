@@ -4,6 +4,11 @@
     "channel" : "https://www.youtube.com/@AAA4Prediction",
     "channel-name" : "Anton Antonov"
   },
+  "CS50" : {
+    "type" : "video",
+    "channel" : "https://www.youtube.com/cs50",
+    "channel-name" : "CS50"
+  },
   "RakuForPrediction" : {
     "type" : "post",
     "author" : "Anton Antonov",
@@ -18,5 +23,10 @@
     "type" : "video",
     "author" : "TPRC 2024 - Las Vegas, Nevada",
     "site" : "https://www.youtube.com/@YAPCNA"
+  },
+  "WolframResearch" : {
+    "type" : "video",
+    "author" : "WolframResearch",
+    "site" : "https://www.youtube.com/@WolframResearch"
   }
 }
