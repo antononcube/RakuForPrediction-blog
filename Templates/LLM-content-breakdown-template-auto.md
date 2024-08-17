@@ -1,4 +1,4 @@
-# [LLM] over "Geographics data in Raku demo"
+# [LLM] over "Large Language Models and The End of Programming - CS50 Tech Talk with Dr. Matt Welsh"
 
 ### *Tabular, visual, and textual breakdowns and summaries*
 
@@ -22,28 +22,28 @@ my %knownRecords = data-import($*CWD ~ '/../Records/YouTubeChannels.json');
 sub pretty-name(Str $nm) is export { $nm.subst(/\W/,'-',:g).subst(/ '-' + /, '-', :g).subst(/'-' $/) };
 
 my $conf4 = llm-configuration('ChatGPT', model => 'gpt-4o', max-tokens => 4096, temperature => 0.5);
-#my $conf = $conf4;
-my $conf = llm-configuration('Gemini', model => 'gemini-1.5-pro-latest', max-tokens => 8192, base-url => 'https://generativelanguage.googleapis.com/v1beta/models', temperature => 0.5);
+my $conf = $conf4;
+#my $conf = llm-configuration('Gemini', model => 'gemini-1.5-pro-latest', max-tokens => 8192, base-url => 'https://generativelanguage.googleapis.com/v1beta/models', temperature => 0.5);
 my $pauseTime = $conf.Hash<name>.lc eq 'gemini' ?? 60 !! 0;
 ```
 
 
 ```perl6, results=hide, echo=FALSE
 my %record = 
-   author => 'Anton Antonov',
+   author => 'Matt Welsh',
    post-link => 'https://rakuforprediction.wordpress.com/2024/05/25/age-at-creation-for-programming-languages-stats/',
    site => 'https://rakuforprediction.wordpress.com',
-   title => "Geographics data in Raku demo",
+   title => "Large Language Models and The End of Programming - CS50 Tech Talk with Dr. Matt Welsh",
    channel => 'MISSING CHANNEL',
    channel-name => 'MISSING CHANNEL NAME',
-   transcript-file-name => $*CWD ~ '/../Data/' ~ '/Geographics-data-in-Raku-demo-YouTube.txt',
+   transcript-file-name => $*CWD ~ '/../Data/' ~ '',
    type => 'video',
-   video-id => '',
-   video-link => 'https://www.youtube.com/watch?v=Rkk_MeqLj_k';
+   video-id => 'JhCl-GeT4jw',
+   video-link => 'https://www.youtube.com/watch?v=JhCl-GeT4jw';
 
 %record<gen-file-name> = pretty-name(%record<title>);
         
-%record = merge-hash(%record, %knownRecords<AAA4Prediction> // %());
+%record = merge-hash(%record, %knownRecords<CS50> // %());
  
 my Bool $transcriptFileExists = False;
       
