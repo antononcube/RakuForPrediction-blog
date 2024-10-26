@@ -2,18 +2,16 @@
 
 ## Introduction 
 
-In this document we list Raku packages for doing different types of workflows in Data Science (DS) and 
-Large Language Models (LLM) utilization.
-
-The sections below list Raku packages in several overlapping groups for doing DS and LLM. 
+In this document has (overlapping) lists of Raku packages for doing different types of workflows 
+in Data Science (DS) and Large Language Models (LLM) utilization.
 
 ------
 
 ## Code generation
 
-We can say that the main or most frequently used Machine Learning (ML) workflows are in:
+We can say that the most frequently used Machine Learning (ML) workflows are in:
 - Classification
-- Latent Semantic Analysis,
+- Latent Semantic Analysis (LSA),
 - Regression
 - Recommendations
 
@@ -24,7 +22,7 @@ Each of these ML or DS sub-fields has it own Domain Specific Language (DSL).
 There is a set of Raku packages for facilitate the creation of Data Science workflows in _other_ programming languages.
 (Julia, Python, R, Wolfram Language.)
 
-The grammar-based ones are have the "DSL::" prefix -- see, for example, ["DSL::English::*"](https://raku.land/?q=DSL%3A%3AEnglish) at [raku.land](https://raku.land/).
+The grammar-based ones have the "DSL::" prefix -- see, for example, ["DSL::English::*"](https://raku.land/?q=DSL%3A%3AEnglish) at [raku.land](https://raku.land/).
 
 The LLM based one is ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine).
 
@@ -46,13 +44,13 @@ Generation of data wrangling workflows code:
 
 ## Exploratory Data Analysis
 
-At this point Raku is fully equipped to Exploratory Data Analysis (EDA) with small to moderate size datasets.
+At this point Raku is fully equipped to Exploratory Data Analysis (EDA) over small to moderate size datasets.
 (E.g. less than 100,000 rows.)
 
-Here are the element for EDA:
+Here are the elements for EDA:
 
 - Easy data ingestion 
-  - Of files of different types and different kinds of locations. 
+  - Of files of different types and different kinds of locations
   - See ["Data::Importers"](https://raku.land/zef:antononcube/Data::Importers)
 - Data wrangling
   - See the previous section.
@@ -60,10 +58,10 @@ Here are the element for EDA:
   - ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3)
   - ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts)
 - Extensive support data.
-  - Ready to do computations with.
+  - Ready to do computations with
   - See ["Data::Geographics"](https://raku.land/zef:antononcube/Data::Geograohics)
-- Interactive development environment
-  - These "notebook solutions." 
+- Interactive development environment(s)
+  - These are "notebook solutions" 
   - ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel)
   - ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook)
   - ["RakuMode"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/RakuMode/)
@@ -76,6 +74,7 @@ Here are the element for EDA:
   - ["ML::Clustering"](https://raku.land/zef:antononcube/ML::Clustering)
   - ["ML::TriesWithFrequencies"](https://raku.land/zef:antononcube/ML::TriesWithFrequencies)
   - ["ML::AssociationRuleLearning"](https://raku.land/zef:antononcube/ML::AssociationRuleLearning)
+  - ["Math::Nearest"](https://raku.land/zef:antononcube/Math::Nearest)
 - Supervised learning
   - ["ML::ROCFunctions"](https://raku.land/zef:antononcube/ML::ROCFunctions)
 - Fitting / regression
@@ -124,6 +123,10 @@ The Jupyter Raku-kernel packages:
 ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel) and
 ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook),
 provide cells for rendering the output of LaTeX, HTML, Markdown, Mermaid-JS code or specifications.
+
+The package 
+["Markdown::Grammar"](https://raku.land/zef:antononcube/Markdown::Grammar)
+can be used in notebook conversion workflows; see [AA1].
 
 ------
 
