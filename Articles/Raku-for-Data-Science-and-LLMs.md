@@ -117,12 +117,12 @@ There is a set of packages that facilitates the creation of workflows that are "
 The Raku package 
 ["Text::CodeProcessing"](https://raku.land/zef:antononcube/Text::CodeProcessing) 
 can be used to "execute" computational documents in 
-formats of Markdown, Org-mode, Pod6.
+the formats Markdown, Org-mode, Pod6.
 
-The Jupyter Raku-kernel packages:
+The Jupyter Raku-kernel packages
 ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel) and
-["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook),
-provide cells for rendering the output of LaTeX, HTML, Markdown, Mermaid-JS code or specifications.
+["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook)
+provide cells for rendering the output of LaTeX, HTML, Markdown, or Mermaid-JS code or specifications.
 
 The package 
 ["Markdown::Grammar"](https://raku.land/zef:antononcube/Markdown::Grammar)
