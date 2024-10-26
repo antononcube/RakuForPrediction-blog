@@ -51,8 +51,16 @@ The LLM based one is ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube
 
 Here is an example of using the Command Line Interface (CLI) script of "ML::NLPTemplateEngine":
 
-```shell
+```
 concretize --l=Python make a quantile regression pipeline over dfTemperature using 24 knots an interpolation order 2
+```
+
+```
+# qrObj = (Regressionizer(dfTemperature)
+# .echo_data_summary()
+# .quantile_regression(knots = 24, probs = [{0.25, 0.5, 0.75}], order = 2)
+# .plot(date_plot = False)
+# .errors_plot(relative_errors = False, date_plot = False))
 ```
 
 ------
@@ -79,10 +87,20 @@ my @dsTitanic = get-titanic-dataset();
 cross-tabulate(@dsTitanic, <passengerSex>, <passengerSurvival>)
 ```
 
+```
+# {female => {died => 127, survived => 339}, male => {died => 682, survived => 161}}
+```
+
 Data wrangling code generation via CLI:
 
 ```shell
 dsl-translation -l=Raku "use @dsTitanic; group by passengerSex; show the counts"
+```
+
+```
+# $obj = @dsTitanic ;
+# $obj = group-by($obj, "passengerSex") ;
+# say "counts: ", $obj>>.elems
 ```
 
 ------
@@ -166,14 +184,29 @@ Furthermore, "ML::FindTextualAnswer" utilizes "ML::NLPTemplateEngine" to retriev
 
 Here is an example of an LLM workflow that:
 - Ingests the content of this file from GitHub
-- Gives an HTML table of the functionalities and the corresponding Raku packages
+- Gives an HTML table that with breakdown of the discussed functionalities 
 
 ```raku
 use LLM::Functions;
 use LLM::Prompts;
+use Data::Importers;
+use Text::Subparsers;
 
+my $url = 'https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Raku-for-Data-Science-and-LLMs.md';
+my $txt = data-import($url);
 
+my $tbl = 
+llm-synthesize([
+    llm-prompt("ThemeTableJSON")($txt, 'text', 20),
+    ],
+    e => llm-configuration('ChatGPT', model=> 'gpt-4o', max-tokens => 2048, temperature => 0.4),
+    form => sub-parser('JSON'):drop
+);
+
+$tbl ==> data-translation(field-names => <theme content>)
 ```
+
+<table border="1"><thead><tr><th>theme</th><th>content</th></tr></thead><tbody><tr><td>Introduction</td><td>Overview of Raku packages for Data Science and LLMs, excluding some due to limitations.</td></tr><tr><td>Code generation</td><td>Raku packages for creating workflows in other languages, including grammar-based and LLM-based tools.</td></tr><tr><td>Data wrangling</td><td>Packages for data reshaping, summarization, and workflow code generation.</td></tr><tr><td>Exploratory Data Analysis</td><td>Raku&#39;s capabilities for EDA, including data ingestion, visualization, and interactive environments.</td></tr><tr><td>Machine Learning &amp; Statistics</td><td>Raku packages for unsupervised and supervised learning, regression, distributions, and outlier detection.</td></tr><tr><td>LLM support</td><td>Access to LLM services and provider-independent workflow creation packages.</td></tr><tr><td>Literate programming</td><td>Raku packages for executing computational documents in various formats.</td></tr><tr><td>Interconnections</td><td>Connecting Raku with other systems like Python, R, and Wolfram Language.</td></tr><tr><td>References</td><td>List of articles and videos related to the discussed topics.</td></tr></tbody></table>
 
 ----
 
