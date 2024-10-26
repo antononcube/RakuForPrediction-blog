@@ -195,18 +195,83 @@ use Text::Subparsers;
 my $url = 'https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Raku-for-Data-Science-and-LLMs.md';
 my $txt = data-import($url);
 
-my $tbl = 
-llm-synthesize([
-    llm-prompt("ThemeTableJSON")($txt, 'text', 20),
-    ],
-    e => llm-configuration('ChatGPT', model=> 'gpt-4o', max-tokens => 2048, temperature => 0.4),
-    form => sub-parser('JSON'):drop
+my $mm =
+        llm-synthesize([
+            "Make a mind-map for the following text:",
+            $txt,
+            llm-prompt('NothingElse')('Mermaid-JS')
+        ],
+        e => llm-configuration('ChatGPT', model=> 'gpt-4o', max-tokens => 2048, temperature => 0.4)
 );
-
-$tbl ==> data-translation(field-names => <theme content>)
 ```
 
-<table border="1"><thead><tr><th>theme</th><th>content</th></tr></thead><tbody><tr><td>Introduction</td><td>Overview of Raku packages for Data Science and LLMs, excluding some due to limitations.</td></tr><tr><td>Code generation</td><td>Raku packages for creating workflows in other languages, including grammar-based and LLM-based tools.</td></tr><tr><td>Data wrangling</td><td>Packages for data reshaping, summarization, and workflow code generation.</td></tr><tr><td>Exploratory Data Analysis</td><td>Raku&#39;s capabilities for EDA, including data ingestion, visualization, and interactive environments.</td></tr><tr><td>Machine Learning &amp; Statistics</td><td>Raku packages for unsupervised and supervised learning, regression, distributions, and outlier detection.</td></tr><tr><td>LLM support</td><td>Access to LLM services and provider-independent workflow creation packages.</td></tr><tr><td>Literate programming</td><td>Raku packages for executing computational documents in various formats.</td></tr><tr><td>Interconnections</td><td>Connecting Raku with other systems like Python, R, and Wolfram Language.</td></tr><tr><td>References</td><td>List of articles and videos related to the discussed topics.</td></tr></tbody></table>
+```mermaid
+mindmap
+  root(Raku for Data Science and LLMs)
+    Introduction
+      Reasons for Exclusion
+        Uninstallable Packages
+        Incomplete Results
+        Awkward Functionalities
+    Code Generation
+      ML Workflows
+        Classification
+        LSA
+        Regression
+        Recommendations
+      Raku Packages
+        RP1["Grammar-based (DSL::)"]
+        RP2["LLM-based (ML::NLPTemplateEngine)"]
+    Data Wrangling
+      Packages
+        Data::Reshapers
+        Data::Summarizers
+        Data::Generators
+      Code Generation
+        DSL::English::DataQueryWorkflows
+    Exploratory Data Analysis
+      Elements
+        Data Ingestion
+        Data Wrangling
+        Visualization
+        Support Data
+        Interactive Environment
+    Machine Learning & Statistics
+      Unsupervised Learning
+      Supervised Learning
+      Fitting/Regression
+      Distributions
+      Outliers
+    LLM Support
+      LLM Services Access
+        WWW::OpenAI
+        WWW::PaLM
+        WWW::Gemini
+        WWW::MistralAI
+        WWW::LLaMA
+      LLM Workflows
+        LLM::Functions
+        LLM::Prompts
+        LLM::RetrievalAugmentedGeneration
+        ML::FindTextualAnswer
+    Literate Programming
+      Packages
+        Text::CodeProcessing
+        Jupyter::Kernel
+        Jupyter::Chatbook
+        Markdown::Grammar
+    Interconnections
+      Systems
+        Python
+        R
+        Wolfram Language
+      Packages
+        Proc::ZMQed
+        WWW::WolframAlpha
+    References
+      Articles
+      Videos
+```
 
 ----
 
