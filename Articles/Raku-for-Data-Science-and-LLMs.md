@@ -7,6 +7,8 @@ Large Language Models (LLM) utilization.
 
 The sections below list Raku packages in several overlapping groups for doing DS and LLM. 
 
+------
+
 ## Code generation
 
 We can say that the main or most frequently used Machine Learning (ML) workflows are in:
@@ -26,6 +28,8 @@ The grammar-based ones are have the "DSL::" prefix -- see, for example, ["DSL::E
 
 The LLM based one is ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine).
 
+------
+
 ## Data wrangling 
 
 Data wrangling, summarization, and generation:
@@ -37,6 +41,8 @@ Data wrangling, summarization, and generation:
 Generation of data wrangling workflows code:
 
 - ["DSL::English::DataQueryWorkflows"](https://raku.land/zef:antononcube/DSL::English::DataQueryWorkflows)
+
+------
 
 ## Exploratory Data Analysis
 
@@ -62,6 +68,25 @@ Here are the element for EDA:
   - ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook)
   - ["RakuMode"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/RakuMode/)
 
+------
+
+## Machine Learning & Statistics
+
+- Unsupervised learning
+  - ["ML::Clustering"](https://raku.land/zef:antononcube/ML::Clustering)
+  - ["ML::TriesWithFrequencies"](https://raku.land/zef:antononcube/ML::TriesWithFrequencies)
+  - ["ML::AssociationRuleLearning"](https://raku.land/zef:antononcube/ML::AssociationRuleLearning)
+- Supervised learning
+  - ["ML::ROCFunctions"](https://raku.land/zef:antononcube/ML::ROCFunctions)
+- Fitting / regression
+  - ["Math::Fitting"](https://raku.land/zef:antononcube/Math::Fitting)
+- Distributions 
+  - ["Statistics::Distributions"](https://raku.land/zef:antononcube/Statistics::Distributions)
+- Outliers
+  - ["Statistics::OutlierIdentifiers](https://raku.land/cpan:ANTONOV/Statistics::OutlierIdentifiers)
+
+-----
+
 ## LLM support
 
 ### LLM services access
@@ -78,7 +103,7 @@ All these LLM packages are loaded, ready to use in Raku chatbooks, (notebooks of
 
 ### LLM workflows
 
-There is a set of packages that facilitates the creation of workflows that "provider independent":
+There is a set of packages that facilitates the creation of workflows that are "provider independent":
 
 - ["LLM::Functions"](https://raku.land/zef:antononcube/LLM::Functions)
 - ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts)
