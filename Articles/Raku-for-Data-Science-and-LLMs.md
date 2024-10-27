@@ -2,6 +2,7 @@
 
 Anton Antonov   
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com)  
+[RakuForPrediction-book at GitHub](https://github.com/antononcube/RakuForPrediction-book)  
 October 2024
 
 ## Introduction 
@@ -25,6 +26,9 @@ in Raku have not been included for three reasons:
    
 The examples given below are only for illustration purposes, and by no mean exhaustive.
 We refer to related blog posts, videos, and package READMEs for more details.
+
+**Remark:** The packages mentioned in this document can be installed with the script 
+["raku-data-science-install.sh"](https://github.com/antononcube/RakuForPrediction-book/blob/main/scripts/raku-data-science-install.sh).
 
 ------
 
