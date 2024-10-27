@@ -30,7 +30,7 @@ We refer to related blog posts, videos, and package READMEs for more details.
 
 ## Code generation
 
-We can say that the most frequently used Machine Learning (ML) workflows are in:
+It can be said that the most frequently used Machine Learning (ML) workflows are in:
 - Classification
 - Latent Semantic Analysis (LSA),
 - Regression
@@ -107,25 +107,32 @@ dsl-translation -l=Raku "use @dsTitanic; group by passengerSex; show the counts"
 
 ## Exploratory Data Analysis
 
-At this point Raku is fully equipped to Exploratory Data Analysis (EDA) over small to moderate size datasets.
-(E.g. less than 100,000 rows.)
+At this point Raku is fully equipped to do Exploratory Data Analysis (EDA) over small to moderate size datasets.
+(E.g. less than 100,000 rows.) See [AA4, AAv5].
 
-Here are the elements for EDA:
+Here are EDA stages and related Raku packages:
 
-- Easy data ingestion 
-  - Of files of different types and different kinds of locations
-  - See ["Data::Importers"](https://raku.land/zef:antononcube/Data::Importers)
+- Easy data ingestion
+  - ["Data::Importers"](https://raku.land/zef:antononcube/Data::Importers)
+    allows for "seamless" import different kinds of data (files or URLs) via:
+      - ["JSON::Fast"](https://raku.land/cpan:TIMOTIMO/JSON::Fast)
+      - ["Image::Markup::Utilities"](https://raku.land/zef:antononcube/Image::Markup::Utilities)
+      - ["PDF::Extract"](https://raku.land/zef:librasteve/PDF::Extract)
+      - ["Text::CSV"](https://raku.land/zef:Tux/Text::CSV)
 - Data wrangling
-  - See the previous section
+  - *See the previous section*
 - Visualization
   - ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3), [AAv4]
   - ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts), [AAv5]
-- Extensive support data
-  - Data ready to do computations with
+- Example- and factual data:
+  - I.e. data ready to do computations with
   - ["Data::ExampleDatasets"](https://raku.land/zef:antononcube/Data::ExampleDatasets)
   - ["Data::Geographics"](https://raku.land/zef:antononcube/Data::Geographics), [AAv5]
+  - The following entity packages provide concrete names of entities of different kinds:
+    - ["DSL::Entity::*"](https://raku.land/?q=DSL%3A%3AEntity)
+  - The entity packages have grammar roles for gazetteer Named Entity Recognition (NER)
 - Interactive development environment(s)
-  - These are "notebook solutions" 
+  - These are often referred to as "notebook solutions" 
   - ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel)
   - ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook)
   - ["RakuMode"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/RakuMode/)
@@ -277,16 +284,28 @@ mindmap
 
 ## Literate programming
 
-The Raku package 
-["Text::CodeProcessing"](https://raku.land/zef:antononcube/Text::CodeProcessing) 
-can be used to "execute" computational documents in 
-the formats Markdown, Org-mode, Pod6.
+["Literate Programming (LP)"](https://en.wikipedia.org/wiki/Literate_programming)
+tooling is very important for doing Data Science (DS). 
+At this point Raku has four LP solutions (or "notebook solutions"):
+
+- ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel)
+- ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook)
+- ["Text::CodeProcessing"](https://raku.land/zef:antononcube/Text::CodeProcessing)
+- ["RakuMode"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/RakuMode/)
 
 The Jupyter Raku-kernel packages
 ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel) and
 ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook)
 provide cells for rendering the output of LaTeX, HTML, Markdown, or Mermaid-JS code or specifications;
 see [AAv2].
+
+The package "Text::CodeProcessing" can be used to "weave" (or "execute") computational documents that are
+Markdown-, Org-mode-, or Pod6 files; see [AAv2].
+
+"RakuMode" is a Wolfram Language (WL) paclet for using Raku in WL notebooks. 
+(See the next section for the "opposite way" -- using WL in Raku sessions.)
+
+**Remark:** WL is also known as "Mathematica".
 
 The package 
 ["Markdown::Grammar"](https://raku.land/zef:antononcube/Markdown::Grammar)
@@ -312,6 +331,20 @@ to Python, R, and WL via [ZeroMQ](https://zeromq.org); see [AAv3].
 The package ["WWW::WolframAlpha"](https://raku.land/zef:antononcube/WWW::WolframAlpha) 
 can be used to get query answers from [WolframAlpha (W|A)](https://www.wolframalpha.com).
 Raku chatbooks have also magic cells for accessing W|A; see [AA3].
+
+------
+
+## Cross language workflows
+
+The packages listed in this document, along with the related articles and videos, 
+support and demonstrate computational workflows that work across different programming languages.
+
+- Data wrangling workflows code generation is for Julia, Python, R, Raku, SQL, and Wolfram Language (WL).
+- Raku's data wrangling functionalities adhere the DSLs and workflows of the popular [Python "pandas"](https://pandas.pydata.org) and [R "tidyverse"](https://www.tidyverse.org).
+- More generally, ML workflows code generators as a rule target R, Python, and WL.
+  - At this point Raku does not have specialized ML software monads.
+- The Raku DSL for interacting with LLMs is also implemented in Python and WL; see [AAv8].
+  - To be clear, WL's design of LLM functions was copied (or transferred) to Raku.
 
 ------
 
