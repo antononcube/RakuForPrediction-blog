@@ -8,24 +8,27 @@ November 2024
 
 ## Introduction
 
-This notebook (or computational document) discusses several topics:
+This article discusses several topics:
 
 - Making nice plots of chess positions 
     - Using Raku's ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3), [AAp1]
-- Staging and interactively using an Large Language Model (LLM) persona for playing chess
+- Staging and interactively using a Large Language Model (LLM) persona for playing chess
 - Using LLM-vision over chess position images
 - Deficiencies of LLMs playing chess via [Forsyth-Edwards Notion (FEN)](https://en.wikipedia.org/wiki/Forsyth–Edwards_Notation), [Ch1]
     - A conjecture is formed using a few experimental results 
     - That conjecture is "proved" (i.e. explained) by a reasoning LLM ([ChatGPT's "o1-preview"](https://platform.openai.com/docs/models#o1), [OI1])
 
-The notebooks showcases utilization of [Raku's LLM-related functionalities](https://raku.land/?q=LLM): [chatbooks](), [LLM-functions](), and [LLM-prompts]().
+The article showcases utilization of [Raku's LLM-related functionalities](https://raku.land/?q=LLM): [chatbooks](), [LLM-functions](), and [LLM-prompts]().
 
-
-In other words, the notebook (document) has:
+In other words, the article has:
 - Two *Raku know-how* topics: plotting chess positions and LLM persona making and interaction 
 - A *general know-why* topic: reasons for LLM-deficiencies while using FEN
 
-**Remark:** Playing chess (really) well with LLMs is not the focus of this notebook (document.)
+**Remark:** Playing chess (really) well with LLMs is not the focus of this article.
+
+**Remark:** This article was originally written as a Jupyter notebook. A few type of "magic" cells are used. 
+Hence, some of the cells below contain start with comment lines that are actually magic cell specifications.
+Here are a few such specs: `#%js`, `$% chat cm`, `#% markdown`, etc. 
 
 ### TL;DR
 
@@ -49,6 +52,10 @@ Those articles, posts, or projects, though, use:
     - [Algebraic Notation (AN)](https://en.wikipedia.org/wiki/Algebraic_notation_(chess))
     - Textual/ASCII chess position representation
 - Connections to 3rd party programs
+
+In this article the focus is not on playing chess well by LLMs. 
+Article's main message is that Raku can be used to facilitate chess playing, exploration, or puzzle solving.
+(With LLMs or otherwise.)
 
 ------
 
@@ -105,9 +112,9 @@ Here is how you behave:
 A few observations on the prompt above:
 
 - The prompt is carefully crafted.
-    - Other research efforts often use much shorter prompts like "You chess master."
+    - Other research efforts often use much shorter prompts like "You are chess master."
 - FEN is explicitly postulated as the way to communicate the "game field."
-- Both AN and plain English are "allowed" as user input.
+- Both AN and plain English are "allowed" as user inputs.
 
 **Remark:** Below the LLM persona is referred to as "ChessMaster" or "CM".
 
@@ -117,8 +124,7 @@ A few observations on the prompt above:
 
 This section shows the setup for plotting chess positions *while using a [Raku Chatbook](https://raku.land/zef:antononcube/Jupyter::Chatbook)*, [AAp].
 
-Packages:
-
+Load packages:
 
 ```raku
 use Data::Importers;
@@ -128,8 +134,7 @@ use JavaScript::D3::Chess; # Needed only to show tuning parameters
 
 ```
 
-Priming for JavaScript plots code rendering:
-
+Priming Jupyter notebooks for JavaScript plots code rendering:
 
 ```raku
 %% javascript
@@ -143,13 +148,7 @@ require(['d3'], function(d3) {
 });
 ```
 
-
-
-
-
-
 Styling options, (default and "greens"):
-
 
 ```raku
 # Default style
@@ -183,13 +182,6 @@ my %opts-greens =
 (%opts.elems, %opts-greens.elems)
 ```
 
-
-
-
-    (10 12)
-
-
-
 Examples of an initial chess position plot (without using a FEN string) and a blank chessboard:
 
 
@@ -202,7 +194,6 @@ js-d3-chessboard('8/8/8/8/8/8/8/8',|%opts-greens, title => 'Empty chessboard')
 ![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/YlOrBr-and-Greens-styling.png)
 
 Using a different plotting style with non-trivial FEN strings:
-
 
 ```raku
 #%js
@@ -224,36 +215,36 @@ js-d3-chessboard(
 
 In "JavaScript:D3":
 
-- Input chess position strings are processed with "FEN::Grammar"
+- Input chess position strings are processed with ["FEN::Grammar"](https://raku.land/zef:vushu/FEN::Grammar), [DVp1]
 - Almost any element of chess position plotting is tunable
 - Chess position plotting is based on heatmap plotting
     - Hence, arguments of `js-d3-heatmap-plot` can be used.
 
 Here are the explicit tunable parameters:
 
-
 ```raku
 .say for &JavaScript::D3::Chess::Chessboard.candidates.map({ $_.signature.params».name }).flat.unique.grep({ $_.Str ∉ <@data $data %args $div-id>}).sort
 ```
 
-    $background
-    $black-square-value
-    $blacks-fill-color
-    $blacks-font-family
-    $blacks-stroke-color
-    $color-palette
-    $format
-    $height
-    $margins
-    $opacity
-    $tick-labels-color
-    $title
-    $white-square-value
-    $whites-fill-color
-    $whites-font-family
-    $whites-stroke-color
-    $width
-
+```
+$background
+$black-square-value
+$blacks-fill-color
+$blacks-font-family
+$blacks-stroke-color
+$color-palette
+$format
+$height
+$margins
+$opacity
+$tick-labels-color
+$title
+$white-square-value
+$whites-fill-color
+$whites-font-family
+$whites-stroke-color
+$width
+```
 
 -----
 
@@ -261,7 +252,7 @@ Here are the explicit tunable parameters:
 
 In this section are given several methods for extracting FEN strings from (free) text strings. (I.e. chess LLM outputs.)
 
-A function to check whether is a FEN string or not:
+A function to check whether the argument is a FEN string or not:
 
 
 ```raku
@@ -271,14 +262,7 @@ my sub is-fen-string(Str:D $txt) {
 }
 ```
 
-
-
-
-    &is-fen-string
-
-
-
-Here is a way to use that predicate function:
+Here is a way to use that verification function:
 
 
 ```raku
@@ -301,13 +285,6 @@ my sub fen-specs-by-predicate(Str:D $txt) {
 }
 ```
 
-
-
-
-    &fen-specs-by-predicate
-
-
-
 **Remark:** The functions `is-fen-string` and `fen-specs-by-predicate` are useful if 3rd party chess notation packages are used. (Not necessarily Raku-grammar based.)
 
 Here is a fast and simple to use a Raku grammar to extract FEN strings:
@@ -318,13 +295,6 @@ my sub fen-specs(Str:D $txt) {
     return do with $txt.match( /<FEN::Grammar::TOP>/, :g) { $/».Str };
 }
 ```
-
-
-
-
-    &fen-specs
-
-
 
 Here are examples using both approaches:
 
@@ -348,9 +318,10 @@ say "fen-specs-by-predicate : ", fen-specs-by-predicate($txt).raku;
 say "fen-specs              : ", fen-specs($txt).raku;
 ```
 
-    fen-specs-by-predicate : ["rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1", "rnbqkbnr/pppp1ppp/8/4p3/8/1P6/P1PPPPPP/RNBQKBNR w KQkq e6 0 2"]
-    fen-specs              : ("rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1", "rnbqkbnr/pppp1ppp/8/4p3/8/1P6/P1PPPPPP/RNBQKBNR w KQkq e6 0 2")
-
+```
+fen-specs-by-predicate : ["rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1", "rnbqkbnr/pppp1ppp/8/4p3/8/1P6/P1PPPPPP/RNBQKBNR w KQkq e6 0 2"]
+fen-specs              : ("rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1", "rnbqkbnr/pppp1ppp/8/4p3/8/1P6/P1PPPPPP/RNBQKBNR w KQkq e6 0 2")
+````
 
 -----
 
@@ -365,6 +336,7 @@ Starting a game:
 #% chat cm > markdown
 Let us start a new game.
 ```
+
 ```
 Great! Let's start a new game. Here is the standard initial position:
 
@@ -476,7 +448,7 @@ Your move!
 ```
 
 
-Well the LLM fix preserved the same wrong moves.
+Well, the LLM fix preserved the same wrong moves:
 
 
 ```raku
@@ -486,37 +458,8 @@ js-d3-chessboard(fen-specs(cbpaste), |%opts)
 
 ### Alternative development
 
-Another user move -- taking the pawn at `d6`:
-
-
-```raku
-#% chat cm > markdown
-bishop from a3 to d6
-```
-
-The chess positions clearly see the wrong LLM moves (or FEN strings):
-
-
-```raku
-#%js
-js-d3-chessboard(fen-specs(cbpaste), |%opts)
-```
-
-Trying to fix it:
-
-
-```raku
-#% chat cm > markdown
-Well, you removed the bishop which took the pawn on `d6` and you kept on `d6` that pawn of yours.
-```
-
-The FEN string of the "correction" is the same as above: 
-
-
-```raku
-#%js
-js-d3-chessboard(fen-specs(cbpaste), |%opts)
-```
+Several other games were played, and, although they developed differently in all of them 
+ChessMaster gave wrong FEN strings within the first 6 moves.
 
 ----
 
@@ -548,7 +491,7 @@ my $imgBase64 = data-import($url, format => 'md-image');
 
 ![](https://i.sstatic.net/uKnenm.png)
 
-**Remark:** The Raku chatbook visualizations via JavaScript and URLs are faster.
+**Remark:** The Raku chatbook visualizations via JavaScript and URLs are faster that using Base64 strings.
 
 Here is an LLM vision application (using image's URL):
 
@@ -578,10 +521,12 @@ The image shows a chess position with the following pieces:
 The board is mostly empty, with pieces strategically placed. White is in a strong position with multiple attacking options.
 ```
 
+We can see from the output above that the positions of both the white and black figures are 
+***correctly recognized*** by the (default) LLM vision model. 
+([Currently](https://github.com/antononcube/Raku-LLM-Functions/blob/65cd3da1f5bf8cbaa5f08554aec673073686119c/lib/LLM/Functions.rakumod#L658), that model is 
+["gpt-4o"](https://platform.openai.com/docs/models#gpt-4o).)
 
-**Remark:** The positions of both the white and black figures are recognized correctly.
-
-Get Raku code instead of a textual description:
+Here ask na LLM to convert the textual description into Raku code:
 
 
 ```raku
@@ -600,11 +545,9 @@ my $chessSpec = llm-synthesize([
 );
 ```
 
-
-
-
-    [{x => e, y => 8, z => R} {x => a, y => 1, z => R} {x => a, y => 8, z => B} {x => g, y => 1, z => Q} {x => e, y => 1, z => K} {x => f, y => 2, z => P} {x => g, y => 3, z => P} {x => e, y => 4, z => n} {x => g, y => 4, z => p} {x => f, y => 3, z => k}]
-
+```
+[{x => e, y => 8, z => R} {x => a, y => 1, z => R} {x => a, y => 8, z => B} {x => g, y => 1, z => Q} {x => e, y => 1, z => K} {x => f, y => 2, z => P} {x => g, y => 3, z => P} {x => e, y => 4, z => n} {x => g, y => 4, z => p} {x => f, y => 3, z => k}]
+```
 
 
 Tabulate the result:
@@ -616,13 +559,10 @@ $chessSpec ==> to-html(field-names => <x y z>)
 ```
 
 
-
-
 <table border="1"><thead><tr><th>x</th><th>y</th><th>z</th></tr></thead><tbody><tr><td>e</td><td>8</td><td>R</td></tr><tr><td>a</td><td>1</td><td>R</td></tr><tr><td>a</td><td>8</td><td>B</td></tr><tr><td>g</td><td>1</td><td>Q</td></tr><tr><td>e</td><td>1</td><td>K</td></tr><tr><td>f</td><td>2</td><td>P</td></tr><tr><td>g</td><td>3</td><td>P</td></tr><tr><td>e</td><td>4</td><td>n</td></tr><tr><td>g</td><td>4</td><td>p</td></tr><tr><td>f</td><td>3</td><td>k</td></tr></tbody></table>
 
 
-
-Here we compare the original image with its LLM derived description (converted to a Raku array of maps):
+Here we compare the original image with the image corresponding to its LLM derived description (converted to a Raku array of maps):
 
 
 ```raku
@@ -634,10 +574,9 @@ js-d3-chessboard($chessSpec, |%opts, title => 'Text description to JSON')
 
 ![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Original-puzzle-image-and-recognized-text-to-JSON.png)
 
-Comparing the images it can be seen that a correct LLM-vision recognition JSON spec was obtained.
+By comparing the images it can be seen that a correct LLM-vision recognition JSON spec was obtained.
 
-**Remark:** The FEN string of the image is:
-
+**Remark:** The FEN string of the image is `B3R3/8/8/8/4n1p1/5kP1/5P2/R3K1Q1`:
 
 
 ```raku
@@ -652,9 +591,9 @@ js-d3-chessboard($fenOrigSpec, |%opts, title => 'Image FEN')
 
 ## Using FEN strings is counter-productive
 
-In this subsection is demonstrated that LLMs have hard time converting correctly from- or to FEN strings.
+In this subsection we demonstrate that LLMs have hard time converting correctly from- or to FEN strings.
 
-Defining LLM-functions and LLM-configurations used below (more than once):
+Here are defined LLM-configurations and functions that are used below (more than once):
 
 
 ```raku
@@ -683,13 +622,6 @@ my sub fen-from-descr(Str:D $src, *%args) {
 }
 ```
 
-
-
-
-    &fen-from-descr
-
-
-
 Get FEN string corresponding to the LLM-obtained image description:
 
 
@@ -700,12 +632,9 @@ my $fenTxtByGemini = &fen-from-descr($chessDescr, e => $confGemini);
 ($fenTxt, $fenTxtByGemini)
 ```
 
-
-
-
-    (rB2R2/8/8/8/4n1p1/5kP1/5P2/R3K1Q1 w - - 0 1 r1bR2k1/8/8/8/4n1p1/5Pp1/5P1Q/R3K3 w - - 0 1)
-
-
+```
+(rB2R2/8/8/8/4n1p1/5kP1/5P2/R3K1Q1 w - - 0 1 r1bR2k1/8/8/8/4n1p1/5Pp1/5P1Q/R3K3 w - - 0 1)
+```
 
 Instead of a "plain English" description, request a FEN string to be returned for the given image:
 
@@ -714,12 +643,9 @@ Instead of a "plain English" description, request a FEN string to be returned fo
 my $fenImg = fen-vision($url, e => $conf4o)
 ```
 
-
-
-
-    8/B3R3/8/8/4n1p1/5kP1/5P2/R3K1Q1 b - - 0 1
-
-
+```
+8/B3R3/8/8/4n1p1/5kP1/5P2/R3K1Q1 b - - 0 1
+```
 
 Using one of latest Gemini's vision/omni models (with Gemini's vision models image Base64 strings have to used instead of image URLs):
 
@@ -728,13 +654,9 @@ Using one of latest Gemini's vision/omni models (with Gemini's vision models ima
 my $fenImgByGemini = fen-vision($imgBase64, e => $confGemini)
 ```
 
-
-
-
-    8/8/8/8/5n2/8/4kpp1/R1B1K2Q w - - 0 1
-
-
-
+```
+8/8/8/8/5n2/8/4kpp1/R1B1K2Q w - - 0 1
+```
 
 Here is a comparison of the original image (_top left_) and the chess position plot based on LLM recognitions above:
 
@@ -763,13 +685,22 @@ Here are a few observations:
 - The FEN-titled images shows several mistakes of chess figures mis-placements and/or omissions. 
     - E.g. white have no king.
 
-- The tried LLMs do not faithfully convert FEN specs:
+- The tried LLMs do not faithfully convert into FEN specs that are:
 
-    - Plain text chess position descriptions.
+    - Plain text chess position descriptions
 
     - Chess position images 
 
-We can conjecture that due to FEN's aggregational nature LLMs have hard time deriving correct FEN representations.
+### Conjectures
+
+We can conjecture that: 
+
+1. Due to FEN's aggregational nature LLMs have hard time deriving correct FEN representations.
+2. FEN is not sufficiently well represented in the LLMs training data. 
+   - I.e. not enough chess games in the training data are using FEN.
+
+We decided that the second conjecture is hard to investigate and confirm.
+Hence, below we focus on the first conjecture.
 
 -----
 
@@ -932,11 +863,12 @@ Understanding the limitations of LLMs in tasks requiring strict precision and ag
 A few leftover comments:
 
 - The chess plotting functionalities of ["JavaScript::D3" were developed 11 months ago](https://github.com/antononcube/Raku-JavaScript-D3/commits/main/lib/JavaScript/D3/Chess.rakumod).
+  - A newer package (published less than a week ago) is similar mission is [Graphviz::DOT::Chessboard](https://github.com/antononcube/Raku-Graphviz-DOT-Chessboard), [AAp6].   
 - Some of my friends and coworkers have mentioned more than a few times that I am suspiciously weak and playing chess.
     - Yeah, sure, but I can program the [Alpha-Beta algorithm](https://en.wikipedia.org/wiki/Alpha–beta_pruning).
         - And have done so a few times.
         - Coming to Raku soon...
-- Facilitating and experimenting with different styles for plotting of the chess positions is/was both interesting and time consuming.
+- Facilitating and experimenting with different styles for plotting of the chess positions is/was both interesting and time-consuming.
     - Almost any element of the chess position plotting is tunable.
 
 -----
@@ -990,6 +922,16 @@ A few leftover comments:
 [LLM::Prompts Raku package](https://github.com/antononcube/Raku-LLM-Prompts),
 (2023-2024),
 [GitHub/antononcube](https://github.com/antononcube).
+
+[AAp6] Anton Antonov,
+[Graphviz::DOT::Chessboard Raku package](https://github.com/antononcube/Raku-Graphviz-DOT-Chessboard),
+(2024),
+[GitHub/antononcube](https://github.com/antononcube).
+
+[DVp1] Dan Vu,
+[FEN::Grammar Raku package](https://github.com/vushu/fen-grammar),
+(2023-2024),
+[GitHub/vushu](https://github.com/vushu).
 
 [NCp1] Nicolas Carlini,
 [ChessLLM](https://github.com/carlini/chess-llm),
