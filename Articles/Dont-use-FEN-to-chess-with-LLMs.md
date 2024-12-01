@@ -365,16 +365,13 @@ Starting a game:
 #% chat cm > markdown
 Let us start a new game.
 ```
-
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Example-play-1.png)
-
-
+```
 Great! Let's start a new game. Here is the standard initial position:
 
 FEN: `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`
 
 It's your turn. You can make your move using algebraic notation or descriptive input.
-
+```
 
 
 Plotting the FEN strings from the LLM output:
@@ -385,6 +382,9 @@ Plotting the FEN strings from the LLM output:
 js-d3-chessboard(fen-specs(cbpaste), |%opts)
 ```
 
+![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Example-play-1.png)
+
+
 User first move:
 
 
@@ -393,21 +393,19 @@ User first move:
 b2 to b3
 ```
 
-
-
-
+```
 You moved: b2 to b3
-
+ 
 FEN after your move: `rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1`
-
+ 
 Now, it's my turn.
-
+ 
 My move: e7 to e5
 
 FEN after my move: `rnbqkbnr/pppp1ppp/8/4p3/8/1P6/P1PPPPPP/RNBQKBNR w KQkq - 1 2`
 
 Your move!
-
+```
 
 
 Plotting the FEN strings from the LLM output:
@@ -428,9 +426,7 @@ Another user move:
 Bishop from c1 to a3
 ```
 
-
-
-
+```
 You moved: Bishop from c1 to a3
 
 FEN after your move: `rnbqkbnr/pppp1ppp/8/4p3/8/1P6/B1PPPPPP/RN1QKBNR b KQkq - 2 2`
@@ -442,8 +438,7 @@ My move: Bf8 to a3 (capturing your bishop)
 FEN after my move: `rnbqk1nr/pppp1ppp/8/4p3/8/1P6/b1PPPPPP/RN1QKBNR w KQkq - 0 3`
 
 Your move!
-
-
+```
 
 User move and ChessMaster move:
 
@@ -464,23 +459,21 @@ The chess positions clearly show the wrong LLM move (or FEN string). Trying to f
 No, your move is wrong -- you took my white bishop with your black one.
 ```
 
+```
+Apologies for the oversight. Let's correct that.
 
+Your move: Bishop from c1 to a3
 
+FEN after your move: `rnbqkbnr/pppp1ppp/8/4p3/8/1P6/B1PPPPPP/RN1QKBNR b KQkq - 2 2`
 
-    Apologies for the oversight. Let's correct that.
-    
-    Your move: Bishop from c1 to a3
-    
-    FEN after your move: `rnbqkbnr/pppp1ppp/8/4p3/8/1P6/B1PPPPPP/RN1QKBNR b KQkq - 2 2`
-    
-    Now, it's my turn.
-    
-    My move: Bf8 to a3 (capturing your bishop)
-    
-    FEN after my move: `rnbqk1nr/pppp1ppp/8/4p3/8/1P6/b1PPPPPP/RN1QKBNR w KQkq - 0 3`
-    
-    Your move!
+Now, it's my turn.
 
+My move: Bf8 to a3 (capturing your bishop)
+
+FEN after my move: `rnbqk1nr/pppp1ppp/8/4p3/8/1P6/b1PPPPPP/RN1QKBNR w KQkq - 0 3`
+
+Your move!
+```
 
 
 Well the LLM fix preserved the same wrong moves.
@@ -565,8 +558,7 @@ Here is an LLM vision application (using image's URL):
 my $chessDescr = llm-vision-synthesize('Describe the following image:', $url);
 ```
 
-
-
+```
 The image shows a chess position with the following pieces:
 
 - White pieces:
@@ -584,7 +576,7 @@ The image shows a chess position with the following pieces:
   - King on f3
 
 The board is mostly empty, with pieces strategically placed. White is in a strong position with multiple attacking options.
-
+```
 
 
 **Remark:** The positions of both the white and black figures are recognized correctly.
@@ -744,7 +736,7 @@ my $fenImgByGemini = fen-vision($imgBase64, e => $confGemini)
 
 
 
-Here is a comparison of the original image (_bottom right_) and the chess position plot based on LLM recognitions above:
+Here is a comparison of the original image (_top left_) and the chess position plot based on LLM recognitions above:
 
 
 ```raku
