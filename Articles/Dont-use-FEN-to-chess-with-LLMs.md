@@ -191,7 +191,7 @@ js-d3-chessboard(|%opts, title => 'Initial position') ~
 js-d3-chessboard('8/8/8/8/8/8/8/8',|%opts-greens, title => 'Empty chessboard')
 ```
 
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/YlOrBr-and-Greens-styling.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Dont-use-FEN-to-chess-with-LLMs/YlOrBr-and-Greens-styling.png)
 
 Using a different plotting style with non-trivial FEN strings:
 
@@ -211,7 +211,7 @@ js-d3-chessboard(
 )
 ```
 
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Black-and-white-styling.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Dont-use-FEN-to-chess-with-LLMs/Black-and-white-styling.png)
 
 In "JavaScript:D3":
 
@@ -354,7 +354,7 @@ Plotting the FEN strings from the LLM output:
 js-d3-chessboard(fen-specs(cbpaste), |%opts)
 ```
 
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Example-play-1.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Dont-use-FEN-to-chess-with-LLMs/Example-play-1.png)
 
 
 User first move:
@@ -388,7 +388,7 @@ Plotting the FEN strings from the LLM output:
 js-d3-chessboard(fen-specs(cbpaste), |%opts)
 ```
 
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Example-play-2.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Dont-use-FEN-to-chess-with-LLMs/Example-play-2.png)
 
 Another user move:
 
@@ -420,7 +420,7 @@ User move and ChessMaster move:
 js-d3-chessboard(fen-specs(cbpaste), |%opts)
 ```
 
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Example-play-3.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Dont-use-FEN-to-chess-with-LLMs/Example-play-3.png)
 
 
 The chess positions clearly show the wrong LLM move (or FEN string). Trying to fix it:
@@ -572,7 +572,7 @@ js-d3-image-display($url)
 js-d3-chessboard($chessSpec, |%opts, title => 'Text description to JSON')
 ```
 
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Original-puzzle-image-and-recognized-text-to-JSON.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Dont-use-FEN-to-chess-with-LLMs/Original-puzzle-image-and-recognized-text-to-JSON.png)
 
 By comparing the images it can be seen that a correct LLM-vision recognition JSON spec was obtained.
 
@@ -585,7 +585,7 @@ my $fenOrigSpec = 'B3R3/8/8/8/4n1p1/5kP1/5P2/R3K1Q1';
 js-d3-chessboard($fenOrigSpec, |%opts, title => 'Image FEN')
 ```
 
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Image-FEN.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Dont-use-FEN-to-chess-with-LLMs/Image-FEN.png)
 
 -----
 
@@ -677,7 +677,7 @@ Here is a comparison of the original image (_top left_) and the chess position p
   }).join("\n")
 ```
 
-![](./Diagrams/Dont-use-FEN-to-chess-with-LLMs/Comparison-of-FEN-recognitions.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Dont-use-FEN-to-chess-with-LLMs/Comparison-of-FEN-recognitions.png)
 
 
 Here are a few observations:
@@ -863,11 +863,11 @@ Understanding the limitations of LLMs in tasks requiring strict precision and ag
 A few leftover comments:
 
 - The chess plotting functionalities of ["JavaScript::D3" were developed 11 months ago](https://github.com/antononcube/Raku-JavaScript-D3/commits/main/lib/JavaScript/D3/Chess.rakumod).
-  - A newer package (published less than a week ago) is similar mission is [Graphviz::DOT::Chessboard](https://github.com/antononcube/Raku-Graphviz-DOT-Chessboard), [AAp6].   
+  - A newer package (published less than a week ago) with a similar mission is [Graphviz::DOT::Chessboard](https://github.com/antononcube/Raku-Graphviz-DOT-Chessboard), [AAp6].   
 - Some of my friends and coworkers have mentioned more than a few times that I am suspiciously weak and playing chess.
     - Yeah, sure, but I can program the [Alpha-Beta algorithm](https://en.wikipedia.org/wiki/Alpha–beta_pruning).
         - And have done so a few times.
-        - Coming to Raku soon...
+          - (Coming to Raku soon...)
 - Facilitating and experimenting with different styles for plotting of the chess positions is/was both interesting and time-consuming.
     - Almost any element of the chess position plotting is tunable.
 
