@@ -38,7 +38,7 @@ Videos with neat examples using the Raku package "Graph" can be found in the cha
 This document corresponds to the video 
 ["Graph neat examples in Raku (Set 1)"](https://youtu.be/5qXgqqRZHow), [AAv1]. 
 
-[![](./Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-thumbnail-WordPress.png)](https://youtu.be/5qXgqqRZHow)
+[![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-thumbnail-WordPress.png)](https://youtu.be/5qXgqqRZHow)
 
 ----
 
@@ -148,7 +148,7 @@ js-d3-graph-plot(
     )
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-Mod-74-graph.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-Mod-74-graph.png)
 
 Next, we find the weakly connected components of the mod graph. A weakly connected component in a directed graph is a maximal subgraph where every pair of vertices is connected by an undirected path.
 
@@ -182,7 +182,7 @@ $gMod.weakly-connected-components.pairs.map({
 }).join("\n")
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-weak-components.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-weak-components.png)
 
 ---
 
@@ -261,7 +261,7 @@ js-d3-graph-plot(
 )
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-rac-graph.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-rac-graph.png)
 
 We can also derive graph edges ad hoc without using `nearest-neighbor-graph`:
 
@@ -336,7 +336,7 @@ js-d3-graph-plot(
     )
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-Africa-graph.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-Africa-graph.png)
 
 ### Distances
 
@@ -401,7 +401,7 @@ js-d3-graph-plot(
     )
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-Africa-spanning-tree.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-Africa-spanning-tree.png)
 
 ---
 
@@ -473,7 +473,7 @@ $stree.edges
     )
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-Bulgaria-spanning-tree.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-Bulgaria-spanning-tree.png)
 
 -----
 
