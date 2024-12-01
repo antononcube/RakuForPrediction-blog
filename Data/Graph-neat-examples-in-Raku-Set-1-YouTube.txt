@@ -1,0 +1,200 @@
+hello this presentation is titled graph
+neat examples in Raku set one my name is
+Anton Antonov today is July 19th
+2024 I plan to have at least one more
+set of um neat examples with graphs so
+what are neat examples we can say that a
+neat example is a concise or
+straightforward code that produces
+compelling visual textual
+outputs maybe we know need examples when
+we see them the neat examples showcase
+Raku programming use functionalities of
+different Raku modules and give
+interesting perspectives on what is um
+computationally possible these three
+statements which I just recited um they
+over up so maybe two of them are
+redundant all right so my first example
+is the so-called mod graph so I have
+taken the integers from 0 to 99 and each
+integer is being squared and then the
+reminder of dividing by 74 is being
+found so mod 74 and then the graph is
+being produced and here is how the graph
+is visualized all right so let me uh try
+to untangle some of this here so uh the
+graph has multiple components as you can
+see uh what is uh happening here I'm
+using um a function called gsd3 graph
+plot which is from the ru package
+"JavaScript::D3"
+and um "JavaScript::D3" uses the JavaScript
+library D3.js D3.js has the force
+Network functionalities and so you can
+see here the force if I say decrease the
+the strength of the charge we don't get
+a very informative plot or if is the
+charge is positive you know it's like
+not informative at all so if I return to
+to say the original setup I had here we
+get something more meaningful so so
+other elements of the force can be
+adjusted like say collision and Link
+length and so forth all right so I'm not
+going to to play with this too much but
+yeah you can see that um we have the
+force and we have also this kind of
+manual adjustment we can manually adjust
+the graphs if we wish to do so all right
+so uh next I'm going to find the weekly
+connected components of the mod graph so
+let me explain here so 92 is connected
+to 28 this is a directed graph right but
+28 is not connected to 92 but in weekly
+connected components if there is a
+there's a an edge then the the nodes are
+considered connected so this what is
+happening weekly connected components
+Returns the largest components first so
+this is what we see here so next what
+I'm going to do I'm going to take this
+um uh let me zoom out I'm going to take
+this weekly connected components and for
+each of them I'm going to take a
+subgraph corresponding to the vertices
+of the component and then produce the
+JavaScript code for the plot and so and
+then concatenate those plots actually
+this might not be very clear when I say
+concatenate those plots so um so this
+function GSD free graph plot uh produces
+JavaScript code this uh notebook this a
+Jupiter not notebook actually a Raku
+chatbook it is uh primed to display
+JavaScript different GS uh plots and I
+have this
+um uh GS magic cells and when JavaScript
+is Gen is generated as an output then
+automatically the output is uh rendered
+JavaScript wise the the the JavaScript
+is being executed so this what we see
+here right okay um so for each of this
+uh components I generate the
+corresponding um JavaScript code and
+then it is being concatenated you can
+see it here with join this is what is
+happening all right my um next example
+is a dictionary graph so I'm taking uh
+approximately 85,000 English words from
+the package data
+generators that package has the the
+function random word so you can see I'm
+producing random words here and this um
+this 85,000 words data structure looks
+like this the keys of this um of this uh
+dictionary or hash um The Words the
+English words so I'm going to take uh
+from those uh those words I'm going to
+take the ones which start with r with r
+a right with this prefix and we have 46
+words like that
+from this um 46 words I'm going to
+create a nearest neighbor graph so for
+each word I'm going to take um like say
+rocket no I'm going to take the top two
+nearest neighbors and I'm going to use
+the distance function called dld which
+stands for Damerau Levenshtein distance this is
+from the package text Lenin deu or
+something like that and so here is the
+graph itself and here it's how it is
+visualized you can see what I
+highlighted the word Ron the two
+different spellings of the word raccoon
+with two C's and one C and you can see
+it here so um instead of using uh
+instead of using uh nearest uh neighbor
+graph we could have used uh the function
+nearest and to um make the edges at hoc
+how how we did it for the mod graph
+right but you know uh this
+functionalities nearest nearest neighbor
+graph we provided by the same package
+nearest all right all right so my next
+example is um about building interstate
+highway system that joins the
+geographical centers of all African
+countries so here uh I'm assigning uh in
+a very direct ad hoc manner the
+coordinates of the different um African
+countries so this is how it looks like
+so so I have this almost planar graph it
+seems and the task is to find the subset
+of this network which is first connected
+and second is with the minimum length so
+we want to minimize the amount of um
+route infrastructure work being done so
+this is uh how this um uh the that
+Network looks like so let me uh put the
+cities into uh City labels to non uh so
+how this was found this is in Orange
+this is a spanning tree so there's a
+function called sorry this is a method
+of the graph objects called find
+spanning Tre which you know finds the
+minimum spanning tree based on the
+lengths or weights of the edges of the
+graph so uh an interesting element here
+is that this is a different way of
+visualizing the graphs you can see that
+um I'm using vertex coordinates if I
+don't we get something pretty
+meaningless uh here and even if I adjust
+with the forces play with the forces
+it's not more informative so here using
+vertex coordinates
+is is crucial it's very helpful in this
+kind of um this kind of visualizations
+for this kind of tasks another thing you
+can see that I'm highlighting
+separately very separate specifications
+for highlighting the edges and
+highlighting the vertices so if I remove
+this right so this here is just going to
+highlight the edges right and uh if I if
+I if I remove this part here we we only
+have uh okay what happened here let me
+see yeah so we only have the vertices so
+none of this is is that helpful I mean
+we want to have both um both the edges
+and the vertices being highlighted in
+this particular case in some cases we
+only want the edges some cases we only
+want the vertices all right so I was
+wondering should I discuss the Bulgarian
+cies um so here this uh uh in this uh
+example I directly assigned the
+coordinates for the countries but it
+would be nice if these coordinates are
+known by some Raku package and this is
+what uh the purpose of this Raku package
+"Data::Geographics" is is to provide data
+for different uh geographical uh
+entities be countries cities and so
+forth right regions and so you can see
+this uh package it doesn't know it only
+knows one African country it knows
+approximately a dozen of countries so
+here I'm going to take the uh Bulgarian
+cities which have a population more than
+10,000 people and I'm going to so you
+can see the cities there with know
+latitude and longitude with know
+coordinates this is provided by the
+package itself and so here when I create
+the graph and the minimum spanning tree
+you know that's that's kind of um
+utilizing the the data from that uh
+package all right so this was it thank
+you
