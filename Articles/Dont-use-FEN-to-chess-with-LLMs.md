@@ -287,7 +287,7 @@ my sub fen-specs-by-predicate(Str:D $txt) {
 
 **Remark:** The functions `is-fen-string` and `fen-specs-by-predicate` are useful if 3rd party chess notation packages are used. (Not necessarily Raku-grammar based.)
 
-Here is a fast and simple to use a Raku grammar to extract FEN strings:
+Here is a fast and simple use of a Raku grammar to extract FEN strings:
 
 
 ```raku
@@ -647,7 +647,7 @@ my $fenImg = fen-vision($url, e => $conf4o)
 8/B3R3/8/8/4n1p1/5kP1/5P2/R3K1Q1 b - - 0 1
 ```
 
-Using one of latest Gemini's vision/omni models (with Gemini's vision models image Base64 strings have to used instead of image URLs):
+Using one of latest Gemini's vision/omni models (with Gemini's vision models image Base64 strings have to be used instead of image URLs):
 
 
 ```raku
@@ -864,7 +864,7 @@ A few leftover comments:
 
 - The chess plotting functionalities of ["JavaScript::D3" were developed 11 months ago](https://github.com/antononcube/Raku-JavaScript-D3/commits/main/lib/JavaScript/D3/Chess.rakumod).
   - A newer package (published less than a week ago) with a similar mission is [Graphviz::DOT::Chessboard](https://github.com/antononcube/Raku-Graphviz-DOT-Chessboard), [AAp6].   
-- Some of my friends and coworkers have mentioned more than a few times that I am suspiciously weak and playing chess.
+- Some of my friends and coworkers have mentioned more than a few times that I am suspiciously weak at playing chess.
     - Yeah, sure, but I can program the [Alpha-Beta algorithm](https://en.wikipedia.org/wiki/Alpha–beta_pruning).
         - And have done so a few times.
           - (Coming to Raku soon...)
