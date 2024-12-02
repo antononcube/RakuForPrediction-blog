@@ -40,6 +40,8 @@ This document corresponds to the video
 
 [![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graph-neat-examples-Set-1/Graph-neat-examples-in-Raku-Set-1-thumbnail-WordPress.png)](https://youtu.be/5qXgqqRZHow)
 
+Here is the corresponding presentation Jupyter notebook: [Graph-neat-examples-set-1.ipynb](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Presentations/Notebooks/Graph-neat-examples-set-1.ipynb).
+
 ----
 
 ## Setting Up the Environment
