@@ -116,7 +116,7 @@ A few observations on the prompt above:
 
 ## Chess position plotting setup
 
-This section shows the setup for plotting chess positions *while using a [Raku Chatbook](https://raku.land/zef:antononcube/Jupyter::Chatbook)*, [AAp].
+This section shows the setup for plotting chess positions *while using a [Raku Chatbook](https://raku.land/zef:antononcube/Jupyter::Chatbook)*, [AAp2].
 
 Load packages:
 
@@ -520,7 +520,7 @@ We can see from the output above that the positions of both the white and black 
 ([Currently](https://github.com/antononcube/Raku-LLM-Functions/blob/65cd3da1f5bf8cbaa5f08554aec673073686119c/lib/LLM/Functions.rakumod#L658), that model is 
 ["gpt-4o"](https://platform.openai.com/docs/models#gpt-4o).)
 
-Here ask na LLM to convert the textual description into Raku code:
+Here ask an LLM to convert the textual description into Raku code:
 
 
 ```raku
