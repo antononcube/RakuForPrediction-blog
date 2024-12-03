@@ -872,8 +872,8 @@ A few leftover comments:
 ### Articles, blog posts
 
 [Ch1] chess.com,
-["Forsyth-Edwards Notation (FEN)"](https://www.chess.com/terms/fen-chess)),
-[Chess.com][https://www.chess.com/terms].
+["Forsyth-Edwards Notation (FEN)"](https://www.chess.com/terms/fen-chess),
+[Chess.com](https://www.chess.com/terms).
 
 [DM1] dynomight,
 ["Something weird is happening with LLMs and chess](https://dynomight.net/chess/),
