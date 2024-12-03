@@ -103,12 +103,6 @@ Here is how you behave:
 ```
 
 
-
-
-    Chat object created with ID : cm.
-
-
-
 A few observations on the prompt above:
 
 - The prompt is carefully crafted.
@@ -933,15 +927,16 @@ A few leftover comments:
 (2023-2024),
 [GitHub/vushu](https://github.com/vushu).
 
+[MLp1] Maxime Labonne,
+[ChessLLM](https://github.com/mlabonne/chessllm),
+(2024),
+[GitHub/mlabonne](https://github.com/mlabonne).
+
 [NCp1] Nicolas Carlini,
 [ChessLLM](https://github.com/carlini/chess-llm),
 (2023-2024),
 [GitHub/carlini](https://github.com/carlini).
 
-[MLp1] Maxime Labonne,
-[ChessLLM](https://github.com/mlabonne/chessllm),
-(2024),
-[GitHub/mlabonne](https://github.com/mlabonne).
 
 ### Videos
 
