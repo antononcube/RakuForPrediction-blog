@@ -5,12 +5,12 @@
 Anton Antonov   
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com)   
 [RakuForPrediction-book at GitHub](https://github.com/antononcube/RakuForPrediction-book)      
-July, November 2024   
+July, November 2024
 
 ## Introduction
 
-In this blog post, I will walk you through some neat examples of graph manipulation and visualization using Raku. 
-These examples showcase the capabilities of Raku and its modules in handling graph-related tasks. 
+In this blog post, I will walk you through some neat examples of graph manipulation and visualization using Raku.
+These examples showcase the capabilities of Raku and its modules in handling graph-related tasks.
 
 All computational graph features discussed here are provided by the ["Graph"](https://raku.land/zef:antononcube/Graph) module.
 The graphs are visualized using [D3.js](https://d3js.org) (via ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3)) and
@@ -18,7 +18,7 @@ The graphs are visualized using [D3.js](https://d3js.org) (via ["JavaScript::D3"
 providing both interactive and static visualizations.
 
 
-> **What is a neat example?** 
+> **What is a neat example?**
 >
 > Concise or straightforward code that produces compelling visual or textual outputs. In this context, neat examples:
 >
@@ -26,12 +26,65 @@ providing both interactive and static visualizations.
 > - Use functionalities of different Raku modules.
 > - Give interesting perspectives on what is computationally possible.
 
+Here is the link the presentation recording ["Graph neat examples in Raku (Set 2)](https://youtu.be/E7qhutQcWCY):
+
+[![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-YouTube-thumbnail-small.png)](https://youtu.be/E7qhutQcWCY)
+
+------
+
+## Triangular grid graph
+
+Here is a triangular grid graph:
+
+```raku, eval=FALSE
+#% js
+use Graph::TriangularGrid;
+use JavaScript::D3;
+
+my $g = Graph::TriangularGrid.new(4, 4);
+my @highlight = ($g.vertex-list Z=> $g.vertex-degree).classify(*.value).map({ $_.value».key });
+
+
+js-d3-graph-plot( $g.edges(:dataset),
+    :@highlight,
+    background => 'none', 
+    edge-thickness => 3,
+    vertex-size => 10,
+    vertex-label-color => 'none',
+    width => 1000,
+    height => 300, 
+    margins => 5,
+    edge-color => 'SteelBlue',
+    force => {charge => {strength => -300}, y => {strength => 0.2}, link => {minDistance => 4}}
+)       
+```
+
+![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-openning-triangular-grid-graph.png)
+
+Here are the corresponding adjacency- and incidence matrices:
+
+```raku
+#% js
+use Math::SparseMatrix;
+use Data::Reshapers;
+
+my ($amat, $imat) = $g.adjacency-matrix, $g.incidence-matrix;
+
+my %opts = grid-lines => {width => 0.25, color => 'DimGray'}, title-color => 'Silver', color-palette => 'Inferno', :!tooltip, background => '#1F1F1F', height => 300;
+#my %opts2 = grid-lines => {width => 0.25, color => 'DimGray'}, title-color => 'Gray', color-palette => 'Greys', :!tooltip, background => 'White', height => 300;
+
+js-d3-matrix-plot($amat, plot-label => 'Adjacency matrix', |%opts, width => 300+80, margins => {:2left, :40top, :2bottom, :80right})
+~ "\n" ~ 
+js-d3-matrix-plot($imat, plot-label => 'Incidence matrix', |%opts, width => 600, margins => {:2left, :40top, :2bottom, :2right})
+```
+
+![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-openning-triangular-grid-graph-matrixes.png)
 
 ------
 
 ## Bipartite Graph Coloring
 
-Let's start with a simple example: bipartite graph coloring. 
+Let's start with a simple example: bipartite graph coloring.
 Although this might seem basic, it's a good warm-up exercise.
 Here, we're creating a grid graph.
 
@@ -60,7 +113,7 @@ my %highlight = <SlateBlue Orange> Z=> $gg.bipartite-coloring.classify(*.value).
 
 Finally, we plot the grid graph as a bipartite graph:
 
-```raku
+```raku, eval=FALSE
 #%js
 $gg.edges(:dataset) ==>
     js-d3-graph-plot(
@@ -79,6 +132,8 @@ $gg.edges(:dataset) ==>
         force => {charge => {strength => -300}, x => {strength => 0.12}, link => {minDistance => 4}}
     )
 ```
+
+![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-grid-graph-bipartite.png)
 
 -----
 
@@ -100,7 +155,7 @@ my @components = $g2.connected-components.grep(*.elems - 1);
 
 We highlight these connected components in the graph using:
 
-```raku
+```raku, eval=FALSE
 #% js
 $g2.edges(:dataset) ==> 
 js-d3-graph-plot(
@@ -121,6 +176,8 @@ js-d3-graph-plot(
 )
 ```
 
+![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-grid-graph-components.png)
+
 ### Visualize via ***Graphviz DOT***
 
 We can also visualize the graph using the Graphviz DOT language:
@@ -130,7 +187,7 @@ my $g3 = Graph::TriangularGrid.new(8, 16, scale => 0.3, :!directed);
 $g3 = $g3.directed-graph(method => 'random', flip-threshold => 0.25);
 ```
 
-```raku
+```raku, eval=FALSE
 #% html
 $g3.dot( 
     highlight => $g3.connected-components.grep(*.elems - 1),
@@ -144,6 +201,13 @@ $g3.dot(
     engine => 'neato' 
 ):svg
 ```
+
+![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-triangular-grid-graph-components.png)
+
+**Remark:** Note that the shape of graph vertices (nodes) is randomly selected.
+
+**Remark:** The method `.dot` takes graph vertex styling options with both prefixes "node-" and "vertex-".
+Graphviz DOT uses "node" in its specs.
 
 ------
 
@@ -176,7 +240,7 @@ my @colors = (^14).map: { sprintf "#%02X%02X%02X", 250 - $_*10, 128 - $_*5, 114 
 
 Finally, we plot the collage of graphs:
 
-```raku
+```raku, eval=FALSE
 #%js
 $bigGraph.edges(:dataset) ==>
 js-d3-graph-plot(
@@ -195,9 +259,11 @@ js-d3-graph-plot(
 )
 ```
 
+![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-star-graphs-collage.png)
+
 ### Visualize via Graphviz DOT
 
-```raku
+```raku, eval=FALSE
 #% html
 my $preamble = q:to/END/;
 label = "Collage graph";
@@ -216,9 +282,12 @@ $bigGraph.dot(
     engine => 'neato'):svg
 ```
 
+![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-star-graphs-collage-DOT.png)
+
 ----
 
 ## Conclusion
 
 These examples demonstrate the power and flexibility that Raku *currently* has for graph manipulation and visualization.
-I would say, the (dynamic) Javascript plot of the collage of star graphs is one of the prettiest graph plots I have created!
+I would say, the dark mode, dynamic Javascript plot of the star graphs collage is one of the prettiest graph plots I have created!
+(Just random, not tied to anything significant...)
