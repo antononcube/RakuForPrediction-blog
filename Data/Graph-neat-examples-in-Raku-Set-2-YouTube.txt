@@ -1,0 +1,157 @@
+this presentation is titled graph neat
+examples in Raku my name is Anton
+Antonov today is November 13th
+20124 in this first example we see
+undirected graph this is a triangular
+grid graph and I have colored the
+vertices according to their degree this
+means the number of edges that go into
+each vertex and here the corresponding
+adjacency and incidence matrices The
+adjacency Matrix is vertex to vertex
+it's symmetric this is an undirected
+graph and the incidence Matrix shows the
+vertex to Edge relationship so each
+column corresponds to an edge and we can
+see each column has exactly two elements
+non zero elements all right so what are
+NE examples they're concise or
+straightforward code that produce
+compelling visual or textual outputs
+they showcase Raku programming they also
+Showcase functionalities of different
+Raku modules and they give interesting
+perspectives on what is computationally
+possible I'm using the package graph for
+this as presentation says and um I'm
+visualizing the graphs using JavaScript
+D3 which is based on D3 GS it's so
+JavaScript library the GS also uh graph
+um package or the graph class has its
+own method called dot which uses the dot
+language of graph Vis and graph Vis can
+be installed on almost any system hence
+we can produce the SVG images and
+visualize using dot all right so um my
+second example here it's like actually
+let me first show this
+graph I don't want to do that so uh I'm
+going to uh just make the vertex let's
+actually use the vertices right and
+visualize this in this way so grid
+graphs we bipartite uh this means that we
+have two sets of um of nodes or vertices
+and each set um for each set is true
+that the vertices in that set do not
+connect to each other but they connect
+to the other set so this what we see
+here we can see with this coloring
+immediately see what grid graphs bipartite
+so let's actually go through this code
+so here I'm uh generating a grid graph I
+can verify that this uh grid graph is
+bipartite now this method of form of the
+graph class and I can also derive the
+corresponding parted coloring I can use
+this bipartite coloring to uh derive the
+Highlight lists so you can see I'm using
+classify this is the built-in Raku
+function and then I'm making the actual
+the actual code here you can see you
+know with the highlight and the vertex
+coordinates so yeah uh some of this uh
+grid graphs or other you know other um
+known or named graphs in in the graph
+package they know vertex coordinates so
+this is being leveraged here
+all right so um next example this is a
+little bit more complicated it's again
+with a grid graph I'm making it
+undirected but I have um from this
+undirected graph I am making it directed
+in a random Manner and so this is a much
+more complicated problem to find the
+connected components in a in a directed
+graph in undirected graph but easia and
+so let's actually examine uh what we see
+here so the connected components are
+colored in the you know different
+colored in different colors so um for
+example this one here with I think very
+bright yellow so we can see that each of
+this uh vertices uh can be from each of
+these vertex we can reach any of the
+others now why is this not in this set
+right well it can be reached from this
+four yellow um vertices but from this
+vertex we cannot reach any of those so
+so that's why it's not it's not in the
+it's not in this group it's not in this
+connected component okay so this can be
+visualized also with DOT but I'm going
+to use a different graph again I'm going
+to use a triangular grid graph and so
+here actually let me demonstrate this
+here so uh if I use the JavaScript
+visualization this JavaScript library we
+can see what JavaScript code is B um
+generated and um U it is being rendered
+in this uh Jupiter notebook or also Raku
+chatbook Jupiter framework uses um it's
+a web based technology so it it is uh
+almost straightforward to Rend the
+JavaScript code similarly if we generate
+SVG code which is what dot does this do
+method does so uh we can again visualize
+it in Jupiter notebooks so and you can
+see here I'm using this dot language but
+I'm also randomly picking the shape of
+the note and so so let me contract this
+here and so sometimes it's going to be
+okay yeah sometimes it's hexagonal shape
+sometimes it's triangular uh there's a
+minor note here I'm using both vertex and
+node in this uh method dot because note
+is the terminology used in graph this or
+the dot language I I personally prefer
+vertex but you can use both vertex shape
+and note shape for example all right so
+moving on uh um the last example is a
+collage of star graphs and I'm going to
+just plot it and so show here so let me
+untangle some of this you know so this
+is probably the neatest example from
+this set I would say you can see that um
+I have created 40 uh star graphs each of
+them has between eight and 16 rays and I
+have picked some subset of them and
+colored them so I think this code was
+generated using large language models
+but I didn't
+see it will it would have taken too long
+to demonstrate that the actual
+generation so yeah so we can see you
+know here we you know visualize this um
+uh this uh set of star graphs and we can
+you know have fun manipulating them all
+right how this happens with um with DOT
+so the reason I'm showing the dot
+example here let me zoom out I mean you
+can see for example how how it is a
+little bit more regular than than the
+the one with JavaScript the other thing
+is that um instead of uh giving um
+specifying the elements of the plot all
+these colors and um highlights and so
+forth instead of specifying them as uh
+individual arguments in the dot method I
+can actually use the dot language the
+dot language the DSL which is dot for
+specifying graphs it's not that
+difficult to learn and it's you it's
+very powerful and so pretty
+straightforward as you can see here to
+make a preamble which specifies the
+style and then use out preamble to make
+the plots all right this was it thank
+you
