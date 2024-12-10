@@ -1,0 +1,156 @@
+this presentation is titled graph neat
+examples in Raku set
+three my name is Anton Antonov today's
+November 28th
+2024 I have prepared two sets of
+examples nested graphs and file system
+graphs the neat examples in general are
+defined as concise or straightforward
+code that produce compelling visual
+textual outputs I'm going to be
+demonstrating the functionalities of the
+ru package graph the graphs are going to
+be visualized using um JavaScript or the
+GS this a JavaScript library def GS and
+d3js is being utilized in Ru through
+JavaScript D fre graph itself the
+package graph itself knows how to
+produce SVG images via the framework
+called graph Vis which is an old
+framework for specifying and displaying
+graphs all right so uh nested graphs uh
+basic examples are here so this should
+show demonstrate what why we're called
+nested graphs so we start with a certain
+value say x and then I apply a certain
+function to it and so forth right so you
+can see the uh applications of f nested
+so to speak and so the way this uh
+nested graphs are specified here is we
+use the graph nested class we make uh
+this with the new signature we have the
+first argument to be a function the
+second argument to be an initial value
+and then the number of times we apply it
+and we can see this for two you know
+being squared and uh it's squared again
+squared again and with x uh being nested
+in this way to produce this symbolic
+representation all right uh same example
+but with two functions uh I'm using the
+functions f and g again I start with X I
+apply the uh this function the first
+argument three times and we can see we
+get this kind of
+nestings and I can display this graph so
+with uh JavaScript you know the fre GS
+as I mentioned and so here this is with
+uh the SVG graph this um functionalities
+using the method dot so if I show you
+what this is here this is SVG code right
+and um and here this is Javascript code
+so if I evaluate this this JavaScript
+code which is being um uh rendered
+readily in this um Jupiter notebook all
+right mod graph is um somewhat um
+probably
+more more complicated but produces more
+complicated graph uh the reason for this
+is that we take whatever is the vertex
+value say three and I Square it and I
+add one to it and then I take the mod so
+99 if squ is 81 + 1 82 mod 10 is 2 so we
+get this directed graph so um you can
+see what um I have I have used all of
+the uh integers from 0 to 9 this is what
+is specified here by default only one
+nesting is being applied okay range
+graph is somewhat maybe uh more
+convenient to demonstrate what's going
+on so if I make only one step in this
+nesting what is going to happen so I
+start with this value uh nine and I
+intentionally used a string here and
+this here is the allomorph application
+of it or allomorph functionalities of RA
+apply to it and so here we can see what
+from nine we produce this um result from
+0 to 8 and so if I do a second
+application uh nested application then
+we're going to produ use a much more
+comprehensive larger graph and uh we can
+see that if this graph is made
+undirected it is a directed graph but if
+it is made undirected then it is a
+complete graph and also we can compute
+the in degree and out degree of each
+vertex we can see that um no other
+vertices make edges that go into nine so
+all uh edges of nine they go out and
+similarly to to zero is the other way
+around right so we can see here this
+with the methods vertex in degree and
+vertex out degree if we don't we use
+this adverb pairs or the abbreviation P
+we get only the the corresponding
+degrees and we can also get this um this
+pairs corresponding to the the degrees I
+can visualize this using uh the fre GS
+this is not necessarily a very nice plot
+it's just just it's a very busy uh very
+busy graph so and it's hard to display
+better in my opinion than using uh this
+uh rendering okay the file system graphs
+so I'm going to use a package recently
+uh created or recently submitted to raan
+package called Puffs and I'm going to
+take the uh files from a directory with
+um Mathematica notebooks about Ru which
+have been using to do Raku this is
+before I started using jupter framework
+for uh you know anything Raku related so
+uh here I'm going to visualize the graph
+so we get this graph here and what is
+happening so uh from the Puffs I split
+them uh in some way in order to get the
+individual directories and the files
+themselves then I create edges from uh
+from a from the say root directory to
+the sub directories from the subd
+directories to their own subd
+directories and so forth until we reach
+the actual files right and you can see I
+have 186 files and corresponding edges
+and so forth so here I'm using the
+so-called circular embedding for this uh
+for this graph and if I if I want to
+show what these are file names I'm going
+to uh remove that specification so we
+you can see these are these are file
+names it's like CSV files zip files NB
+these are Mathematica notebooks and so
+forth all right so let's do the same
+thing but using um the Raku doc files
+this is from the Raku do repository I
+cloned it today from GitHub and probably
+the target audience of this presentation
+is going to be more interested in that
+so here I'm producing this graph and I'm
+plotting it with uh JavaScript um
+JavaScript plot using the free GS and so
+you can see what I'm using the force uh
+display here and I have squashed the
+graph a little bit uh from the wi
+Direction in order to produce this let
+me show the actual uh names which uh
+probably uh the Raku Raku practitioners
+are going to recognize so we have the
+comp unit we have hash Raku do and Etc
+right so if I move try to move any of
+those to get more
+eligible uh I should have made this uh
+uh nodes uh easier to to pick and select
+all right so uh if I put here n we're
+going to get the original plot and um
+this is my last neat examples here all
+right thank you
