@@ -26,9 +26,9 @@ providing both interactive and static visualizations.
 > - Use functionalities of different Raku modules.
 > - Give interesting perspectives on what is computationally possible.
 
-Here is the link the presentation recording ["Graph neat examples in Raku (Set 2)](https://youtu.be/E7qhutQcWCY):
+Here is the link to the related presentation recording ["Graph neat examples in Raku (Set 2)](https://youtu.be/E7qhutQcWCY):
 
-[![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-YouTube-thumbnail-small.png)](https://youtu.be/E7qhutQcWCY)
+[![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-YouTube-thumbnail-small.png)](https://youtu.be/E7qhutQcWCY)
 
 ------
 
@@ -36,7 +36,7 @@ Here is the link the presentation recording ["Graph neat examples in Raku (Set 2
 
 Here is a triangular grid graph:
 
-```raku, eval=FALSE
+```raku
 #% js
 use Graph::TriangularGrid;
 use JavaScript::D3;
@@ -59,7 +59,7 @@ js-d3-graph-plot( $g.edges(:dataset),
 )       
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-openning-triangular-grid-graph.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-openning-triangular-grid-graph.png)
 
 Here are the corresponding adjacency- and incidence matrices:
 
@@ -78,7 +78,13 @@ js-d3-matrix-plot($amat, plot-label => 'Adjacency matrix', |%opts, width => 300+
 js-d3-matrix-plot($imat, plot-label => 'Incidence matrix', |%opts, width => 600, margins => {:2left, :40top, :2bottom, :2right})
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-openning-triangular-grid-graph-matrixes.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-openning-triangular-grid-graph-matrixes.png)
+
+------
+
+## Setup
+
+The setup for these examples is the same as in the first set, so it is skipped here.
 
 ------
 
@@ -113,7 +119,7 @@ my %highlight = <SlateBlue Orange> Z=> $gg.bipartite-coloring.classify(*.value).
 
 Finally, we plot the grid graph as a bipartite graph:
 
-```raku, eval=FALSE
+```raku
 #%js
 $gg.edges(:dataset) ==>
     js-d3-graph-plot(
@@ -133,7 +139,7 @@ $gg.edges(:dataset) ==>
     )
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-grid-graph-bipartite.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-grid-graph-bipartite.png)
 
 -----
 
@@ -155,7 +161,7 @@ my @components = $g2.connected-components.grep(*.elems - 1);
 
 We highlight these connected components in the graph using:
 
-```raku, eval=FALSE
+```raku
 #% js
 $g2.edges(:dataset) ==> 
 js-d3-graph-plot(
@@ -176,7 +182,7 @@ js-d3-graph-plot(
 )
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-grid-graph-components.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-grid-graph-components.png)
 
 ### Visualize via ***Graphviz DOT***
 
@@ -187,7 +193,7 @@ my $g3 = Graph::TriangularGrid.new(8, 16, scale => 0.3, :!directed);
 $g3 = $g3.directed-graph(method => 'random', flip-threshold => 0.25);
 ```
 
-```raku, eval=FALSE
+```raku
 #% html
 $g3.dot( 
     highlight => $g3.connected-components.grep(*.elems - 1),
@@ -202,7 +208,7 @@ $g3.dot(
 ):svg
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-triangular-grid-graph-components.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-triangular-grid-graph-components.png)
 
 **Remark:** Note that the shape of graph vertices (nodes) is randomly selected.
 
@@ -240,7 +246,7 @@ my @colors = (^14).map: { sprintf "#%02X%02X%02X", 250 - $_*10, 128 - $_*5, 114 
 
 Finally, we plot the collage of graphs:
 
-```raku, eval=FALSE
+```raku
 #%js
 $bigGraph.edges(:dataset) ==>
 js-d3-graph-plot(
@@ -259,11 +265,11 @@ js-d3-graph-plot(
 )
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-star-graphs-collage.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-star-graphs-collage.png)
 
 ### Visualize via Graphviz DOT
 
-```raku, eval=FALSE
+```raku
 #% html
 my $preamble = q:to/END/;
 label = "Collage graph";
@@ -282,7 +288,7 @@ $bigGraph.dot(
     engine => 'neato'):svg
 ```
 
-![](./Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-star-graphs-collage-DOT.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graph-neat-examples-Set-2/Graph-neat-examples-in-Raku-Set-2-star-graphs-collage-DOT.png)
 
 ----
 
