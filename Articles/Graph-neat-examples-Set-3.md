@@ -11,9 +11,9 @@ November 2024
 
 ## Introduction
 
-In this post I will be showcasing some examples of using the Raku programming language to create and visualize graphs. 
-These examples are part of a series of neat examples, which are concise or straightforward code snippets that produce compelling visual or textual outputs. 
-We know something is neat when we see it, don't we?
+In this post I am showcasing some examples of using the Raku programming language to create and visualize graphs. 
+These examples are part of a series of neat examples, which are concise or straightforward code snippets that produce compelling visual or textual outputs.
+(And, hopefully, we know something is neat when we see it...)
 
 All computational graph features discussed here are provided by the ["Graph"](https://raku.land/zef:antononcube/Graph) module.
 The graphs are visualized using [D3.js](https://d3js.org) (via ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3)) and
@@ -29,14 +29,13 @@ Here is the link to the related presentation recording ["Graph neat examples in 
 
 ## Setup
 
-The setup for these examples is the same as in the first set, so it is skipped here.
-
+The setup for these examples is the same as in the two sets, so it is skipped here.
 
 ---
 
 ## Nested Graphs
 
-Let's dive into nested graphs. 
+Let us look first into nested graphs. 
 A nested graph is created by repeatedly applying a function to an initial value. 
 Here's a basic example:
 
@@ -56,7 +55,8 @@ $g2.dot(:$background, engine => 'dot', vertex-shape => 'ellipse', vertex-width =
 
 ![](./Diagrams/Graph-neat-examples-Set-3/nested-graph-2.svg)
 
-In this example, we start with a value and apply a function to it multiple times. The graph visually represents these nested applications.
+In this example, we start with a value and apply a function to it multiple times. 
+The graph visually represents these nested applications.
 
 ### Binary Tree
 
