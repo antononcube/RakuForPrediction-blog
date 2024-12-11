@@ -1,0 +1,338 @@
+<table>
+    <tr>
+        <th>Main, core features</th>
+        <th>Graph programming</th>
+        <th>Paths, cycles, flows</th>
+        <th>Matching, coloring</th>
+        <th>Operations</th>
+        <th>Construction</th>
+        <th>Tests</th>
+        <th>Documentation</th>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>&#9711; Object methods
+                    <ul>
+                        <li>✔️ Str and gist methods</li>
+                        <li>✔️ Deep copy</li>
+                        <li>✔️ Creation from another graph.</li>
+                        <li>&#9711; Ingest vertexes and edges of another <code>Graph</code> object</li>
+                        <li>&#9711; Comparison: <code>eqv</code> and <code>ne</code>.</li>
+                    </ul>
+                </li>
+                <li>✔️ Disjoint graphs
+                    <ul>
+                        <li>The graphs can be disjoint as long as the components have edges.</li>
+                        <li>Related, the class <code>Graph</code> does supports "lone vertices."
+                            <ul>
+                                <li>They have empty adjacency values.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>&#9711; Vertexes
+                    <ul>
+                        <li>✔️ Vertex list</li>
+                        <li>✔️ Vertex count</li>
+                        <li>✔️ Vertex degree</li>
+                        <li>✔️ in-degree, edges-at</li>
+                        <li>✔️ out-degree, edges-from</li>
+                        <li>✔️ Delete vertex(es)</li>
+                        <li>✔️ Add vertex</li>
+                        <li>✔️ Has vertex</li>
+                        <li>&#9711; Vertex tags support</li>
+                    </ul>
+                </li>
+                <li>&#9711; Edges
+                    <ul>
+                        <li>✔️ Edge list</li>
+                        <li>✔️ Edge dataset</li>
+                        <li>✔️ Edge count</li>
+                        <li>✔️ Add edge</li>
+                        <li>✔️ Delete edge(s)</li>
+                        <li>✔️ Has edge</li>
+                        <li>&#9711; Edge tags support</li>
+                    </ul>
+                </li>
+                <li>&#9711; Matrix representation
+                    <ul>
+                        <li>Sparse matrices are needed before "seriously" considering this.</li>
+                        <li>Sparse matrices should be easy to create using the (already implemented) edge dataset.</li>
+                        <li>✔️ Adjacency matrix (dense)</li>
+                        <li>&#9711; Adjacency matrix (sparse)</li>
+                        <li>✔️ Incidence matrix (dense)</li>
+                        <li>&#9711; Incidence matrix (sparse)</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>&#9711; Depth first scan / traversal
+                    <ul>
+                        <li>Scan a graph in a depth-first order.</li>
+                        <li>This is already implemented, it has to be properly refactored.
+                            <ul>
+                                <li>See Depth-First Search (DFS) named (private) methods.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>&#9711; Breadth first scan / traversal
+                    <ul>
+                        <li>Scan a graph in a breadth-first order.</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>✔️ Shortest paths
+                    <ul>
+                        <li>✔️ Find shortest path</li>
+                        <li>✔️ Find Hamiltonian paths
+                            <ul>
+                                <li>For both the whole graph or for a given pair of vertexes.</li>
+                                <li>Algorithms:
+                                    <ul>
+                                        <li>✔️ Backtracking, <code>method => 'backtracking'</code>)</li>
+                                        <li>✔️ Application Warnsdorf's rule for backtracking, <code>:warnsdorf-rule</code></li>
+                                        <li>✔️ Angluin-Valiant (probabilistic), <code>method => 'random'</code></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>&#9711; Flows
+                    <ul>
+                        <li>&#9711; Find maximum flow</li>
+                        <li>&#9711; Find minimum cost flow</li>
+                    </ul>
+                </li>
+                <li>&#9711; Distances
+                    <ul>
+                        <li>✔️ Graph distance
+                            <ul>
+                                <li>See shortest path.</li>
+                            </ul>
+                        </li>
+                        <li>&#9711; Graph distance matrix
+                            <ul>
+                                <li>Again, requires choosing a matrix Raku class or package.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>✔️ Longest shortest paths
+                    <ul>
+                        <li>✔️ Vertex eccentricity</li>
+                        <li>✔️ Graph radius</li>
+                        <li>✔️ Graph diameter</li>
+                        <li>✔️ Graph center</li>
+                        <li>✔️ Graph periphery</li>
+                    </ul>
+                </li>
+                <li>✔️ Weakly connected component</li>
+                <li>✔️ Strongly connected component
+                    <ul>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm">Tarjan's algorithm</a></li>
+                        <li>&#9711; <a href="https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm">Kosaraju's algorithm</a></li>
+                    </ul>
+                </li>
+                <li>✔️ Topological sort
+                    <ul>
+                        <li>Using Tarjan's algorithm</li>
+                    </ul>
+                </li>
+                <li>&#9711; Cycles and tours
+                    <ul>
+                        <li>✔️ Find cycle
+                            <ul>
+                                <li>✔️ Just one cycle</li>
+                                <li>✔️ All cycles</li>
+                            </ul>
+                        </li>
+                        <li>&#9711; Find shortest tour</li>
+                        <li>&#9711; Find postman tour
+                            <ul>
+                                <li>✔️ Eulerian and semi-Eulerian graphs</li>
+                                <li>&#9711; General graphs</li>
+                            </ul>
+                        </li>
+                        <li>&#9711; Find Eulerian cycle</li>
+                        <li>&#9711; Find Hamiltonian cycle</li>
+                        <li>&#9711; Find cycle matrix</li>
+                    </ul>
+                </li>
+                <li>&#9711; Independent paths
+                    <ul>
+                        <li>✔️ Find paths</li>
+                        <li>&#9711; Find edge independent paths</li>
+                        <li>&#9711; Find edge vertex paths</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>✔️ Check is a graph bipartite</li>
+                <li>✔️ <a href="https://en.wikipedia.org/wiki/Hungarian_algorithm">Hungarian algorithm for bipartite graphs</a>
+                    <ul>
+                        <li>At <a href="https://algorithms.discrete.ma.tum.de/graph-algorithms/matchings-hungarian-method/index_en.html">tum.de</a></li>
+                    </ul>
+                </li>
+                <li>&#9711; Perfect match for bipartite graphs</li>
+                <li>&#9711; Matching edges</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>&#9711; Unary graph operations
+                    <ul>
+                        <li>✔️ Reversed graph</li>
+                        <li>✔️ Complement graph</li>
+                        <li>✔️ Subgraph
+                            <ul>
+                                <li>For given vertices and/or edges.</li>
+                            </ul>
+                        </li>
+                        <li>✔️ Neighborhood graph
+                            <ul>
+                                <li>For given vertices and/or edges.</li>
+                            </ul>
+                        </li>
+                        <li>✔️ Make undirected
+                            <ul>
+                                <li>Can be implemented as <code>Graph.new($g, :!directed)</code>.</li>
+                                <li>But maybe it is more efficient to directly manipulate <code>adjacency-list</code>.</li>
+                            </ul>
+                        </li>
+                        <li>✔️ Make directed
+                            <ul>
+                                <li>It is not just a flag change of <code>$!directed</code>.</li>
+                                <li>Implement the methods: <code>Whatever</code>, "Acyclic", "Random".</li>
+                            </ul>
+                        </li>
+                        <li>&#9711; Edge contraction</li>
+                        <li>&#9711; Vertex contraction</li>
+                        <li>&#9711; Line graph</li>
+                        <li>&#9711; Dual graph</li>
+                    </ul>
+                </li>
+                <li>&#9711; Binary graph operations
+                    <ul>
+                        <li>✔️ Union of graphs</li>
+                        <li>✔️ Intersection of graphs</li>
+                        <li>✔️ Difference of graphs</li>
+                        <li>✔️ Disjoint union of graphs</li>
+                        <li>&#9711; Product of graphs (AKA "box product")
+                            <ul>
+                                <li>&#9711; Cartesian</li>
+                                <li>&#9711; Co-normal</li>
+                                <li>&#9711; Lexicographic</li>
+                                <li>&#9711; Normal</li>
+                                <li>&#9711; Rooted</li>
+                                <li>&#9711; Strong</li>
+                                <li>&#9711; Tensor</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>✔️ Construction of (regular) graphs
+                    <ul>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Complete_graph">Complete graphs</a></li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Cycle_graph">Cycle graphs</a></li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Hypercube_graph">Hypercube graphs</a></li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Lattice_graph">Grid graphs</a></li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Knight%27s_graph">Knight tour graphs</a></li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Star_graph">Star graphs</a></li>
+                        <li>✔️ Path graphs</li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Wheel_graph">Wheel graphs</a></li>
+                        <li>✔️ Indexed graphs</li>
+                        <li>✔️ <a href="https://mathworld.wolfram.com/HexagonalGridGraph.html">Hexagonal grid graphs</a></li>
+                    </ul>
+                </li>
+                <li>✔️ Construction of random graphs
+                    <ul>
+                        <li>Since different kinds of vertex-edge distributions exists, separate distributions objects are used.
+                            <ul>
+                                <li>See <code>Graph::Distribution</code>.</li>
+                            </ul>
+                        </li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Barab%C3%A1si%E2%80%93Albert_model">Barabasi-Albert distribution</a></li>
+                        <li>✔️ Bernoulli distribution</li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Price%27s_model">de Solla Price's model distribution</a></li>
+                        <li>✔️ "Simple" random <code>(m, n)</code> graphs with m-vertexes and n-edges between them
+                            <ul>
+                                <li>This was the first version of <code>Graph::Random</code>.</li>
+                                <li>Refactored to be done via the uniform graph distribution.</li>
+                            </ul>
+                        </li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Watts%E2%80%93Strogatz_model">Watts–Strogatz model distribution</a></li>
+                        <li>✔️ Uniform distribution</li>
+                    </ul>
+                </li>
+                <li>&#9711; Construction of <em>individual</em> graphs
+                    <ul>
+                        <li>&#9711; Bull graph</li>
+                        <li>&#9711; Butterfly graph</li>
+                        <li>&#9711; Chavatal graph</li>
+                        <li>&#9711; Diamond graph</li>
+                        <li>&#9711; Durer graph</li>
+                        <li>&#9711; Franklin graph</li>
+                        <li>✔️ <a href="https://en.wikipedia.org/wiki/Petersen_graph">Petersen graph</a></li>
+                        <li>&#9711; Wagner graph</li>
+                    </ul>
+                </li>
+                <li>Creation from
+                    <ul>
+                        <li>&#9711; Adjacency matrix (dense)</li>
+                        <li>&#9711; Adjacency matrix (sparse)</li>
+                        <li>&#9711; Incidence matrix (dense)</li>
+                        <li>&#9711; Incidence matrix (sparse)</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>&#9711; Unit tests
+                    <ul>
+                        <li>✔️ Sanity</li>
+                        <li>✔️ Undirected graphs</li>
+                        <li>✔️ Vertex removal</li>
+                        <li>✔️ Edge removal</li>
+                        <li>✔️ Bipartite graph check</li>
+                        <li>&#9711; Directed graphs cycles</li>
+                    </ul>
+                </li>
+                <li>&#9711; Cross-verification with Mathematica
+                    <ul>
+                        <li>✔️ General workflow programming/setup</li>
+                        <li>&#9711; Path finding</li>
+                        <li>&#9711; Cycle finding</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>✔️ Basic usage over undirected graphs</li>
+                <li>&#9711; Basic usage over directed graphs</li>
+                <li>✔️ Regular graphs creation (Grid, Wheel, etc.)
+                    <ul>
+                        <li><a href="./docs/Named-graphs-gallery.ipynb">Notebook with a gallery of graphs</a></li>
+                    </ul>
+                </li>
+                <li>✔️ Random graphs creation</li>
+                <li>✔️ DOT language visualizations</li>
+            </ul>
+        </td>
+    </tr>
+</table>
