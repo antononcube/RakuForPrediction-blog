@@ -11,7 +11,7 @@ December 2024
 
 ## Introduction
 
-This blog post discusses the development of graph theory algorithms in Raku. Moderate number of examples are used.
+This blog post discusses the development of graph theory algorithms in Raku. Moderate number of examples is used.
 
 **TL;DR:** Just see the mind-map and then browse the last section with a graph that resembles a snow covered Christmas tree.
 
@@ -167,7 +167,7 @@ $stree.edges
     )
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/USA-spanning-tree.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/USA-spanning-tree.png)
 
 **Remark:** Using `highlight => @path` would just highlight the vertices, without the edges.
 
@@ -241,7 +241,7 @@ my %namedGraphs =
  }).join("\n")
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/Parameterized-graphs-gallery-3-rows.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/Parameterized-graphs-gallery-3-rows.png)
 
 Of particular interest to me are the random graphs:
 - Simple vertex- and edge sampling random graphs are useful for testing
@@ -281,7 +281,7 @@ my %randomGraphs =
  }).join("\n")
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/Random-model-graphs-gallery.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/Random-model-graphs-gallery.png)
 
 
 ### Graphviz visualization
@@ -294,7 +294,7 @@ my %randomGraphs =
 %randomGraphs<Watts-Strogatz>.dot(:$background, engine => 'sfdp', :svg)
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/Watts-Strogatz-by-DOT.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/Watts-Strogatz-by-DOT.png)
 
 Using the "neato" layout engine graph objects that have vertex coordinates are properly plotted:
 
@@ -303,7 +303,7 @@ Using the "neato" layout engine graph objects that have vertex coordinates are p
 Graph::KnightTour.new(4, 6).dot(:$background, engine => 'neato', :svg)
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/Knight-tour-by-DOT.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/Knight-tour-by-DOT.png)
 
 
 Also the Graphviz DOT representations can be used to plot chessboards:
@@ -313,7 +313,7 @@ Also the Graphviz DOT representations can be used to plot chessboards:
 dot-chessboard(:4r, :6c):svg
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/Chessboard-by-DOT.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/Chessboard-by-DOT.png)
 
 
 ### How come I invested so much in Graphviz DOT support in `Graph`?
@@ -346,7 +346,7 @@ Here are the sparse matrices corresponding to the parameterized graphs created a
 }).join("\n")
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/Sparse-matrice-for-parameterized-graphs-gallery-3-rows.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/Sparse-matrice-for-parameterized-graphs-gallery-3-rows.png)
 
 For more examples see the video ["Sparse matrix neat examples in Raku"](https://youtu.be/kQo3wpiUu6w).
 
@@ -391,7 +391,7 @@ my $gSmall = Graph::TriangularGrid.new(3,3);
 $gSmall.dot(:$engine, highlight => Graph::Path.new(<5 7 8 10>), :!node-labels, edge-thickness => 8, node-font-size => 30, node-width => 0.6, size => 4):svg
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/TriangularGrid-graph-4x4.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/TriangularGrid-graph-4x4.png)
 
 We plan to take the graph under the highlighted (orange) vertices and edges and turn it into a Christmas tree. (Or something that resembles it.)
 
@@ -490,7 +490,7 @@ $c-tree2.dot(
 ):svg
 ```
 
-![](./Diagrams/Graphs-in-Raku-2024/Christmas-tree-graph-art.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/Christmas-tree-graph-art.png)
 
 
 Here are the special graph functionalities used to make the plot above:
