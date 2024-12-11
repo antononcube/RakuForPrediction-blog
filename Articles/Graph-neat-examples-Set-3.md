@@ -226,4 +226,4 @@ Same graph, but with vertex names:
 This visualization demonstrates the structure of the Raku documentation as a graph, offering insights into its organization.
 
 Thank you for joining me in exploring these neat examples of graph visualization in Raku. 
-I hope you will use Raku's graph-functionalities a lot and often. 
+I hope you will use Raku's graph-functionalities a lot and often!
