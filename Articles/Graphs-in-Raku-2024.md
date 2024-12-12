@@ -77,7 +77,7 @@ Here is a mind-map of the current development status of "Graph" that should give
 ![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graphs-in-Raku-2024/Graph-TODO-section-mind-map-light.png)
 
 
-**Remark:** The mind-map above was LLM-created automatically from the [README of "Graph"](https://github.com/antononcube/Raku-Graph/blob/main/README.md) and a specially crafted prompt. The checkmark "✔️" means "implemented"; the empty circle "⭕️" mean "not implemented" (yet.)
+**Remark:** The mind-map above was LLM-created automatically from the [README of "Graph"](https://github.com/antononcube/Raku-Graph/blob/main/README.md) and a specially crafted prompt. The checkmark "✔️" means "implemented"; the empty circle "⭕️" means "not implemented" (yet.)
 
 
 -----
