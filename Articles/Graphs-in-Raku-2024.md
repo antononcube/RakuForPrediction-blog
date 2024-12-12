@@ -288,7 +288,7 @@ my %randomGraphs =
 ### Graphviz visualization
 
 
-`Graph` has the method `dot` that translate the graph object into a [Graphviz DOT language](https://graphviz.org/doc/info/lang.html) spec.
+`Graph` has the method `dot` that translates the graph object into a [Graphviz DOT language](https://graphviz.org/doc/info/lang.html) spec.
 
 ```raku, eval=FALSE
 #% html
@@ -307,7 +307,7 @@ Graph::KnightTour.new(4, 6).dot(:$background, engine => 'neato', :svg)
 ![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/main/Articles/Diagrams/Graphs-in-Raku-2024/Knight-tour-by-DOT.png)
 
 
-Also the Graphviz DOT representations can be used to plot chessboards:
+Also the Graphviz DOT representations can be used to [plot chessboards](https://youtu.be/fwQrQyWC7R0) (via ["Graphviz::DOT::Chessboard"](https://raku.land/zef:antononcube/Graphviz::DOT::Chessboard)):
 
 ```raku, eval=FALSE
 #% html
@@ -333,7 +333,9 @@ At some point I figured out that Graphviz layout engines are fairly install-able
 ## Sparse matrix representations
 
 
-As it was mentioned above, graphs have a natural representation as sparse matrices. We can use the package "Math::SparseMatrix" to make those representations and "JavaScript::D3" to plot them.
+As it was mentioned above, graphs have a natural representation as sparse matrices. 
+We can use the package ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix) 
+to make those representations and "JavaScript::D3" to plot them.
 
 Here are the sparse matrices corresponding to the parameterized graphs created and plotted above:
 
