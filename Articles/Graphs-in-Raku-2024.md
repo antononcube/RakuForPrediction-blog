@@ -13,7 +13,7 @@ December 2024
 
 This blog post discusses the development of graph theory algorithms in Raku. Moderate number of examples is used.
 
-**TL;DR:** Just see the mind-map and then browse the last section with a graph that resembles a snow covered Christmas tree.
+**TL;DR:** Just see the mind-map and then browse the last section with a graph that resembles a snow-covered Christmas tree.
 
 In the post:
 - All computational graph features discussed are provided by ["Graph"](https://raku.land/zef:antononcube/Graph).
@@ -26,7 +26,8 @@ In the post:
 ## Graph theory functionalities making
 
 
-Because of a few "serious" projects involving conversational agents about logistics I thought that is a good idea to have geographical shortest path finding in Raku. (Instead of "outsourcing" those computations to some other system.)
+Because of a few "serious" projects involving conversational agents about logistics I thought that is a good idea to have geographical shortest path finding in Raku. 
+(Instead of "outsourcing" those computations to some other system.)
 
 The assumption were that:
 - The fundamental graph algorithms are (relatively) easy to program.
@@ -318,14 +319,13 @@ dot-chessboard(:4r, :6c):svg
 
 ### How come I invested so much in Graphviz DOT support in `Graph`?
 
-Interactive plotting with D3.js is fairly unreliable Raku-wise -- I can only use it in VSCode with Jupyter.
-It was working in web browsers with the old Jupyter notebook framework. But after JupyterLab was introduced my newest Jupyter-anything installations do not work with the > JavaScript settings for plotting.
+Interactive plotting with D3.js is fairly unreliable Raku-wise -- I can only use it in Visual Studio Code with Jupyter.
+It was working in web browsers with the old Jupyter notebook framework. But after JupyterLab was introduced, my newest Jupyter-anything installations do not work with the JavaScript settings for plotting.
 (Making static HTML pages with D3.js plots is fine.)
 So, finding a more robust and universal alternative was really needed. After some discussion with a Raku-enthusiast known as "timo"
 I made finding such alternatives a priority.
 So, I looked for JavaScript alternatives to plot graphs first. I was also looking -- separately -- for JavaScript-based ways to use the Graphviz DOT language.
-At some point I figured out that Graphviz layout engines are fairly install-able / deploy-able in many operating systems, so just using it to generate SVG, PNG, etc. is both fine and reliable.
-
+At some point I figured out that Graphviz layout engines are fairly install-able / deploy-able in many operating systems, so just using Graphviz to generate SVG, PNG, etc. is both fine and reliable.
 
 
 ----
@@ -333,7 +333,7 @@ At some point I figured out that Graphviz layout engines are fairly install-able
 ## Sparse matrix representations
 
 
-As it was mentioned above graphs have a natural representation as sparse matrices. We can use the package "Math::SparseMatrix" to make those representations and "JavaScript::D3" to plot them.
+As it was mentioned above, graphs have a natural representation as sparse matrices. We can use the package "Math::SparseMatrix" to make those representations and "JavaScript::D3" to plot them.
 
 Here are the sparse matrices corresponding to the parameterized graphs created and plotted above:
 
@@ -361,13 +361,13 @@ Let us finish this post with a topical example -- we make a graph that looks lik
 
 Here is the procedure outline:
 
-- Get a regular grid graph `G`
-- Get a tree-shaped subgraph `T` of `G`
-- Pick random vertices in `T` and remove their correspond [neighborhood graphs](https://en.wikipedia.org/wiki/Neighbourhood_(graph_theory)) from `T`
-    - Denote the new graph `X`
+- Get a regular grid graph `G`.
+- Get a tree-shaped subgraph `T` of `G`.
+- Pick random vertices in `T` and remove their corresponding [neighborhood graphs](https://en.wikipedia.org/wiki/Neighbourhood_(graph_theory)) from `T`.
+    - Denote the new graph `X`.
 - Find the vertices `v` of `X` that have degree less than 5.
-- Plot `X` by highlighting `v`
-    - The highlights can be randomly selected shades of a certain color
+- Plot `X` by highlighting `v`.
+    - The highlights can be randomly selected shades of a certain color.
 
 The procedure is followed below.
 
@@ -438,7 +438,7 @@ sub y-diag(Numeric:D $x) { $k * $x +$n }
 # &y-diag
 ```
 
-Get vertices under the "diagonal":
+Get vertices under the diagonal:
 
 ```raku
 my @focus-vertexes = $g.vertex-coordinates.grep({  $_.value.tail ≤ y-diag($_.value.head) + 0.001 })».key;
@@ -448,7 +448,7 @@ my @focus-vertexes = $g.vertex-coordinates.grep({  $_.value.tail ≤ y-diag($_.v
 # 499
 ```
 
-Get the "pyramid" from the recursively obtained vertexes:
+Get the "pyramid" from the filtered vertexes:
 
 ```raku
 my $c-tree = $g.subgraph(@focus-vertexes); 
