@@ -72,7 +72,7 @@ The current functionalities of `Graph` are demonstrated and explained in the "ne
 
 
 
-Here is mind-map of the current development status of "Graph" that should give a idea of the scope of the project:
+Here is a mind-map of the current development status of "Graph" that should give an idea of the scope of the project:
 
 ![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Graphs-in-Raku-2024/Graph-TODO-section-mind-map-light.png)
 
