@@ -35,10 +35,11 @@ use Math::Polynomial::Chebyshev;
 use Math::Fitting;
 use Math::Matrix;
 
-use Data::Reshapers;
-use Data::Summarizers;
 use Data::Generators;
 use Data::Importers;
+use Data::Reshapers;
+use Data::Summarizers;
+use Data::Translators;
 use Data::TypeSystem;
 
 use JavaScript::D3;
@@ -93,12 +94,12 @@ sink records-summary(@data.map(*.tail) <<->> @data1)
 # +----------------------------------+
 # | numerical                        |
 # +----------------------------------+
-# | 1st-Qu => -6.661338147750939e-16 |
 # | 3rd-Qu => 3.3306690738754696e-16 |
-# | Mean   => -8.803937402208662e-17 |
-# | Median => -3.469446951953614e-18 |
 # | Max    => 3.4416913763379853e-15 |
+# | Median => -3.469446951953614e-18 |
+# | 1st-Qu => -6.661338147750939e-16 |
 # | Min    => -3.774758283725532e-15 |
+# | Mean   => -8.803937402208662e-17 |
 # +----------------------------------+
 ```
 
@@ -195,7 +196,7 @@ js-google-charts('LineChart', @data,
 
 ## Text Plot
 
-Text plots provide a reliable method for visualizing data. The data is converted into a long form to facilitate plotting using ["Text::Plot"](https://raku.land/zef:antononcube/Text::Plot).
+Text plots provide a reliable method for visualizing data anywhere! The data is converted into a long form to facilitate plotting using ["Text::Plot"](https://raku.land/zef:antononcube/Text::Plot).
 
 ```raku
 my @dataLong = to-long-format(@data, <x>).sort(*<Variable x>);
@@ -207,20 +208,17 @@ deduce-type(@dataLong):tally
 
 A sample of the data is provided:
 
-```raku, result=asis
-@dataLong.pick(10)
+```raku, results=asis
+@dataLong.pick(8)
 ==> {.sort(*<Variable x>)}()
 ==> to-html(field-names => <Variable x Value>)
 ```
-```
-#ERROR: Undeclared routine:
-#ERROR:     to-html used at line 4
-# Nil
-```
+<table border="1"><thead><tr><th>Variable</th><th>x</th><th>Value</th></tr></thead><tbody><tr><td>1</td><td>-0.18</td><td>-0.18</td></tr><tr><td>3</td><td>-0.44</td><td>0.979264</td></tr><tr><td>3</td><td>0.66</td><td>-0.830016</td></tr><tr><td>6</td><td>-0.92</td><td>-0.7483020369919988</td></tr><tr><td>6</td><td>0.56</td><td>0.9111532625919998</td></tr><tr><td>8</td><td>-0.6</td><td>0.42197247999999865</td></tr><tr><td>8</td><td>0.08</td><td>0.8016867058843643</td></tr><tr><td>8</td><td>0.66</td><td>0.8694861561561088</td></tr></tbody></table>
+
 
 The text plot is presented here:
 
-```raku, result=asis
+```raku
 my @chebInds = 1, 2, 3, 4;
 my @dataLong3 = @dataLong.grep({ $_<Variable>.Int ∈ @chebInds }).classify(*<Variable>).map({ $_.key => $_.value.map(*<x Value>).Array }).sort(*.key)».value;
 text-list-plot(@dataLong3, width => 100, height => 25, title => "Chebyshev T polynomials, 0 .. $n", x-label => (@chebInds >>~>> ' : ' Z~ <* □ ▽ ❍>).join(', '))
@@ -291,16 +289,16 @@ A summary of the data is provided:
 sink records-summary(@data2)
 ```
 ```
-# +---------------------------------+------------------+
-# | 1                               | 0                |
-# +---------------------------------+------------------+
-# | Min    => -0.2335967883531975   | Min    => 0.005  |
-# | 1st-Qu => -0.057137042418413206 | 1st-Qu => 0.2525 |
-# | Mean   => 0.0751577067576949    | Mean   => 0.5025 |
-# | Median => 0.009949197619375821  | Median => 0.5025 |
-# | 3rd-Qu => 0.07556981486484082   | 3rd-Qu => 0.7525 |
-# | Max    => 0.9839225824665251    | Max    => 1      |
-# +---------------------------------+------------------+
+# +------------------+----------------------------------+
+# | 0                | 1                                |
+# +------------------+----------------------------------+
+# | Min    => 0.005  | Min    => -0.23878758770507946   |
+# | 1st-Qu => 0.2525 | 1st-Qu => -0.053476022454404415  |
+# | Mean   => 0.5025 | Mean   => 0.07323149609113122    |
+# | Median => 0.5025 | Median => -0.0025316517415275193 |
+# | 3rd-Qu => 0.7525 | 3rd-Qu => 0.07666085422352723    |
+# | Max    => 1      | Max    => 1.0071290191857256     |
+# +------------------+----------------------------------+
 ```
 
 The data is plotted below:
@@ -324,7 +322,7 @@ A function to rescale from $[0, 1]$ to $[-1, 1]$ is defined:
 my &rescale = { ($_ - 0.5) * 2 };
 ```
 ```
-# -> ;; $_? is raw = OUTER::<$_> { #`(Block|5039107865864) ... }
+# -> ;; $_? is raw = OUTER::<$_> { #`(Block|4750588945856) ... }
 ```
 
 The basis functions are listed:
@@ -354,7 +352,7 @@ The best fit parameters are:
 &lm('BestFitParameters')
 ```
 ```
-# [0.18109641435837118 -0.33156948730968683 0.29380599139898955 -0.19566492698575286 0.12009128016358002 0.007106632696672381 -0.05198654798562136 0.09403646760641601 -0.06396226717284158 -0.033067739335237975 0.0337927405133313 0.010629992421524374 -0.012752084565594143 0.0011143043418107965 -0.0018420416106981316 -0.0008163430627367802]
+# [0.18012514065989924 -0.3439467053791086 0.29469719162086117 -0.20515007850826206 0.12074121627488964 -0.003435776130307378 -0.047297896072549465 0.08663571434303828 -0.058165484141402886 -0.03933300920226471 0.03907623399167609 0.0015109810557268964 -0.011525135506292928 -0.0045136819929066 0.0021477767328720826 -0.004624145810439574]
 ```
 
 The plot of these parameters is shown:
@@ -419,16 +417,16 @@ The residuals of the last fit are computed:
 sink records-summary( (@fit <<->> @data2.map(*.tail))».abs )
 ```
 ```
-# +---------------------------------+
-# | numerical                       |
-# +---------------------------------+
-# | Median => 0.012748401685851285  |
-# | Max    => 0.03311389382666988   |
-# | Min    => 0.0003110644728364226 |
-# | 3rd-Qu => 0.02014702440647692   |
-# | Mean   => 0.013567700105391696  |
-# | 1st-Qu => 0.006369376075630033  |
-# +---------------------------------+
+# +----------------------------------+
+# | numerical                        |
+# +----------------------------------+
+# | Max    => 0.03470224056776856    |
+# | Median => 0.0136727625440904     |
+# | Min    => 0.00011187750898611348 |
+# | 1st-Qu => 0.006365201141942046   |
+# | Mean   => 0.01363628423382272    |
+# | 3rd-Qu => 0.019937969354319008   |
+# +----------------------------------+
 ```
 
 ----

@@ -35,10 +35,11 @@ use Math::Polynomial::Chebyshev;
 use Math::Fitting;
 use Math::Matrix;
 
-use Data::Reshapers;
-use Data::Summarizers;
 use Data::Generators;
 use Data::Importers;
+use Data::Reshapers;
+use Data::Summarizers;
+use Data::Translators;
 use Data::TypeSystem;
 
 use JavaScript::D3;
@@ -48,7 +49,7 @@ use Text::Plot;
 use Hash::Merge;
 ```
 
-```raku, echo=FALSE, output=NONE
+```raku, echo=FALSE, results=NONE
 my $format = 'html';
 my $titleTextStyle = { color => 'DimGray', fontSize => 16 };
 my $backgroundColor = 'White';
@@ -176,7 +177,7 @@ js-google-charts('LineChart', @data,
 
 ## Text Plot
 
-Text plots provide a reliable method for visualizing data. The data is converted into a long form to facilitate plotting using ["Text::Plot"](https://raku.land/zef:antononcube/Text::Plot).
+Text plots provide a reliable method for visualizing data anywhere! The data is converted into a long form to facilitate plotting using ["Text::Plot"](https://raku.land/zef:antononcube/Text::Plot).
 
 ```raku
 my @dataLong = to-long-format(@data, <x>).sort(*<Variable x>);
@@ -185,15 +186,15 @@ deduce-type(@dataLong):tally
 
 A sample of the data is provided:
 
-```raku, result=asis
-@dataLong.pick(10)
+```raku, results=asis
+@dataLong.pick(8)
 ==> {.sort(*<Variable x>)}()
 ==> to-html(field-names => <Variable x Value>)
 ```
 
 The text plot is presented here:
 
-```raku, result=asis
+```raku
 my @chebInds = 1, 2, 3, 4;
 my @dataLong3 = @dataLong.grep({ $_<Variable>.Int ∈ @chebInds }).classify(*<Variable>).map({ $_.key => $_.value.map(*<x Value>).Array }).sort(*.key)».value;
 text-list-plot(@dataLong3, width => 100, height => 25, title => "Chebyshev T polynomials, 0 .. $n", x-label => (@chebInds >>~>> ' : ' Z~ <* □ ▽ ❍>).join(', '))
