@@ -145,7 +145,7 @@ my @data = chebyshev-t(6, (-1, -0.98 ... 1).List);
 # [1 0.3604845076 -0.1315856097 -0.4953170862 -0.748302037 -0.906688 -0.9852465029 -0.9974401556 -0.9554882683 -0.8704309944 -0.752192 -0.6096396575 -0.4506467656 -0.2821487944 -0.1102006559 0.059968 0.223898964 0.3778531205 0.5187595756 0.6441662587 0.752192 0.8414800814 0.9111532626 0.9607702815 0.9902838292 1 0.9905392148 0.9627986207 0.9179159634 0.8572349358 0.782272 0.6946846843 0.5962413548 0.4887924613 0.3742432584 0.254528 0.1315856097 0.0073368248 -0.1163371848 -0.2376147231 -0.354752 -0.4661000888 -0.5701204091 -0.6653987348 -0.7506577285 -0.824768 -0.8867576914 -0.935820587 -0.9713227489 -0.992807678 -1 -0.992807678 -0.9713227489 -0.935820587 -0.8867576914 -0.824768 -0.7506577285 -0.6653987348 -0.5701204091 -0.4661000888 -0.354752 -0.2376147231 -0.1163371848 0.0073368248 0.1315856097 0.254528 0.3742432584 0.4887924613 0.5962413548 0.6946846843 0.782272 0.8572349358 0.9179159634 0.9627986207 0.9905392148 1 0.9902838292 0.9607702815 0.9111532626 0.8414800814 0.752192 0.6441662587 0.5187595756 0.3778531205 0.223898964 0.059968 -0.1102006559 -0.2821487944 -0.4506467656 -0.6096396575 -0.752192 -0.8704309944 -0.9554882683 -0.9974401556 -0.9852465029 -0.906688 -0.748302037 -0.4953170862 -0.1315856097 0.3604845076 ...]
 ```
 
-```raku, eval=FALSE
+```raku
 #%html
 js-google-charts('LineChart', @data, 
     title => "Chebyshev-T($n) polynomial", 
@@ -155,7 +155,7 @@ js-google-charts('LineChart', @data,
     :png-button)
 ```
 
-![](./Diagrams/Chebyshev-polynomials-and-fitting-workflows/Chebyshev-polynomial-6.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Chebyshev-polynomials-and-fitting-workflows/Chebyshev-polynomial-6.png)
 
 ### Basis
 
@@ -173,7 +173,7 @@ deduce-type(@data):tally;
 
 The plot with all eight functions is shown below:
 
-```raku, eval=FALSE
+```raku
 #%html
 js-google-charts('LineChart', @data,
     column-names => ['x', |(0..$n)».Str],
@@ -190,7 +190,7 @@ js-google-charts('LineChart', @data,
     :png-button)
 ```
 
-![](./Diagrams/Chebyshev-polynomials-and-fitting-workflows/Chebyshev-polynomial-0-8.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Chebyshev-polynomials-and-fitting-workflows/Chebyshev-polynomial-0-8.png)
 
 -----
 
@@ -303,7 +303,7 @@ sink records-summary(@data2)
 
 The data is plotted below:
 
-```raku, eval=FALSE
+```raku
 #% html
 js-google-charts("Scatter", @data2, 
     title => 'Measurements data with noise',
@@ -314,7 +314,7 @@ js-google-charts("Scatter", @data2,
     :png-button)
 ```
 
-![](./Diagrams/Chebyshev-polynomials-and-fitting-workflows/Measurements-data-with-noise.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Chebyshev-polynomials-and-fitting-workflows/Measurements-data-with-noise.png)
 
 A function to rescale from $[0, 1]$ to $[-1, 1]$ is defined:
 
@@ -357,7 +357,7 @@ The best fit parameters are:
 
 The plot of these parameters is shown:
 
-```raku, eval=FALSE
+```raku
 #% html
 js-google-charts("Bar", &lm('BestFitParameters'), 
     :!horizontal,
@@ -371,7 +371,7 @@ js-google-charts("Bar", &lm('BestFitParameters'),
     :png-button)
 ```
 
-![](./Diagrams/Chebyshev-polynomials-and-fitting-workflows/Best-fit-parameters.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Chebyshev-polynomials-and-fitting-workflows/Best-fit-parameters.png)
 
 It is observed from the plot that using more than 12 basis functions does not improve the fit, as coefficients beyond the 12th index are very small.
 
@@ -390,7 +390,7 @@ deduce-type(@plotData)
 
 The plot is presented here:
 
-```raku, eval=FALSE
+```raku
 #% html
 js-google-charts('ComboChart', 
     @plotData, 
@@ -409,7 +409,7 @@ js-google-charts('ComboChart',
     :png-button)
 ```
 
-![](./Diagrams/Chebyshev-polynomials-and-fitting-workflows/Data-and-fit.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Chebyshev-polynomials-and-fitting-workflows/Data-and-fit.png)
 
 The residuals of the last fit are computed:
 
@@ -515,7 +515,7 @@ sink records-summary(@dsTemperature, field-names => <Date AbsoluteTime Temperatu
 
 The plot of the data is provided:
 
-```raku, eval=FALSE
+```raku
 #% html
 js-google-charts("Scatter", @dsTemperature.map(*<Date Temperature>), 
     title => 'Temperature of Greenville, SC, USA',
@@ -529,7 +529,7 @@ js-google-charts("Scatter", @dsTemperature.map(*<Date Temperature>),
     :png-button)
 ```
 
-![](./Diagrams/Chebyshev-polynomials-and-fitting-workflows/Temperature-of-Greenville-SC-USA.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Chebyshev-polynomials-and-fitting-workflows/Temperature-of-Greenville-SC-USA.png)
 
 The fit is performed with rescaling:
 
@@ -569,7 +569,7 @@ deduce-type(@plotData)
 # Vector(Assoc(Atom((Str)), Atom((Numeric)), 3), 1462)
 ```
 
-```raku, eval=FALSE
+```raku
 #% html
 
 my @ticks = @dsTemperature.map({ %( v => $_<AbsoluteTime>, f => $_<Date>.Str.substr(^7)) })».Hash[0, 120 ... *];
@@ -594,7 +594,7 @@ js-google-charts('ComboChart',
     :png-button)
 ```
 
-![](./Diagrams/Chebyshev-polynomials-and-fitting-workflows/Temperature-data-and-Least-Squares-fit.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Chebyshev-polynomials-and-fitting-workflows/Temperature-data-and-Least-Squares-fit.png)
 
 -----
 
