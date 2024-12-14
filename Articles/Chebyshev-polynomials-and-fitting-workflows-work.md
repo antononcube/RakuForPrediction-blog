@@ -28,10 +28,12 @@ This post explores the use of Chebyshev polynomials in regression and curve fitt
 
 ## Setup
 
+Here are the packages used in this post:
+
 ```raku
-use Math::Matrix;
 use Math::Polynomial::Chebyshev;
 use Math::Fitting;
+use Math::Matrix;
 
 use Data::Reshapers;
 use Data::Summarizers;
@@ -46,41 +48,7 @@ use Text::Plot;
 use Hash::Merge;
 ```
 
-### Google Charts
-
-```raku
-#% javascript
-google.charts.load('current', {'packages':['corechart']});
-google.charts.load('current', {'packages':['gauge']});
-google.charts.load('current', {'packages':['wordtree']});
-google.charts.load('current', {'packages':['geochart']});
-google.charts.load('current', {'packages':['table']});
-google.charts.load('current', {'packages':['line']});
-google.charts.setOnLoadCallback(function() {
-    console.log('Google Charts library loaded');
-});
-
-```
-
-#### Dark mode
-
-```raku
-my $format = 'html';
-my $titleTextStyle = { color => 'Ivory', fontSize => 16 };
-my $backgroundColor = '#1F1F1F';
-my $legendTextStyle = { color => 'Silver' };
-my $legend = { position => "none", textStyle => {fontSize => 14, color => 'Silver'} };
-
-my $hAxis = { title => 'x', titleTextStyle => { color => 'Silver' }, textStyle => { color => 'Gray'}, logScale => False, format => 'decimal'};
-my $vAxis = { title => 'y', titleTextStyle => { color => 'Silver' }, textStyle => { color => 'Gray'}, logScale => False, format => 'decimal'};
-
-my $annotations = {textStyle => {color => 'Silver', fontSize => 10}};
-my $chartArea = {left => 50, right => 50, top => 50, bottom => 50, width => '90%', height => '90%'};
-```
-
-#### Light mode
-
-```raku
+```raku, echo=FALSE, output=NONE
 my $format = 'html';
 my $titleTextStyle = { color => 'DimGray', fontSize => 16 };
 my $backgroundColor = 'White';

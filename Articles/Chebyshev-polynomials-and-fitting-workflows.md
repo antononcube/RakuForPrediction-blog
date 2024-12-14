@@ -28,10 +28,12 @@ This post explores the use of Chebyshev polynomials in regression and curve fitt
 
 ## Setup
 
+Here are the packages used in this post:
+
 ```raku
-use Math::Matrix;
 use Math::Polynomial::Chebyshev;
 use Math::Fitting;
+use Math::Matrix;
 
 use Data::Reshapers;
 use Data::Summarizers;
@@ -44,67 +46,6 @@ use JavaScript::Google::Charts;
 use Text::Plot;
 
 use Hash::Merge;
-```
-```
-# (Any)
-```
-
-### Google Charts
-
-```raku
-#% javascript
-google.charts.load('current', {'packages':['corechart']});
-google.charts.load('current', {'packages':['gauge']});
-google.charts.load('current', {'packages':['wordtree']});
-google.charts.load('current', {'packages':['geochart']});
-google.charts.load('current', {'packages':['table']});
-google.charts.load('current', {'packages':['line']});
-google.charts.setOnLoadCallback(function() {
-    console.log('Google Charts library loaded');
-});
-
-```
-```
-#ERROR: You can't adverb 'packages'
-# Nil
-```
-
-#### Dark mode
-
-```raku
-my $format = 'html';
-my $titleTextStyle = { color => 'Ivory', fontSize => 16 };
-my $backgroundColor = '#1F1F1F';
-my $legendTextStyle = { color => 'Silver' };
-my $legend = { position => "none", textStyle => {fontSize => 14, color => 'Silver'} };
-
-my $hAxis = { title => 'x', titleTextStyle => { color => 'Silver' }, textStyle => { color => 'Gray'}, logScale => False, format => 'decimal'};
-my $vAxis = { title => 'y', titleTextStyle => { color => 'Silver' }, textStyle => { color => 'Gray'}, logScale => False, format => 'decimal'};
-
-my $annotations = {textStyle => {color => 'Silver', fontSize => 10}};
-my $chartArea = {left => 50, right => 50, top => 50, bottom => 50, width => '90%', height => '90%'};
-```
-```
-# {bottom => 50, height => 90%, left => 50, right => 50, top => 50, width => 90%}
-```
-
-#### Light mode
-
-```raku
-my $format = 'html';
-my $titleTextStyle = { color => 'DimGray', fontSize => 16 };
-my $backgroundColor = 'White';
-my $legendTextStyle = { color => 'DarkGray' };
-my $legend = { position => "none", textStyle => {fontSize => 14, color => 'DarkGray'} };
-
-my $hAxis = { title => 'x', titleTextStyle => { color => 'DimGray' }, textStyle => { color => 'DarkGray'}, logScale => False, format => 'decimal'};
-my $vAxis = { title => 'y', titleTextStyle => { color => 'DimGray' }, textStyle => { color => 'DarkGray'}, logScale => False, format => 'decimal'};
-
-my $annotations = {textStyle => {color => 'DarkGray', fontSize => 10}};
-my $chartArea = {left => 50, right => 50, top => 50, bottom => 50, width => '90%', height => '90%'};
-```
-```
-# {bottom => 50, height => 90%, left => 50, right => 50, top => 50, width => 90%}
 ```
 
 -------
@@ -152,12 +93,12 @@ sink records-summary(@data.map(*.tail) <<->> @data1)
 # +----------------------------------+
 # | numerical                        |
 # +----------------------------------+
-# | Min    => -3.774758283725532e-15 |
+# | 1st-Qu => -6.661338147750939e-16 |
+# | 3rd-Qu => 3.3306690738754696e-16 |
+# | Mean   => -8.803937402208662e-17 |
 # | Median => -3.469446951953614e-18 |
 # | Max    => 3.4416913763379853e-15 |
-# | Mean   => -8.803937402208662e-17 |
-# | 3rd-Qu => 3.3306690738754696e-16 |
-# | 1st-Qu => -6.661338147750939e-16 |
+# | Min    => -3.774758283725532e-15 |
 # +----------------------------------+
 ```
 
@@ -350,16 +291,16 @@ A summary of the data is provided:
 sink records-summary(@data2)
 ```
 ```
-# +--------------------------------+------------------+
-# | 1                              | 0                |
-# +--------------------------------+------------------+
-# | Min    => -0.23490025110737495 | Min    => 0.005  |
-# | 1st-Qu => -0.06252683902424944 | 1st-Qu => 0.2525 |
-# | Mean   => 0.07305480087694105  | Mean   => 0.5025 |
-# | Median => 0.006534388217040496 | Median => 0.5025 |
-# | 3rd-Qu => 0.08182863322265621  | 3rd-Qu => 0.7525 |
-# | Max    => 1.004696955736924    | Max    => 1      |
-# +--------------------------------+------------------+
+# +---------------------------------+------------------+
+# | 1                               | 0                |
+# +---------------------------------+------------------+
+# | Min    => -0.2335967883531975   | Min    => 0.005  |
+# | 1st-Qu => -0.057137042418413206 | 1st-Qu => 0.2525 |
+# | Mean   => 0.0751577067576949    | Mean   => 0.5025 |
+# | Median => 0.009949197619375821  | Median => 0.5025 |
+# | 3rd-Qu => 0.07556981486484082   | 3rd-Qu => 0.7525 |
+# | Max    => 0.9839225824665251    | Max    => 1      |
+# +---------------------------------+------------------+
 ```
 
 The data is plotted below:
@@ -383,7 +324,7 @@ A function to rescale from $[0, 1]$ to $[-1, 1]$ is defined:
 my &rescale = { ($_ - 0.5) * 2 };
 ```
 ```
-# -> ;; $_? is raw = OUTER::<$_> { #`(Block|3777901823264) ... }
+# -> ;; $_? is raw = OUTER::<$_> { #`(Block|5039107865864) ... }
 ```
 
 The basis functions are listed:
@@ -413,7 +354,7 @@ The best fit parameters are:
 &lm('BestFitParameters')
 ```
 ```
-# [0.18032362128853602 -0.3401718507431129 0.29592808524509556 -0.1993034317021872 0.12550785516156415 0.002991249157669483 -0.05091268734645385 0.09171151919321457 -0.06505706928510284 -0.038716843132987996 0.03898027383897034 0.003806639669918629 -0.009612472400298316 -0.0003882968221338857 0.0018420298272567135 -0.002098725551797347]
+# [0.18109641435837118 -0.33156948730968683 0.29380599139898955 -0.19566492698575286 0.12009128016358002 0.007106632696672381 -0.05198654798562136 0.09403646760641601 -0.06396226717284158 -0.033067739335237975 0.0337927405133313 0.010629992421524374 -0.012752084565594143 0.0011143043418107965 -0.0018420416106981316 -0.0008163430627367802]
 ```
 
 The plot of these parameters is shown:
@@ -478,16 +419,16 @@ The residuals of the last fit are computed:
 sink records-summary( (@fit <<->> @data2.map(*.tail))».abs )
 ```
 ```
-# +----------------------------------+
-# | numerical                        |
-# +----------------------------------+
-# | Median => 0.01230702029481336    |
-# | 1st-Qu => 0.006665192347521196   |
-# | Mean   => 0.013262283945826793   |
-# | Max    => 0.034148423837399286   |
-# | Min    => 2.6204697780897457e-05 |
-# | 3rd-Qu => 0.018685760650682677   |
-# +----------------------------------+
+# +---------------------------------+
+# | numerical                       |
+# +---------------------------------+
+# | Median => 0.012748401685851285  |
+# | Max    => 0.03311389382666988   |
+# | Min    => 0.0003110644728364226 |
+# | 3rd-Qu => 0.02014702440647692   |
+# | Mean   => 0.013567700105391696  |
+# | 1st-Qu => 0.006369376075630033  |
+# +---------------------------------+
 ```
 
 ----
