@@ -63,11 +63,29 @@ my $annotations = {textStyle => {color => 'DarkGray', fontSize => 10}};
 my $chartArea = {left => 50, right => 50, top => 50, bottom => 50, width => '90%', height => '90%'};
 ```
 
+------
+
+## Why use Chebyshev polynomials in fitting?
+
+[Chebyshev polynomials](https://en.wikipedia.org/wiki/Chebyshev_polynomials) provide a powerful and efficient basis for linear regression fitting, particularly when dealing with polynomial approximation and curve fitting. These polynomials, defined recursively, are a sequence of orthogonal polynomials that minimize the problem of [Runge's phenomenon](https://en.wikipedia.org/wiki/Runge's_phenomenon), which is common with high-degree polynomial interpolation.
+
+One of the key advantages of using Chebyshev polynomials in regression is their property of minimizing the maximum error between the fitted curve and the actual data points, known as the _minimax property_. Because of that property, more stable and accurate approximations are obtained, especially at the boundaries of the interval.
+
+The orthogonality of Chebyshev polynomials with respect to the weight function $w(x) = \frac{1}{\sqrt{1-x^2}}$ on the interval $[-1, 1]$ ensures that the regression coefficients are uncorrelated, which simplifies the computation and enhances numerical stability. Furthermore, Chebyshev polynomials are excellent for approximating functions that are not well-behaved or have rapid oscillations, as they distribute approximation error more evenly across the interval.
+
+**Remark:** This is one of the reasons [Clenshaw-Curtis quadrature](https://en.wikipedia.org/wiki/Clenshaw–Curtis_quadrature) was one "main" quadrature rules I implemented in [Mathematica's `NIntegerate`](https://reference.wolfram.com/language/tutorial/NIntegrateIntegrationRules.html#486402291).
+
+Using Chebyshev polynomials into linear regression models allows for a flexible and robust function basis that can adapt to the complexity of the data while maintaining computational efficiency. This makes them particularly suitable for applications requiring high precision and stability, such as in signal processing, numerical analysis, and scientific computing.
+
+Overall, the unique properties of Chebyshev polynomials make them a great regression tool, offering a blend of accuracy, stability, and efficiency.
+
 -------
 
-## Computation Granularity
+## Chebyshev polynomials computation
 
 This section discusses the computation of Chebyshev polynomials using different methods and their implications on precision.
+
+### Computation Granularity
 
 The computation over Chebyshev polynomials is supported on the interval $[-1, 1]$. The recursive and trigonometric methods are compared to understand their impact on the precision of results.
 
@@ -97,9 +115,7 @@ Residuals with trigonometric and recursive methods are utilized to assess precis
 sink records-summary(@data.map(*.tail) <<->> @data1)
 ```
 
------
-
-## Precision
+### Precision
 
 The exact Chebyshev polynomial values can be computed using `FatRat` numbers, ensuring high precision in numerical computations.
 
