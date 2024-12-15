@@ -59,7 +59,7 @@ One of the key advantages of using Chebyshev polynomials in regression is their 
 
 The orthogonality of Chebyshev polynomials with respect to the weight function $w(x) = \frac{1}{\sqrt{1-x^2}}$ on the interval $[-1, 1]$ ensures that the regression coefficients are uncorrelated, which simplifies the computation and enhances numerical stability. Furthermore, Chebyshev polynomials are excellent for approximating functions that are not well-behaved or have rapid oscillations, as they distribute approximation error more evenly across the interval.
 
-**Remark:** This is one of the reasons [Clenshaw-Curtis quadrature](https://en.wikipedia.org/wiki/Clenshaw–Curtis_quadrature) was one "main" quadrature rules I implemented in [Mathematica's `NIntegerate`](https://reference.wolfram.com/language/tutorial/NIntegrateIntegrationRules.html#486402291).
+**Remark:** This is one of the reasons [Clenshaw-Curtis quadrature](https://en.wikipedia.org/wiki/Clenshaw–Curtis_quadrature) was one of the "main" quadrature rules I implemented in [Mathematica's `NIntegerate`](https://reference.wolfram.com/language/tutorial/NIntegrateIntegrationRules.html#486402291).
 
 Using Chebyshev polynomials into linear regression models allows for a flexible and robust function basis that can adapt to the complexity of the data while maintaining computational efficiency. This makes them particularly suitable for applications requiring high precision and stability, such as in signal processing, numerical analysis, and scientific computing.
 
