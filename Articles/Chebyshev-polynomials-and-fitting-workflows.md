@@ -8,13 +8,14 @@ December 2024
 
 ## Introduction
 
-This post explores the use of Chebyshev polynomials in regression and curve fitting workflows. It highlights various packages that facilitate these processes, providing insights into their features and applications.
+This post demonstrates the use of Chebyshev polynomials in regression and curve fitting workflows. It highlights various Raku packages that facilitate these processes, providing insights into their features and applications.
 
 - ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts): This package is instrumental for creating scatter plots and visualizing time series data.
-- ["Math::Polynomial::Chebyshev"](https://raku.land/zef:antononcube/Math::Polynomial::Chebyshev): It offers a polynomial basis with recursive and trigonometric computation methods, ensuring exact integer results for numerators and denominators.
 - ["Math::Fitting"](https://raku.land/zef:antononcube/Math::Fitting): This package supports linear regression using function bases, providing functors and allowing retrieval of multiple properties.
-- ["Data::TypeSystem"](https://raku.land/zef:antononcube/Data::TypeSystem): It provides a summary of data types.
+- ["Math::Polynomial::Chebyshev"](https://raku.land/zef:antononcube/Math::Polynomial::Chebyshev): It offers a polynomial basis with recursive and trigonometric computation methods, ensuring exact integer results for numerators and denominators.
+- ["Data::Reshapers"](https://raku.land/zef:antononcube/Data::Reshapers): This package transforms data.
 - ["Data::Summarizers"](https://raku.land/zef:antononcube/Data::Summarizers): This package summarizes data values.
+- ["Data::TypeSystem"](https://raku.land/zef:antononcube/Data::TypeSystem): It provides a summary of data types.
 
 ### TL;DR
 
