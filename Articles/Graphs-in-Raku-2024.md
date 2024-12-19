@@ -38,7 +38,7 @@ The above assumptions turned true, in general, and while graph-programming with 
 
 The Raku package ["Graph"](https://raku.land/zef:antononcube/Graph) provides the class `Graph` that has the following classes of algorithms (as class methods):
 
-- Finding paths cycles and flows
+- Finding paths, cycles, and flows
     - Finding shortest path, hamiltonian path, etc.
 - Matching and coloring
 - Graph manipulation,
@@ -246,7 +246,7 @@ my %namedGraphs =
 
 Of particular interest to me are the random graphs:
 - Simple vertex- and edge sampling random graphs are useful for testing
-- Well known random graphs with adhering to particular models are also very nice to have
+- Random graphs adhering to particular models are also very nice to have
 
 The easiest way to have random graphs implementations is to have a special `Graph::Distribution` class.
 
