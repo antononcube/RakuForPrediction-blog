@@ -1,0 +1,288 @@
+hello this presentation is titled sparse
+Matrix neat examples in Raku my name is
+Anton Antonov today is October 27th
+2024 I assume most of the audience of
+this presentation is familiar with the
+concept of sparse Matrix so here you see
+a random sparse Matrix the the
+rectangles the squares in Black
+represent Elements which are zero and
+the colored ones which are non zero so
+the data structures used for SP
+matrices they allow efficient
+representation of matrices that have
+mostly zeros as the elements instead of
+a zero we can have any other value but
+it is a constant so basically majority
+of the elements are this constant value
+all right so uh in this presentation we
+are going to look into three sets of
+examples the first one comes from an
+adjacency Matrix of a random graph that
+um is produced from a model of social
+interactions the second set of examples
+comes from a movie actor graph so actors
+starring in certain movies and the third
+set of examples is about visualization
+of random
+matrices I would like to point out that
+for me and this is a personal opinion
+the spars Matrix linear algebra support
+is a sign of maturity of the
+corresponding system and you can see
+different uh popular systems for
+technological computations they have
+introduced pars matrices at different
+years all right so let's look into the
+first example this random graph with the
+what stroots model I especially made it
+small if I if I want to be kind of more
+interesting graph I can make it larger
+but let's uh let's use this small graph
+I have also found the shortest puff
+between 0 and 12 this is um the uh
+subgraph here shown in Orange and here
+is the corresponding sparse Matrix so
+this is a visualization of the spars
+Matrix so uh this is um adjacency Matrix
+which shows which edges are connected
+connected in the graph and the nonzero
+elements in this plot there with this
+bright yellow color and the zero ones
+with this black color so the way this
+has been created uh it it is it is
+showing that there is a intimate
+relationship between graphs and sparse
+matrices so we're going to exploit this
+in this example so here I'm going to
+make um another another sparse Matrix ba
+based only on the puff right on the puff
+shortest puff between Z and 12 which I
+was mentioning earlier and I'm going to
+add these two matrices this addition is
+element twice so in order to to
+visualize it so uh so you can see here
+this is the original uh graph graphs
+Matrix and this is the one for the
+shortest Puff The Matrix is a symmet
+metc because the graph is uh undirected
+right and uh so one thing I would like
+to mention is that this Matrix here
+would have been much smaller because the
+path graph has only four vertices and
+three edges but it is having this form
+because I imposed this Rong names which
+correspond to the to the original graph
+Matrix and if I add them together I can
+have this representation in which we can
+see all of the all of the um edges so
+each entry of this adjacent symatrix
+represents an edge each each nonzero
+entry and the ones in yellow here and
+this uh
+plot are corresponding to the puff and
+the ones in I don't know purple they
+correspond to the to the rest of the
+edges so you can see here I'm I have
+this piecewise um uh piecewise uh
+operations sorry not piecewise
+elementwise operations between the
+matrices so I can multiply with a scalar
+a certain Matrix and I can add that
+Matrix to another Matrix of course the
+for this uh elementwise addition between
+matrixes the dimensions need to to be
+the same hence why I was sh what the
+raow elements here row names correspond
+to the to the puff Matrix correspond to
+the original one okay the the way I'm
+multiplying this is because this gives
+me a very very nice or easy way to
+manipulate the colors in the
+visualization let's actually look into
+some more into this so I can have this a
+pretty printing of the sum Matrix here
+so you can see it with the latest latest
+multiplication and addition how it looks
+like another thing I can do is that um I
+can compare the different the graph and
+the The Matrix so I'm going to walk
+through uh this here so uh the first um
+the first um vertex of the puth is zero
+so we can see what zero connects with
+version with vertex six this is what you
+see here now six connects with 10 and
+this is what we also see here 10 10 and
+10 connects with 12 no vertex 12 all
+right so this was the first example now
+the second example is uh using the data
+of certain popular movies in the past
+these actually let me just show the
+summary here and and I'm going to zoom
+out and uh so we have Lord of the Rings
+uh X-Men and Pirates of the Caribbean
+and the corresponding actors and so I'm
+going to create um create a beered graph
+and so we can see let me actually show
+how the beered graph looks like so the
+beered graph the name beered means that
+we have two sets of vertices you can see
+here in red the movies in orange or
+yellow orange I think the actors and the
+B parted graph here after it has been
+created this is it's a very simple
+creation I I took the original data set
+and I said well the movie connects to
+the actor the the graph is undirected uh
+and I can also verify what this graph is
+beered with some of the functions of the
+of the package graph functionalities I
+can actually show uh show what are the
+colors I can uh the package itself self
+graph has uh has functionalities for
+coloring the uh beer to do beered
+coloring for the beered
+graphs okay so what what is this though
+what so what right okay let's actually
+show the sparse Matrix here and I'm
+going to uh create the names for this uh
+in the following qu the names for this
+SPS Matrix I'm going to take all of the
+movies and put them in the front uh and
+then I'm going to list all of the actors
+if I just create the Matrix from the
+graph itself uh we cannot exactly see
+what this is beered at least to me it's
+not clear it's not obvious but if I use
+this way of reshaping The Matrix so I'm
+using the names I mentioned earlier to
+reshape The Matrix and now it's very
+clearly beered why because uh this edges
+this vertices here they don't have
+connecting edges to the second half to
+to to themselves sorry they only have
+connection edges to the second half or
+the second part and so similarly here
+the the vertices which correspond to the
+actors they do not connect to the movies
+this can be also visualized through an
+HTML and here I need to zoom out again
+so in this HTML representation you can
+see how uh yeah uh I have rotated in
+vertically the column names and so again
+you know we can see how the movies do
+not connect to each other movies connect
+to actors actors connect to movies so as
+I said clearly btit Matrix this is by
+definition so if I look here in the
+graph say if I show this uh the red red
+vertices they only connect to the orange
+ones and the orange ones only connect to
+the to to the red ones so by definition
+this is what we parted graph is okay so
+um next actually I'm going to uh to show
+the fundamental information retrieval
+operation this one of the reasons why
+spars matrices are very useful in in
+data science in machine learning and um
+and information retrieval so first I'm
+going to uh take a vector which
+corresponds to Orlando Bloom so let's
+actually find Orlando Bloom here so you
+can see this is the vector here so this
+Vector is uh is about the movies which
+um in which Orlando Bloom participated
+now if I multiply uh that um uh that uh
+Vector with with a matrix what is going
+to happen and with the original Matrix
+for the B parted graph this is going to
+give us the the actors with which the
+nonzero elements of the results are
+going to give us the actors with which
+um Orlando Bloom participated in movies
+and so say you can see here that he he
+was uh in five movies right Orlando
+Bloom and Orlando Bloom but with the
+rest like say Johnny Depp he was in
+three movies this is the pirates of the
+Ian movies and and so forth again this
+is a very very useful operation this is
+uh uh this functionality to have to have
+this functionalities to have a sparse
+linear algebra with named rows and
+columns for the sparse matrices makes it
+very easy to have different types of
+information retrieval uh and data
+wrangling and um data manipulation you
+know in in in the system you're using
+okay uh so the last set of examples is
+with um
+I said with random matrices but not only
+random matrices I'm going to use the
+beered Matrix again I haven't found yet
+a nice way to to display uh to
+automatically display the tool tips or
+automatically derive and display the
+tool tips so there's a display of the
+tool tips you can see them here by
+default let me see do I have the default
+here uh by default as a dense Matrix the
+tool tips are just showing the value of
+the of the of the corres responding
+entry but it would be nice especially
+with the spars matrices it would be nice
+to kind of show uh what are the uh what
+are the corresponding um rows and
+columns especially if the rows and
+columns are some long names like what we
+see here okay um I can use this tup in
+order to uh to facilitate the the plot
+with using C plot this is a very simple
+uh simple plot it's not as elaborated
+these are rectangles and you can see the
+rectangle they also have borders and so
+forth so this plot uh can be as I said
+can be very simple and it can be very
+useful for large Matrix and this is I no
+I didn't want to show this but let me
+actually show the large Matrix example
+since I mentioned so this is a matrix
+whiches with
+200 uh 200 vertices and again I'm using
+the L stroot uh what strong display and
+this is how it looks with two PS if I
+can if I can uh if I increase the number
+of vertices right like say 2,000 and
+this is going to be yeah a fairly a
+fairly big Matrix at this point you can
+see we have nearly 9,000 non zero
+entries this uh JavaScript um
+visualization it basically has U an
+array of 9,000 dictionaries which
+specify this points and it happened
+relatively quickly I'm not going to do
+that for do that with this with this
+plot which actually uses the Matrix plot
+because it's going to be way too slow
+okay so my last example is with a random
+Matrix so you can see here uh maybe I
+should zoom out let me see yeah okay
+yeah I basically uh generate some random
+dense Matrix and um I um I um randomly
+select what to order the rows or to
+order the columns and then I randomly
+select the actual caler which is being
+used and then we see this kind of uh
+this kind of example Matrix plot comes
+from JavaScript D3 package it is um it
+is somewhat independent from the sparse
+matrices so I try to uh to make this
+packages independent as as uh much as
+possible gsd3 Matrix plot yes it can use
+uh it can use specifications of uh both
+dense and sparse matrices and here we're
+using a Dan Matrix to do the
+visualization I mean above you can see I
+can I have variety of ways of showing
+spars matrices all right this was it
+thank you
