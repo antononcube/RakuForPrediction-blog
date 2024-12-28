@@ -442,6 +442,7 @@ say "dimensions : ", dimensions(@a);
 js-d3-matrix-plot(@a, width => 1600, margins => 1, :$tick-labels-font-size, color-palette => <Turbo Plasma Warm Inferno Oranges>.pick, :$background)
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Random-sparse-matrix-ending-light-turbo.png)
 
 ---
 
