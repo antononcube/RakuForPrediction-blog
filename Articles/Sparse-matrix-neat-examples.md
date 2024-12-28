@@ -11,6 +11,8 @@ October 2024
 
 Sparse matrices are an essential tool in computational mathematics, allowing us to efficiently represent and manipulate large matrices that are predominantly composed of zero elements. In this blog post, we will delve into a few intriguing examples of sparse matrix utilization, specifically in the Raku programming language.
 
+[![](./Diagrams/Sparse-matrix-neat-examples/Sparse-matrix-neat-examples-thumbnail-small.png)](https://youtu.be/kQo3wpiUu6w)
+
 ### Examples Covered:
 
 1. **Random Graph:**
@@ -64,6 +66,8 @@ js-d3-graph-plot(
     )
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Random-graph.png)
+
 In the code above, we create a random graph with 20 vertices and a connection probability of 0.06. We also find the shortest path between vertices '0' and '12'.
 
 ### Corresponding Matrix
@@ -76,6 +80,12 @@ my $m = Math::SparseMatrix.new(edge-dataset => $gl.edges(:dataset), row-names =>
 say $m;
 $m.Array ==> js-d3-matrix-plot(width => 400, margins => 15, :$tick-labels-font-size)
 ```
+
+```
+# Math::SparseMatrix(:specified-elements(86), :dimensions((20, 20)), :density(0.215))
+```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Random-graph-matrix-plot.png)
 
 Here, we visualize the graph matrix, the shortest path matrix, and the sum of these matrices:
 
@@ -94,11 +104,15 @@ my $m3 = $m.add($m2.multiply(0.75));
  ].join("\n")
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Random-graph-shortest-path-and-sum-matrix-plots.png)
+
 The sum matrix is printed in a "plain" format:
 
 ```raku
 $m3.print
 ```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Random-graphs-sum-matrix-print.png)
 
 By comparing the graph and the sum matrix side-by-side, we can better understand the structure and relationships within the graph:
 
@@ -109,6 +123,8 @@ By comparing the graph and the sum matrix side-by-side, we can better understand
     js-d3-matrix-plot($m3.Array, margins => 16, :$tick-labels-font-size, :$tick-labels-color, width => 400, color-palette => 'Inferno')
 ].join("\n")
 ```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Random-graph-and-matrix.png)
 
 ---
 
@@ -123,6 +139,10 @@ my @dsMovieRecords = data-import($file, 'csv', headers => 'auto');
 deduce-type(@dsMovieRecords)
 ```
 
+```
+# Vector(Assoc(Atom((Str)), Atom((Str)), 6), 40)
+```
+
 ### Movie Data Table
 
 Here is a tabular representation of the movie data:
@@ -133,6 +153,8 @@ my @field-names = <Movie Actor Genre1 Genre2 Genre3 BoxOffice>;
 @dsMovieRecords ==> to-html(:@field-names)
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Movie-actor-dataset.png)
+
 A summary of the data:
 
 ```raku
@@ -140,6 +162,8 @@ A summary of the data:
 records-summary(@dsMovieRecords, :8max-tallies, :!say) 
 ==> to-html(:@field-names)
 ```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Movie-actor-data-summary.png)
 
 ---
 
@@ -152,16 +176,30 @@ my @rules = @dsMovieRecords.map({ $_<Movie> => $_<Actor> });
 my $g = Graph.new(@rules) 
 ```
 
+```
+# Graph(vertexes => 27, edges => 40, directed => False)
+```
+
 The graph is confirmed to be bipartite:
 
 ```raku
 $g.is-bipartite
 ```
 
+```
+# True
+```
+
 Here is the coloring of the graph:
 
 ```raku
 .say for $g.bipartite-coloring.classify(*.value)
+```
+
+```
+# 1 => [X2 => 1 The Lord of the Rings: The Fellowship of the Ring => 1 Pirates of the Caribbean: The Curse of the Black Pearl => 1 The Lord of the Rings: The Return of the King => 1 Pirates of the Caribbean: At World's End => 1 X-Men: The Last Stand => 1 The Lord of the Rings: The Two Towers => 1 Pirates of the Caribbean: Dead Man's Chest => 1]
+# 0 => [Sean Astin => 0 Patrick Stewart => 0 Elijah Wood => 0 Rebecca Romijn => 0 Ian McKellen => 0 Keira Knightley => 0 Orlando Bloom => 0 Famke Janssen => 0 Bill Nighy => 0 Johnny Depp => 0 Jack Davenport => 0 Hugh Jackman => 0 Liv Tyler => 0 Halle Berry => 0 Andy Serkis => 0 Geoffrey Rush => 0 Stellan Skarsgård => 0 Anna Paquin => 0 Viggo Mortensen => 0]
+
 ```
 
 ```raku
@@ -184,6 +222,8 @@ $g.edges(:dataset)
     )
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Movie-actor-bipartite-graph.png)
+
 ---
 
 ## Sparse Matrix
@@ -195,10 +235,44 @@ my @allVertexNames = [|@dsMovieRecords.map(*<Movie>).unique.sort, |@dsMovieRecor
 my %h = @allVertexNames Z=> ^@allVertexNames.elems;
 ```
 
+```
+# {Andy Serkis => 8, Anna Paquin => 9, Bill Nighy => 10, Elijah Wood => 11, Famke Janssen => 12, Geoffrey Rush => 13, Halle Berry => 14, Hugh Jackman => 15, Ian McKellen => 16, Jack Davenport => 17, Johnny Depp => 18, Keira Knightley => 19, Liv Tyler => 20, Orlando Bloom => 21, Patrick Stewart => 22, Pirates of the Caribbean: At World's End => 0, Pirates of the Caribbean: Dead Man's Chest => 1, Pirates of the Caribbean: The Curse of the Black Pearl => 2, Rebecca Romijn => 23, Sean Astin => 24, Stellan Skarsgård => 25, The Lord of the Rings: The Fellowship of the Ring => 3, The Lord of the Rings: The Return of the King => 4, The Lord of the Rings: The Two Towers => 5, Viggo Mortensen => 26, X-Men: The Last Stand => 6, X2 => 7}
+```
+
 The row and column names are sorted, with movie titles first, followed by actor names:
 
 ```raku
 .say for @allVertexNames
+```
+
+```
+# Pirates of the Caribbean: At World's End
+# Pirates of the Caribbean: Dead Man's Chest
+# Pirates of the Caribbean: The Curse of the Black Pearl
+# The Lord of the Rings: The Fellowship of the Ring
+# The Lord of the Rings: The Return of the King
+# The Lord of the Rings: The Two Towers
+# X-Men: The Last Stand
+# X2
+# Andy Serkis
+# Anna Paquin
+# Bill Nighy
+# Elijah Wood
+# Famke Janssen
+# Geoffrey Rush
+# Halle Berry
+# Hugh Jackman
+# Ian McKellen
+# Jack Davenport
+# Johnny Depp
+# Keira Knightley
+# Liv Tyler
+# Orlando Bloom
+# Patrick Stewart
+# Rebecca Romijn
+# Sean Astin
+# Stellan Skarsgård
+# Viggo Mortensen
 ```
 
 The sparse matrix of the bipartite graph is constructed:
@@ -207,15 +281,25 @@ The sparse matrix of the bipartite graph is constructed:
 my $m = Math::SparseMatrix.new(edge-dataset => $g.edges(:dataset))
 ```
 
+```
+# Math::SparseMatrix(:specified-elements(80), :dimensions((27, 27)), :density(<80/729>))
+```
+
 ```raku
 #%js
 $m.Array ==> js-d3-matrix-plot(width=>400)
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Movie-actor-bipartite-matrix-unclear.png)
+
 To clearly show the bipartite nature of the matrix, we restructure it using pre-arranged row and column names:
 
 ```raku
 $m = $m[@allVertexNames; @allVertexNames]
+```
+
+```
+# Math::SparseMatrix(:specified-elements(80), :dimensions((27, 27)), :density(<80/729>))
 ```
 
 The matrix plot now clearly indicates a bipartite graph:
@@ -224,6 +308,8 @@ The matrix plot now clearly indicates a bipartite graph:
 #%js
 $m.Array ==> js-d3-matrix-plot(width=>400)
 ```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Movie-actor-bipartite-matrix-proper-sort.png)
 
 For an alternative visualization, we can create an HTML "pretty print" of the sparse matrix:
 
@@ -234,6 +320,8 @@ $m
 .to-html(:v)
 .subst('<td>1</td>', '<td><b>●</b></td>', :g)
 ```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Movie-actor-bipartite-matrix-HMTL.png)
 
 ---
 
@@ -249,12 +337,17 @@ my $m-actor = $m['Orlando Bloom'].transpose;
 $m-actor.to-html.subst('<td>0</td>','<td> </td>'):g
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Orlando-Bloom-movies-in.png)
+
+
 - Multiply the incidence matrix with the actor-vector to find other actors who starred in the same movies:
 
 ```raku
 #% html
 $m.dot($m-actor).to-html
 ```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Orlando-Bloom-actors-with.png)
 
 ---
 
@@ -277,6 +370,18 @@ js-d3-matrix-plot(
     width => 400)
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Bipartite-matrix-plot-via-heatmap-plot-spec.png)
+
+Here is the corresponding ("coordinates") list plot:
+
+```raku
+#%js
+$m.tuples
+==> js-d3-list-plot(:$background, width => 400, :!grid-lines)
+```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Bipartite-list-plot-coordinates.png)
+
 ### As Dense Matrix
 
 This method visualizes the matrix as a dense array:
@@ -287,6 +392,8 @@ $m.Array
 ==> js-d3-matrix-plot(width => 400)
 ```
 
+![](./Diagrams/Sparse-matrix-neat-examples/Bipartite-dense-matrix.png)
+
 ### Larger Sparse Matrix
 
 For larger matrices, a list plot might be more useful, especially if the matrix has a relatively high density.
@@ -296,6 +403,10 @@ my $gLarge = Graph::Random.new: Graph::Distribution::WattsStrogatz.new(100,0.1);
 my $mLarge = Math::SparseMatrix.new(edge-dataset => $gLarge.edges(:dataset));
 ```
 
+```
+# Math::SparseMatrix(:specified-elements(444), :dimensions((100, 100)), :density(0.0444))
+```
+
 The corresponding graph:
 
 ```raku
@@ -303,6 +414,21 @@ The corresponding graph:
 $mLarge.tuples
 ==> js-d3-list-plot( :$background, width => 600, height => 600, :!grid-lines)
 ```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Large-sparse-matrix-tuples.png)
+
+**Remark:** The list plot might be much more useful for large matrices with (relatively) high density.
+
+Tuples dataset:
+
+```raku
+#%js
+$mLarge.tuples(:dataset)
+==> {rename-columns($_, (<i j x> Z=> <x y z>).Hash)}()
+==> js-d3-matrix-plot(:$background, width => 600)
+```
+
+![](./Diagrams/Sparse-matrix-neat-examples/Large-sparse-matrix-tuples-dataset.png)
 
 ### Random Dense Matrix
 
@@ -315,6 +441,7 @@ my @a = random-real(10, 48) xx 12;
 say "dimensions : ", dimensions(@a);
 js-d3-matrix-plot(@a, width => 1600, margins => 1, :$tick-labels-font-size, color-palette => <Turbo Plasma Warm Inferno Oranges>.pick, :$background)
 ```
+
 
 ---
 
