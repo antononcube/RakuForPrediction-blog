@@ -319,6 +319,8 @@ js-d3-clock-gauge( $doom-time, :$background, :$stroke-color,
     )
 ```
 
+![](./Diagrams/Doomsday-clock-parsing-and-plotting/Doomsday-clock-as-clock-gauge-dark.png )
+
 Let us define a map with clock-gauge plot options.
 
 ```raku
@@ -354,9 +356,10 @@ Here are different "doomsday clock" examples:
    {color-scheme => 'Plasma', fill-color => 'MistyRose', gauge-labels-color => 'Orchid'},
    {color-scheme => 'Spectral', fill-color => '#4e65ac', stroke-color => 'DarkRed', stroke-width => 10, gauge-labels => %()},
    {color-scheme => 'Cividis', fill-color => 'DarkSlateGray', gauge-labels => {Doomsday => [0.5, 0.6], 'clock' => [0.5 ,0.36]}, scale-ranges => @scale-ranges2},
-   {color-scheme => 'Inferno', fill-color => 'DarkSlateGray', gauge-labels => %()}, 
 ].map({ js-d3-clock-gauge(:23hour, :58minute, :30second, |merge-hash(%opts.clone, $_, :!deep)) }).join("\n")
 ```
+
+![](./Diagrams/Doomsday-clock-parsing-and-plotting/Doomsday-clock-examples-dark-3.png)
 
 ----
 
@@ -727,35 +730,7 @@ js-google-charts('ComboChart',
 )
 ```
 
-```raku
-#% html
-js-google-charts('ComboChart',
-    @ts2,
-    column-names => <Year MinutesToMidnight mark role:tooltip role:annotation>,
-    width => 1200,
-    height => 500,
-    title => "Doomsday clock: minutes to midnight, {@dsDoomsdayTimes.map(*<Year>).Array.&{ (.min, .max).join('-') }}",
-    series => {
-        0 => {type => 'line', lineWidth => 4, color => 'DarkOrange'},
-        1 => {type => 'scatter', pointSize => 10, opacity => 0.1, color => 'Blue'},
-    },
-    hAxis => { title => 'Year',  format => '####', titleTextStyle => { color => 'DimGray' }, textStyle => { color => 'Gray'},     
-                viewWindow => { min => 1945, max => 2026}
-            },
-    vAxes => { 
-        0 => { title => 'Minutes to Midnight', titleTextStyle => { color => 'DimGray' }, textStyle => { color => 'Gray'} }, 
-        1 => { titleTextStyle => { color => 'DimGray' }, textStyle => { color => 'Gray'}, ticks => (^18).map({ [ v => $_, f => ($_ ?? "23::{60-$_}" !! '00:00' ) ] }).Array } 
-    },
-    annotations => {textStyle => {color => 'Gray', fontSize => 10}},
-    titleTextStyle => {color => 'Gray'},
-    #:$backgroundColor,
-    :$legend,
-    :$chartArea,
-    :$format,
-    div-id => 'DoomsdayClockLight',
-    :!png-button
-)
-```
+![](./Diagrams/Doomsday-clock-parsing-and-plotting/Doomsday-clock-timeline-plot-light-tooltip.png)
 
 **Remark:** The plot *should be* piecewise constant -- simple linear interpolation between the blue points would suggest gradual change of the clock times.
 
