@@ -205,7 +205,6 @@ my @defs = fp-ebnf-parse($ebnf, <CODE>, name => 'Doomed2', actions => 'Raku::Cod
 Here the imperative code above -- assigned to `@defs` -- is re-written using the infix form of the parser combinators:
 
 ```raku
-use FunctionalParsers :ALL;
 my &pINTEGER = satisfy({ $_ ~~ /\d+/ }) «o {.Int};
 my &pMINUTES = &pINTEGER «& (symbol('minute') «|» symbol('minutes')) «o { [minute => $_,] };
 my &pSECONDS = &pINTEGER «& (symbol('second') «|» symbol('seconds')) «o { [second => $_,] };
@@ -280,7 +279,6 @@ $sentence.words.&pTOP.tail.flat.grep(* ~~ Pair)
 Let us redefine `pCLOCK-READING` to return a minutes-&-seconds dictionary, `pTOP` to return a corresponding date-time:
 
 ```raku
-use FunctionalParsers :ALL;
 &pCLOCK-READING = &pCLOCK-READING «o { $_.flat.grep(* ~~ Pair).Hash };
 
 &pTOP = &pCLOCK-READING «o { 
@@ -386,7 +384,6 @@ The parser `satisfy` can be used to handle misspellings (via, say, `edit-distanc
 
 ```raku
 #% html
-use FunctionalParsers :ALL;
 my &pDD = satisfy({ edit-distance($_, "doomsday") ≤ 2 }) «o {"doomsday"};
 my @phrases = "doomsdat", "doomsday", "dumzday";
 
@@ -410,7 +407,6 @@ parsing-test-table(&pDD2, @phrases)
 In order to include the misspelling handling into the grammar we manually rewrite the grammar. (The grammar is small, so, it is not that hard to do.)
 
 ```raku
-use FunctionalParsers :ALL;
 my &pINTEGER = satisfy({ $_ ~~ /\d+/ }) «o {.Int};
 my &pMINUTES = &pINTEGER «& (fuzzy-symbol('minute', 2) «|» fuzzy-symbol('minutes', 2)) «o { [minute => $_,] };
 my &pSECONDS = &pINTEGER «& (fuzzy-symbol('second', 2) «|» fuzzy-symbol('seconds', 2)) «o { [second => $_,] };
@@ -474,7 +470,6 @@ Here is how the rules look like:
 Here we program the integer names parser:
 
 ```raku
-use FunctionalParsers :ALL;
 my &pUpTo10 = alternatives( |(^10)».&to-numeric-word-form.map({ symbol($_.trim) }) );
 my &p10s = alternatives( |(10, 20 ... 90)».&to-numeric-word-form.map({ symbol($_.trim) }) );
 my &pWordedInteger = (&p10s «&» &pUpTo10 «|» &p10s «|» &pUpTo10) «o { %worded-values{$_.flat.join(' ')} };
@@ -510,20 +505,7 @@ Let us change `&pINTEGER` to parse both integers and integer names:
 
 ```raku
 #% html
-use FunctionalParsers :ALL;
 &pINTEGER = &satisfy({ $_ ~~ /\d+/ }) «o {.Int} «|» &pWordedInteger;
-
-my &pMINUTES = &pINTEGER «& (fuzzy-symbol('minute', 2) «|» fuzzy-symbol('minutes', 2)) «o { [minute => $_,] };
-my &pSECONDS = &pINTEGER «& (fuzzy-symbol('second', 2) «|» fuzzy-symbol('seconds', 2)) «o { [second => $_,] };
-my &pANY = satisfy({ edit-distance($_, 'clock') > 2 && $_ ~~ /\w+/ });
-my &pOPENING = option(many(&pANY)) «&» fuzzy-symbol('clock', 1) «&» option(symbol('is')) «&» fuzzy-symbol('reading', 2);
-my &pCLOCK-READING = &pOPENING «&» (&pMINUTES «|» option(&pMINUTES «&» option(symbol('and') «|» symbol(','))) «&» &pSECONDS) «&» symbol('to') «&» fuzzy-symbol('midnight', 2);
-
-&pCLOCK-READING = &pCLOCK-READING «o { $_.flat.grep(* ~~ Pair).Hash };
-
-&pTOP = &pCLOCK-READING «o {
-    Date.today.DateTime.earlier(seconds => ($_<minute> // 0) * 60 + ($_<second>// 0) ) 
-};
 
 my @phrases = "12", "3", "three", "forty five";
 parsing-test-table( just(&pINTEGER), @phrases)
