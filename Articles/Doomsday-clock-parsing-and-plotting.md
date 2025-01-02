@@ -20,7 +20,7 @@ In this notebook we consider two tasks:
 
 - **Parsing of Doomsday Clock reading statements**
 
-    - Using both Functional Parsers (FP) (aka "parser combinators"), [AAp1], and Large Language Models (LLMs).
+    - Using both [Functional Parsers (FP)](https://raku.land/zef:antononcube/FunctionalParsers) (aka ["parser combinators"](https://en.wikipedia.org/wiki/Parser_combinator)), [AAp1], and Large Language Models (LLMs).
 
         - We take text data from the past announcements, and extract the Doomsday Clock reading statements.
 
@@ -32,7 +32,7 @@ In this notebook we consider two tasks:
 
         - (Instead of using a page from BAS.)
 
-    - We show how timeline data from that Wikipedia page can be processed with "standard" Wolfram Language (WL) functions and with LLMs.
+    - We show how timeline data from that Wikipedia page can be processed with LLMs.
 
     - The result plot shows the evolution of the minutes to midnight.
 
@@ -50,7 +50,8 @@ The data extraction and visualization in the notebook serve educational purposes
 **Remark:** Currently (2024-12-30) Doomsday Clock is set at [90 seconds before midnight](https://thebulletin.org/doomsday-clock/).
 
 
-**Remark:** This notebook is Raku-version of the Wolfram Language (WL) [notebook the same name](https://community.wolfram.com/groups/-/m/t/3347065), [AAn1].
+**Remark:** This notebook is the Raku-version of the Wolfram Language (WL) [notebook of the same name](https://community.wolfram.com/groups/-/m/t/3347065), [AAn1].
+That is why the "standard" Raku-grammar approach is not used. (Although, in the preliminary versions of this work relevant Raku grammars were generated via both LLMs and Raku packages.)
 
 
 
@@ -168,7 +169,8 @@ Here is a grammar in [Extended Backus-Naur Form (EBNF)](https://en.wikipedia.org
 my $ebnf = q:to/END/;
 <TOP> = <clock-reading>  ;
 <clock-reading> = <opening> , ( <minutes> | [ <minutes> , [ 'and' | ',' ] ] , <seconds> ) , 'to' , 'midnight' ;
-<opening> = [ { <any> } ] , 'clock' , [ 'is' ] , 'reading' ; <any> = '_String' ;
+<opening> = [ { <any> } ] , 'clock' , [ 'is' ] , 'reading' ; 
+<any> = '_String' ;
 <minutes> = <integer> <& ( 'minute' | 'minutes' ) ;
 <seconds> = <integer> <& ( 'second' | 'seconds' ) ;
 <integer> = '_Integer' <@ &{ $_.Int } ;
