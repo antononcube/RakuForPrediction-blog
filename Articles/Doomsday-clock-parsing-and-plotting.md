@@ -613,7 +613,8 @@ text-stats($txtWk)
 # (chars => 42728 words => 6231 lines => 853)
 ```
 
-Here we get the Doomsday Clock timeline table from that page in JSON format using an LLM:
+Here we get the Doomsday Clock timeline table from that page in JSON format using an LLM (or ingest a
+[previous extraction saved as a CSV file](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Data/doomsday-clock-timeline-table.csv)):
 
 ```raku
 my $res; 

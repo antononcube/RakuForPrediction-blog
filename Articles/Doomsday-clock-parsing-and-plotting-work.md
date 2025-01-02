@@ -525,7 +525,8 @@ my $txtWk = data-import($url, "plaintext");
 text-stats($txtWk)
 ```
 
-Here we get the Doomsday Clock timeline table from that page in JSON format using an LLM:
+Here we get the Doomsday Clock timeline table from that page in JSON format using an LLM (or ingest a 
+[previous extraction saved as a CSV file](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Data/doomsday-clock-timeline-table.csv)):
 
 ```raku
 my $res; 
