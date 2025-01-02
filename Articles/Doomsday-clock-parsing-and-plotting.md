@@ -375,7 +375,7 @@ More robust parsing of Doomsday Clock statements can be obtained in these three 
 
     - For misspellings like "doomsdat" instead of "doomsday."
 
-- Parsing of numeric work forms.
+- Parsing of numeric word forms.
 
     - For statements, like, "two minutes and twenty five seconds."
 
@@ -745,12 +745,11 @@ js-google-charts('ComboChart',
 **Remark:** The plot has deficiencies:
 - Tooltips with arbitrary width
     - This can be remedied with the (complicated) HTML tooltip procedure described in [AA1].
-        - But decided to just make the LLM data extraction to produces short summaries of the descriptions.
+        - But I decided to just make the LLM data extraction to produce short summaries of the descriptions.
 - No right vertical axis ticks
     - The Doomsday Clock timeline plot in Wikipedia and its reproduction in [AAn1] have the "HH::MM" time axis.
-    - Again, I gave up figuring out the how to place such axis in "ComboChart".
+    - I gave up figuring out how to place such axis in "ComboChart".
 
-I gave up smoothing out those deficiencies after attempting to fix or address each of them a few times.
 (It is not that important to figure out Google Charts interface settings for that kind of plots.)
 
 
