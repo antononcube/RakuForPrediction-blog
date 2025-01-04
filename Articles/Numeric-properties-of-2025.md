@@ -184,6 +184,9 @@ my @good-permutations = [1..9].permutations.race(:4degree).grep( -> @p {
 # 2025
 ```
 
+**Remark:** This is an embarrassingly parallel computation for which the order of the results does not matter.
+Sequential-computation-wise, Wolfram Language is ≈60 times faster than Raku. (On a few years old laptop.)
+
 Here are the first of the "good" permutations:
 
 ```raku
