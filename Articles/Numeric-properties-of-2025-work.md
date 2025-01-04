@@ -11,7 +11,7 @@ January 2025
 ## Introduction
 
 
-This blog post demonstrates many of the mathematical properties for the number `2025` given in the Wolfram notebook ["Happy 2025 == 1³+2³+3³+4³+5³+6³+7³+8³+9³ !"](https://community.wolfram.com/groups/-/m/t/3347182), [EPn1], ​by [Ed Pegg Jr](https://en.wikipedia.org/wiki/Ed_Pegg_Jr.).
+This blog post demonstrates many of the mathematical properties for the number `2025` given in the Wolfram notebook ["Happy 2025 == 1³+2³+3³+4³+5³+6³+7³+8³+9³ !"](https://community.wolfram.com/groups/-/m/t/3347182), [EPn1], by [Ed Pegg Jr](https://en.wikipedia.org/wiki/Ed_Pegg_Jr.).
 
 We cannot computationally demonstrate _easily_ all of the properties in Raku; for the full exposition of them see [EPn1].
 
@@ -39,10 +39,6 @@ $$
 say "Sum of cubes of 1..9 : ", [+] (1..9)>>³;
 say "Sum of 1..9 squared  : ", ((1..9).sum)²;
 ```
-```
-# Sum of cubes of 1..9 : 2025
-# Sum of 1..9 squared  : 2025
-```
 
 -----
 
@@ -57,9 +53,6 @@ Next, let us demonstrate the simple numeric properties of `2025`.
 ```raku
  (20+25) ** 2
 ```
-```
-# 2025
-```
 
 An odd property of the square root, `45 == 2025.sqrt`, is that it is the smallest integer where the periodic part of the reciprocal is `2`:
 
@@ -67,17 +60,11 @@ An odd property of the square root, `45 == 2025.sqrt`, is that it is the smalles
 use Rat::Precise;
 (1/45).precise(40)
 ```
-```
-# 0.0222222222222222222222222222222222222222
-```
 
 `2025` is the denominator for this sum of squares:
 
 ```raku
 (1/9² + 1/5²).nude
-```
-```
-# (106 2025)
 ```
 
 -----
@@ -90,9 +77,6 @@ use Rat::Precise;
 ```raku
 [*] (1..14).map(15 gcd *)
 ```
-```
-# 2025
-```
 
 `2025` is the product of the proper divisors of `45`:
 
@@ -100,15 +84,9 @@ use Rat::Precise;
 use Math::Sequences::Integer :support;
 my @proper = divisors(45).head(*-1)
 ```
-```
-# [1 3 5 9 15]
-```
 
 ```raku
 [*] |@proper
-```
-```
-# 2025
 ```
 
 The package ["Math::Sequences"](https://raku.land/zef:raku-community-modules/Math::Sequences) has the functions [`sigma`](https://en.wikipedia.org/wiki/Divisor_function) (aka $\sigma$) and [`totient`](https://en.wikipedia.org/wiki/Euler%27s_totient_function) (aka $\phi$, not to be confused with the [Golden ratio](https://en.wikipedia.org/wiki/Golden_ratio) $\varphi$) that -- in principle -- can be used to demonstrate the ***rare property***:
@@ -138,17 +116,11 @@ Digits of `2025` represented in the [Phi number system](https://mathworld.wolfra
 use Math::Sequences::Numberphile;
 my @res = phi-number-system(2025);
 ```
-```
-# [15 13 10 5 3 1 -6 -11 -16]
-```
 
 Verification:
 
 ```raku
 @res.map({ ϕ ** $_ }).sum.round(10e-11);
-```
-```
-# 2025
 ```
 
 **Remark:** We have to round (using a small multiple of `10`) because of the approximation of the golden ratio used in "Math::Sequences".
@@ -180,9 +152,6 @@ my @good-permutations = [1..9].permutations.race(:4degree).grep( -> @p {
 
 @good-permutations.elems
 ```
-```
-# 2025
-```
 
 Here are the first of the "good" permutations:
 
@@ -196,8 +165,6 @@ Here are the first of the "good" permutations:
 ==> to-html(field-names => (^9)».Str)
 ```
 
-<table border="1"><thead><tr><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead><tbody><tr><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td></tr><tr><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td></tr><tr><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td></tr><tr><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td></tr><tr><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td></tr><tr><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td></tr><tr><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td></tr><tr><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td></tr><tr><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td></tr></tbody></table>
-
 **Remark:** Observe the "shifts" between the consecutive rows above.
 
 
@@ -209,5 +176,5 @@ Here are the first of the "good" permutations:
 
 [AA2] Anton Antonov, ["WWW::WolframAlpha"](https://rakuforprediction.wordpress.com/2024/05/06/wwwwolframalpha/), (2024), [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
-[EPn1] Ed Pegg, ["Happy 2025 =1³+2³+3³+4³+5³+6³+7³+8³+9³!"](https://community.wolfram.com/groups/-/m/t/3347182), ​Wolfram Community, STAFFPICKS, December 30, 2024​.
+[EPn1] Ed Pegg, ["Happy 2025 =1³+2³+3³+4³+5³+6³+7³+8³+9³!"](https://community.wolfram.com/groups/-/m/t/3347182), Wolfram Community, STAFFPICKS, December 30, 2024.
 
