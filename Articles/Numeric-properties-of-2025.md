@@ -191,14 +191,14 @@ Here are the first of the "good" permutations:
 @good-permutations.head
 ==> -> @p { (^9).map( -> $k { @p.rotate(-$k) }) }()
 ==> { $_[(1, 9, 2, 7, 6, 8, 4, 3, 5) <<->> 1]}()
-==> { .map(*.kv.Hash).Array }()
+==> { .map((1..9) Z=> *)».Hash.Array }()
 ==> to-dataset()
-==> to-html(field-names => (^9)».Str)
+==> to-html(field-names => (1..9)».Str)
 ```
 
 <table border="1"><thead><tr><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead><tbody><tr><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td></tr><tr><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td></tr><tr><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td></tr><tr><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td></tr><tr><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td></tr><tr><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td></tr><tr><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td></tr><tr><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td><td>8</td><td>4</td></tr><tr><td>8</td><td>4</td><td>6</td><td>5</td><td>1</td><td>3</td><td>2</td><td>7</td><td>9</td></tr></tbody></table>
 
-**Remark:** Observe the "shifts" between the consecutive rows above.
+**Remark:** The diagonal of table is with the digits from 1 to 9. Also, observe the "shifts" between the consecutive rows above.
 
 
 -----

@@ -158,14 +158,14 @@ Here are the first of the "good" permutations:
 ```raku
 #% html
 @good-permutations.head
-==> -> @p { (^9).map( -> $k { @p.rotate(-$k) }) }()
+==> -> @p { (^9).map( -> $k { @p.rotate(-$k) }) }() 
 ==> { $_[(1, 9, 2, 7, 6, 8, 4, 3, 5) <<->> 1]}()
-==> { .map(*.kv.Hash).Array }()
-==> to-dataset()
-==> to-html(field-names => (^9)».Str)
+==> { .map((1..9) Z=> *)».Hash.Array }()
+==> to-dataset() 
+==> to-html(field-names => (1..9)».Str)
 ```
 
-**Remark:** Observe the "shifts" between the consecutive rows above.
+**Remark:** The diagonal of table is with the digits from 1 to 9. Also, observe the "shifts" between the consecutive rows above.
 
 
 -----
