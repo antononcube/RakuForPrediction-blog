@@ -165,7 +165,7 @@ Here are the first of the "good" permutations:
 ==> to-html(field-names => (1..9)».Str)
 ```
 
-**Remark:** The diagonal of table is with the digits from 1 to 9. Also, observe the "shifts" between the consecutive rows above.
+**Remark:** The diagonal of the table is with the digits from 1 to 9. Also, observe the "shifts" between the consecutive rows above.
 
 
 -----
