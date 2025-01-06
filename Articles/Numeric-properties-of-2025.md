@@ -174,8 +174,8 @@ Here is the corresponding Raku code:
 
 ```raku
 my @good-permutations = [1..9].permutations.race(:4degree).grep( -> @p {
-    my @res = (^9).map( -> $k { (@p.rotate(-$k) <<->> (1...9)).grep(*==0).elems }).unique.sort;
-    @res eqv [1]    
+ my @res = (^9).map( -> $k { (@p.rotate(-$k) <<->> (1..9)).grep(0).elems }).unique.sort;
+ @res eqv [1]
 });
 
 @good-permutations.elems
@@ -184,8 +184,20 @@ my @good-permutations = [1..9].permutations.race(:4degree).grep( -> @p {
 # 2025
 ```
 
-**Remark:** This is an embarrassingly parallel computation for which the order of the results does not matter.
-Sequential-computation-wise, Wolfram Language is ≈60 times faster than Raku. (On a few years old laptop.)
+Optimization of the code above [suggested by @timo](https://gist.github.com/timo/f8480b00d88104afe93876c267840c80):
+
+```raku
+my @good-permutations = [1..9].permutations.race(:4degree).grep( -> @p {
+    my @res = (^9).map( -> $k { (@p.rotate(-$k) >>-<< (1..9)).grep(0).elems }).unique.head(2);
+    @res.elems == 1 && @res[0] == 1
+});
+
+@good-permutations.elems
+```
+
+**Remark:** This is an embarrassingly parallel computation for which the order of the results does not matter. 
+Sequential-computation-wise, Wolfram Language is ≈12 times faster than Raku's first "good permutations" finding code, and ≈2.5 times faster than the second. 
+(On a few years old laptop.)
 
 Here are the first of the "good" permutations:
 
