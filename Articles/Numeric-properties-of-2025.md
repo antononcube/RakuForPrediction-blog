@@ -97,7 +97,7 @@ use Rat::Precise;
 `2025` is the product of the proper divisors of `45`:
 
 ```raku
-use Math::Sequences::Integer :support;
+use Math::NumberTheory;
 my @proper = divisors(45).head(*-1)
 ```
 ```
@@ -135,7 +135,6 @@ DivisorSigma[1, EulerPhi[2025^3]] == EulerPhi[DivisorSigma[1, 2025^3]]
 Digits of `2025` represented in the [Phi number system](https://mathworld.wolfram.com/PhiNumberSystem.html):
 
 ```raku
-use Math::Sequences::Numberphile;
 my @res = phi-number-system(2025);
 ```
 ```
