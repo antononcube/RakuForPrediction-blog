@@ -1,0 +1,1058 @@
+Hi everyone, welcome to a wolf from
+language design review for version 14.3.
+We are talking about LLM
+graph. So,
+okay. So this is for the purpose of of
+knitting together LLM calls like LLM
+function type calls.
+Exactly.
+To support more complex workflows
+um and and to have asynchronous calls to
+LLMs.
+Yes. to we already got that synthesized
+submit, right? Exactly. That but that's
+a single call. Yeah. Like it it has a um
+a synchronous it's an a synchronous call
+with execution and such. This is like a
+a step up and it's an orchestrator of LM
+calls.
+Yep.
+Okay. Okay.
+So you want example first or syntax
+first? I want the example first. And I
+don't understand why this doesn't have
+So this is
+a that's a node in a graph. Yeah. And
+this is a shortening for LM synthesize
+of generator haiku. Is that correct?
+It's an LM function. It's basically uh
+given that the nodes communicate with
+each other the like full form is an LM
+function. So which can you know you can
+always wrap a prompt or a template in
+LLM function. So this is a function with
+no arguments. Yeah. This is the zero
+case. Okay.
+And um and then you apply I mean this
+graph is always applied asynchronously.
+Then we offer as a courtesy but I think
+it's pretty important the fact that you
+can actually run it like a net graph on
+input and it will be blocking and
+return. Here's the issue. Here's the
+issue. Okay, so graph evaluation, you
+know that directed as cyclic evaluate
+and its friends. Mhm. Where are we at
+with those? Because this should be
+consistent with that. Not not super
+close. And this is purposely
+purposefully staying away from concepts
+like ports and such. You have only a
+bunch of nodes with prompts and they can
+depend on each other. Okay. But so
+effectively they have you know it's like
+the LLM only has one input port.
+It can have more than one but there you
+cannot have like multiple output ports.
+Yeah. Like you know basically for this
+design the assumption is a node is its
+own output port. Yeah. No multiple
+things, no renamings. So we keep it
+simple and you can already do almost
+everything with this. there's uh like
+you don't need like complicated uh uh
+the second argument to knit together the
+nodes like it's it's quite simple to use
+to use the template slots to do this or
+you can be explicit if you want and and
+say you know these nodes depend
+explicitly on this as input
+uh using an association syntax. So um I
+see this as a very powerful update on LM
+syntiz submit and as a stepping stone to
+like more agentic workflows that the
+more we look into this the more would
+require like rethinking how we deal with
+the synchronous code in general but
+that's a a topic for another day I would
+say. Well, I don't understand that
+point. I mean, I think that um okay, I
+mean is like, you know, it's like the
+change of mindset between writing a
+neuronet network in a graph or writing
+it with code. So, this is writing a
+synchronous code in a container. If you
+want like free form a synchronous code
+that doesn't use handlers and such,
+that's a a deep overhauling or like
+rethinking of our asynchronous
+framework.
+Yes. But I mean that's also what we get
+with graph evaluation. We can imagine
+graph evaluation as being something
+where we have asynchronous.
+Yes. Yeah. Confined within a perimeter
+of the graph. Yeah. So like I'm
+preempting an objection here. Yeah. Like
+it's true that you could do this with
+code but uh there are a lot of things
+that needs to happen for for Oh yeah.
+You don't want to do it with code.
+You've got handlers and all kinds of
+weird stuff with code. Um however, it is
+the case. Uh who's who's here doing
+project management? Is it is it just
+Avery? Yeah. Okay. So, I need to move
+forward with that. I mean, the graph
+evaluation stuff somehow has been stuck.
+I haven't heard about it in the last
+couple of months. We need to figure out
+what's happening with that. That's okay.
+Um, and I don't know who whether that
+was Nick or I mean it was it was a thing
+that we were discussing primarily in but
+we had some specific things about graph
+evaluation. Roger was also involved,
+Charles etc. Char Charles I mean we I
+was with a meeting in the meeting with
+Charles like a couple of months ago and
+we designed graph with
+ports so that part of the
+design will have to be presented to you
+and is quite solid. I think the
+evaluation part needs to happen after
+that after that
+the evaluation part can happen with
+ordinary graphs without ports that's
+already I mean it's much more useful
+with ports. Uhhuh. But I think it's also
+that's a way into you know asynchronous
+code
+organization because that's what you
+know the whole story of um
+uh you know causal graphs of code and
+things like this. This was the story of
+of um uh you know for example just so we
+understand what kind of thing we're
+talking about here
+um
+uh things like this effort of
+mine this is about uh you know
+evaluation graphs basically and that's
+what we need to be able to
+support right I mean this is this is the
+current this is the causal graph that
+you can get from our current evaluator.
+Although our current evaluator
+sequentially, you know, uh uh processes
+this with with a sequential ordering.
+Yeah. Yeah. Yeah. One one node at a
+time. Yes. Right. But it also it
+unravels this graph into something, you
+know, linear, so to speak. But this is
+what, you know, being able to represent
+this and then, you know, then the pieces
+can happen asynchronously. That's that's
+kind of where we're going. I know Nick
+has been working on this string diagram
+stuff which is related to this also but
+okay let's let's we we're avoiding that
+here here we're doing some sort of cheap
+asynchronousness
+um okay so
+here we're saying
+G2 of that topic
+um okay
+fine But so where did this call G1? It
+didn't. No, no, it didn't. It's another
+graph. This is like I'm I'm building up
+more complicated graphs as we go. Well,
+what did you do with these? I mean, I
+evaluated it. I mean, G1 like if you
+scroll up, G1 was right a hiku. Yeah. So
+that is I say LM synthetize like Yeah.
+So that is an LM graph which is
+effectively doing
+something which is the same as LM
+synthet. This one is just like an LM
+function. This is encapsulating an LM
+function. Exactly. And then we can move
+up one step more and start with
+chaining. So this has like uh I mean
+hopefully you can read should be selfex
+read it. Yes. Exactly.
+I hope it's self documenting. Yeah. It
+it figures
+out given this chain. I mean the thing
+could have a loop in it and it would
+figure that out. Is that true? It will
+fail. It will if you say for example uh
+in code write a w language
+implementation of plan inside you could
+write like like write a w language
+implementation of code and it will it
+will fade. Okay. So it it requires a you
+know an asyclic graph. Exactly. Exactly.
+Right now we can imagine to expand it.
+We can imagine to expand it at some
+point but yeah I don't think it needs an
+asyclic graph.
+Then we need some exit condition or
+something. Exactly. So but but I mean we
+you don't want we are we are pushing on
+the design a lot. This has been growing
+a lot in the past month or so. So uh at
+some point you know we want to kind of
+stop and uh have like we have a decent
+run.
+So this is an LM graph that you can
+apply to arguments.
+Exactly.
+So in this case we in this case you know
+the first node is planned and it's still
+a node with no no input. So I can just
+evaluate this graph with no input and uh
+and what if there were two nodes with no
+input here?
+Uh fine it will just work. You can have
+plan one and plan two and pass it to two
+different nodes. I see that's that's not
+a problem. And where's the output? How
+does it define what the output is? So
+the by default the output is uh the the
+kind of terminal set of nodes. Yeah. The
+one that that are not fed to input to
+anything else. In what order does it
+come out if there are multiple terminal
+nodes? In the order you write
+them, can can you answer that? Is it
+correct? Yeah, that's
+a I mean, yes. And well, how are they
+delimited?
+It's an association. It's an association
+with the name goes to results.
+So that's always what comes out from LLM
+graph even though that's not what I saw
+here. I just saw a haiku here because in
+this case there's only one terminal
+node. So we the same case you know you
+have a shortcut for the input and you
+have a shortcut for the output you can
+say all and you get always an
+association with all the nodes. I see.
+Okay. Yeah. Let's say that is that is
+automatic. Yeah. That is what happens
+when you say second argument automatic.
+Okay. Okay. And the nice thing is that
+you can do second argument lm graph.
+Yeah I like that. And that returns you
+know that's a new no it's not stateful.
+Yeah, it's stateless, but that's a newm
+graph with all the results in that
+contain within it. I see. So, in other
+words, it's it's an instantiated graph.
+Exactly. Exactly. And what I like is
+that it's exactly the same structure. It
+just has more data in. Yeah. And if you
+use a submit version, you can get, you
+know, incrementally, you know, more
+filledin graphs. Yeah. That's nice. So,
+you don't have to learn anything new.
+Yeah. It's always the same. And so,
+there's an LLM graph submit. Is that
+correct? Exactly. that takes the graph
+and the inputs and then gives you like
+stuff. But but how does it give back?
+Well, we'll look at that in a minute.
+Yeah.
+Um the heck is this? Uh the the the the
+result and here I'm so the the part you
+want to check is that I'm getting
+information of nodes. So this is
+basically getting out the nodes and I'm
+looking up the result that has been
+attached to each node. Yeah. And then
+I'm just putting that those in a panel.
+So you see here the plan, the code and
+the test. I see. I see. I see.
+Okay.
+So this is no this is a simp this is the
+first example of more complex workflow.
+Yeah. That you you know this in this
+case is done automatically. Then you can
+have like more more things. Yeah. For
+example, here is a free of thoughts
+instead of a chain of thought.
+So in this case I use lm function
+because I want to specify two different
+evaluators. One is using entropic, one
+is using open AI. Yeah. And then I have
+a judge that will you know pick the
+best. So then I I we didn't spend too
+much time to find the different
+problems. So in this in this specific
+problem that you have here uh they they
+managed to solve it the same and the jud
+says like they're equivalent fine. But
+but you can imagine you know in this
+case I could have said G
+tree
+of open of of null association comma
+graph and I would have got the same
+result. Is that correct?
+Uh no you can say G3 of null association
+lm graph and that you get something
+which is G3. Yeah, because you are um
+No, I to get this graph out. I I don't
+understand why I can't say G tree of
+null
+association, comma, graph based on the
+syntax you had before. Why isn't that
+going to give me the the right thing? Uh
+we we could support that. We we are
+using information for for property
+extraction but uh I you know that is not
+going to conflict with u the point is
+LLM
+graph right now LLM graph has the
+feature that it sub value is an
+evaluation
+exactly like it is for LLM function
+exactly and I don't think we're going to
+mix that with property extraction
+no we don't that was a mistake we made
+previously but I'm I'm wondering exactly
+I guess the name the correct name is LLM
+graph. It's a little bit weird that a
+graph doesn't take sub
+values but this is a graph like thing
+that is taking sub values.
+I mean net graph net graph does the
+same. Yeah it evaluates exactly the
+same. Yeah. Fair enough. Fair enough.
+Okay. All right. Okay. But so now for
+netgraph what is the analogous thing
+here? There's a graph for net graph.
+Yeah. Information information and you
+get summary graphics or like summary
+graph. Okay. Give me an example of a net
+graph. Uh I don't know. You could say
+one goes to what's that? Yeah.
+No, it's not a graph. It's not a graph.
+But yeah, just change.
+Um define net and then uh and then net
+flatten.
+Oh, that's a V2. Yeah, we updated that a
+couple years ago.
+Okay. And now you net net net flatten
+and that becomes a
+graph because inside is is a
+graph. Uh it's large so it takes a bit.
+Okay. Now now you have a full graph. So
+now this thing can be applied. Oh yeah,
+we can do information. Yes. Uh summary I
+think it's called summary graphics.
+Yeah, summary graph. Well, why can't I
+just have graph? You could we could add
+the we could totally add the I'm
+minizing now. We could totally add the
+synonym. You should have a list of
+properties.
+Um, let me find how it's
+called is
+u okay summary graphic and then is
+how it's called how it's called topology
+layers graph. Yes, layers graph. There
+it is. spot.
+By the way, could you mark this time
+stamp Avery and show that to user
+assistance as a typing case that is just
+horribly wrong?
+Oh, yes, please.
+Okay. So, after a s after a name like
+that, typing a single quote should not
+double the
+quote, right? I think I think maybe I
+can just do it here.
+Yeah, that's just wrong. That shouldn't
+happen that
+way, right? You you can just you could
+just send that in to user resistance.
+Yeah, I can do that. Um probably without
+the video. It's so easy to
+reproduce. Okay, that's
+cool. Okay.
+Um, okay, fine. I mean, let's make these
+things compatible.
+Mhm.
+Okay. So, I mean, it's a bit a bit
+boring example, but because they they do
+the same, but but you can imagine the
+the applications here. And of course if
+you get the second argument lm graph or
+all you can you can see all the you know
+the by by chance in this case it uh um
+oh no sorry it wasn't this one in this
+case it's not actually showing the
+problem you know the color coding here
+be the same as for proof graphs and so
+on you know let's make sure we have some
+consistency there yeah this is work in
+progress I need to talk to design and
+make sure that I get the right
+information remind them proof graph and
+net graph are two you you know, samples
+of of what we're, you know, what we're
+trying to compatible with proof object.
+Okay. I'm going to look into that. Yeah.
+Okay. Okay. Now, now we go into like the
+the naming game. So, these next two
+listability and conditionals are stuff
+that will make it super
+powerful. Uh we need a bit to decide how
+to package this. I mean this is not
+terrible but um
+okay let's take a look here. Yeah.
+Okay. What does this even mean? So these
+are usernames chunk and chunk summary
+and final summary. Exactly. Yeah. Yeah.
+Yeah. Yeah. Okay. But this template and
+listable are not usernames. Those are
+those are built-in names. Exactly. So
+right now we have fun like template
+which is the one that you have if you
+don't put the association. Um if you use
+the association you get access to
+function
+uh and inputs that lets you you know
+apply arbitrary code in this and um and
+in this case listable listable means you
+know if if you get a list of inputs
+don't pass the list to the lm function
+but map lm function over the list.
+I
+understand. So basically this is a quick
+and dirty implementation of text
+summarize that works in parallel. Of
+course we are also going to update text
+summarize to work in parallel but uh but
+uh this is if if you want it today. What
+is inputs
+quotes
+text is is like writing the template you
+know the please summarize the following
+text. But wait is text a user supplied
+thing or is that a built-in? It is the
+user surprise thing in the wonder in
+Wonderland in this case.
+But why did we name it text? No, it was
+because we decided so could be true. But
+how are you using inside function? You
+see string partition
+text up to that has to match. Yeah, that
+has to match. I see. I mean the point is
+for for templates we are figuring out
+automatically using templates. Okay.
+function. So inputs what you're doing is
+you're giving a you're saying if it's
+got n
+inputs you're going to so for example I
+could say something like um a lm
+graph
+of
+inputs of a b c and that will then mean
+that if I feed lm graph xyz like this or
+no maybe in a list in a No is is an
+association is always an association. We
+are I mean right now we are conservative
+the shortcuts the shortcut is only
+working the inputs if I if I've got I
+mean if if
+if the because because a single input is
+an assoc is a shortcut for an
+association with only one key. The
+moment you generalize to what's the key
+text in this case would be a a no. Why
+is it text? Why is it if it's a single
+input is there a default key? No no no
+no
+no. So in this case we say inputs go to
+text. So you can you have two options
+here. Either you provide an association
+with one key which is called text. I
+mean you can provide more but they will
+be ignored. Uh um or you provide
+something that we know how to expand to
+the association. So we we do the
+courtesy but so so in this case if I
+removed this I could feed this whole LLM
+graph a thing that says uh you know text
+arrow whatever and it would work. Is
+that correct? No, it's the opposite. It
+works this way because you have input
+text and and this is because it's easy
+to to look for template slot in a
+template object but we typically don't
+want to do code inspection to find slot
+in functions. So I don't understand what
+this is doing in this case here. Okay.
+If I have a function, what am I feeding
+into? Can I refer to hash A in my
+Exactly. Exactly. Exactly. Exactly. But
+then what do I feed as input here? Hash
+A. No, no, no, no. I mean, no. So hash
+A, sorry. Key, key A. No, not hash A.
+Key. This is this requires key A, key B,
+and key C. And then you can reuse them
+in function. This this is bindings
+basically. But why do I say inputs
+there? know what the what's coming in
+except in this case here where I've
+elided the name of the the key in this
+case here I know what the keys are
+because they're right there in the
+input when we build the l
+graph we we we don't inspect the the
+function so node can have either a
+template or a pure function we don't
+inspect the pure function we expect user
+to I understand so you're saying you
+build the LLM graph not at runtime.
+Therefore, you don't yet know what the
+actual inputs are going to be. Exactly.
+Exactly. Because I mean, if you just
+look at the summarized graph that you
+had there, if you remove inputs, the
+only alternative I have is to look
+inside function. No, I got it. I got it.
+Okay. Okay. I got it. Okay. Question for
+for
+um
+um you know linear layer or something.
+It has a way of specifying inputs. How
+does that relate to this?
+No, it doesn't. It has a fixed port.
+Linear layer has a port, an input port
+called input. Okay. So, what about net
+graph? Netg graphs will have a second
+argument that defines a connectivity.
+And then you explicitly say netport fu
+goes to one for example.
+And the reason why we don't want to go
+there is because that is the part that
+requires the graph evaluation and graph
+reports to be done. You know we are not
+using a second argument here which would
+naturally be the connectivity because we
+don't want to introduce an LM graph
+port. Yeah. We would like to be
+consistent with okay but the inputs
+thing here is not something that appears
+in netgraphs. Is that correct?
+Well, we do have input ports in uh
+layers that are like bar like cutenate
+layer
+and and that is like input ports like
+one, two or three with automatic name or
+uh you could say input ports full bar
+buzz and that is is it is the name input
+ports or how do we specify those inputs?
+Is it a thing like the inputs that we're
+using here or not?
+uh fits. Yeah, it's similar in a sense
+because the layer takes an association
+then with those names. Let me go back to
+input ports and check. I I I think it's
+exactly
+that. The only reason I'm wearing to be
+using to using like input ports as an
+option is because we never we managed to
+never mention ports in this design for
+for like you know compatibility reason.
+But yes, you could you could say input
+port goes to name one name two and this
+is uh Uh basically ports we don't see.
+Okay.
+Listability. Okay. So
+we've got all these rappers about
+threading and so on that we're using for
+tabular. Can we not use one of those
+wrappers for the template and maybe
+generalized string template to have such
+a wrapper as well? We we we have a nice
+wrapper which is threaded but it's it
+applies to the argument not to the not
+to the function. Right. But there's
+columnwise thread or column wise
+value but that's very very targeted
+towards putting stuff in a column.
+Okay.
+So I think it was better okay to call it
+template and then something like
+listable template.
+So I'm saying you can choose it's either
+a template or a listable template.
+Okay. Okay. So this would also solve
+Timotees problem that what do we do? We
+have a function because like function by
+defaults overrides templates. Yeah. If
+you if you specify a function and a
+template we ignore template. Uh but this
+way we don't have listable true false. I
+like it. I like it. So add a template or
+listable template basically. Right. If
+you specify both, what do we do? We
+ignore one or we do both. We give an
+error message. Perfect. Well, I don't
+know. I mean, if if we can do both, does
+it make sense to do both? I'm thinking
+probably not because then you you get
+confused outputs,
+right? The the the thing is it's a bit
+cumbersome to write, but I mean still
+better than than having both. Yeah. I
+mean it's cumbersome to write but not
+not longer than writing template and
+then listable true. Yeah. So
+we're we're long past with we're we're
+at least 25 years path past the uh
+typing length
+problem. You know it'll auto complete.
+Don't worry about it. Oh yes that's
+true.
+Okay. All right. Okay. Did I like this?
+This is sorted out. Now condition is
+more problematic and you will not like
+what we have here but we need a better
+way to package it basically.
+So what is it doing? Okay, let's put
+look at the example and then we can
+comment on the syntax.
+I don't understand this. The condition
+is applied when before running the node.
+It's a
+gatekeeper. So technically it it lets
+you save some computation and and and
+time by choosing which p to to to to
+blocking some pass in the in the graph
+evaluation. Okay. So this node then will
+reject will will do nothing. This node
+will be inert unless the condition is
+valid. Exactly. You enter the node if
+the condition is is is true. and and and
+currently to keep the symmetry between
+templates and uh and condition and also
+because we are looking for template slot
+to determine to to to find out
+dependency. It's a it's a it's a
+templates expression which isn't super
+convincing.
+What would it normally be applied to?
+Just association templates. Yeah, the
+association of results from dependency
+node from from the node. Well, no.
+Something's coming into the review node.
+Okay. What's coming in as an
+association, correct? Right. Exactly.
+Okay. This condition is a function on
+that association. Correct.
+Correct. So why the hell isn't it called
+um you know condition function or
+something?
+Well, well that because that's
+technically a template. I mean if you
+take it out it isn't a template. It's
+going to be it's it's it's it
+takes it's the same as template you know
+to evaluate template you wrap it in
+string template that becomes a template
+object and then you template apply it to
+the association to evaluate condition
+you make a template object out of that
+and you template apply to the
+association this is how you see sync
+contains Q templates not decide errors
+this is hash decide because it's the
+template is not this this is something
+that is that we are like a bit unsure
+about. So this is completely what I said
+this is completely symmetric with
+templates is
+so we could also have exactly what we
+have for the node. We could also have an
+association there saying function goes
+to and and a test function input goes to
+because we need to figure out the
+dependency and that's that's the same
+issue that we just made
+before. So we can understand. So test
+function. Okay. In the template, you're
+going into the template to see the
+template slot variables. True or not
+true? True.
+Okay.
+So whereas
+here well I mean you could always
+say okay there's several points that
+come to me okay one point
+is the fact that the node that makes the
+conditional choice is the same node as
+the node that would run if the
+conditional choice is true not obviously
+correct. But let's let's pin that on one
+side for a second.
+Okay. What occurs to
+me is that if you want to make
+explicit, you know, we could have a
+thing that will try to inspect the
+expressions to figure out dependencies,
+but there might be situations in which
+that's hard to do. And if that's hard to
+do, you can provide an explicit input
+that gives you tells you what the inputs
+are so that we can do dependency
+tracking. And then if we have, you know,
+let's say we have test
+inputs, just like we have inputs,
+oops, test inputs. Test inputs is what
+we need if you're giving a function.
+Exactly. If you're giving a template, we
+can automatically find the inputs.
+Although you could give them as a
+courtesy if you wanted
+to. And in test function it will you
+know you you give test inputs as well.
+And then test function looks just like
+function given that and then has test
+inputs. And maybe we can be cleverer in
+the future. Or in the case where if if
+you can give
+um you know we could have test function
+and test template I suppose if that
+makes sense instead of condition. Yes.
+So test function test template and test
+inputs and it's exactly symmetrical with
+function template and inputs. Yes. And
+with function you need to use inputs.
+With template you generally don't need
+to use inputs because it's automatically
+done. With function maybe in the future
+you know worst case is you try it
+without specifying it. And you know if
+it can't automatically discover the
+dependencies it will give a message but
+if it can then be happy.
+Makes sense. It's it's al more likely
+that uh we we find some dependency but
+we are not exhaustive but yes I mean
+it's if the user if the if the user has
+a way to force it uh we're all good. Yes
+I think
+so. So okay so this is the test at every
+node there's a test and if the test
+fails and and can you have multiple
+tests or is it just one test? one test
+for now. I I I don't I mean you can you
+can use and yeah or or that's super easy
+to combine. Okay. All right. Fine. All
+right. I think we have a design there.
+No, wait, wait, wait, wait. Now I I want
+to I want to to poke you. You had this
+this point like that you were not sure
+if uh the the test uh the node making
+the test and the node making the result
+should be on the same. But I I convinced
+myself that's not right. I think it's
+more convenient to just be able to say
+just don't run this node rather than
+some some crazy thing where you've where
+you've had, you know, a feeder for a
+node in the graph. Okay. Okay. Okay. I
+mean, I do agree, but I was I was Yeah.
+Right. No, I mean, I I was just
+considering that question whether it
+would make it simpler because then you
+could have then a test node could have
+function template inputs just the same
+as a regular node. But it doesn't make
+sense. It's better to have. I mean one
+one thing I like about this design that
+we we updated several time and Timothy
+had a very good idea I think is that
+there are no ports no special test
+nodes. Yeah. Everything is a normal
+node. Even the inputs are normal nodes.
+And the nice thing that you that you can
+do with this is that you know if you use
+the association to give the input to the
+function you can give input to the final
+node.
+No, the fact that some the fact that
+some nodes are inputs is only because
+they are like unresolved dependencies
+basically. But and this is very nice for
+like human in the loop because you can
+you know at any point force the node to
+have a specific result.
+Yep. Yeah, that is nice. Okay, this
+looks good to me. Very nice. So, and I
+like the idea of using this as a model
+for graph evaluation. So, let's just
+take a look up here.
+Um,
+okay. Okay.
+Oh, we're changing this a bit. Yes. Yes.
+Is that good? I'm changing this a bit.
+By the way, you can presumably also have
+listable function as well as listable
+template, although it's less useful
+because you can I I don't know whether
+it's less useful because otherwise
+you're running a map inside the
+function. So I think less function I I
+think it's strictly I talked to Timote
+about this. It's strictly more useful
+not to have it because
+um you are basically doing sess session
+submit several times. is strictly better
+to do it only once.
+Why? Like I mean if if if the thing is
+mapping over several several items,
+don't you want each item to be
+independently asynchronous?
+If performance-wise if performance-wise
+you're degrading the the evaluation time
+and that that might that might because
+of the overheads of the of of the of the
+task and league
+framework and I don't understand that. I
+mean if you've got a list of 10 items
+and you've got some function f and
+you're going to asynchronously run it.
+So, so the alternative is inside the
+function you are saying map f over your
+list of 10 things.
+Exactly. But it's not really a single I
+mean it's a synchronous in the same way.
+Yeah. Because we the kernel is single
+threaded. So if I submit 10 10
+evaluations they are still going to
+happen sequentially. No but unless I use
+local submit. Yeah but I understand but
+the evaluations here will typically be
+LLM evaluations.
+Well, no f is if you want an evaluation,
+you are much better off with the
+templates that we put we we add the
+function here simp because this with
+this you you bridge it with all the
+rest. I get it. I get it. I get the
+function primarily for
+um the function is primarily just
+ordinary code free form. Exactly like
+that string split that we had there or
+like whatever. Yeah.
+So you had full expression Wait a
+minute, wait a minute. I'm wondering
+whether we should distinguish that a bit
+more. So the template is something that
+will be fed to
+LLM, you know, LLM function, right?
+Exactly. But the function is just a
+piece of code to
+run, right? It's just an evaluation to
+be done at that. Correct.
+Are you sure we shouldn't call template
+llm template
+prompt template? Well, I mean this is
+called llm graph. So I was thinking that
+we could collect the lm thing outside.
+Okay. But but the problem is the
+function is not an LLM function, right?
+The function thing is just code.
+You think it might be confusing? I think
+it might be confusing. I mean,
+evaluation function is not right because
+that suggests it's the whole evaluation.
+Mhm.
+I mean maybe node function is better.
+Okay. Okay. Node function node test
+function.
+I think test function is sort of okay on
+its own because it has a qualifier on
+function. Yeah. because it because it's
+not because the point is that node
+function see template is all template is
+probably not going to be very used in in
+in fully in fully named because the the
+world ID is to to to be to have so many
+shortcuts that this is a this is a VIP
+from from the function if you put a
+string it's a string template if you put
+a template object it gets resolved Yeah,
+but now we have we have uh you know we
+have you have template versus listable
+template or you have um test function
+the test the test function so like that
+would force you to use template I yeah I
+don't hate node function test function
+as you said we have auto completion yeah
+I think that's what we should go with
+because I think if we call it function
+it's too symmetric with template and it
+will be confusing
+okay makes sense I think I mean it would
+be nice if it was more like an
+evaluation function but I think that
+will be confusing as well. Yeah because
+eval I mean it doesn't really qu qualify
+what evaluation we are talking about.
+Yeah.
+Um and if we have both a function node
+function and a template what
+wins node function if you specify both
+right right now the the function wins.
+Okay, I think we should give a message
+in that case. We could also fail if you
+if you specify both.
+Yeah.
+Um I wish there was something that said
+that a template is something that is
+being used to feed to an LLM and the
+node function is just code. We could we
+could we could potentially name it
+prompt so that we we instead of saying
+what it is we say what we do with it
+and the only you remember we had prompt
+and then we remove it
+because I mean that can also be an LM
+function.
+What can be the template? Yeah. No.
+Well, no. I mean, in the case you you in
+the case I mean the LM function is is is
+a template and is a is a template plus
+the LLM evaluation. We
+could you know we could probably accept
+it as a
+uh under under a specific key if we
+want. But the point is people will not
+uh nec Yeah. Okay. If if we want to to
+if we want to to to to stick the
+everything under under one key template
+is better but we could have aliases you
+know uh we we are internally when we
+have an LLM function we are we are
+taking it apart in order to extract the
+prompt to extract the LM evaluator and
+to run them to LLM synthesize. So um we
+we we could as we could also have lm
+function as a key and uh and and
+template being prompt for the sake of
+and accept any inputs. It's it's just as
+Hold on. Hold
+on. I
+mean basically what you're saying
+is template could be an LM function
+which is pretty
+confusing given that we also have a node
+function.
+Basically basically we can provide two
+types of function either an LLM function
+or a node function. If we provide an LM
+function, the way we can specify it is
+from the very minimal we provide a
+prompt and the LM function is the LM
+function of the prompt and everything
+else to automatic or we provide uh we
+provide a template object with the same
+or we provide a fullyfledged LM function
+which mean the prompt and an LLM
+evaluator specification.
+Uh, so I mean I'm kind of thinking that
+we could call this forget template. We
+could call it llm function and it can be
+and it could be and it could be a
+template or a prompt or a string or a
+string and it's it's just that you know
+it represents the LM function that you
+would construct with LLM function
+wrapped around and it's just a corticy
+that it's you know shortcut. Yeah, let
+me think.
+I'm thinking lm function, node function,
+test
+function. Maybe it's all a bit
+complicated, but that seems like it's a
+um you know, the explanation there is at
+each node the LLM
+function is run against an LLM. The node
+function is run against the evaluator.
+The test function is run against the
+evaluator. Right? So LLM function has an
+LLM evaluator. Node function and test
+function just have regular
+evaluators. Correct? Yes.
+So then it becomes listable LLM function
+which is not the worst thing in the
+world. That's what I would suggest. See
+how it it feels.
+Let's look at this asynchronous versus
+synchronous thing
+here. What is this lmgraph submit?
+I mean that's a traditional submit
+function.
+Yes.
+Okay. Another lamb graph with a property
+extracts that property of the output
+which you could also get. We don't have
+a way that's the only way to get that
+property from running the LLM graph.
+Information of LLM graph gives the
+static information about the LLM graph.
+Correct. Exactly. Exactly. I mean if you
+want if you want use information you do
+LM graph input, LM graph property and
+then you can analyze that.
+Say say that again. So you can do let's
+say that you want all the nodes. Yeah.
+So you do lm graph input comma all
+instead of automatic and you get an
+association with all the outputs or you
+can do lm graph input comma string lm
+graph. Okay. And that's that's returning
+the annotated graph and the instantiated
+LM graph. Exactly. Exactly.
+Okay. Looking good. Um I have to go but
+um we have another designer view coming
+right up here.
+Um uh so yeah, anything else we need to
+cover here? Looks nice. Uh there was
+rerank that we didn't manage to cover
+with um in the machine learning uh
+review that here. Uh no, I have it easy
+on the end but we we don't have time
+now. Uh we have to reschedu something
+for that. Okay, it's not going to be
+long. It's going to be like half an hour
+is probably going to be enough. Okay. I
+mean semantic
+reank it's the packaging of a reranking
+uh should should be in CDS.
+Well, I don't know. No, sorry. It's
+called semantic ranking. Semantic
+ranking because we decided to call it
+rerank only in semantic search because
+it's reranking. Yeah, it's only
+ranking. So, it's a sort function of
+some kind. Exactly.
+It's quite the same. Semantic
+sort would be called semantic sort as
+well.
+Well, maybe ranking is better. We have
+some ranking functions also. Okay, this
+will not take long but we cannot do it
+right now.
+Um, so for another time, but this LLM
+graph is looking nice.
+Well done. That was good. Okay, thank
+you. See you guys soon.
