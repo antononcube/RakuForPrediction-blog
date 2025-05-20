@@ -17,6 +17,11 @@ In this computational Markdown file we apply different LLM prompts in order to c
 
 **Remark:** This Markdown file is intended to serve as a template for the initial versions of comprehensive text analyses.
 
+**Remark:** This Markdown template has corresponding notebooks versions: 
+(i) [Wolfram Language notebook](https://community.wolfram.com/groups/-/m/t/3448842), 
+(ii) [Raku-Jupyter notebook](),
+(iii) [Python-Jupyter notebook]().
+
 **Remark:** All remarks in italics are supposed to be removed.
 
 -----
@@ -27,9 +32,11 @@ In this computational Markdown file we apply different LLM prompts in order to c
 use LLM::Functions;
 use LLM::Prompts;
 use Text::SubParsers;
+use ML::FindTextualAnswer;
 use Data::Importers;
 use Data::Translators;
 use WWW::MermaidInk;
+use WWW::YouTube;
 use Hash::Merge;
 use Graph;
 
@@ -50,15 +57,15 @@ my $conf = $conf4o-mini;
 
 Ingest text from a file:
 
-```raku, eval=FALSE
+```raku, eval=TRUE
 #my $txtFocus = slurp('');
 #text-stats($txtFocus)
 ```
 
-Ingest transcript of a YouTube video:
+Ingest the transcript of a YouTube video:
 
 ```raku
-my $txtFocus = you-tube-transcript("ewU83vHwN8Y");
+my $txtFocus = youtube-transcript("eIR_OjWWjtE", format => 'text');
 text-stats($txtFocus)
 ```
 
@@ -76,7 +83,7 @@ text-stats($txtFocus)
 Summarize the text:
 
 ```raku, results=asis, echo=FALSE, eval=TRUE
-llm-synthesize([llm-prompt("Summarize"), $txtFocus], e => $conf] // ResourceFunction["ImportMarkdownString"]
+llm-synthesize([llm-prompt("Summarize"), $txtFocus], e => $conf)
 ```
 
 ----------
@@ -86,7 +93,7 @@ llm-synthesize([llm-prompt("Summarize"), $txtFocus], e => $conf] // ResourceFunc
 Extract and tabulate text topics:
 
 ```perl6, results=asis, echo=FALSE, eval=TRUE
-my $tblThemes = llm-synthesize(llm-prompt("ThemeTableJSON")($txtEN, "article", 30), e => $conf, form => sub-parser('JSON'):drop);
+my $tblThemes = llm-synthesize(llm-prompt("ThemeTableJSON")($txtFocus, "article", 30), e => $conf, form => sub-parser('JSON'):drop);
 $tblThemes ==> data-translation(field-names=><theme content>)
 ```
 
@@ -99,7 +106,7 @@ Generate Mermaid-JS code of a corresponding mind-map:
 ```perl6, results=asis, echo=FALSE, eval=TRUE
 my $mmdBigPicture = llm-synthesize([
     "Create a concise mermaid-js mind-map -- not a flowchart -- for the text:\n\n",
-    $txtEN,
+    $txtFocus,
     llm-prompt("NothingElse")("correct mermaid-js")
 ], e=>$conf);
 ```
@@ -111,7 +118,7 @@ my $mmdBigPicture = llm-synthesize([
 Give sophisticated feedback using different “idea hats”:
 
 ```perl6, results=asis, echo=FALSE, eval=TRUE 
-my $sophFeed = llm-synthesize(llm-prompt("SophisticatedFeedback")($txtEN, 'HTML', :!ideas), e => $conf);
+my $sophFeed = llm-synthesize(llm-prompt("SophisticatedFeedback")($txtFocus, 'HTML', :!ideas), e => $conf);
 
 $sophFeed.subst('```html').subst('```')
 ```
@@ -122,8 +129,14 @@ $sophFeed.subst('```html').subst('```')
 
 Get answers to specific questions (if any.)
 
+```raku, echo=FALSE
+my $questions = q:to/END/;
+What technology? What it is used for?"
+END
+```
+
 ```raku, results=asis, echo=FALSE, eval=TRUE 
-my $ans = llm-synthesize[{"What LLMGraph? What it is used for?", $txtFocus}, e => $conf);
+my $ans = llm-synthesize([$questions, $txtFocus], e => $conf);
 ```
 
 #### Structured
@@ -133,23 +146,33 @@ using the function `find-textual-answer` of the package ["ML::FindTextualAnswer"
 
 ```raku, results=asis, echo=FALSE, eval=TRUE 
 find-textual-answer(
-        &txtFocus, 
-        ["Who is talking?", "Which software package is discussed?", "What product is discussed?", "Which version?"], 
-        finder => $conf)
+        $txtFocus, 
+        ["Who is talking?", "Which technology is discussed?", "What product(s) are discussed?", "Which versions?"], 
+        finder => llm-evaluator($conf))
 ```
 
 -------
 
 ## Extracted wisdom or cynical insights
 
-**Remark:** Choose one of the prompts. “FindPropagandaMessage” tends to be more fun.
+**Remark:** Choose one of the prompts 
+[“ExtractArticleWisdom”](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/ExtractArticleWisdom/) or 
+[“FindPropagandaMessage”](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/FindPropagandaMessage/).
+(The latter tends to be more fun.)
+
+```raku
+my $prompt = True ?? llm-prompt("ExtractArticleWisdom")() !! llm-prompt("FindPropagandaMessage");
+text-stats($prompt)
+```
 
 ```raku, results=asis, echo=FALSE, eval=TRUE
-my $sumIdea = do if (True) {
-        llm-synthesize(llm-prompt("ExtractArticleWisdom")($txtEN), e => $conf);
-    } else {
-        llm-synthesize([llm-prompt("FindPropagandaMessage"), $txtEN], e => $conf);
-    }
+my $sumIdea = 
+    llm-synthesize([
+        $prompt,
+        'TEXT START',
+        $txtFocus,
+        'TEXT END'
+     ], e => $conf);
 
 $sumIdea.subst(/ ^^ '#' /, '###', :g)
 ```
