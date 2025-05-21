@@ -1,0 +1,524 @@
+{
+ "cells": [
+  {
+   "kind": 1,
+   "value": "# LLM comprehensive summary",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Anton Antonov \r\n\r\n [MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com) \r\n\r\nApril 2025",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Introduction",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "In this notebook we apply different LLM prompts in order to comprehensively (and effectively) summarize large texts.",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  This notebook is intended to serve as a template for the initial versions of comprehensive text analyses.",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  I found an actual notebook template to be not that convenient.",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  All remarks in italics are supposed to be removed.",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Setup",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "conf = LLMConfiguration[Association[\"Model\" -> {\"OpenAI\", \"gpt-4o\"}, \"MaxTokens\" -> 4096, \"Temperature\" -> 0.5]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "conf4o = LLMConfiguration[Association[\"Model\" -> {\"OpenAI\", \"gpt-4o\"}, \"MaxTokens\" -> 4096, \"Temperature\" -> 0.5]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "confGeminiFlash = LLMConfiguration[Association[\"Model\" -> {\"GoogleGemini\", \"gemini-2.0-flash\"}, \"MaxTokens\" -> 4096, \"Temperature\" -> 0.5]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "(* In VS Code using TextWords produces Java invocation error messages.*)\nClear[TextStats]; \nTextStats[txt_String] := AssociationThread[{\"Characters\", \"Words\", \"Lines\"}, Through[{StringLength, Length[StringSplit[#, WhitespaceCharacter]]&, Length[StringSplit[#1, \"\\n\"]] & }[txt]]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "(*Does not produce good results in VSCode*)\nClear[GridTableFormFromJSON];\nGridTableFormFromJSON[json_String] := GridTableFormFromJSON[json, 1.2]; \nGridTableFormFromJSON[json_String, (zoom_)?NumericQ] := (Magnify[#1, zoom] & )[ResourceFunction[\"GridTableForm\"][Dataset[Association /@ ImportString[StringReplace[json, {\"```json\" -> \"\", \"```\" -> \"\"}], \"JSON\"]] /. {x_String :> Style[x, FontFamily -> \"Times New Roman\"]}]]; ",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "Clear[TableFormFromJSON]; \nTableFormFromJSON[json_String] := TableFormFromJSON[json, 1.2]; \nTableFormFromJSON[json_String, (zoom_)?NumericQ] := (Magnify[#1, zoom] & )[TableFormFromJSON[json, None]];\nTableFormFromJSON[json_String, None] := \n    TableForm[Dataset[Association /@ ImportString[StringReplace[json, {\"```json\" -> \"\", \"```\" -> \"\"}], \"JSON\"]] /. {x_String :> Style[x, FontFamily -> \"Times New Roman\"]}]; ",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "Clear[FencedCode]; \nFencedCode[s_String, lang_String:\"json\"] := StringTrim[StringCases[s, \"```\"~~lang~~x__~~\"```\" :> x][[1]]]; ",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "Clear[DropFencedCode]; \nDropFencedCode[s_String] := StringTrim[StringReplace[s, \"```\"~~(x___ /;  !StringContainsQ[x, \"```\"])~~\"```\" -> \"\"]]; ",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "### LLM prompts",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/ExtractArticleWisdom\"]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/FindHiddenMessage\"]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/FindPropagandaMessage\"]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/SophisticatedFeedback\"]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Ingestion",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  Chose whether to analyze a text from file or to analyze the transcript of a YouTube video.",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Ingest text from a file:",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "url=\"https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Data/Live-CEOing-Ep-886-Design-Review-of-LLMGraph.txt\";\ntxtFocus=Import[url];\nTextStats[txtFocus]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Ingest transcript of YouTube video:",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "(* txtFocus = ResourceFunction[\"YouTubeTranscript\"][\"ewU83vHwN8Y\"]; \nTextStats[txtFocus] *)",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  The text ingested above is the transcript of the video  [\"Live CEOing Ep 886: Design Review of LLMGraph\"](https://www.youtube.com/watch?v=ewU83vHwN8Y) .",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  The transcript of a YouTube video can be obtained in several ways: - Use the Wolfram Function Repository function  [\"YouTubeTranscript\"](https://resources.wolframcloud.com/FunctionRepository/resources/YouTubeTranscript/)  - Download the video or audio track and use the built-in function <span class=\"program\">ButtonBox[\"SpeechRecognize\", BaseStyle -> \"Hyperlink\", ButtonData -> {URL[\"https://ref/SpeechRecognize\"], None}, ButtonNote -> \"https://ref/SpeechRecognize\"]</span><span class=\"program\">\r\n\r\n</span>- On macOS, download the audio track and use the program <span class=\"program\">ButtonBox[\"hear\", BaseStyle -> \"Hyperlink\", ButtonData -> {URL[\"https://sveinbjorn.org/hear\"], None}, ButtonNote -> \"https://sveinbjorn.org/hear\"]</span> \r\n\r\n- Use the Python package  [“pytube”](https://pypi.org/project/pytube/)  (or  [“pytubefix”](https://pypi.org/project/pytubefix/) ) ",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Summary",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Summarize the text:",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "LLMSynthesize[{LLMPrompt[\"Summarize\"], txtFocus}, LLMEvaluator -> conf]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Tabulate topics",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Extract and tabulate text topics:",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "tblThemes = LLMSynthesize[LLMPrompt[\"ThemeTableJSON\"][txtFocus, \"article\", 30], LLMEvaluator -> conf];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "TableFormFromJSON[tblThemes, 1.7]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Mind-map",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Generate a corresponding mind-map using [`Graph`](https://reference.wolfram.com/language/ref/Graph.html) syntax:",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "mmdBigPicture = LLMSynthesize[{LLMPrompt[\"CodeWriter\"], \"Create a concise Wolfram Language graph-based mind-map for the text:\", txtFocus}, LLMEvaluator -> conf]; \nTextStats[mmdBigPicture]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Take graph edges and apply custom styling:",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "mmdBigPicture = Out[102]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "mmdBigPicture = FencedCode[mmdBigPicture, \"wolfram\"];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "Graph[EdgeList[ToExpression[mmdBigPicture]], \n    VertexLabels -> \"Name\", \n    VertexLabelStyle -> Directive[Black, Italic, 18], \n    GraphLayout -> {\"LayeredEmbedding\", \"Orientation\" -> Left},\n    PlotTheme -> \"Web\",\n    Background -> GrayLevel[0.9],\n    ImageSize -> 1600, \n    ImagePadding -> {{100, 100}, {10, 10}}]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "### Mermaid-JS",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  The server mermaid.ink is either down or changed.",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Generate a corresponding mind-map (in  [Mermaid-JS format](https://mermaid.js.org) ):",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "(* mmdBigPicture = LLMSynthesize[{\"Create a concise mermaid-js mind-map for the text:\", txtFocus, LLMPrompt[\"NothingElse\"][\"correct mermaid-js\"]}, LLMEvaluator -> conf]; \nTextStats[mmdBigPicture] *)",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Plot the diagram:",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "(* TimeConstrained[mmdBigPicture = StringTrim[StringReplace[mmdBigPicture, {StartOfString~~\"```mermaid\" -> \"\", \"```\"~~EndOfString -> \"\"}]]; \nResourceFunction[\"MermaidInk\"][mmdBigPicture], 15] *)",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Sophisticated feedback",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Give sophisticated feedback using different “idea hats”:",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "sophFeed = LLMSynthesize[LLMPrompt[\"SophisticatedFeedback\"][txtFocus, \"JSON\"], LLMEvaluator -> conf]; \nTextStats[sophFeed]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "ResourceFunction[\"ImportMarkdownString\"][DropFencedCode[sophFeed]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "TableFormFromJSON[FencedCode[sophFeed]]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Specific questions",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Get answers to specific questions (if any.)",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "ans = LLMSynthesize[{\"What LLMGraph? What it is used for?\", txtFocus}, LLMEvaluator -> conf]; \nResourceFunction[\"ImportMarkdownString\"][ans]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "Structured",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "PacletSymbol[\"AntonAntonov/NLPTemplateEngine\",\"AntonAntonov`NLPTemplateEngine`LLMTextualAnswer\"][\n  txtFocus, \n  {\"Who is talking?\", \n  \"Which software package is discussed?\", \n  \"What product is discussed?\", \n  \"Which version?\"}, \n LLMEvaluator -> conf]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  Instead of using the simple workflow above, more structured question-answer response can be obtained using the function [\"LLMTextualAnswer\"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/NLPTemplateEngine/ref/LLMTextualAnswer.html) of the paclet  [\"NLPTemplateEngine\"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/NLPTemplateEngine/) .",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "---\n## Extracted wisdom or cynical insights",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": " **Remark:**  Choose one of the prompts. “FindPropagandaMessage” tends to be more fun.",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "prompt = LLMPrompt[\"ExtractArticleWisdom\"][]; \n(*prompt=LLMPrompt[\"FindPropagandaMessage\"];*) ",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "res = LLMSynthesize[{prompt, \"TEXT START\", txtFocus, \"TEXT END\"}, LLMEvaluator -> conf]; \nTextStats[res]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "res = StringTrim[StringReplace[res, {StartOfString~~\"```markdown\" -> \"\", \"```\"~~EndOfString -> \"\"}]]; \nResourceFunction[\"ImportMarkdownString\"][res]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  }
+ ]
+}
