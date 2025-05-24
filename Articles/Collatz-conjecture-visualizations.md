@@ -56,9 +56,6 @@ use Graph;
 use JavaScript::D3;
 use Math::NumberTheory;
 ```
-```
-# (Any)
-```
 
 ```raku
 #%javascript
@@ -72,19 +69,12 @@ require(['d3'], function(d3) {
      console.log(d3);
 });
 ```
-```
-#ERROR: Unexpected block in infix position (missing statement control word before the expression?)
-# Nil
-```
 
 ```raku
 my $background = 'none';
 my $stroke-color = 'Ivory';
 my $fill-color = 'none';
 my $title-color = 'DarkGray';
-```
-```
-# DarkGray
 ```
 
 ```raku
@@ -99,9 +89,6 @@ sub darker-shades(Str $hex-color, Int $steps) {
 }
 
 #say darker-shades("#34495E", 5);
-```
-```
-# &darker-shades
 ```
 
 ```raku
@@ -122,9 +109,6 @@ sub blend-colors(Str $color1, Str $color2, Int $steps) {
 
 #say blend-colors("#34495E", "#FFEBCD", 5);
 ```
-```
-# &blend-colors
-```
 
 ----
 
@@ -142,9 +126,6 @@ sub collatz(UInt $n is copy, Int:D $max-steps = 1000) {
     }
     return @sequence;
 }
-```
-```
-# &collatz
 ```
 
 Here is an example using $26$ as a sequence _seed_ (i.e. starting value):
