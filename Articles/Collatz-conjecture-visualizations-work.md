@@ -177,7 +177,7 @@ js-d3-list-line-plot(@data.flat, :$background)
 **Remark:** Using simple sampling like the code block below would generally produce very non-uniform length- and max-value sequences.
 Hence, we do the filtering above.
 
-```raku
+```raku, eval=FALSE
 my @data = (^100).pick(9).sort.map(-> $i {collatz($i).kv.map(-> $x, $y {%(group => $i, :$x, :$y )}).Array }).map(*.Slip).Array;
 ```
 
