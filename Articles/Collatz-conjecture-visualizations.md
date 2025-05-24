@@ -1,7 +1,7 @@
 # Collatz conjecture visualizations
 
 Anton Antonov   
-RakuForPrediction blog at WordPress   
+[RakuForPrediction blog at WordPress](https://rakuforprediction.wordpress.com)   
 May 2025
 
 
