@@ -15,14 +15,7 @@ This notebook presents various visualizations related to the [Collatz conjecture
 The Collatz conjecture, a renowned, _unsolved_ mathematical problem, questions whether iteratively applying two basic arithmetic operations will lead every positive integer to ultimately reach the value of 1.
 
 
-There are many articles, blog posts, and videos dedicated to visualizations of the Collatz conjecture. (For example, [KJR1, PZ1, Vv1]).
-
-**Remark:** Consider following the [warnings in [Vv1]](https://youtu.be/094y1Z2wpJg?si=mb2daU4CW3y4gKWj&t=225) and elsewhere:
-
-> Do not work on this [Collatz] problem! (Do real math instead.)
-
-
-In this notebook the so called ["shortcut" version](https://en.wikipedia.org/wiki/Collatz_conjecture#Statement_of_the_problem) of the Collatz function is used:
+In this notebook the so-called ["shortcut" version](https://en.wikipedia.org/wiki/Collatz_conjecture#Statement_of_the_problem) of the Collatz function is used:
 
 $
 f(n) = \left\{
@@ -33,14 +26,20 @@ f(n) = \left\{
 \right.
 $
 
+With that function is used repeatedly form a sequence, beginning with any positive integer, and taking the result of each step as the input for the next.
 
+***The Collatz conjecture is:*** This process will eventually reach the number 1, regardless of which positive integer is chosen initially.
 
-The Raku subs for the Collatz sequences are easy to define. The visualizations are done with the packages
+Raku-wise, subs for the Collatz sequences are easy to define. The visualizations are done with the packages
 ["Graph"](https://raku.land/zef:antononcube/Graph), [AAp1],
 ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3), [AAp2], and
 ["Math::NumberTheory"](https://raku.land/zef:antononcube/Math::NumberTheory), [AAp3].
 
-Additional subs are defined for color-blending sequences.
+There are many articles, blog posts, and videos dedicated to visualizations of the Collatz conjecture. (For example, [KJR1, PZ1, Vv1]).
+
+**Remark:** Consider following the [warnings in [Vv1]](https://youtu.be/094y1Z2wpJg?si=mb2daU4CW3y4gKWj&t=225) and elsewhere:
+
+> Do not work on this [Collatz] problem! (Do real math instead.)
 
 **Remark:** Notebook's visualizations based on "JavaScript::D3" look a lot like the visualizations in [PZ1] -- [D3js](https://d3js.org) is used in both.
 
@@ -77,6 +76,8 @@ my $stroke-color = 'Ivory';
 my $fill-color = 'none';
 my $title-color = 'DarkGray';
 ```
+
+Additional subs are defined for getting color-blending sequences.
 
 ```raku
 sub darker-shades(Str $hex-color, Int $steps) {
