@@ -19,7 +19,7 @@ There are many articles, blog posts, and videos dedicated to visualizations of t
 
 **Remark:** Consider following the [warnings in [Vv1]](https://youtu.be/094y1Z2wpJg?si=mb2daU4CW3y4gKWj&t=225) and elsewhere:
 
-> Do not work on the this (Collatz) problem! (Do a real math instead.)
+> Do not work on this [Collatz] problem! (Do a real math instead.)
 
 
 In this notebook the so called ["shortcut" version](https://en.wikipedia.org/wiki/Collatz_conjecture#Statement_of_the_problem) of the Collatz function is used:
@@ -50,6 +50,15 @@ Additional subs are defined for color-blending sequences.
 ## Setup
 
 ```raku
+use Data::Reshapers;
+use Data::Summarizers;
+use Data::TypeSystem;
+use Graph;
+use JavaScript::D3;
+use Math::NumberTheory;
+```
+
+```raku
 #%javascript
 
 require.config({
@@ -60,11 +69,6 @@ require.config({
 require(['d3'], function(d3) {
      console.log(d3);
 });
-```
-
-```raku
-#%js
-js-d3-list-line-plot(rand xx 100, background => '#1F1F1F')
 ```
 
 ```raku
@@ -111,7 +115,6 @@ sub blend-colors(Str $color1, Str $color2, Int $steps) {
 
 ## Collatz function definition
 
-
 Here is a sub for the shortcut version of the Collatz function:
 
 ```raku
@@ -148,10 +151,12 @@ collatz(27).elems
 
 Here is the simplest, informative Collatz sequence -- or [hailstone numbers](https://mathworld.wolfram.com/HailstoneNumber.html) -- plot:
 
-```raku
+```raku, eval=FALSE
 #% js
 js-d3-list-line-plot(collatz(171), :$background, :$title-color, title => 'Hailstone numbers of 171')
 ```
+
+![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-plot-171.png)
 
 Let us make a multi-lines plot for a selection of integers:
 
@@ -168,10 +173,12 @@ Hence we do the filtering above.
 my @data = (^100).pick(9).sort.map(-> $i {collatz($i).kv.map(-> $x, $y {%(group => $i, :$x, :$y )}).Array }).map(*.Slip).Array;
 ```
 
-```raku
+```raku, eval=FALSE
 #% js
 js-d3-list-line-plot(@data.flat, :$background)
 ```
+
+![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-multiple-seeds.png)
 
 -----
 
@@ -194,7 +201,7 @@ sink records-summary(@dsCollatz, field-names => <seed length max>)
 
 Here are histograms of the Collarz sequences lengths and max-value distributions:
 
-```raku
+```raku, eval=FALSE
 #% js
 js-d3-histogram(
     @cLengths, 
@@ -217,9 +224,11 @@ js-d3-histogram(
   )
 ```
 
+![](./Diagrams/Collatz-conjecture-visualizations/collatz-sequences-lengths-and-max-values-distributions.png)
+
 Here is a scatter plot of seed vs. sequence length:
 
-```raku
+```raku, eval=FALSE
 #% js
 js-d3-list-plot(
     @cLengths, 
@@ -228,11 +237,13 @@ js-d3-list-plot(
     :800width, 
     :400height, 
     title => 'Collatz sequences lengths',
-    x-label => 'integer',
+    x-label => 'seed',
     y-label => 'sequence length',
     :$title-color
   )
 ```
+
+![](./Diagrams/Collatz-conjecture-visualizations/collatz-sequences-seed-vs-length-scatter-plot.png)
 
 -------
 
@@ -242,7 +253,7 @@ js-d3-list-plot(
 A certain concentric pattern emerges in the spiral embedding plots of the Collatz sequences lengths `mod 8`. (Using `mod 3` makes the pattern clearer.)
 Similarly, a clear spiral pattern is seen for the maximum values.
 
-```raku
+```raku, eval=FALSE
 #% js
 my @sunflowerLengths = sunflower-embedding(16_000, with => { collatz($_).elems mod 8 mod 3 + 1}):d;
 my @sunflowerMaxes = sunflower-embedding(16_000, with => { collatz($_).max mod 8 mod 3 + 1}):d;
@@ -269,6 +280,8 @@ js-d3-list-plot(@sunflowerMaxes,
     margins => {:20top, :20bottom, :50left, :50right}
  )
 ```
+
+![](./Diagrams/Collatz-conjecture-visualizations/sunflower-embedding-length-and-max-values.png)
 
 ----
 
@@ -308,7 +321,7 @@ my $g = Graph.new(@edges.map({ $_.value.Str => $_.key.Str })):directed
 
 Plot the graph using suitable embedding:
 
-```raku
+```raku, eval=FALSE
 #% html
 $g.dot(
     engine => 'dot',
@@ -322,6 +335,8 @@ $g.dot(
     graph-size => 12
 ):svg
 ```
+
+![](./Diagrams/Collatz-conjecture-visualizations/small-graph-dark.svg)
 
 The Collatz sequence paths can be easily followed in the tree graph.
 
@@ -355,7 +370,7 @@ JavaScript::D3::Utilities::get-named-colors()<darkred plum orange>
 
 Here is the graph plot:
 
-```raku
+```raku, eval=FALSE
 #%html
 my %classes = $gBig.vertex-list.classify({ %path-lengths{$_} });
 my @colors = |blend-colors("#8B0000", "#DDA0DD", 16), |blend-colors("#DDA0DD", "#FFA500", %classes.elems - 16);
@@ -375,6 +390,8 @@ $gBig.dot(
     graph-size => 10
 ):svg
 ```
+
+![](./Diagrams/Collatz-conjecture-visualizations/big-graph-dark.svg)
 
 ----
 
