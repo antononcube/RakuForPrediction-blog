@@ -183,7 +183,7 @@ js-d3-list-line-plot(collatz(171), :$background, :$title-color, title => 'Hailst
 
 ![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-plot-171.png)
 
-Let us make a multi-lines plot for a selection of integers:
+Let us make a multi-line plot for a selection of seeds.
 
 ```raku
 my @data = (1..1_000).map({ collatz($_) }).grep({ 30 ≤ $_.elems ≤ 150 && $_.max ≤ 600 }).pick(10).sort(*.head).map({my $i = $_.head; $_.kv.map(-> $x, $y {%(group => $i, :$x, :$y )}).Array }).map(*.Slip).Array;
@@ -191,17 +191,7 @@ my @data = (1..1_000).map({ collatz($_) }).grep({ 30 ≤ $_.elems ≤ 150 && $_.
 deduce-type(@data)
 ```
 ```
-# Vector(Assoc(Atom((Str)), Atom((Int)), 3), 315)
-```
-
-**Remark:** Using simple sampling like the code block below would generally produce very non-uniform length and max-member sequences.
-Hence we do the filtering above.
-
-```raku
-my @data = (^100).pick(9).sort.map(-> $i {collatz($i).kv.map(-> $x, $y {%(group => $i, :$x, :$y )}).Array }).map(*.Slip).Array;
-```
-```
-# [{group => 28, x => 0, y => 28} {group => 28, x => 1, y => 14} {group => 28, x => 2, y => 7} {group => 28, x => 3, y => 11} {group => 28, x => 4, y => 17} {group => 28, x => 5, y => 26} {group => 28, x => 6, y => 13} {group => 28, x => 7, y => 20} {group => 28, x => 8, y => 10} {group => 28, x => 9, y => 5} {group => 28, x => 10, y => 8} {group => 28, x => 11, y => 4} {group => 28, x => 12, y => 2} {group => 28, x => 13, y => 1} {group => 35, x => 0, y => 35} {group => 35, x => 1, y => 53} {group => 35, x => 2, y => 80} {group => 35, x => 3, y => 40} {group => 35, x => 4, y => 20} {group => 35, x => 5, y => 10} {group => 35, x => 6, y => 5} {group => 35, x => 7, y => 8} {group => 35, x => 8, y => 4} {group => 35, x => 9, y => 2} {group => 35, x => 10, y => 1} {group => 43, x => 0, y => 43} {group => 43, x => 1, y => 65} {group => 43, x => 2, y => 98} {group => 43, x => 3, y => 49} {group => 43, x => 4, y => 74} {group => 43, x => 5, y => 37} {group => 43, x => 6, y => 56} {group => 43, x => 7, y => 28} {group => 43, x => 8, y => 14} {group => 43, x => 9, y => 7} {group => 43, x => 10, y => 11} {group => 43, x => 11, y => 17} {group => 43, x => 12, y => 26} {group => 43, x => 13, y => 13} {group => 43, x => 14, y => 20} {group => 43, x => 15, y => 10} {group => 43, x => 16, y => 5} {group => 43, x => 17, y => 8} {group => 43, x => 18, y => 4} {group => 43, x => 19, y => 2} {group => 43, x => 20, y => 1} {group => 51, x => 0, y => 51} {group => 51, x => 1, y => 77} {group => 51, x => 2, y => 116} {group => 51, x => 3, y => 58} {group => 51, x => 4, y => 29} {group => 51, x => 5, y => 44} {group => 51, x => 6, y => 22} {group => 51, x => 7, y => 11} {group => 51, x => 8, y => 17} {group => 51, x => 9, y => 26} {group => 51, x => 10, y => 13} {group => 51, x => 11, y => 20} {group => 51, x => 12, y => 10} {group => 51, x => 13, y => 5} {group => 51, x => 14, y => 8} {group => 51, x => 15, y => 4} {group => 51, x => 16, y => 2} {group => 51, x => 17, y => 1} {group => 54, x => 0, y => 54} {group => 54, x => 1, y => 27} {group => 54, x => 2, y => 41} {group => 54, x => 3, y => 62} {group => 54, x => 4, y => 31} {group => 54, x => 5, y => 47} {group => 54, x => 6, y => 71} {group => 54, x => 7, y => 107} {group => 54, x => 8, y => 161} {group => 54, x => 9, y => 242} {group => 54, x => 10, y => 121} {group => 54, x => 11, y => 182} {group => 54, x => 12, y => 91} {group => 54, x => 13, y => 137} {group => 54, x => 14, y => 206} {group => 54, x => 15, y => 103} {group => 54, x => 16, y => 155} {group => 54, x => 17, y => 233} {group => 54, x => 18, y => 350} {group => 54, x => 19, y => 175} {group => 54, x => 20, y => 263} {group => 54, x => 21, y => 395} {group => 54, x => 22, y => 593} {group => 54, x => 23, y => 890} {group => 54, x => 24, y => 445} {group => 54, x => 25, y => 668} {group => 54, x => 26, y => 334} {group => 54, x => 27, y => 167} {group => 54, x => 28, y => 251} {group => 54, x => 29, y => 377} {group => 54, x => 30, y => 566} {group => 54, x => 31, y => 283} {group => 54, x => 32, y => 425} {group => 54, x => 33, y => 638} {group => 54, x => 34, y => 319} {group => 54, x => 35, y => 479} ...]
+# Vector(Assoc(Atom((Str)), Atom((Int)), 3), 322)
 ```
 
 ```raku, eval=FALSE
@@ -210,6 +200,16 @@ js-d3-list-line-plot(@data.flat, :$background)
 ```
 
 ![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-multiple-seeds.png)
+
+**Remark:** Using simple sampling like the code block below would generally produce very non-uniform length- and max-value sequences.
+Hence, we do the filtering above.
+
+```raku
+my @data = (^100).pick(9).sort.map(-> $i {collatz($i).kv.map(-> $x, $y {%(group => $i, :$x, :$y )}).Array }).map(*.Slip).Array;
+```
+```
+# [{group => 18, x => 0, y => 18} {group => 18, x => 1, y => 9} {group => 18, x => 2, y => 14} {group => 18, x => 3, y => 7} {group => 18, x => 4, y => 11} {group => 18, x => 5, y => 17} {group => 18, x => 6, y => 26} {group => 18, x => 7, y => 13} {group => 18, x => 8, y => 20} {group => 18, x => 9, y => 10} {group => 18, x => 10, y => 5} {group => 18, x => 11, y => 8} {group => 18, x => 12, y => 4} {group => 18, x => 13, y => 2} {group => 18, x => 14, y => 1} {group => 24, x => 0, y => 24} {group => 24, x => 1, y => 12} {group => 24, x => 2, y => 6} {group => 24, x => 3, y => 3} {group => 24, x => 4, y => 5} {group => 24, x => 5, y => 8} {group => 24, x => 6, y => 4} {group => 24, x => 7, y => 2} {group => 24, x => 8, y => 1} {group => 40, x => 0, y => 40} {group => 40, x => 1, y => 20} {group => 40, x => 2, y => 10} {group => 40, x => 3, y => 5} {group => 40, x => 4, y => 8} {group => 40, x => 5, y => 4} {group => 40, x => 6, y => 2} {group => 40, x => 7, y => 1} {group => 46, x => 0, y => 46} {group => 46, x => 1, y => 23} {group => 46, x => 2, y => 35} {group => 46, x => 3, y => 53} {group => 46, x => 4, y => 80} {group => 46, x => 5, y => 40} {group => 46, x => 6, y => 20} {group => 46, x => 7, y => 10} {group => 46, x => 8, y => 5} {group => 46, x => 9, y => 8} {group => 46, x => 10, y => 4} {group => 46, x => 11, y => 2} {group => 46, x => 12, y => 1} {group => 47, x => 0, y => 47} {group => 47, x => 1, y => 71} {group => 47, x => 2, y => 107} {group => 47, x => 3, y => 161} {group => 47, x => 4, y => 242} {group => 47, x => 5, y => 121} {group => 47, x => 6, y => 182} {group => 47, x => 7, y => 91} {group => 47, x => 8, y => 137} {group => 47, x => 9, y => 206} {group => 47, x => 10, y => 103} {group => 47, x => 11, y => 155} {group => 47, x => 12, y => 233} {group => 47, x => 13, y => 350} {group => 47, x => 14, y => 175} {group => 47, x => 15, y => 263} {group => 47, x => 16, y => 395} {group => 47, x => 17, y => 593} {group => 47, x => 18, y => 890} {group => 47, x => 19, y => 445} {group => 47, x => 20, y => 668} {group => 47, x => 21, y => 334} {group => 47, x => 22, y => 167} {group => 47, x => 23, y => 251} {group => 47, x => 24, y => 377} {group => 47, x => 25, y => 566} {group => 47, x => 26, y => 283} {group => 47, x => 27, y => 425} {group => 47, x => 28, y => 638} {group => 47, x => 29, y => 319} {group => 47, x => 30, y => 479} {group => 47, x => 31, y => 719} {group => 47, x => 32, y => 1079} {group => 47, x => 33, y => 1619} {group => 47, x => 34, y => 2429} {group => 47, x => 35, y => 3644} {group => 47, x => 36, y => 1822} {group => 47, x => 37, y => 911} {group => 47, x => 38, y => 1367} {group => 47, x => 39, y => 2051} {group => 47, x => 40, y => 3077} {group => 47, x => 41, y => 4616} {group => 47, x => 42, y => 2308} {group => 47, x => 43, y => 1154} {group => 47, x => 44, y => 577} {group => 47, x => 45, y => 866} {group => 47, x => 46, y => 433} {group => 47, x => 47, y => 650} {group => 47, x => 48, y => 325} {group => 47, x => 49, y => 488} {group => 47, x => 50, y => 244} {group => 47, x => 51, y => 122} {group => 47, x => 52, y => 61} {group => 47, x => 53, y => 92} {group => 47, x => 54, y => 46} ...]
+```
 
 -----
 

@@ -158,19 +158,12 @@ js-d3-list-line-plot(collatz(171), :$background, :$title-color, title => 'Hailst
 
 ![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-plot-171.png)
 
-Let us make a multi-lines plot for a selection of integers:
+Let us make a multi-line plot for a selection of seeds.
 
 ```raku
 my @data = (1..1_000).map({ collatz($_) }).grep({ 30 ≤ $_.elems ≤ 150 && $_.max ≤ 600 }).pick(10).sort(*.head).map({my $i = $_.head; $_.kv.map(-> $x, $y {%(group => $i, :$x, :$y )}).Array }).map(*.Slip).Array;
 
 deduce-type(@data)
-```
-
-**Remark:** Using simple sampling like the code block below would generally produce very non-uniform length and max-member sequences.
-Hence we do the filtering above.
-
-```raku
-my @data = (^100).pick(9).sort.map(-> $i {collatz($i).kv.map(-> $x, $y {%(group => $i, :$x, :$y )}).Array }).map(*.Slip).Array;
 ```
 
 ```raku, eval=FALSE
@@ -179,6 +172,13 @@ js-d3-list-line-plot(@data.flat, :$background)
 ```
 
 ![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-multiple-seeds.png)
+
+**Remark:** Using simple sampling like the code block below would generally produce very non-uniform length- and max-value sequences.
+Hence, we do the filtering above.
+
+```raku
+my @data = (^100).pick(9).sort.map(-> $i {collatz($i).kv.map(-> $x, $y {%(group => $i, :$x, :$y )}).Array }).map(*.Slip).Array;
+```
 
 -----
 
