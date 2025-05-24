@@ -1,7 +1,7 @@
-# Визуализации на хипотезата на Колац
+# Визуализации свързани с хипотезата на Колац
 
-Антон Антонов
-[RakuForPrediction blog at WordPress](https://rakuforprediction.wordpress.com)
+Антон Антонов   
+[RakuForPrediction blog at WordPress](https://rakuforprediction.wordpress.com)   
 Май 2025
 
 -----
