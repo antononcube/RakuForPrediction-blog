@@ -153,7 +153,7 @@ collatz(27).elems
 
 ```raku, eval=FALSE
 #% js
-js-d3-list-line-plot(collatz(171), :$background, :$title-color, title => 'Градушкови числа на 171')
+js-d3-list-line-plot(collatz(171), :$background, :$title-color, title => 'Числа на Колатц за 171')
 ```
 
 ![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-plot-171-BG.png)
