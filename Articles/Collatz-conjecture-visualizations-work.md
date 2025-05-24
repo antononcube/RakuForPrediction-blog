@@ -19,7 +19,7 @@ There are many articles, blog posts, and videos dedicated to visualizations of t
 
 **Remark:** Consider following the [warnings in [Vv1]](https://youtu.be/094y1Z2wpJg?si=mb2daU4CW3y4gKWj&t=225) and elsewhere:
 
-> Do not work on this [Collatz] problem! (Do a real math instead.)
+> Do not work on this [Collatz] problem! (Do real math instead.)
 
 
 In this notebook the so called ["shortcut" version](https://en.wikipedia.org/wiki/Collatz_conjecture#Statement_of_the_problem) of the Collatz function is used:
