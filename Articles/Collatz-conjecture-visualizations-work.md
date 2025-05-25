@@ -52,6 +52,7 @@ There are many articles, blog posts, and videos dedicated to visualizations of t
 use Data::Reshapers;
 use Data::Summarizers;
 use Data::TypeSystem;
+use Data::Translators;
 use Graph;
 use JavaScript::D3;
 use Math::NumberTheory;
@@ -245,6 +246,56 @@ js-d3-list-plot(
 ```
 
 ![](./Diagrams/Collatz-conjecture-visualizations/collatz-sequences-seed-vs-length-scatter-plot-dark.png)
+
+----
+
+## Benford's law adherence
+
+It is of interest to see the manifestation of [Benford's law](https://en.wikipedia.org/wiki/Benford%27s_law) for the first digits of Collatz hailstones.
+Here is the corresponding digit tally:
+
+```raku
+my %digitTally = @cSequences.race(:4degree).map({ $_».comb».head }).flat.&tally
+```
+
+Here is a comparison with the corresponding Benford's law values:
+
+```raku, results=asis
+#% html
+sub benford-law(UInt:D $d, UInt:D $b = 10) { log($d + 1, $b) - log($d, $b) };
+
+my @dsDigitTally = 
+    %digitTally.sort(*.key.Int).map({%( 
+        digit => $_.key, 
+        value => round($_.value / %digitTally.values.sum, 10 ** -7), 
+        benford => round(benford-law($_.key.Int), 10 ** -7)) }) 
+==> to-html(field-names => <digit value benford>)
+```
+
+Good adherence is observed for a relatively modest number of sequences.
+Here is a corresponding bar chart:
+
+```raku, eval=FALSE
+#% js
+my @data = 
+    |@dsDigitTally.map({ <x y group>.Array Z=> [|$_<digit value>, 'Collatz'] })».Hash,
+    |@dsDigitTally.map({ <x y group>.Array Z=> [|$_<digit benford>, 'Benford'] })».Hash;
+    
+js-d3-bar-chart(
+    @data,
+    title => "First digits frequencies (up to $m)",
+    :$title-color,
+    x-label => 'digit',
+    y-label => 'frequency', 
+    :!grid-lines, 
+    :$background, 
+    :700width, 
+    :400height,
+    margins => { :50left }
+)
+```
+
+![](./Diagrams/Collatz-conjecture-visualizations/benford-law-comparison-dark.png)
 
 -------
 
