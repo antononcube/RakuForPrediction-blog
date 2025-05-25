@@ -457,7 +457,7 @@ $gBig.dot(
 (2020),
 [OpenCurve.info](https://opencurve.info).
 
-[PZ1] Parker Ziegler
+[PZ1] Parker Ziegler,
 ["Playing with the Collatz Conjecture"](https://observablehq.com/@parkerziegler/playing-with-the-collatz-conjecture),
 (2021),
 [ObservableHQ](https://observablehq.com/).
