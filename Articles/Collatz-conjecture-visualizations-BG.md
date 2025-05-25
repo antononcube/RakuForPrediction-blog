@@ -156,7 +156,7 @@ collatz(27).elems
 js-d3-list-line-plot(collatz(171), :$background, :$title-color, title => 'Числа на Колатц за 171')
 ```
 
-![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-plot-171-BG.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-plot-171-dark-BG.png)
 
 Нека направим многолинейна графика за подходящо избрано множество от семена.
 
@@ -174,7 +174,7 @@ deduce-type(@data)
 js-d3-list-line-plot(@data.flat, :$background)
 ```
 
-![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-multiple-seeds.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-multiple-seeds-dark.png)
 
 **Забележка:** Използването на просто семплиране като кодовия блок по-долу обикновено би довело до много неравномерни по дължина и максимална стойност редици.
 Следователно, ние правим филтрирането по-горе.
@@ -239,7 +239,7 @@ js-d3-histogram(
   )
 ```
 
-![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/collatz-sequences-lengths-and-max-values-distributions-BG.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/collatz-sequences-lengths-and-max-values-distributions-dark-BG.png)
 
 Ето точкова графика на семената срещу дължините на съответните редици:
 
@@ -258,7 +258,7 @@ js-d3-list-plot(
   )
 ```
 
-![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/collatz-sequences-seed-vs-length-scatter-plot-BG.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/collatz-sequences-seed-vs-length-scatter-plot-dark-BG.png)
 
 -------
 
@@ -296,7 +296,7 @@ js-d3-list-plot(@sunflowerMaxes,
  )
 ```
 
-![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/sunflower-embedding-length-and-max-values.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Collatz-conjecture-visualizations/sunflower-embedding-length-and-max-values-dark.png)
 
 ----
 
@@ -433,7 +433,7 @@ $gBig.dot(
 [OpenCurve.info](https://opencurve.info).
 Бг. ["Хипотезата на Колац"](https://opencurve.info/the-collatz-conjecture/).
 
-[PZ1] Parker Ziegler
+[PZ1] Parker Ziegler,
 ["Playing with the Collatz Conjecture"](https://observablehq.com/@parkerziegler/playing-with-the-collatz-conjecture),
 (2021),
 [ObservableHQ](https://observablehq.com/).
