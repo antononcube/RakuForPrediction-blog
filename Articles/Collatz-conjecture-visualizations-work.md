@@ -157,7 +157,7 @@ Here is the simplest, informative Collatz sequence -- or [hailstone numbers](htt
 js-d3-list-line-plot(collatz(171), :$background, :$title-color, title => 'Hailstone numbers of 171')
 ```
 
-![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-plot-171.png)
+![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-plot-171-dark.png)
 
 Let us make a multi-line plot for a selection of seeds.
 
@@ -172,7 +172,7 @@ deduce-type(@data)
 js-d3-list-line-plot(@data.flat, :$background)
 ```
 
-![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-multiple-seeds.png)
+![](./Diagrams/Collatz-conjecture-visualizations/hailstone-numbers-multiple-seeds-dark.png)
 
 **Remark:** Using simple sampling like the code block below would generally produce very non-uniform length- and max-value sequences.
 Hence, we do the filtering above.
@@ -225,7 +225,7 @@ js-d3-histogram(
   )
 ```
 
-![](./Diagrams/Collatz-conjecture-visualizations/collatz-sequences-lengths-and-max-values-distributions.png)
+![](./Diagrams/Collatz-conjecture-visualizations/collatz-sequences-lengths-and-max-values-distributions-dark.png)
 
 Here is a scatter plot of seed vs. sequence length:
 
@@ -244,7 +244,7 @@ js-d3-list-plot(
   )
 ```
 
-![](./Diagrams/Collatz-conjecture-visualizations/collatz-sequences-seed-vs-length-scatter-plot.png)
+![](./Diagrams/Collatz-conjecture-visualizations/collatz-sequences-seed-vs-length-scatter-plot-dark.png)
 
 -------
 
@@ -282,7 +282,7 @@ js-d3-list-plot(@sunflowerMaxes,
  )
 ```
 
-![](./Diagrams/Collatz-conjecture-visualizations/sunflower-embedding-length-and-max-values.png)
+![](./Diagrams/Collatz-conjecture-visualizations/sunflower-embedding-length-and-max-values-dark.png)
 
 ----
 
