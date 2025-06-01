@@ -98,17 +98,11 @@ Load packages:
 use WWW::OpenAI;
 use JSON::Fast;
 ```
-```
-# (Any)
-```
 
 Choose a model:
 
 ```raku
 my $model = "gpt-4.1";
-```
-```
-# gpt-4.1
 ```
 
 ------
@@ -124,9 +118,6 @@ This is the "tool" to be communicated to OpenAI. (I.e. define the local function
 sub get-current-weather(Str $location, Str $unit = "fahrenheit") returns Str {
     return "It is currently sunny in $location with a temperature of 72 degrees $unit.";
 }
-```
-```
-# &get-current-weather
 ```
 
 Define the function specification (as prescribed in [OpenAI's function calling documentation](https://platform.openai.com/docs/guides/function-calling?api-mode=responses)):
@@ -155,9 +146,6 @@ my $function-spec = {
     }
 };
 ```
-```
-# {function => {description => Get the current weather for a given location, name => get-current-weather, parameters => {properties => {$location => {description => The city and state, e.g., San Francisco, CA, type => string}, $unit => {description => The temperature unit to use, enum => [celsius fahrenheit], type => string}}, required => [location], type => object}}, type => function}
-```
 
 ### First communication with OpenAI
 
@@ -171,9 +159,6 @@ my @messages =
     ;
 
 my @tools = [$function-spec,];
-```
-```
-# [{function => {description => Get the current weather for a given location, name => get-current-weather, parameters => {properties => {$location => {description => The city and state, e.g., San Francisco, CA, type => string}, $unit => {description => The temperature unit to use, enum => [celsius fahrenheit], type => string}}, required => [location], type => object}}, type => function}]
 ```
 
 Send the first chat completion request:
@@ -199,9 +184,6 @@ The following copy of the messages is not required, but it makes repeated experi
 
 ```raku
 my @messages2 = @messages;
-```
-```
-# [{content => You are a helpful assistant that can provide weather information., role => system} {content => What's the weather in Boston, MA?, role => user}]
 ```
 
 Process the response -- invoke the tool, give the tool result to the LLM, get the LLM answer:
