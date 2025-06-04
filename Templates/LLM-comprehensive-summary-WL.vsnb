@@ -50,6 +50,14 @@
   },
   {
    "kind": 1,
+   "value": "**Remark:** This Wolfram Language notebook is part of the following template collection:\n\n- Wolfram Language\n\n    - [Wolfram Community notebook](https://community.wolfram.com/groups/-/m/t/3448842)\n\n    - [LLM-comprehensive-summary-WL.vsnb](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Templates/LLM-comprehensive-summary-WL.vsnb)\n\n        - *Using [Wolfram Language VS Code plug-in](https://marketplace.visualstudio.com/items?itemName=njpipeorgan.wolfram-language-notebook)*\n\n- Python\n\n    - [LLM-comprehensive-summary-Python.ipynb](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Templates/LLM-comprehensive-summary-Python.ipynb)\n\n- Raku\n\n    - [LLM-comprehensive-summary-Raku.ipynb](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Templates/LLM-comprehensive-summary-Raku.ipynb)\n\n    - [LLM-comprehensive-summary-Raku.md](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Templates/LLM-comprehensive-summary-Raku.md)\n\n        - *That is a [Computational Markdown template](https://www.youtube.com/watch?v=GJO7YqjGn6o&t=158s)*",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
    "value": " **Remark:**  All remarks in italics are supposed to be removed.",
    "languageId": "markdown",
    "outputs": [],
@@ -316,14 +324,6 @@
    "kind": 1,
    "value": "Take graph edges and apply custom styling:",
    "languageId": "markdown",
-   "outputs": [],
-   "metadata": {},
-   "executionSummary": {}
-  },
-  {
-   "kind": 2,
-   "value": "mmdBigPicture = Out[102]",
-   "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {}
