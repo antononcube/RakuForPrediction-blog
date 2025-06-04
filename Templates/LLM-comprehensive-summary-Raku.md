@@ -17,10 +17,27 @@ In this computational Markdown file we apply different LLM prompts in order to c
 
 **Remark:** This Markdown file is intended to serve as a template for the initial versions of comprehensive text analyses.
 
-**Remark:** This Markdown template has corresponding notebooks versions: 
-(i) [Wolfram Language notebook](https://community.wolfram.com/groups/-/m/t/3448842), 
-(ii) [Raku-Jupyter notebook](),
-(iii) [Python-Jupyter notebook]().
+**Remark:** This Markdown template is part of the following template collection:
+
+- Wolfram Language
+
+    - [Wolfram Community notebook](https://community.wolfram.com/groups/-/m/t/3448842)
+
+    - [LLM-comprehensive-summary-WL.vsnb](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Templates/LLM-comprehensive-summary-WL.vsnb)
+
+        - *Using [Wolfram Language VS Code plug-in](https://marketplace.visualstudio.com/items?itemName=njpipeorgan.wolfram-language-notebook)*
+
+- Python
+
+    - [LLM-comprehensive-summary-Python.ipynb](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Templates/LLM-comprehensive-summary-Python.ipynb)
+
+- Raku
+
+    - [LLM-comprehensive-summary-Raku.ipynb](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Templates/LLM-comprehensive-summary-Raku.ipynb)
+
+    - [LLM-comprehensive-summary-Raku.md](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Templates/LLM-comprehensive-summary-Raku.md)
+
+        - *That is a [Computational Markdown template](https://www.youtube.com/watch?v=GJO7YqjGn6o&t=158s)*
 
 **Remark:** All remarks in italics are supposed to be removed.
 
