@@ -188,7 +188,7 @@ if $assistant-message<parts> {
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
 [AA2] Anton Antonov,
-["LLM function calling workflows (Part 2, Google's Gemini)"](https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-2-googles-gemini/),
+["LLM function calling workflows (Part 2, Google's Gemini)"](https://rakuforprediction.wordpress.com/2025/06/07/llm-function-calling-workflows-part-2-googles-gemini/),
 (2025),
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
