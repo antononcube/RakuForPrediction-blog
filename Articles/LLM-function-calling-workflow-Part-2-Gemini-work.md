@@ -10,25 +10,23 @@ June 2025
 ## Introduction
 
 
-This notebook shows how to do [Function Calling](https://ai.google.dev/gemini-api/docs/function-calling) workflows with Large Language Models (LLMs) of Gemini. 
+This document 
+([notebook](https://github.com/antononcube/Raku-WWW-Gemini/blob/main/docs/LLM-function-calling-workflow.ipynb)) 
+shows how to do [Function Calling](https://ai.google.dev/gemini-api/docs/function-calling) workflows with Large Language Models (LLMs) of Gemini. 
 
 The Raku package ["WWW::Gemini"](https://github.com/antononcube/Raku-WWW-Gemini), [AAp2], is used.
 
-
 ### Examples and big picture
 
-
-The rest of the notebook gives concrete code how to do function calling with Gemini's LLMs using Raku.
+The rest of the document gives concrete code how to do function calling with Gemini's LLMs using Raku.
 
 There are [similar workflows](https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-1-openai/), [AA1], with other LLM providers. (Like, OpenAI.) They follow the same structure, although there are some small differences. (Say, in the actual specifications of tools.)
 
-It would be nice to have:
-- Universal programming interface for those function calling interfaces.
-- Facilitation of tool descriptions derivations.
-    - Via Raku's introspection or using suitable LLM prompts.
-        - ["LLM::Functions"](https://raku.land/zef:antononcube/LLM::Functions), [AAp3], can be used for both approaches.
+This document belongs to a collection of notebooks describing how to do LLM function calling with Raku.
 
-This notebook belongs to a collection of notebooks describing how to do LLM function calling with Raku.
+*The Gemini LLM workflow in this document is quite similar to the OpenIA workflow described in [AA1].
+While there are variations in the tool configurations and how the elements of the LLM responses are obtained,
+the overall procedure outline and diagrams in [AA1] also apply to the workflows presented here.*
 
 
 -----
