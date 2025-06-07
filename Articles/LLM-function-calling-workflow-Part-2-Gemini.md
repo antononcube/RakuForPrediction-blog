@@ -11,7 +11,8 @@ June 2025
 
 This document
 ([notebook](https://github.com/antononcube/Raku-WWW-Gemini/blob/main/docs/LLM-function-calling-workflow.ipynb))
-shows how to do [Function Calling](https://ai.google.dev/gemini-api/docs/function-calling) workflows with Large Language Models (LLMs) of Gemini.
+shows how to do [Function Calling](https://ai.google.dev/gemini-api/docs/function-calling) workflows with Large Language Models (LLMs) of
+[Google's Gemini](https://ai.google.dev/gemini-api).
 
 The Raku package ["WWW::Gemini"](https://github.com/antononcube/Raku-WWW-Gemini), [AAp2], is used.
 
@@ -270,7 +271,7 @@ if $assistant-message<parts> {
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
 [AA2] Anton Antonov,
-["LLM function calling workflows (Part 2, Google's Gemini)"](https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-2-google-gemini/),
+["LLM function calling workflows (Part 2, Google's Gemini)"](https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-2-googles-gemini/),
 (2025),
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
