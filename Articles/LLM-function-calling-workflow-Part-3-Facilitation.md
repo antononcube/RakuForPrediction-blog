@@ -22,7 +22,7 @@ The Raku package ["WWW::Gemini"](https://github.com/antononcube/Raku-WWW-Gemini)
 The rest of the document gives concrete code how to do streamline multiple-tool function calling with Gemini's LLMs using Raku. 
 Gemini's function calling example ["Parallel Function Calling"](https://ai.google.dev/gemini-api/docs/function-calling#parallel_function_calling), [Gem1], is followed.
 
-This document belongs to a collection of notebooks describing how to do LLM function calling with Raku.
+This document belongs to a [collection of documents](https://rakuforprediction.wordpress.com/category/llm-function-calling/) describing how to do LLM function calling with Raku.
 
 Compared to the previously described LLM workflows with OpenAI, [[AA1](https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-1-openai/)], and Gemini, [[AA2](https://rakuforprediction.wordpress.com/2025/06/07/llm-function-calling-workflows-part-2-googles-gemini/)], the Gemini LLM workflow in this document demonstrates:
 

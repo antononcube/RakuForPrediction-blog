@@ -22,7 +22,7 @@ The rest of the document gives concrete code how to do function calling with Gem
 
 There are [similar workflows](https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-1-openai/), [AA1], with other LLM providers. (Like, OpenAI.) They follow the same structure, although there are some small differences. (Say, in the actual specifications of tools.)
 
-This document belongs to a collection of notebooks describing how to do LLM function calling with Raku.
+This document belongs to a [collection of documents](https://rakuforprediction.wordpress.com/category/llm-function-calling/) describing how to do LLM function calling with Raku.
 
 *The Gemini LLM workflow in this document is quite similar to the OpenIA workflow described in [AA1].
 While there are variations in the tool configurations and how the elements of the LLM responses are obtained,

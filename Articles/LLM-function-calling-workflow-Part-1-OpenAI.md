@@ -84,7 +84,7 @@ It would be nice to have:
     - Via Raku's introspection or using suitable LLM prompts.
         - ["LLM::Functions"](https://raku.land/zef:antononcube/LLM::Functions), [AAp3], can be used for both approaches.
 
-This notebook belongs to a collection of notebooks describing how to do LLM function calling with Raku.
+This document belongs to a [collection of documents](https://rakuforprediction.wordpress.com/category/llm-function-calling/) describing how to do LLM function calling with Raku.
 
 
 -----
