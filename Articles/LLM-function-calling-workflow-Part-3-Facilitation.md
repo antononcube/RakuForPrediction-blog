@@ -473,7 +473,7 @@ The Wolfram Language LLM tooling functionalities are reflected in Raku's "LLM::T
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
 [AA3] Anton Antonov,
-["LLM function calling workflows (Part 3, Facilitation)"](https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-30-facilitation/),
+["LLM function calling workflows (Part 3, Facilitation)"](https://rakuforprediction.wordpress.com/2025/06/08/llm-function-calling-workflows-part-3-facilitation/),
 (2025),
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
