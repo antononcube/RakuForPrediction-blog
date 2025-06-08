@@ -11,7 +11,7 @@ June 2025
 ## Introduction
 
 
-This document shows how to do parallel [Function Calling](https://ai.google.dev/gemini-api/docs/function-calling) workflows with Large Language Models (LLMs) of Gemini. 
+This document ([notebook](https://github.com/antononcube/Raku-WWW-Gemini/blob/main/docs/LLM-parallel-function-calling-workflow.ipynb)) shows how to do parallel [Function Calling](https://ai.google.dev/gemini-api/docs/function-calling) workflows with Large Language Models (LLMs) of Gemini. 
 
 The Raku package ["WWW::Gemini"](https://github.com/antononcube/Raku-WWW-Gemini), [AAp2], is used.
 
