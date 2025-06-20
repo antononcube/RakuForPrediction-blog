@@ -1,3 +1,10 @@
+---
+params:
+    url: "https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Data/Why-This-Russian-Drone-Developer-Is-not-Impressed-by-US-Tech-RU.txt"
+    youtube-id: ""
+    to-lang: "English"
+---
+
 # LLM comprehensive summary
 
 Anton Antonov 
@@ -62,31 +69,44 @@ my $conf41-mini = llm-configuration('ChatGPT', model => 'gpt-4.1-mini', max-toke
 my $conf-gemini-flash = llm-configuration('Gemini', model => 'gemini-2.0-flash', max-tokens => 8192, temperature => 0.5);
 
 # Choose an LLM access configuration or specify your own
-my $conf = $conf4o-mini;
+my $conf = $conf-gemini-flash;
 ```
 
 ------
 
 ## Ingestion
 
-**Remark:** Chose whether to analyze a text from a file or to analyze the transcript of a YouTube video.
+**Remark:** Choose whether to analyze a text from a file or to analyze the transcript of a YouTube video.
 
 
 Ingest text from a file:
 
-```raku, eval=TRUE
-#my $txtFocus = slurp('');
-#text-stats($txtFocus)
+```raku
+my $txtFocus;
+if %params<url> {
+    sink $txtFocus = slurp(%params<url>);
+} else {
+    say 'Not ised.'
+}
 ```
 
 Ingest the transcript of a YouTube video:
 
 ```raku
-my $txtFocus = youtube-transcript("eIR_OjWWjtE", format => 'text');
+if %params<youtube-id> {
+    sink $txtFocus = youtube-transcript(%params<youtube-id>, format => 'text');
+} else {
+    say 'Not used.'
+}
+```
+
+Text statistics:
+
+```raku
 text-stats($txtFocus)
 ```
 
-**Remark:** The text ingested above is the transcript of the video ["Live CEOing Ep 886: Design Review of LLMGraph"](https://www.youtube.com/watch?v=ewU83vHwN8Y).
+**Remark:** The text ingested above is the transcript of the video ["Why This Russian Drone Developer Isn’t Impressed by U.S. Tech"](https://www.youtube.com/watch?v=RmfNUM2CbbM).
 
 **Remark:** The transcript of a YouTube video can be obtained in several ways:
 - Use the Raku package ["WWW::YouTube"](https://raku.land/zef:antononcube/WWW::YouTube)
@@ -100,7 +120,7 @@ text-stats($txtFocus)
 Summarize the text:
 
 ```raku, results=asis, echo=FALSE, eval=TRUE
-llm-synthesize([llm-prompt("Summarize"), $txtFocus], e => $conf)
+llm-synthesize([llm-prompt("Summarize"), $txtFocus, llm-prompt('Translated')(%params<to-lang>)], e => $conf)
 ```
 
 ----------
@@ -124,6 +144,7 @@ Generate Mermaid-JS code of a corresponding mind-map:
 my $mmdBigPicture = llm-synthesize([
     "Create a concise mermaid-js mind-map -- not a flowchart -- for the text:\n\n",
     $txtFocus,
+    llm-prompt('Translated')(%params<to-lang>),
     llm-prompt("NothingElse")("correct mermaid-js")
 ], e=>$conf);
 ```
