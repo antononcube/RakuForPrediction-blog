@@ -156,7 +156,7 @@ my $gCombinedSummary = LLM::Graph.new(%rules, llm-evaluator => $conf41-mini, :as
 
 ----
 
-## Full computation
+## Graph evaluation
 
 
 URL and text statistics:
