@@ -1,17 +1,3 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.17.1
-  kernelspec:
-    display_name: RakuChatbook
-    language: raku
-    name: raku
----
-
 # LLM::Graph plots interpretation guide
 
 Anton Antonov   
@@ -163,7 +149,7 @@ Here is the [Graphviz DOT](https://graphviz.org) visualization of the LLM graph:
 $gBestPoem.dot(engine => 'dot', :9graph-size, node-width => 1.2, node-color => 'grey', edge-width => 0.8):svg
 ```
 
-![](./Diagrams/LLM-graph-plots-interpretation-guide/Default-style.svg)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/LLM-graph-plots-interpretation-guide/Default-style.svg)
 
 Here are the node spec-types:
 
@@ -213,7 +199,7 @@ Similar visual effect is achieved with the option spec `theme => 'ortho'`:
 $gBestPoem.dot(node-width => 1.2, theme => 'ortho'):svg
 ```
 
-![](./Diagrams/LLM-graph-plots-interpretation-guide/Ortho-style.svg)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/LLM-graph-plots-interpretation-guide/Ortho-style.svg)
 
 
 **Remark:** The option "theme" takes the values "default", "ortho", and `Whatever`. 
