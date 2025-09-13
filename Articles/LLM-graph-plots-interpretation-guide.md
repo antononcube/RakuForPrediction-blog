@@ -137,6 +137,26 @@ Here is the final result (of the node "report"):
 $gBestPoem.nodes<report><result>
 ```
 
+# Best poem
+
+Three poems were submitted. Here are the statistics:
+
+<table border="1"><thead><tr><th>name</th><th>chars</th><th>words</th><th>lines</th></tr></thead><tbody><tr><td>poet1</td><td>259</td><td>42</td><td>9</td></tr><tr><td>poet2</td><td>81</td><td>12</td><td>3</td></tr><tr><td>poet4</td><td>209</td><td>33</td><td>9</td></tr></tbody></table>
+
+## Judgement
+
+I think Poem1 is the best among these. Here it is:
+
+Golden rays through skies so blue,  
+Whispers warm in morning dew.  
+Laughter dances on the breeze,  
+Summer sings through rustling trees.
+
+Fields of green and oceans wide,  
+Endless days where dreams abide.  
+Sunset paints the world anew,  
+Summer’s heart in every hue.
+
 -----
 
 ## Default style
