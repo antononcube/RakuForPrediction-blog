@@ -62,13 +62,16 @@ sink my %rules =
     ;
 ```
 
+**Remark:** This is a documentation example -- I want to be seen that `$poet4` can be undefined. That hints that the corresponding sub is not always evaluated. 
+(Because of the result of the corresponding test function.)
+
 Make the graph:
 
 ```raku
 my $gBestPoem = LLM::Graph.new(%rules)
 ```
 
-Not to make the execution quicker, we assign the poems (instead of LLM generating them):
+Now, to make the execution quicker, we assign the poems (instead of LLM generating them):
 
 ```raku
 # Poet 1
