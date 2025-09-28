@@ -1,0 +1,87 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      2726,         79]
+NotebookOptionsPosition[      2099,         62]
+NotebookOutlinePosition[      2495,         78]
+CellTagsIndexPosition[      2452,         75]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"img", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], 
+       ",", "\"\<LLM-Inversion-of-control-ChatGPT.png\>\""}], "}"}], "]"}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.968074215635497*^9, 3.968074217641671*^9}, {
+  3.968074710863893*^9, 3.9680747651584177`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"a06ff36e-8b18-41d3-9bf8-f6de0e3068ba"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"img2", "=", 
+   RowBox[{"ImageReflect", "[", 
+    RowBox[{"img", ",", 
+     RowBox[{"Top", "->", "Bottom"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9680743055469503`*^9, 3.96807430681954*^9}, {
+  3.968074475345175*^9, 3.9680744796724443`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"b7e483a5-08b6-4763-817f-f2a0541d96bc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"img3", "=", 
+   RowBox[{"ImageReflect", "[", 
+    RowBox[{"img2", ",", 
+     RowBox[{"Left", "->", "Right"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9680743055469503`*^9, 3.9680743408672953`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"0deb6d98-65a6-4890-94b0-caa5184c0824"],
+
+Cell[BoxData[
+ RowBox[{"ImageAssemble", "[", 
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{"img2", ",", "img", ",", "img3"}], "}"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.968074221040205*^9, 3.968074319628124*^9}, {
+  3.968074489723462*^9, 3.968074498394775*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"e47d7a04-6204-4428-854c-d6f22f2dca53"]
+},
+WindowSize->{1147, 901},
+WindowMargins->{{Automatic, 1013}, {225, Automatic}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f1997eb3-c54e-48b1-9777-99f3adf8a698"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 493, 12, 33, "Input",ExpressionUUID->"a06ff36e-8b18-41d3-9bf8-f6de0e3068ba"],
+Cell[1050, 34, 368, 8, 33, "Input",ExpressionUUID->"b7e483a5-08b6-4763-817f-f2a0541d96bc"],
+Cell[1421, 44, 321, 7, 33, "Input",ExpressionUUID->"0deb6d98-65a6-4890-94b0-caa5184c0824"],
+Cell[1745, 53, 350, 7, 33, "Input",ExpressionUUID->"e47d7a04-6204-4428-854c-d6f22f2dca53"]
+}
+]
+*)
+
