@@ -24,8 +24,8 @@ Inversion of control is a way to characterize LLM function calling. This means t
 
 **Remark:** The following Software Framework building principles (or mnemonic slogans) apply to LLM function calling:
 
-- "Don't call us, we'll call you." (The Hollywood Principle)
-- "Leave the driving to us." (Greyhound Lines, Inc.)
+- "Don't call us, we'll call you." *(The Hollywood Principle)*
+- "Leave the driving to us." *(Greyhound Lines, Inc.)*
 
 ### The whole series
 
