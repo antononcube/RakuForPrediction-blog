@@ -22,6 +22,11 @@ In this document, non-trivial Stoichiometry computations are done with the Raku 
 
 Inversion of control is a way to characterize LLM function calling. This means the LLM invokes functions or subroutines that operate on an external system, such as a local computer, rather than within the LLM provider's environment. See the section "Outline of the overall process" of ["LLM function calling workflows (Part 1, OpenAI)"](https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-1-openai/), [AA1].
 
+**Remark:** The following Software Framework building principles (or mnemonic slogans) apply to LLM function calling:
+
+- "Don't call us, we'll call you." (The Hollywood Principle)
+- "Leave the driving to us." (Greyhound Lines, Inc.)
+
 ### The whole series
 
 This document is the fourth of the [LLM function calling series](https://rakuforprediction.wordpress.com/tag/llm-function-calling/), [AA1 ÷ AA4]. The other three show lower-level LLM function calling workflows.
