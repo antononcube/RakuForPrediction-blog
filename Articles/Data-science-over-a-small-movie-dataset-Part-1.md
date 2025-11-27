@@ -427,7 +427,7 @@ js-d3-bar-chart(@dsMovieData.map(*<title_year>.Str).&tally.sort(*.head), title =
 js-d3-box-whisker-chart(@dsMovieData.map(*<title_year>)».Int.grep(*>1916), :horizontal, :$background)
 ```
 
-![](./Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Movie-years-distribution-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Movie-years-distribution-dark.png)
 
 Show movie genre distribution:
 
@@ -438,7 +438,7 @@ my %genreCounts = cross-tabulate(@dsMovieGenreLongForm, 'Item', 'Tag', :sparse).
 js-d3-bar-chart(%genreCounts.sort, title => 'Genre distributions', :$background, :$title-color)
 ```
 
-![](./Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Movie-genres-distribution-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Movie-genres-distribution-dark.png)
 
 Check Pareto principle adherence for director names:
 
@@ -453,7 +453,7 @@ pareto-principle-statistic(@dsMovieData.map(*<director_name>))
         :grid-lines, :5stroke-width, :$title-color)
 ```
 
-![](./Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Pareto-principle-for-movie-directors-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Pareto-principle-for-movie-directors-dark.png)
 
 Plot the number of IMDB votes vs IMBDB scores:
 
@@ -468,7 +468,7 @@ Plot the number of IMDB votes vs IMBDB scores:
         :grid-lines, point-size => 4, :$title-color)
 ```
 
-![](./Diagrams/Data-science-over-a-small-movie-dataset-Part-1/IMBD-votes-vs-scores-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Data-science-over-a-small-movie-dataset-Part-1/IMBD-votes-vs-scores-dark.png)
 
 ---
 
@@ -596,7 +596,7 @@ Here we export the transformed data in order to streamline the computations in t
 
 
 ```raku
-data-export($*CWD ~ '/../../Data/dsMovieDataLongForm.csv', @dsMovieDataLongForm.append(@dsMovieGenreLongForm))
+data-export($*HOME ~ '/Downloads/dsMovieDataLongForm.csv', @dsMovieDataLongForm.append(@dsMovieGenreLongForm))
 ```
 
 ---
@@ -611,20 +611,11 @@ data-export($*CWD ~ '/../../Data/dsMovieDataLongForm.csv', @dsMovieDataLongForm.
 
 ### Notebooks 
 
-[AAn1] Anton Antonov, 
-["Data science over small movie dataset -- Part 1"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-1.ipynb), 
-(2025),
-[RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
+[AAn1] Anton Antonov, ["Data science over small movie dataset -- Part 1"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-1.ipynb), (2025), [RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
 
-[AAn2] Anton Antonov, 
-["Data science over small movie dataset -- Part 1"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-2.ipynb), 
-(2025),
-[RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
+[AAn2] Anton Antonov, ["Data science over small movie dataset -- Part 1"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-2.ipynb), (2025), [RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
 
-[AAn3] Anton Antonov, 
-["Data science over small movie dataset -- Part 3"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-3.ipynb), 
-(2025),
-[RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
+[AAn3] Anton Antonov, ["Data science over small movie dataset -- Part 3"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-3.ipynb), (2025), [RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
 
 
 ### Packages
