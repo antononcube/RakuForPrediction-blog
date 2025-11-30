@@ -86,8 +86,8 @@ We refer to related blog posts, videos, and package READMEs for more details.
 
 There are two ways to read this document:
 
-- Just browse or read the summary list in the next section and skim the rest of the sections.
-  - Or the corresponding table and mind-map.
+- Just look (or maybe, download) the mind map in the next section.
+- Just browse or read the summary list in the next section and skim over the rest of the sections.
 - Read all sections and read or browse the linked articles and notebooks. 
 
 ------
@@ -118,7 +118,7 @@ Each component has sub-items for its "previous" state (pre-2021), current state 
     - Current status: ★★★ (2.5)
     - References: ["Statistics"](https://raku.land/zef:sumankhanal/Statistics), ["Statistics::Distributions"](https://raku.land/zef:antononcube/Statistics::Distributions), ["Statistics::OutlierIdentifiers"](https://raku.land/cpan:ANTONOV/Statistics::OutlierIdentifiers), ["Data::Summarizers"](https://raku.land/zef:antononcube/Data::Summarizers), ["Data::TypeSystem"](https://raku.land/zef:antononcube/Data::TypeSystem)
 - Machine Learning algorithms (both unsupervised and supervised)
-    - Comment:
+    - Comment: Unsupervised ML is often used for Exploratory Data Analysis (EDA); supervised ML is used to leverage data patterns in some way, but also for certain type of EDA.
     - Pre-2021: A few packages for doing unsupervised Machine Learning (ML) (like ["Text::Markov"]().)
     - 2025: At least supervised ML package connecting (binding) to external systems, a set of unsupervised ML packages for clustering, associating rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with tries with frequencies can be used as classifiers.
     - Essential: ✓
@@ -147,21 +147,21 @@ Each component has sub-items for its "previous" state (pre-2021), current state 
     - References: ["Notebook transformations"](https://rakuforprediction.wordpress.com/2024/02/17/notebook-transformations/)
 - Data generation and retrieval
     - Comment: For didactical and development purposes random data generation and retrieval of well known dataset is needed.
-    - Essential: .
+    - Essential: 𖧋
     - Current status: ★★★★ (3.5)
     - References: ["Data::Generators"](https://raku.land/zef:antononcube/Data::Generators), ["Data::ExampleDatasets"](https://raku.land/zef:antononcube/Data::ExampleDatasets), ["Data::Geographics"](https://raku.land/zef:antononcube/Data::Geographics), ["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k)
 - External Data Science (DS) and Machine Learning (ML) orchestration
     - Comment: Effective way to do DS and ML _and_ easily move the developed computations to other systems. Allows reuse and having confidence that the utilized DS or ML algorithms are properly implemented and fast.
     - Pre-2021: Various projects connecting to database systems (e.g. MySQL.)
     - 2025:
-    - Essential: .
+    - Essential: 𖧋
     - Current status: ★★★ (2.5)
     - References: ["Dan"](https://raku.land/zef:librasteve/Dan), ["Proc::ZMQed"](https://raku.land/zef:antononcube/Proc::ZMQed), ["WWW::WolframAlpha"](https://raku.land/zef:antononcube/WWW::WolframAlpha), ["H2O::Client"](https://github.com/antononcube/Raku-H2O-Client)
 - Interactive interfaces to parameterized workflows (dashboards)
     - Comment: Very useful for getting data insights by dynamically changing different statistics based on parameters.
     - Pre-2021: None.
     - 2025: An effort, ["Air::Examples"](https://raku.land/zef:librasteve/Air::Examples), that brings interactivity via [HTMX](https://htmx.org) is using the ["Cro"](https://cro.raku.org) package set and templates; since [Google Charts provides interactivity](https://developers.google.com/chart/interactive/docs/gallery/controls) ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts) can be extended to have those kind of controls and dashboards.
-    - Essential: .
+    - Essential: 𖧋
     - Current status: ★
     - References: ["Air::Examples"](https://raku.land/zef:librasteve/Air::Examples), ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts)
   
