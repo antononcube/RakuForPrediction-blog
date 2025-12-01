@@ -15,30 +15,30 @@ This simple mnemonic can be utilized for what Data Science (DS) is while this do
 
 > Data Science = Programming + Statistics + *Curiosity*
 
-**Remark:** By definition anytime we analyze with data we do Statistics.
+**Remark:** By definition anytime we deal with data we do Statistics.
 
 We are mostly interested in DS workflows -- the Raku facilitation of using 
 Large Language Models (LLMs) is seen here as:
 
 - An (excellent) supplement to standard, non-LLM DS workflows facilitation
-- A device to use -- and solve -- in Unsupervised Machine Learning (ML) tasks 
+- A device to use -- and solve -- Unsupervised Machine Learning (ML) tasks 
 
 (And because of our strong curiosity drive, we are completely not shy using LLMs to do DS.)
 
 ### What is needed to do Data Science?
 
-Here is wordier and almost technical definition of DS:
+Here is a wordier and almost technical definition of DS:
 
 > ***Data Science*** is the process of exploring and summarizing data, uncovering hidden patterns, building predictive models, and creating clear visualizations to reveal insights.
-It is analytical work analysts, researchers, or scientists would do over raw in order to understand it and utilize those insights. 
+It is analytical work analysts, researchers, or scientists would do over raw data in order to understand it and utilize those insights. 
 
-**Remark:** "Insights utilization" would mean "machine Learning" to many.
+**Remark:** "Utilize insights" would mean "machine learning" to many.
 
 This is the general workflow (or loop) for doing DS:
 
 ![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Data-analysis-cycles.jpg)
 
-Assume you have a general purpose language very good at dealing with text and a package ecosystem with *well maintained* part dedicated to doing various Web development tasks and workflows. (I.e. trying to re-live Perl's glory days.) What new components the ecosystem of that programming language has to be endowed with in order to make it useful for doing Data Science?
+Assume you have a general purpose language which is very good at dealing with text and a package ecosystem with *well maintained* part dedicated to doing various Web development tasks and workflows. (I.e. trying to re-live Perl's glory days.) What new components the ecosystem of that programming language has to be endowed with in order to make it useful for doing Data Science?
 
 The list below gives such components. They are ranked by importance (most important first), but all are important -- i.e. each is "un-skippable" or indispensable.
 
@@ -50,11 +50,11 @@ The list below gives such components. They are ranked by importance (most import
 - Interactive computing environment(s)
 - Literate programming
 
-Additional, but not indispensable components are:
+Additional, really nice to have, but not indispensable components are:
 
 - Data generation and retrieval
-- Interfacing to other programming languages and ecosystems
-- Interactive interfaces to parameterized workflows
+- Interfaces to other programming languages and ecosystems
+- Interactive interfaces to parameterized workflows (i.e. dashboards)
 - LLM utilization facilitation
 
 ### Just an overview of packages
@@ -92,6 +92,9 @@ There are three ways to read this document:
 - Just look (or maybe, download) the mind map in the next section.
 - Just browse or read the summary list in the next section and skim over the rest of the sections.
 - Read all sections and read or browse the linked articles and notebooks. 
+
+Actually, it is assumed that many readers would read one random section, hence, 
+most of the sections are mostly self-contained.
 
 ------
 
@@ -170,6 +173,9 @@ There are also corresponding [table](https://github.com/antononcube/RakuForPredi
     - Current status: ★
     - References: ["Air::Examples"](https://raku.land/zef:librasteve/Air::Examples), ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts)
 
+
+[![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.png)](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.pdf)
+
 ------
 
 ## Code generation
@@ -241,7 +247,7 @@ Generation of data wrangling workflows code is done with the package:
 
 the functionalities of which are summarized in this diagram:
 
-![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-book/main/Diagrams/DSLs-Interpreter-for-Data-Wrangling-August-2022-state.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-book/main/Diagrams/DSLs-Interpreter-for-Data-Wrangling-November-2025-state-small.png)
 
 ### Examples
 
