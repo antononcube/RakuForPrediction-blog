@@ -1,0 +1,380 @@
+[
+  {
+    "title": "Applications of Monadic Programming, Part 1,  Questions & Answers",
+    "url": "https://www.youtube.com/watch?v=Xz5B4B0kVco",
+    "publish_date": null,
+    "description": "In this presentation software monads and monadic programming are introduced via question and answers. Various examples are used.\n\nHere is post with the presentation notebook: https://community.wolf..."
+  },
+  {
+    "title": "Graph neat examples in Raku (Set 4)",
+    "url": "https://www.youtube.com/watch?v=dabUhXW1pkw",
+    "publish_date": null,
+    "description": "Computationally neat examples with Raku packages featuring graphs and graph plots. (4th set.)\n\nHere is the presentation Jupyter notebook: \nhttps://github.com/antononcube/RakuForPrediction-blog/blob..."
+  },
+  {
+    "title": "Number theory neat examples in Raku (Set 4)",
+    "url": "https://www.youtube.com/watch?v=3ux-JA74eug",
+    "publish_date": null,
+    "description": "Computationally neat examples with Raku packages for Number theory objects and phenomena. (4th set.)\n\nHere is the presentation notebook: \nhttps://github.com/antononcube/RakuForPrediction-blog/blob/..."
+  },
+  {
+    "title": "Number theory neat examples in Raku (Set 3)",
+    "url": "https://www.youtube.com/watch?v=6uCIoonlybk",
+    "publish_date": null,
+    "description": "Computationally neat examples with Raku packages for Number theory objects and phenomena. (3rd set.)\n\nHere is the presentation notebook: https://github.com/antononcube/RakuForPrediction-blog/blob/m..."
+  },
+  {
+    "title": "Number theory neat examples in Raku (Set 2)",
+    "url": "https://www.youtube.com/watch?v=sMwuGVvkLkU",
+    "publish_date": null,
+    "description": "Computationally neat examples with Raku packages for Number theory objects and phenomena. (2nd set.)\n\nHere is the presentation notebook: https://github.com/antononcube/RakuForPrediction-blog/blob/m..."
+  },
+  {
+    "title": "Quantile Regression Workflows (PyData Global 2024)",
+    "url": "https://www.youtube.com/watch?v=mYXCynTPHsA",
+    "publish_date": null,
+    "description": "This talk showcases and exemplifies the rapid specification and execution of Quantile Regression workflows. Various use cases are discussed, including fitting, outlier detection, conditional..."
+  },
+  {
+    "title": "Number theory neat examples in Raku (Set 1)",
+    "url": "https://www.youtube.com/watch?v=wXXWyRAAPvc",
+    "publish_date": null,
+    "description": "Computationally neat examples with Raku packages for Number theory objects and phenomena. (1st set.)\n\nHere is the presentation notebook: https://github.com/antononcube/RakuForPrediction-blog/blob/m..."
+  },
+  {
+    "title": "Chess positions and knight's tours via graphs (in Raku)",
+    "url": "https://www.youtube.com/watch?v=fwQrQyWC7R0",
+    "publish_date": null,
+    "description": "In this presentation we discuss:\n- Two ways of plotting chessboards\n- Knight's tour graphs\n- Hamiltonian paths\n- Animations of knight's tours\n\n----\n\nPlease consider buying me a coffee: https://buym..."
+  },
+  {
+    "title": "Graph neat examples in Raku (Set 3)",
+    "url": "https://www.youtube.com/watch?v=S_3e7liz4KM",
+    "publish_date": null,
+    "description": "Computationally neat examples with Raku packages featuring graphs and graph plots. (3rd set.)\n\nHere is the presentation Jupyter notebook: https://github.com/antononcube/RakuForPrediction-blog/blob/..."
+  },
+  {
+    "title": "Graph neat examples in Raku (Set 2)",
+    "url": "https://www.youtube.com/watch?v=E7qhutQcWCY",
+    "publish_date": null,
+    "description": "Computationally neat examples with Raku packages featuring graphs and graph plots. (2nd set.)\n\nHere is the presentation notebook: https://github.com/antononcube/RakuForPrediction-blog/blob/main/Pre..."
+  },
+  {
+    "title": "Sparse matrix neat examples in Raku",
+    "url": "https://www.youtube.com/watch?v=kQo3wpiUu6w",
+    "publish_date": null,
+    "description": "This presentation introduces and exemplifies (newly developed) Raku sparse matrix functionalities. \nThree sets of examples are shown based: (i) Watts-Strogatz random graph, (ii) movie-actor..."
+  },
+  {
+    "title": "Robust LLM pipelines (Mathematica, Python, Raku)",
+    "url": "https://www.youtube.com/watch?v=QOsVTCQZq_s",
+    "publish_date": null,
+    "description": "The presentation discusses techniques for harnessing LLMs in a more robust and effective manner.\n(Because LLMs are unreliable and slow.)\n\nHere is a GitHub repository directory dedicated to..."
+  },
+  {
+    "title": "Raku RAG demo",
+    "url": "https://www.youtube.com/watch?v=JHO2Wk1b-Og",
+    "publish_date": null,
+    "description": "Raku Retrieval Augment Generation (RAG) demo using semantic nearest neighbor graphs over LLM-derived vector databases.\n\nHere is presentation's notebook:  https://github.com/antononcube/RakuForPredi..."
+  },
+  {
+    "title": "Random Koch curves (Raku, JavaScript, DALL-E)",
+    "url": "https://www.youtube.com/watch?v=pcGH6CeptJE",
+    "publish_date": null,
+    "description": "The presentation discusses random Koch curves generation via \na recursive algorithm and artistic renditions by DALL-E using algorithm's Raku code.\n\nPresentation notebook: https://github.com/antonon..."
+  },
+  {
+    "title": "Random Mondrians (Raku, JavaScript, Python, WL)",
+    "url": "https://www.youtube.com/watch?v=LmLk9UB4_Ak",
+    "publish_date": null,
+    "description": "The presentation demonstrates Random Mondrian images generation and discusses related theoretical properties and code procedures.\n\nMore random Mondrians here: https://imgur.com/gallery/random-mondr..."
+  },
+  {
+    "title": "Graph neat examples in Raku (Set 1)",
+    "url": "https://www.youtube.com/watch?v=5qXgqqRZHow",
+    "publish_date": null,
+    "description": "Computationally neat examples with Raku packages featuring graphs and graph plots.\n\n-------\n\nPlease consider buying me a coffee: https://buymeacoffee.com/antonov70"
+  },
+  {
+    "title": "Graph demo in Raku (teaser)",
+    "url": "https://www.youtube.com/watch?v=0uJl9q7jIf8",
+    "publish_date": null,
+    "description": "This presentation shows examples of graph creation and visualization. A graph gallery is shown and fundamental path finding algorithms are demonstrated using the Raku packages \"Graph\", \"JavaScript:..."
+  },
+  {
+    "title": "Geographics data in Raku demo",
+    "url": "https://www.youtube.com/watch?v=Rkk_MeqLj_k",
+    "publish_date": null,
+    "description": "Demonstration of Geographical data explorations using packages from the Raku ecosystem.\n(\"Data::Geographics\", \"JavaScript::Google::Charts\", \"JavaScript::D3\", \"Math::Fitting\", \"Math::Nearest\".)..."
+  },
+  {
+    "title": "Exploratory Data Analysis with Raku",
+    "url": "https://www.youtube.com/watch?v=YCnjMVSfT8w",
+    "publish_date": null,
+    "description": "Showcasing Raku's tools for exploratory data analysis over programming languages data."
+  },
+  {
+    "title": "LLaMA models running guide  (Raku)",
+    "url": "https://www.youtube.com/watch?v=zVX-SqRfFPA",
+    "publish_date": null,
+    "description": "This presentation is a guide to running llamafile models using the Raku package \"WWW::LLaMA\".\n\nMozilla's llamafile project: \nhttps://github.com/Mozilla-Ocho/llamafile \n\nWWW::LLaMa Raku package..."
+  },
+  {
+    "title": "Monte Carlo demo notebook conversion via LLMs and parsers",
+    "url": "https://www.youtube.com/watch?v=kUCZspLHEiI",
+    "publish_date": null,
+    "description": "In this presentation we show the conversion of the Jupyter notebook with Python code into a Mathematica notebook with Wolfram Language code.\n\nWe show how the conversion can be done using Large..."
+  },
+  {
+    "title": "Celtic girlfriend 2D face to 3D head",
+    "url": "https://www.youtube.com/watch?v=MuppxKAGAyk",
+    "publish_date": null,
+    "description": "Mathematica / Woflram Language demo for getting a 3D head from 2D face.\n\nUnguided Volumetric Regression Net for 3D Face Reconstruction : https://resources.wolframcloud.com/NeuralNetRepository/resou..."
+  },
+  {
+    "title": "\"Conflict\" Animation (\"Конфликт\" мультфилм) Nightcore",
+    "url": "https://www.youtube.com/watch?v=C2TtkKfQa9I",
+    "publish_date": null,
+    "description": "Nightcore version of the USSR animation movie  \"Conflict\"(1983).\n\nНайткор версия мультфильма \"Конфликт\", (1983), Союзмультфилм.\n\nThe movie is specially..."
+  },
+  {
+    "title": "Jupyter Chatbook LLM cells demo (Python)",
+    "url": "https://www.youtube.com/watch?v=WN3N-K_Xzz8",
+    "publish_date": null,
+    "description": "Demonstration how to create and evaluate Large Language Model (LLM) cells in a Python Jupyter Chatbook.\n\nLinks:\n- \"JupyterChatbook\" : https://pypi.org/project/JupyterChatb...\n- \"LLMPrompts\"..."
+  },
+  {
+    "title": "Jupyter Chatbook multi cell LLM chats teaser (Python)",
+    "url": "https://www.youtube.com/watch?v=8pv0QRGc7Rw",
+    "publish_date": null,
+    "description": "In this very short video, I'm going to demonstrate multi-cell chats with Large Language Models in Jupiter Chatbooks with a Python Kernel. This video is a teaser for a much longer presentation..."
+  },
+  {
+    "title": "Jupyter Chatbook multi cell LLM chats teaser (Raku)",
+    "url": "https://www.youtube.com/watch?v=wNpIGUAwZB8",
+    "publish_date": null,
+    "description": "In this very short video, I'm going to demonstrate multi-cell chats with Large Language Models in Jupiter Chatbooks with a Raku Kernel. This video is a teaser for a much longer presentation..."
+  },
+  {
+    "title": "Jupyter Chatbook LLM cells demo (Raku)",
+    "url": "https://www.youtube.com/watch?v=cICgnzYmQZg",
+    "publish_date": null,
+    "description": "Demonstration how to create and evaluate Large Language Model (LLM) cells in a Raku Jupyter Chatbook.\n\n\nLinks for the Raku package \"Jupyter::Chatbook\":  \n- https://github.com/antononcube/Raku-Jupyt..."
+  },
+  {
+    "title": "Dolphin Spring Nightcore ColorBoosted",
+    "url": "https://www.youtube.com/watch?v=GTlIzxSDSAA",
+    "publish_date": null,
+    "description": "Nightcore version of Dolphin's song (and video-clip) \"Spring\" with \"color boosting\" effect over the video frames. \n\nThe original song is taken from : https://www.youtube.com/watch?v=P47V4SASwGc..."
+  },
+  {
+    "title": "Streamlining ChatGPT code generation and narration workflows (Raku)",
+    "url": "https://www.youtube.com/watch?v=mI-oWLz5dYY",
+    "publish_date": null,
+    "description": "In this video we show how to use ChatGPT -- in Mathematica -- for code generation and code narration. We focus on Raku code.\n\nThe WL paclets used are:\n\n- OpenAILink : https://resources.wolframcloud..."
+  },
+  {
+    "title": "OpenAIMode code generation workflows demo (Mathematica et al.)",
+    "url": "https://www.youtube.com/watch?v=PGOtCWJgZEs",
+    "publish_date": null,
+    "description": "Streamlining ChatGPT code generation workflows for different programming languages.\n\nThe WL paclets used are:\n\n- OpenAILink : https://resources.wolframcloud.com/PacletRepository/resources/Christoph..."
+  },
+  {
+    "title": "OpenAIMode demo (Mathematica)",
+    "url": "https://www.youtube.com/watch?v=htUIOqcS9uA",
+    "publish_date": null,
+    "description": "In this presentation we demonstrate creation and evaluation of OpenAI interaction cells in Mathematica notebooks. (Via a special notebook style.)\n\nThe WL paclets used are:\n\n- OpenAILink : https://r..."
+  },
+  {
+    "title": "Racoons playing with pearls and onions",
+    "url": "https://www.youtube.com/watch?v=zlkoNZK8MpU",
+    "publish_date": null,
+    "description": "Image generation with OpenAI : https://platform.openai.com .\n\nVia the Raku module \"WWW::OpenAI\" : https://raku.land/zef:antononcube/WWW::OpenAI .\n\nVia \"Text::CodeProcessing\" : https://raku.land/zef..."
+  },
+  {
+    "title": "Raku Literate Programming via command line pipelines",
+    "url": "https://www.youtube.com/watch?v=2UjAdQaKof8",
+    "publish_date": null,
+    "description": "In this presentation we demonstrate how to do \"Literate programming\" in Raku via (short) pipelines of Command Line Interface (CLI) scripts.\n\nHere is presentation's GitHub directory: https://github...."
+  },
+  {
+    "title": "Testing workflows with Gherkin specifications (Raku)",
+    "url": "https://www.youtube.com/watch?v=eY-IqOMegZ4",
+    "publish_date": null,
+    "description": "In this presentation we show how to use the Raku package \"Gherkin::Grammar\" to generate -- and \"fill-in\" -- Raku test files from Gherkin tests specifications.\n\nThe presentation code and slides..."
+  },
+  {
+    "title": "Using Wolfram Engine in Raku sessions",
+    "url": "https://www.youtube.com/watch?v=nWeGkJU3wdM",
+    "publish_date": null,
+    "description": "In this presentation we demonstrate how we can do non-trivial mathematical computations in Raku sessions using Wolfram Engine.\n\nWe use the Raku package \"Proc::ZMQed\" : https://raku.land/zef:antonon..."
+  },
+  {
+    "title": "Random mandalas generation (with D3.js via Raku)",
+    "url": "https://www.youtube.com/watch?v=THNnofZEAn4",
+    "publish_date": null,
+    "description": "This video demonstrates how to generate random mandalas using the Raku package \"JavaScript::D3\" : https://raku.land/zef:antononcube/JavaScript::D3 .\n\nHere is the presentation notebook: https://nbvi..."
+  },
+  {
+    "title": "The Raku-ju hijack hack for D3.js",
+    "url": "https://www.youtube.com/watch?v=YIhx3FBWayo",
+    "publish_date": null,
+    "description": "This presentation demonstrates the specification and generation of JavaScript plots with Raku in Jupyter notebooks.\n\nSee the corresponding blog post: https://rakuforprediction.wordpress.com/2022/12..."
+  },
+  {
+    "title": "Interactive Mermaid diagrams generation via Markdown evaluation (Raku)",
+    "url": "https://www.youtube.com/watch?v=9B2-vLy85vI",
+    "publish_date": null,
+    "description": "In this presentation we discuss the interactive making of Mermaid-JS diagrams via evaluation of code cells in Markdown documents. (Using Raku packages and code.)\n\nSee this blog post for more..."
+  },
+  {
+    "title": "Conversion and evaluation of Raku files",
+    "url": "https://www.youtube.com/watch?v=GJO7YqjGn6o",
+    "publish_date": null,
+    "description": "In this presentation we do Raku files conversion and evaluation that allow doing literate programming (with Raku.)\n\nHere is related blog post:\nhttps://rakuforprediction.wordpress.com/2022/11/05/con..."
+  },
+  {
+    "title": "Simplified Machine Learning Workflows Overview (Raku-centric)",
+    "url": "https://www.youtube.com/watch?v=p3iwPsc6e74",
+    "publish_date": null,
+    "description": "In this presentation we overview the main Machine Learning (ML) workflows and their rapid specification through monadic packages. Additional facilitation is given by a Natural Language Processing..."
+  },
+  {
+    "title": "Making of Rorschach mask 2D and 3D animations",
+    "url": "https://www.youtube.com/watch?v=-INMkfjLPQE",
+    "publish_date": null,
+    "description": "In this presentation we show a method to make animations of Rorschach images and project those animations over 3D surfaces. The work is inspired by the visual effects of Rorschach's mask in..."
+  },
+  {
+    "title": "Markdown to Mathematica converter (Jupyter notebook example)",
+    "url": "https://www.youtube.com/watch?v=Htmiu3ZI05w",
+    "publish_date": null,
+    "description": "This video shows how to convert a Jupyter notebook into a Mathematica notebook. The conversion is done via Markdown representation.\n\nThe converter is written in Raku; see : https://rakuforpredictio..."
+  },
+  {
+    "title": "Markdown to Mathematica converter (CLI and StackExchange examples)",
+    "url": "https://www.youtube.com/watch?v=39ekokgnoqE",
+    "publish_date": null,
+    "description": "This video shows two examples of how to use a Markdown-to-Mathematica converter: 1) ad hoc conversion from the command line, 2) conversion of a Mathematica.StackExchance post saved into a Markdown..."
+  },
+  {
+    "title": "TRC 2022 Implementation of ML algorithms in Raku",
+    "url": "https://www.youtube.com/watch?v=efRHfjYebs4",
+    "publish_date": null,
+    "description": "In this presentation we discuss the implementations of different Machine Learning (ML) algorithms in Raku. \n\nThe main themes of the presentation are: \n- ML workflows demonstration \n- Software..."
+  },
+  {
+    "title": "Glukoza Schweine Nightcore Sepia Subtitled",
+    "url": "https://www.youtube.com/watch?v=8UsR9L3KPIU",
+    "publish_date": null,
+    "description": "Nightcore version of Glukoza's song \"Schweine\" overlayed on the \"sepia effect\" modified video with subtitles taken from : https://www.youtube.com/watch?v=9Es1nPWzJ-0 .\n\nThis video-clip version..."
+  },
+  {
+    "title": "MotionMandala-2344-AlpineColors",
+    "url": "https://www.youtube.com/watch?v=9rTnk-1YU_A",
+    "publish_date": null,
+    "description": "Animation of multi-mode random mandalas using the Wolfram Function Repository function \"RadomMandala\", https://resources.wolframcloud.com/FunctionRepository/resources/RandomMandala ."
+  },
+  {
+    "title": "MotionMandala-1587-Rainbow-WhiteEdges",
+    "url": "https://www.youtube.com/watch?v=paaySXyxmv4",
+    "publish_date": null,
+    "description": "Animation of multi-mode random mandalas using the Wolfram Function Repository function \"RadomMandala\", https://resources.wolframcloud.com/FunctionRepository/resources/RandomMandala ."
+  },
+  {
+    "title": "Random Mandalas Deconstruction in R, Python, and Mathematica (Greater Boston useR Meetup, Feb 2022)",
+    "url": "https://www.youtube.com/watch?v=nKlcts5aGwY",
+    "publish_date": null,
+    "description": "In this presentation we discuss the application of different dimension reduction algorithms over collections of random mandalas. We discuss and compare the derived image bases and show how..."
+  },
+  {
+    "title": "FOSDEM2022 Multi language Data Wrangling and Acquisition Conversational Agents (in Raku)",
+    "url": "https://www.youtube.com/watch?v=3OUkSa-5vEk",
+    "publish_date": null,
+    "description": "In this presentation we discuss the Conversational Agent (CA) designs for two closely related problem areas:\n1. Data Transformation Workflows (DTWs)\n2. Data Acquisition Workflows (DAWs)\nThe..."
+  },
+  {
+    "title": "Doing it like a Cro (Raku data wrangling Shortcuts demo)",
+    "url": "https://www.youtube.com/watch?v=wS1lqMDdeIY",
+    "publish_date": null,
+    "description": "This video demonstrates the generation of Raku data wrangling code from natural language commands specifications. The demonstrated system consists of the following components: 1) macOS Shortcuts..."
+  },
+  {
+    "title": "NLP Template Engine, Part 1",
+    "url": "https://www.youtube.com/watch?v=a6PvmZnvF9I",
+    "publish_date": null,
+    "description": "Demonstration of a system for code generation using semantic parsing of computational workflows specifications via Question Answering Systems (QAS). This first part has: problem formulation,..."
+  },
+  {
+    "title": "Multi language Data Acquisition Conversational Agent (extended version)",
+    "url": "https://www.youtube.com/watch?v=KlEl2b8oxb8",
+    "publish_date": null,
+    "description": "Formulations and explanations of how to make  a conversational agent that facilitates the creation and specification of Data Acquisition Workflows.\n(This is the extended version of Wolfram..."
+  },
+  {
+    "title": "Raku for Prediction presentation at The Raku Conference 2021",
+    "url": "https://www.youtube.com/watch?v=flPz4lFyn8M",
+    "publish_date": null,
+    "description": "In this presentation we discuss the architectural design and implementation of a software system for the specification, navigation, and utilization of computational workflows in the fields..."
+  },
+  {
+    "title": "OMLDSM Deep learning session 2",
+    "url": "https://www.youtube.com/watch?v=iAxUcRDVqdY",
+    "publish_date": null,
+    "description": "In this session we cover deep neural networks using R and the Keras package. Here is the link to the corresponding Meetup event: https://www.meetup.com/Orlando-MLDS/events/250086544/ ."
+  },
+  {
+    "title": "Anomalies, Breaks, and Outlier Detection in Time Series (in R for Data Science User Group, Feb 2021)",
+    "url": "https://www.youtube.com/watch?v=KL0sCSrWEkM",
+    "publish_date": null,
+    "description": "This is the recording of my presentation \"Anomalies, Breaks, and Outlier Detection in Time Series\" given at Champaign-Urbana Data Science User Group on 2021-02-5. \n\nSee this link for the meetup..."
+  },
+  {
+    "title": "Disk weight plate and kettlebell weight juggling combination",
+    "url": "https://www.youtube.com/watch?v=8qq8Ukkw76A",
+    "publish_date": null,
+    "description": "Disk weight plate and kettlebell weight juggling combination: the weight plate is 12 kg (25 lbs), the kettlebell weight is 16 kg (35 lbs.)"
+  },
+  {
+    "title": "Two kettlebell weights front swap",
+    "url": "https://www.youtube.com/watch?v=R296_QadTCc",
+    "publish_date": null,
+    "description": "Frontal swap (switching) of two kettlebell weights. Each weight is 16 kg (35 lbs). This is a simple exercise/technique upon which more complicated ones can be build."
+  },
+  {
+    "title": "Coronavirus propagation modeling, useR! Boston April 2020",
+    "url": "https://www.youtube.com/watch?v=X8MgHG0SWtE",
+    "publish_date": null,
+    "description": "In this (tutorial) presentation we:\n\n- Discuss the modeling and evolution of different scenarios of the coronavirus propagation and related disease\n- Overview classic compartmental models in..."
+  },
+  {
+    "title": "Investigating COVID-19 with R: data analysis and simulations",
+    "url": "https://www.youtube.com/watch?v=-Nsmu-cKtAU",
+    "publish_date": null,
+    "description": "n this presentation we discuss different aspects of COVID-19 modeling in R.\n\nThe presentation has significant technical elements, but most of the workflows are generalized and presented in..."
+  },
+  {
+    "title": "Phone dialing Conversational Agent WL prototype demo",
+    "url": "https://www.youtube.com/watch?v=fHRHEAPPZS8",
+    "publish_date": null,
+    "description": "Conversational agent for mobile phone dialing using Finite State Machine (FSM) design and corresponding grammar of commands."
+  },
+  {
+    "title": "Multi language Data Wrangling Translation - talk advertisement",
+    "url": "https://www.youtube.com/watch?v=OHY64ezgnm4",
+    "publish_date": null,
+    "description": "This presentation is to be given at \"Data Science Study Group: South Florida Meetup\" on 2020-10-7: https://www.meetup.com/Data-Science-Study-Group-South-Florida/events/273397708/ .\n\nThis presentati..."
+  },
+  {
+    "title": "Boston useR! QuantileRegression Workflows 2019-04-18",
+    "url": "https://www.youtube.com/watch?v=a_Dk25xarvE",
+    "publish_date": null,
+    "description": "The goals of this workshop are to introduce the theoretical background of Quantile Regression (QR), to demonstrate QR's practical (and superior) abilities to deal with \"real life\" time series..."
+  },
+  {
+    "title": "How to simplify ML workflows specifications",
+    "url": "https://www.youtube.com/watch?v=WTXUBX7ANbY",
+    "publish_date": null,
+    "description": "In this presentation we discuss a systematic approach of software development that gives us the ability to rapidly specify Machine Learning (ML) computations using both programming Domain Specific..."
+  }
+]
