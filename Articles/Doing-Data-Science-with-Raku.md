@@ -373,15 +373,15 @@ After implementing the SMA package ["Math::SparseMatrix"](https://raku.land/zef:
 Here is an example of using Raku to generate code for one my SMR packages:
 
 ```shell
-dsl-translation -t=Python "new recommender;
-create from @dsData;
+dsl-translation -t=Python "
+create from dsData;
 apply LSI functions IDF, None, Cosine;
 recommend by profile for passengerSex:male, and passengerClass:1st;"
 ```
 
 ```
 # obj = (SparseMatrixRecommender()
-# .create_from_wide_form(data = @dsData)
+# .create_from_wide_form(data = dsData)
 # .apply_term_weight_functions(global_weight_func = "IDF", local_weight_func = "None", normalizer_func = "Cosine")
 # .recommend_by_profile( profile = ["passengerSex:male", "passengerClass:1st"]))
 ```
