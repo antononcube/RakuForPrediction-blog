@@ -1,0 +1,432 @@
+[
+  {
+    "title": "Data science over small movie dataset — Part 1",
+    "url": "https://rakuforprediction.wordpress.com/2025/11/27/data-science-over-small-movie-dataset-part-1/",
+    "publish_date": "2025-11-27"
+  },
+  {
+    "title": "Monad laws in Raku",
+    "url": "https://rakuforprediction.wordpress.com/2025/11/16/monad-laws-in-raku/",
+    "publish_date": "2025-11-16"
+  },
+  {
+    "title": "LLM function calling workflows (Part 4, Universal specs)",
+    "url": "https://rakuforprediction.wordpress.com/2025/09/28/llm-function-calling-workflows-part-4-universal-specs/",
+    "publish_date": "2025-09-28"
+  },
+  {
+    "title": "LLM::Graph plots interpretation guide",
+    "url": "https://rakuforprediction.wordpress.com/2025/09/12/llmgraph-plots-interpretation-guide/",
+    "publish_date": "2025-09-12"
+  },
+  {
+    "title": "Agentic-AI for text summarization",
+    "url": "https://rakuforprediction.wordpress.com/2025/09/02/agentic-ai-for-text-summarization/",
+    "publish_date": "2025-09-02"
+  },
+  {
+    "title": "LLM::Graph",
+    "url": "https://rakuforprediction.wordpress.com/2025/08/23/llmgraph/",
+    "publish_date": "2025-08-23"
+  },
+  {
+    "title": "Parameterized Literate Programming",
+    "url": "https://rakuforprediction.wordpress.com/2025/06/21/parameterized-literate-programming/",
+    "publish_date": "2025-06-21"
+  },
+  {
+    "title": "LLM function calling workflows (Part 3, Facilitation)",
+    "url": "https://rakuforprediction.wordpress.com/2025/06/08/llm-function-calling-workflows-part-3-facilitation/",
+    "publish_date": "2025-06-08"
+  },
+  {
+    "title": "LLM function calling workflows (Part 2, Google’s Gemini)",
+    "url": "https://rakuforprediction.wordpress.com/2025/06/07/llm-function-calling-workflows-part-2-googles-gemini/",
+    "publish_date": "2025-06-07"
+  },
+  {
+    "title": "LLM function calling workflows (Part 1, OpenAI)",
+    "url": "https://rakuforprediction.wordpress.com/2025/06/01/llm-function-calling-workflows-part-1-openai/",
+    "publish_date": "2025-06-01"
+  },
+  {
+    "title": "Collatz conjecture visualizations",
+    "url": "https://rakuforprediction.wordpress.com/2025/05/25/collatz-conjecture-visualizations/",
+    "publish_date": "2025-05-25"
+  },
+  {
+    "title": "Визуализации свързани с хипотезата на Колац",
+    "url": "https://rakuforprediction.wordpress.com/2025/05/24/визуализации-свързани-с-хипотезата-н/",
+    "publish_date": "2025-05-24"
+  },
+  {
+    "title": "Military forces interactions graphs",
+    "url": "https://rakuforprediction.wordpress.com/2025/03/06/military-forces-interactions-graphs/",
+    "publish_date": "2025-03-06"
+  },
+  {
+    "title": "Rock-Paper-Scissors extensions",
+    "url": "https://rakuforprediction.wordpress.com/2025/03/03/rock-paper-scissors-extensions/",
+    "publish_date": "2025-03-03"
+  },
+  {
+    "title": "Numeric properties of 2025",
+    "url": "https://rakuforprediction.wordpress.com/2025/01/03/numeric-properties-of-2025/",
+    "publish_date": "2025-01-03"
+  },
+  {
+    "title": "Doomsday clock parsing and plotting",
+    "url": "https://rakuforprediction.wordpress.com/2025/01/01/doomsday-clock-parsing-and-plotting/",
+    "publish_date": "2025-01-01"
+  },
+  {
+    "title": "Sparse Matrix Neat Examples in Raku",
+    "url": "https://rakuforprediction.wordpress.com/2024/12/28/sparse-matrix-neat-examples-in-raku/",
+    "publish_date": "2024-12-28"
+  },
+  {
+    "title": "Graph Neat Examples in Raku – Set 3",
+    "url": "https://rakuforprediction.wordpress.com/2024/12/10/graph-neat-examples-in-raku-set-3/",
+    "publish_date": "2024-12-10"
+  },
+  {
+    "title": "Graph Neat Examples in Raku – Set 2",
+    "url": "https://rakuforprediction.wordpress.com/2024/12/06/graph-neat-examples-in-raku-set-2/",
+    "publish_date": "2024-12-06"
+  },
+  {
+    "title": "Graph Neat Examples in Raku – Set 1",
+    "url": "https://rakuforprediction.wordpress.com/2024/12/01/graph-neat-examples-in-raku-set-1/",
+    "publish_date": "2024-12-01"
+  },
+  {
+    "title": "Geographic Data in Raku Demo",
+    "url": "https://rakuforprediction.wordpress.com/2024/06/18/geographic-data-in-raku-demo/",
+    "publish_date": "2024-06-18"
+  },
+  {
+    "title": "Age at creation for programming languages stats",
+    "url": "https://rakuforprediction.wordpress.com/2024/05/25/age-at-creation-for-programming-languages-stats/",
+    "publish_date": "2024-05-25"
+  },
+  {
+    "title": "Статистики върху възрастта на създателите на езици за програмиране",
+    "url": "https://rakuforprediction.wordpress.com/2024/05/24/%d1%81%d1%82%d0%b0%d1%82%d0%b8%d1%81%d1%82%d0%b8%d0%ba%d0%b8-%d0%b2%d1%8a%d1%80%d1%85%d1%83-%d0%b2%d1%8a%d0%b7%d1%80%d0%b0%d1%81%d1%82%d1%82%d0%b0-%d0%bd%d0%b0-%d1%81%d1%8a%d0%b7%d0%b4%d0%b0%d1%82/",
+    "publish_date": "2024-05-24"
+  },
+  {
+    "title": "Chatbook New Magic Cells",
+    "url": "https://rakuforprediction.wordpress.com/2024/05/18/chatbook-new-magic-cells/",
+    "publish_date": "2024-05-18"
+  },
+  {
+    "title": "WWW::WolframAlpha",
+    "url": "https://rakuforprediction.wordpress.com/2024/05/06/wwwwolframalpha/",
+    "publish_date": "2024-05-06"
+  },
+  {
+    "title": "ML::NLPTemplateEngine",
+    "url": "https://rakuforprediction.wordpress.com/2024/05/03/mlnlptemplateengine/",
+    "publish_date": "2024-05-03"
+  },
+  {
+    "title": "Exorcism for Exercism",
+    "url": "https://rakuforprediction.wordpress.com/2024/04/14/exorcism-for-exercism/",
+    "publish_date": "2024-04-14"
+  },
+  {
+    "title": "Propaganda in “Integrating Large Language Models with Raku”",
+    "url": "https://rakuforprediction.wordpress.com/2024/04/07/propaganda-in-integrating-large-language-models-with-raku/",
+    "publish_date": "2024-04-07"
+  },
+  {
+    "title": "Wisdom of “Integrating Large Language Models with Raku”",
+    "url": "https://rakuforprediction.wordpress.com/2024/04/06/wisdom-of-integrating-large-language-models-with-raku/",
+    "publish_date": "2024-04-06"
+  },
+  {
+    "title": "Omni-slurping with LLMing",
+    "url": "https://rakuforprediction.wordpress.com/2024/03/26/omni-slurping-with-llming/",
+    "publish_date": "2024-03-26"
+  },
+  {
+    "title": "WWW::LLaMA",
+    "url": "https://rakuforprediction.wordpress.com/2024/03/15/wwwllama/",
+    "publish_date": "2024-03-15"
+  },
+  {
+    "title": "WWW::Gemini",
+    "url": "https://rakuforprediction.wordpress.com/2024/03/13/wwwgemini/",
+    "publish_date": "2024-03-13"
+  },
+  {
+    "title": "LLM aids for processing Biden’s State of the Union address",
+    "url": "https://rakuforprediction.wordpress.com/2024/03/12/llm-aids-for-processing-bidens-state-of-the-union-address/",
+    "publish_date": "2024-03-12"
+  },
+  {
+    "title": "Comprehension AI Aids for “Can AI Solve Science?”",
+    "url": "https://rakuforprediction.wordpress.com/2024/03/09/comprehension-ai-aids-for-can-ai-solve-science/",
+    "publish_date": "2024-03-09"
+  },
+  {
+    "title": "LLM over Trump vs. Anderson",
+    "url": "https://rakuforprediction.wordpress.com/2024/03/05/llm-over-trump-vs-anderson/",
+    "publish_date": "2024-03-05"
+  },
+  {
+    "title": "LLM aids for processing Putin’s State-Of-Nation speech",
+    "url": "https://rakuforprediction.wordpress.com/2024/03/03/llm-aids-for-processing-putins-state-of-the-nation-speech/",
+    "publish_date": "2024-03-03"
+  },
+  {
+    "title": "US Constitution vs Plants vs Zombies",
+    "url": "https://rakuforprediction.wordpress.com/2024/02/24/us-constitution-vs-plants-vs-zombies/",
+    "publish_date": "2024-02-24"
+  },
+  {
+    "title": "Notebook transformations",
+    "url": "https://rakuforprediction.wordpress.com/2024/02/17/notebook-transformations/",
+    "publish_date": "2024-02-17"
+  },
+  {
+    "title": "LLM aids for processing of the first Carlson-Putin interview",
+    "url": "https://rakuforprediction.wordpress.com/2024/02/12/llm-aids-for-processing-of-the-first-carlson-putin-interview/",
+    "publish_date": "2024-02-12"
+  },
+  {
+    "title": "Heatmap plots over LLM scraped data",
+    "url": "https://rakuforprediction.wordpress.com/2024/01/27/heatmap-plots-over-llm-scraped-data/",
+    "publish_date": "2024-01-27"
+  },
+  {
+    "title": "WWW::MistralAI",
+    "url": "https://rakuforprediction.wordpress.com/2023/12/23/wwwmistralai/",
+    "publish_date": "2023-12-23"
+  },
+  {
+    "title": "AI vision via Raku",
+    "url": "https://rakuforprediction.wordpress.com/2023/11/25/ai-vision-via-raku/",
+    "publish_date": "2023-11-25"
+  },
+  {
+    "title": "Integrating Large Language Models with Raku (TRC-2023)",
+    "url": "https://rakuforprediction.wordpress.com/2023/11/11/integrating-large-language-models-with-raku-trc-2023/",
+    "publish_date": "2023-11-11"
+  },
+  {
+    "title": "Re-programming to Python of LLM- and Chatbook packages",
+    "url": "https://rakuforprediction.wordpress.com/2023/10/15/re-programming-to-python-of-llm-and-chatbook-packages/",
+    "publish_date": "2023-10-15"
+  },
+  {
+    "title": "LLM::Prompts",
+    "url": "https://rakuforprediction.wordpress.com/2023/09/14/llmprompts/",
+    "publish_date": "2023-09-14"
+  },
+  {
+    "title": "Jupyter::Chatbook",
+    "url": "https://rakuforprediction.wordpress.com/2023/09/03/jupyterchatbook/",
+    "publish_date": "2023-09-03"
+  },
+  {
+    "title": "Data::Translators",
+    "url": "https://rakuforprediction.wordpress.com/2023/08/19/datatranslators/",
+    "publish_date": "2023-08-19"
+  },
+  {
+    "title": "TLDR LLM solutions for software manuals",
+    "url": "https://rakuforprediction.wordpress.com/2023/08/15/tldr-llm-solutions-for-software-manuals/",
+    "publish_date": "2023-08-15"
+  },
+  {
+    "title": "Number guessing games: PaLM vs ChatGPT",
+    "url": "https://rakuforprediction.wordpress.com/2023/08/06/number-guessing-games-palm-vs-chatgpt/",
+    "publish_date": "2023-08-06"
+  },
+  {
+    "title": "Workflows with LLM functions",
+    "url": "https://rakuforprediction.wordpress.com/2023/08/01/workflows-with-llm-functions/",
+    "publish_date": "2023-08-01"
+  },
+  {
+    "title": "Literate programming via CLI",
+    "url": "https://rakuforprediction.wordpress.com/2023/03/06/literate-programming-via-cli/",
+    "publish_date": "2023-03-06"
+  },
+  {
+    "title": "Generating documents via templates and LLMs",
+    "url": "https://rakuforprediction.wordpress.com/2023/07/11/generating-documents-via-templates-and-llms/",
+    "publish_date": "2023-07-11"
+  },
+  {
+    "title": "Graph representation of grammars",
+    "url": "https://rakuforprediction.wordpress.com/2023/07/06/graph-representation-of-grammars/",
+    "publish_date": "2023-07-06"
+  },
+  {
+    "title": "Text::SubParsers",
+    "url": "https://rakuforprediction.wordpress.com/2023/07/25/textsubparsers/",
+    "publish_date": "2023-07-25"
+  },
+  {
+    "title": "LLM::Functions",
+    "url": "https://rakuforprediction.wordpress.com/2023/07/21/llmfunctions/",
+    "publish_date": "2023-07-21"
+  },
+  {
+    "title": "EBNF::Grammar",
+    "url": "https://rakuforprediction.wordpress.com/2023/06/26/ebnfgrammar/",
+    "publish_date": "2023-06-26"
+  },
+  {
+    "title": "FunctionalParsers",
+    "url": "https://rakuforprediction.wordpress.com/2023/06/18/functionalparsers/",
+    "publish_date": "2023-06-18"
+  },
+  {
+    "title": "WWW::PaLM (for Bard and other hallucinators)",
+    "url": "https://rakuforprediction.wordpress.com/2023/05/21/wwwpalm-for-bard-and-other-hallucinators/",
+    "publish_date": "2023-05-21"
+  },
+  {
+    "title": "Further work on WWW::OpenAI",
+    "url": "https://rakuforprediction.wordpress.com/2023/04/30/further-work-on-wwwopenai/",
+    "publish_date": "2023-04-30"
+  },
+  {
+    "title": "WWW::MermaidInk",
+    "url": "https://rakuforprediction.wordpress.com/2023/04/16/wwwmermaidink/",
+    "publish_date": "2023-04-16"
+  },
+  {
+    "title": "DSL::FiniteStateMachines",
+    "url": "https://rakuforprediction.wordpress.com/2023/03/26/dslfinitestatemachines/",
+    "publish_date": "2023-03-26"
+  },
+  {
+    "title": "Racoons playing with pearls and onions",
+    "url": "https://rakuforprediction.wordpress.com/2023/03/12/racoons-playing-with-pearls-and-onions/",
+    "publish_date": "2023-03-12"
+  },
+  {
+    "title": "WWW::OpenAI (for ChatGPT and other statistical gimmicks)",
+    "url": "https://rakuforprediction.wordpress.com/2023/03/10/wwwopenai-for-chatgpt-and-other-statistical-gimmicks/",
+    "publish_date": "2023-03-10"
+  },
+  {
+    "title": "Gherkin::Grammar",
+    "url": "https://rakuforprediction.wordpress.com/2023/02/19/gherkingrammar/",
+    "publish_date": "2023-02-19"
+  },
+  {
+    "title": "Data::Cryptocurrencies",
+    "url": "https://rakuforprediction.wordpress.com/2023/02/10/datacryptocurrencies/",
+    "publish_date": "2023-02-10"
+  },
+  {
+    "title": "DateTime::Grammar",
+    "url": "https://rakuforprediction.wordpress.com/2023/02/06/datetimegrammar/",
+    "publish_date": "2023-02-06"
+  },
+  {
+    "title": "Using Tries for Markov chain text generation",
+    "url": "https://rakuforprediction.wordpress.com/2023/01/29/using-tries-for-markov-chain-text-generation/",
+    "publish_date": "2023-01-29"
+  },
+  {
+    "title": "Grammar based random sentences generation, Part 1",
+    "url": "https://rakuforprediction.wordpress.com/2023/01/23/grammar-based-random-sentences-generation-part-1/",
+    "publish_date": "2023-01-23"
+  },
+  {
+    "title": "DSL::Bulgarian",
+    "url": "https://rakuforprediction.wordpress.com/2022/12/31/dslbulgarian/",
+    "publish_date": "2022-12-31"
+  },
+  {
+    "title": "Further work on the Raku-D3.js translation",
+    "url": "https://rakuforprediction.wordpress.com/2022/12/22/further-work-on-the-raku-to-d3-js-translation/",
+    "publish_date": "2022-12-22"
+  },
+  {
+    "title": "JavaScript::D3",
+    "url": "https://rakuforprediction.wordpress.com/2022/12/15/javascriptd3/",
+    "publish_date": "2022-12-15"
+  },
+  {
+    "title": "Proc::ZMQed",
+    "url": "https://rakuforprediction.wordpress.com/2022/11/29/proczmqed/",
+    "publish_date": "2022-11-29"
+  },
+  {
+    "title": "Interactive Mermaid diagrams generation via Markdown evaluation",
+    "url": "https://rakuforprediction.wordpress.com/2022/11/22/interactive-mermaid-diagrams-generation-via-markdown-evaluation/",
+    "publish_date": "2022-11-22"
+  },
+  {
+    "title": "Lingua::Translation::DeepL",
+    "url": "https://rakuforprediction.wordpress.com/2022/11/12/linguatranslationdeepl/",
+    "publish_date": "2022-11-12"
+  },
+  {
+    "title": "Conversion and evaluation of Raku files",
+    "url": "https://rakuforprediction.wordpress.com/2022/11/05/conversion-and-evaluation-of-raku-files/",
+    "publish_date": "2022-11-05"
+  },
+  {
+    "title": "Markdown::Grammar",
+    "url": "https://rakuforprediction.wordpress.com/2022/09/24/markdowngrammar/",
+    "publish_date": "2022-09-24"
+  },
+  {
+    "title": "DSL::English::DataQueryWorkflows",
+    "url": "https://rakuforprediction.wordpress.com/2022/08/28/dslenglishdataqueryworkflows/",
+    "publish_date": "2022-08-28"
+  },
+  {
+    "title": "Implementing Machine Learning algorithms in Raku (TRC-2022 talk)",
+    "url": "https://rakuforprediction.wordpress.com/2022/08/15/implementing-machine-learning-algorithms-in-raku-trc-2022-talk/",
+    "publish_date": "2022-08-15"
+  },
+  {
+    "title": "ML::Clustering",
+    "url": "https://rakuforprediction.wordpress.com/2022/08/04/mlclustering/",
+    "publish_date": "2022-08-04"
+  },
+  {
+    "title": "Fast and compact classifier of DSL commands",
+    "url": "https://rakuforprediction.wordpress.com/2022/07/31/fast-and-compact-classifier-of-dsl-commands/",
+    "publish_date": "2022-07-31"
+  },
+  {
+    "title": "Introduction to data wrangling with Raku",
+    "url": "https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/",
+    "publish_date": "2021-12-31"
+  },
+  {
+    "title": "Connecting Mathematica and Raku",
+    "url": "https://rakuforprediction.wordpress.com/2021/12/31/connecting-mathematica-and-raku/",
+    "publish_date": "2021-12-31"
+  },
+  {
+    "title": "Multi-language Data Wrangling and Acquisition Conversational Agents presentation",
+    "url": "https://rakuforprediction.wordpress.com/2021/07/21/multi-language-data-wrangling-and-acquisition-conversational-agents-presentation/",
+    "publish_date": "2021-07-21"
+  },
+  {
+    "title": "Raku Text::CodeProcessing",
+    "url": "https://rakuforprediction.wordpress.com/2021/07/13/raku-textcodeprocessing/",
+    "publish_date": "2021-07-13"
+  },
+  {
+    "title": "Raku Chemistry::Stoichiometry",
+    "url": "https://rakuforprediction.wordpress.com/2021/06/29/raku-chemistrystoichiometry/",
+    "publish_date": "2021-06-29"
+  },
+  {
+    "title": "Raku Lingua::NumericWordForms",
+    "url": "https://rakuforprediction.wordpress.com/2021/05/04/raku-lingua-numericwordforms/",
+    "publish_date": "2021-05-24"
+  }
+]
