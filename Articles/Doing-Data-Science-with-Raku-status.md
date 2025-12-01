@@ -56,7 +56,7 @@
 - External Data Science (DS) and Machine Learning (ML) orchestration
     - Comment: Effective way to do DS and ML _and_ easily move the developed computations to other systems. Allows reuse and having confidence that the utilized DS or ML algorithms are properly implemented and fast.
     - Pre-2021: Various projects connecting to database systems (e.g. MySQL.)
-    - 2025:
+    - 2025: The project ["Dan"](https://raku.land/zef:librasteve/Dan) provides bindings external data wrangling library [Polars](https://docs.pola.rs). The project ["H2O::Client"](https://github.com/antononcube/Raku-H2O-Client) aims at providing both data wrangling and ML orchestrations to [H2O.ai](https://h2o.ai).
     - Essential: 𖧋
     - Current status: ★★★ (2.5)
     - References: ["Dan"](https://raku.land/zef:librasteve/Dan), ["Proc::ZMQed"](https://raku.land/zef:antononcube/Proc::ZMQed), ["WWW::WolframAlpha"](https://raku.land/zef:antononcube/WWW::WolframAlpha), ["H2O::Client"](https://github.com/antononcube/Raku-H2O-Client)
