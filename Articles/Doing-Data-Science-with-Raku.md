@@ -29,12 +29,10 @@ Large Language Models (LLMs) is seen here as:
 
 Here is wordier and almost technical definition of DS:
 
-> ***Data Science*** as the process of exploring and summarizing data,
-uncovering hidden patterns, building predictive models, and creating clear visualizations to reveal insights.
-It is analytical work analysts, researchers, or scientists would do over raw in order to understand it
-and utilize those insights. 
+> ***Data Science*** is the process of exploring and summarizing data, uncovering hidden patterns, building predictive models, and creating clear visualizations to reveal insights.
+It is analytical work analysts, researchers, or scientists would do over raw in order to understand it and utilize those insights. 
 
-**Remark:** "Insights utilization" would mean "Machine Learning" (ML) to many.
+**Remark:** "Insights utilization" would mean "machine Learning" to many.
 
 Assume you have a general purpose language very good at dealing with text and an package ecosystem with *well maintained* part dedicated to doing various Web development tasks and workflows. (I.e. trying to re-live Perl's glory days.) What new components the ecosystem of that programming language has to be endowed with in order to make it useful for doing Data Science?
 
@@ -53,6 +51,7 @@ Additional, but not indispensable components are:
 - Data generation and retrieval
 - Interfacing to other programming languages and ecosystems
 - Interactive interfaces to parameterized workflows
+- LLM utilization facilitation
 
 ### Just an overview of packages
 
@@ -94,7 +93,9 @@ There are two ways to read this document:
 
 ## Summary of Data Science components and status in Raku 
 
-Each component has sub-items for its "previous" state (pre-2021), current state (2025), essential or not mark, a star 1-5 star rating of its current state, and references. There are also corresponding table and mind-map.
+The list below summarizes Raku covering the DS components listed above.
+Each component-item has sub-items for its "previous" state (pre-2021), current state (2025), essential or not mark, a star 1-5 star rating of its current state, and references. 
+There are also corresponding [table]() and [mind-map]().
 
 - Data ingestion
     - Comment: That is fundamental and all programming systems have such functionalities to various degrees.
@@ -102,24 +103,24 @@ Each component has sub-items for its "previous" state (pre-2021), current state 
     - 2025: Various (improved) packages for working with JSON, CSC, markup images, PDF, etc. Umbrella ingestion function for them.
     - Essential: ✓
     - Current status: ★★★ (2.5)
-    - References: ["Data::Importers"](https://raku.land/zef:antononcube/Data::Importers), ["Data::Translators"](https://raku.land/zef:antononcube/Data::Translators), ["Omni-slurping with LLMing"](https://rakuforprediction.wordpress.com/2024/03/26/omni-slurping-with-llming/), [AA3]
+    - References: ["Data::Importers"](https://raku.land/zef:antononcube/Data::Importers), ["Data::Translators"](https://raku.land/zef:antononcube/Data::Translators), ["Omni-slurping with LLMing"](https://rakuforprediction.wordpress.com/2024/03/26/omni-slurping-with-llming/) [post]
 - Data wrangling facilitation
     - Comment: Slicing, splitting, combining, aggregating, summarizing data can be difficult and time consuming.
     - Pre-2021: No serious efforts, especially, in terms of streamlining data wrangling workflows.
     - 2025: Two major efforts for streamlining data wrangling workflows one using "pure" Raku (good for exploration) and other interfaces "outside" systems.
     - Essential: ✓
     - Current status: ★★★ (3.25)
-    - References: ["Data::Reshapers"](https://raku.land/zef:antononcube/Data::Reshapers), ["Dan"](https://raku.land/zef:librasteve/Dan), ["Introduction to data wrangling with Raku"](https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/), [AA3]
+    - References: ["Data::Reshapers"](https://raku.land/zef:antononcube/Data::Reshapers), ["Dan"](https://raku.land/zef:librasteve/Dan), ["Introduction to data wrangling with Raku"](https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/) [post]
 - Statistics for data exploration
     - Comment: This includes descriptive statistics (mean, median, 5-point summary), summarization, outlier identification, and statistical distribution functions.
     - Pre-2021: Various attempts, some are basic and "plain-Raku" (e.g. ["Stats"](https://raku.land/github:MattOates/Stats)), some connect to [GSL](https://www.gnu.org/software/gsl/) (and do not work on macOS.)
-    - 2025: Couple of major efforts exist, one is all-in-one package, the other has is spread out in various packages.
+    - 2025: A couple of major efforts exist, one is all-in-one package, the other has is spread out in various packages.
     - Essential: ✓
     - Current status: ★★★ (2.5)
     - References: ["Statistics"](https://raku.land/zef:sumankhanal/Statistics), ["Statistics::Distributions"](https://raku.land/zef:antononcube/Statistics::Distributions), ["Statistics::OutlierIdentifiers"](https://raku.land/cpan:ANTONOV/Statistics::OutlierIdentifiers), ["Data::Summarizers"](https://raku.land/zef:antononcube/Data::Summarizers), ["Data::TypeSystem"](https://raku.land/zef:antononcube/Data::TypeSystem)
-- Machine Learning algorithms (both unsupervised and supervised)
+- Machine Learning (ML) algorithms (both unsupervised and supervised)
     - Comment: Unsupervised ML is often used for Exploratory Data Analysis (EDA); supervised ML is used to leverage data patterns in some way, but also for certain type of EDA.
-    - Pre-2021: A few packages for doing unsupervised Machine Learning (ML) (like ["Text::Markov"]().)
+    - Pre-2021: A few packages for doing unsupervised Machine Learning (ML) (like ["Text::Markov"](https://raku.land/zef:bbkr/Text::Markov).)
     - 2025: At least supervised ML package connecting (binding) to external systems, a set of unsupervised ML packages for clustering, associating rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with tries with frequencies can be used as classifiers.
     - Essential: ✓
     - Current status: ★★★ (2.5)
@@ -130,26 +131,26 @@ Each component has sub-items for its "previous" state (pre-2021), current state 
     - 2025: There are two "solid" packages Data Science visualizations, ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3), ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts); there is also an ASCI-plots package ["Text::Plot"](https://raku.land/zef:antononcube/Text::Plot) which is useful when basic, coarse plots are sufficient.
     - Essential: ✓
     - Current status: ★★★★
-    - References: ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3), ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts), ["Text::Plot"](https://raku.land/zef:antononcube/Text::Plot), ["The Raku-ju hijack hack for D3.js"](https://www.youtube.com/watch?v=YIhx3FBWayo), ["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k)
+    - References: ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3), ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts), ["Text::Plot"](https://raku.land/zef:antononcube/Text::Plot), ["The Raku-ju hijack hack for D3.js"](https://www.youtube.com/watch?v=YIhx3FBWayo) [video], ["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k) [video]
 - Interactive computing environment(s)
     - Comment: Any data exploration is done in interactive manner with multiple changes of the data, and analysis or pattern finding workflows.
     - Pre-2021: The (basic) Raku REPL, related Emacs major-mode, and the notebook environment ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel).
     - 2025: In addition to pre-2021 work there are ["RakuMode"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/RakuMode/) for [Wolfram Notebooks](https://www.wolfram.com/notebooks/), ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook) for seamless integration with LLMs.
     - Essential: ✓
     - Current status: ★★★★
-    - References: ["Connecting Mathematica and Raku"](https://rakuforprediction.wordpress.com/2021/12/30/connecting-mathematica-and-raku/), ["Exploratory Data Analysis with Raku](https://www.youtube.com/watch?v=YCnjMVSfT8w)
-- [Literate programming](https://en.wikipedia.org/wiki/Literate_programming)
-    - Comment: Literate Programming is very important for Data Science (DS) because of the DS needs for [Reproducible Research](https://en.wikipedia.org/wiki/Reproducibility#Reproducible_research).
+    - References: ["Connecting Mathematica and Raku"](https://rakuforprediction.wordpress.com/2021/12/30/connecting-mathematica-and-raku/) [post], ["Exploratory Data Analysis with Raku](https://www.youtube.com/watch?v=YCnjMVSfT8w) [video]
+- [Literate programming (LT)](https://en.wikipedia.org/wiki/Literate_programming)
+    - Comment: LT is very important for Data Science (DS) because of the DS needs for [Reproducible Research](https://en.wikipedia.org/wiki/Reproducibility#Reproducible_research).
     - Pre-2021: None, except ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel), but that not useful because of the lack of good graphics.
-    - 2025: Multiple Literate Programming (LT) solutions are in place. Because of the good graphics and LLM support in Raku, LT i
+    - 2025: LT is fully supported due to having multiple LT solutions, strong graphics capabilities, LLM integration, and computational documents converters.
     - Essential: ✓
     - Current status: ★★★★★ (4.5)
-    - References: ["Notebook transformations"](https://rakuforprediction.wordpress.com/2024/02/17/notebook-transformations/)
+    - References: ["Notebook transformations"](https://rakuforprediction.wordpress.com/2024/02/17/notebook-transformations/) [post], ["Raku Literate Programming via command line pipelines"](https://www.youtube.com/watch?v=2UjAdQaKof8) [video], ["Conversion and evaluation of Raku files"](https://www.youtube.com/watch?v=GJO7YqjGn6o) [video]
 - Data generation and retrieval
     - Comment: For didactical and development purposes random data generation and retrieval of well known dataset is needed.
     - Essential: 𖧋
     - Current status: ★★★★ (3.5)
-    - References: ["Data::Generators"](https://raku.land/zef:antononcube/Data::Generators), ["Data::ExampleDatasets"](https://raku.land/zef:antononcube/Data::ExampleDatasets), ["Data::Geographics"](https://raku.land/zef:antononcube/Data::Geographics), ["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k)
+    - References: ["Data::Generators"](https://raku.land/zef:antononcube/Data::Generators), ["Data::ExampleDatasets"](https://raku.land/zef:antononcube/Data::ExampleDatasets), ["Data::Geographics"](https://raku.land/zef:antononcube/Data::Geographics), ["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k) [video]
 - External Data Science (DS) and Machine Learning (ML) orchestration
     - Comment: Effective way to do DS and ML _and_ easily move the developed computations to other systems. Allows reuse and having confidence that the utilized DS or ML algorithms are properly implemented and fast.
     - Pre-2021: Various projects connecting to database systems (e.g. MySQL.)
@@ -164,7 +165,7 @@ Each component has sub-items for its "previous" state (pre-2021), current state 
     - Essential: 𖧋
     - Current status: ★
     - References: ["Air::Examples"](https://raku.land/zef:librasteve/Air::Examples), ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts)
-  
+
 ------
 
 ## Code generation
@@ -206,15 +207,27 @@ concretize --l=Python make a quantile regression pipeline over dfTemperature usi
 
 ## Data wrangling 
 
-Data wrangling, summarization, and generation:
+Most data scientists spend most of their time doing data acquisition and data wrangling. 
+Not data science, or AI, or whatever “really learned” work. 
+(For a more elaborated rant, see ["Introduction to data wrangling with Raku"](https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/), [AA2].)
+
+Data wrangling, summarization, and generation is done with that packages:
 
 - ["Data::Reshapers"](https://raku.land/zef:antononcube/Data::Reshapers)
 - ["Data::Summarizers"](https://raku.land/zef:antononcube/Data::Summarizers)
 - ["Data::Generators"](https://raku.land/zef:antononcube/Data::Generators)
 
-Generation of data wrangling workflows code:
+Example datasets retrieval is done with the package:
+
+- ["Data::ExampleDatasets"](https://raku.land/zef:antononcube/Data::ExampleDatasets)
+
+Generation of data wrangling workflows code is done with the package:
 
 - ["DSL::English::DataQueryWorkflows"](https://raku.land/zef:antononcube/DSL::English::DataQueryWorkflows)
+
+the functionalities of which are summarized in this diagram:
+
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-book/main/Diagrams/DSLs-Interpreter-for-Data-Wrangling-August-2022-state.png)
 
 ### Examples
 
@@ -280,144 +293,25 @@ Here are EDA stages and related Raku packages:
 
 ## Machine Learning & Statistics
 
+The topics of Machine Learning (ML) and Statistics are too big to be described with more than
+an outline in this document.
+
 - Unsupervised learning
   - ["ML::Clustering"](https://raku.land/zef:antononcube/ML::Clustering)
   - ["ML::TriesWithFrequencies"](https://raku.land/zef:antononcube/ML::TriesWithFrequencies)
   - ["ML::AssociationRuleLearning"](https://raku.land/zef:antononcube/ML::AssociationRuleLearning)
   - ["Math::Nearest"](https://raku.land/zef:antononcube/Math::Nearest)
+  - ["LLM::RetrievalAugmentedGeneration"](https://raku.land/zef:antononcube/LLM::RetrievalAugmentedGeneration)
 - Supervised learning
+  - ["ML::TriesWithFrequencies"](https://raku.land/zef:antononcube/ML::TriesWithFrequencies)
   - ["ML::ROCFunctions"](https://raku.land/zef:antononcube/ML::ROCFunctions)
+  - ["ML::SparseMatrixRecommender"](https://raku.land/zef:antononcube/ML::SparseMatrixRecommender)
 - Fitting / regression
   - ["Math::Fitting"](https://raku.land/zef:antononcube/Math::Fitting)
 - Distributions 
   - ["Statistics::Distributions"](https://raku.land/zef:antononcube/Statistics::Distributions)
 - Outliers
   - ["Statistics::OutlierIdentifiers"](https://raku.land/cpan:ANTONOV/Statistics::OutlierIdentifiers)
-
------
-
-## LLM support
-
-### LLM services access
-
-Main or well known LLM-services providers (OpenAI, Google) have dedicated LLM packages:
-
-- ["WWW::OpenAI"](https://raku.land/zef:antononcube/WWW::OpeanAI)
-- ["WWW::PaLM"](https://raku.land/zef:antononcube/WWW::PaLM)
-- ["WWW::Gemini"](https://raku.land/zef:antononcube/WWW::Gemini)
-- ["WWW::MistralAI"](https://raku.land/zef:antononcube/WWW::MistralAI)
-- ["WWW::LLaMA"](https://raku.land/zef:antononcube/WWW::LLaMA)
-
-All these LLM packages are loaded, ready to use in Raku chatbooks, (notebooks of ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook).)
-
-### LLM workflows
-
-There is a set of packages that facilitates the creation of workflows that are "provider independent":
-
-- ["LLM::Functions"](https://raku.land/zef:antononcube/LLM::Functions)
-- ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts)
-- ["LLM::RetrievalAugmentedGeneration"](https://raku.land/zef:antononcube/LLM::RetrievalAugmentedGeneration)
-- ["ML::FindTextualAnswer"](https://raku.land/zef:antononcube/ML::FindTextualAnswer)
-
-"LLM::Functions" and "LLM::Prompts" are loaded, ready to use in Raku chatbooks.
-
-Currently, "ML::FindTextualAnswer" uses only LLMs to find answers to given text and questions.
-But the plans for it is to use non-LLM methods.
-
-Furthermore, "ML::FindTextualAnswer" utilizes "ML::NLPTemplateEngine" to retrieve parameter values that are then inserted into the templates.
-
-### Examples
-
-Here is an example of an LLM workflow that:
-- Ingests the content of this file from GitHub
-- Gives an HTML table that with breakdown of the discussed functionalities 
-
-```raku
-use LLM::Functions;
-use LLM::Prompts;
-use Data::Importers;
-use Text::Subparsers;
-
-my $url = 'https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Raku-for-Data-Science-and-LLMs.md';
-my $txt = data-import($url);
-
-my $mm =
-        llm-synthesize([
-            "Make a mind-map for the following text:",
-            $txt,
-            llm-prompt('NothingElse')('Mermaid-JS')
-        ],
-        e => llm-configuration('ChatGPT', model=> 'gpt-4o', max-tokens => 2048, temperature => 0.4)
-);
-```
-
-```mermaid
-mindmap
-  root(Raku for Data Science and LLMs)
-    Introduction
-      Reasons for Exclusion
-        Uninstallable Packages
-        Incomplete Results
-        Awkward Functionalities
-    Code Generation
-      ML Workflows
-        Classification
-        LSA
-        Regression
-        Recommendations
-      Raku Packages
-        RP1["Grammar-based (DSL::)"]
-        RP2["LLM-based (ML::NLPTemplateEngine)"]
-    Data Wrangling
-      Packages
-        Data::Reshapers
-        Data::Summarizers
-        Data::Generators
-      Code Generation
-        DSL::English::DataQueryWorkflows
-    Exploratory Data Analysis
-      Elements
-        Data Ingestion
-        Data Wrangling
-        Visualization
-        Support Data
-        Interactive Environment
-    Machine Learning & Statistics
-      Unsupervised Learning
-      Supervised Learning
-      Fitting/Regression
-      Distributions
-      Outliers
-    LLM Support
-      LLM Services Access
-        WWW::OpenAI
-        WWW::PaLM
-        WWW::Gemini
-        WWW::MistralAI
-        WWW::LLaMA
-      LLM Workflows
-        LLM::Functions
-        LLM::Prompts
-        LLM::RetrievalAugmentedGeneration
-        ML::FindTextualAnswer
-    Literate Programming
-      Packages
-        Text::CodeProcessing
-        Jupyter::Kernel
-        Jupyter::Chatbook
-        Markdown::Grammar
-    Interconnections
-      Systems
-        Python
-        R
-        Wolfram Language
-      Packages
-        Proc::ZMQed
-        WWW::WolframAlpha
-    References
-      Articles
-      Videos
-```
 
 ----
 
@@ -496,7 +390,6 @@ support and demonstrate computational workflows that work across different progr
 (2021),
 [RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
-https://community.wolfram.com/groups/-/m/t/2434981
 [AA2] Anton Antonov,
 ["Introduction to data wrangling with Raku"](https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/),
 (2021),
@@ -553,21 +446,31 @@ https://community.wolfram.com/groups/-/m/t/2434981
 [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
 [AAv5] Anton Antonov,
-["Exploratory Data Analysis with Raku"](https://www.youtube.com/watch?v=YCnjMVSfT8w),
+["Conversion and evaluation of Raku files"](https://www.youtube.com/watch?v=GJO7YqjGn6o),
 (2024),
 [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
 [AAv6] Anton Antonov,
-["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k),
+["Raku Literate Programming via command line pipelines"](https://www.youtube.com/watch?v=2UjAdQaKof8),
 (2024),
 [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
 [AAv7] Anton Antonov,
+["Exploratory Data Analysis with Raku"](https://www.youtube.com/watch?v=YCnjMVSfT8w),
+(2024),
+[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+
+[AAv8] Anton Antonov,
+["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k),
+(2024),
+[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+
+[AAv9] Anton Antonov,
 ["Raku RAG demo"](https://www.youtube.com/watch?v=JHO2Wk1b-Og),
 (2024),
 [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction). 
 
-[AAv8] Anton Antonov,
+[AAv10] Anton Antonov,
 ["Robust LLM pipelines (Mathematica, Python, Raku)"](https://www.youtube.com/watch?v=QOsVTCQZq_s),
 (2024),
 [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
