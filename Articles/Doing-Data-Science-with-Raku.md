@@ -100,8 +100,7 @@ most of the sections are mostly self-contained.
 
 ## Summary of Data Science components and status in Raku 
 
-The list below summarizes Raku covering the DS components listed above.
-Each component-item has sub-items for its "previous" state (pre-2021), current state (2025), essential or not mark, a star 1-5 star rating of its current state, and references. 
+The list below summarizes how Raku covers the DS components listed above. Each component-item has sub-items for its "previous" state (pre-2021), current state (2025), essential or not mark, a 1-5 star rating of its current state, and references.
 There are also corresponding [table](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-table.md) and [mind-map](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.pdf).
 
 - Data ingestion
