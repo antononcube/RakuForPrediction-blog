@@ -101,7 +101,7 @@ most of the sections are mostly self-contained.
 ## Summary of Data Science components and status in Raku 
 
 The list below summarizes how Raku covers the DS components listed above. Each component-item has sub-items for its "previous" state (pre-2021), current state (2025), essential or not mark, a 1-5 star rating of its current state, and references.
-There are also corresponding [table](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-table.md) and [mind-map](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.pdf).
+There are also corresponding [table](https://rawcdn.githack.com/antononcube/RakuForPrediction-blog/9df544c29920f90321ce3c521326f538c371cedb/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-table.html) and [mind-map](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.pdf).
 
 - Data ingestion
     - Comment: That is fundamental and all programming systems have such functionalities to various degrees.
@@ -175,13 +175,17 @@ There are also corresponding [table](https://github.com/antononcube/RakuForPredi
 
 [![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.png)](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.pdf)
 
+**Remark:** Mind-map's PDF file has "life" hyperlinks.
+
 ------
 
 ## Code generation
 
 For a few years I used Raku to "only" make parser-interpreters for Data Science (DS) and Machine Learning (ML) 
 workflows specified with natural language commands. This is the "Raku for prediction" of "cloths have no emperor" approach; see [AA2].
-At some point I decided that Raku has to have its own, _useful_ DS and ML packages. (This document proclaims the consequences of that decision.)
+At some point I decided that Raku has to have its own, _useful_ DS and ML packages. 
+Mostly, to speed up and streamline the parser-interpreters and for data acquisition purposes -- not so much to do DS and ML _with_ Raku.
+(This document proclaims the consequences of that decision.)
 
 Consider the problem:
 
@@ -265,7 +269,7 @@ cross-tabulate(@dsTitanic, <passengerSex>, <passengerSurvival>)
 Data wrangling code generation via CLI:
 
 ```shell
-dsl-translation -l=Raku "use @dsTitanic; group by passengerSex; show the counts"
+dsl-translation -t=Raku "use @dsTitanic; group by passengerSex; show the counts"
 ```
 
 ```
@@ -335,6 +339,52 @@ Here are Raku packages for doing ML and Statistics:
   - ["Statistics::Distributions"](https://raku.land/zef:antononcube/Statistics::Distributions)
 - Outliers
   - ["Statistics::OutlierIdentifiers"](https://raku.land/cpan:ANTONOV/Statistics::OutlierIdentifiers)
+
+
+----
+
+## Recommender systems and sparse matrices
+
+I make Recommender Systems (RS) often during Exploratory Data Analysis (EDA). For me, RS are "first order regression."
+I also specialize in the making of RS. I prefer using RS based on Sparse Linear Algebra (SMA) because of the
+fast computations, easy interpretation, and reuse in other Data Science (DS) or Machine Learning (ML) workflows.
+I call RS based on SMA Sparse Matrix Recommenders (SMRs) and I have implemented SMR packages in Python, R, Raku, and Wolfram Language (WL) (aka Mathematica.)
+
+**Remark:** The main reason I did not publish [the original version](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Raku-for-Data-Science-and-LLMs.md)
+of this document a year ago is because Raku did not have SMA and SMR packages.
+
+I implemented a Raku recommender without SMA,
+["ML::StreamsBlendingRecommender"](https://github.com/antononcube/Raku-ML-StreamsBlendingRecommender),
+but it is too slow for "serious" datasets. Still useful; see [AAv1].
+
+SMA is a "must have" for many computational workflows. Since I really like having matrices (sparse or not) with
+named rows and columns and I have implemented packages for sparse matrices with named rows and columns in
+Python, Raku, and WL. 
+
+**Remark:** Having data frames and matrices with named rows and columns is central feature of R programming language.
+Since I find that really useful from both DS-analytical and software-engineering-architectural points of view 
+I made corresponding implementations in other programming languages.
+
+After implementing the SMA package ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix) I implemented (with some delay) the SMR package, ["ML::SparseMatrixRecommender"](https://github.com/antononcube/Raku-ML-SparseMatrixRecommender).
+(The latter one is a very recent addition to Raku's ecosystem, just in time for this document's publication.)
+
+### Examples
+
+Here is an example of using Raku to generate code for one my SMR packages:
+
+```shell
+dsl-translation -t=Python "new recommender;
+create from @dsData;
+apply LSI functions IDF, None, Cosine;
+recommend by profile for passengerSex:male, and passengerClass:1st;"
+```
+
+```
+# obj = (SparseMatrixRecommender()
+# .create_from_wide_form(data = @dsData)
+# .apply_term_weight_functions(global_weight_func = "IDF", local_weight_func = "None", normalizer_func = "Cosine")
+# .recommend_by_profile( profile = ["passengerSex:male", "passengerClass:1st"]))
+```
 
 ----
 
@@ -445,10 +495,7 @@ support and demonstrate computational workflows that work across different progr
 
 ### Notebooks
 
-[AAn1] Anton Antonov,
-["Connecting Raku with Wolfram Language and Mathematica"](https://community.wolfram.com/groups/-/m/t/2434981),
-(2021),
-[Wolfram Community](https://community.wolfram.com).
+[AAn1] Anton Antonov, ["Connecting Raku with Wolfram Language and Mathematica"](https://community.wolfram.com/groups/-/m/t/2434981), (2021), [Wolfram Community](https://community.wolfram.com).
 
 [AAn2] Anton Antonov, ["Data science over small movie dataset -- Part 1"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-1.ipynb), (2025), [RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
 
@@ -459,52 +506,24 @@ support and demonstrate computational workflows that work across different progr
 
 ### Videos
 
-[AAv1] Anton Antonov,
-["Markdown to Mathematica converter (Jupyter notebook example)"](https://www.youtube.com/watch?v=Htmiu3ZI05w),
-(2022),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv1] Anton Antonov, ["Markdown to Mathematica converter (Jupyter notebook example)"](https://www.youtube.com/watch?v=Htmiu3ZI05w), (2022), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
-[AAv2] Anton Antonov,
-["Conversion and evaluation of Raku files"](https://www.youtube.com/watch?v=GJO7YqjGn6o),
-(2022),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv2] Anton Antonov, ["Conversion and evaluation of Raku files"](https://www.youtube.com/watch?v=GJO7YqjGn6o), (2022), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
-[AAv3] Anton Antonov,
-["Using Wolfram Engine in Raku sessions"](https://www.youtube.com/watch?v=nWeGkJU3wdM),
-(2022),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv3] Anton Antonov, ["Using Wolfram Engine in Raku sessions"](https://www.youtube.com/watch?v=nWeGkJU3wdM), (2022), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
-[AAv4] Anton Antonov,
-["LLaMA models running guide (Raku)"](https://www.youtube.com/watch?v=zVX-SqRfFPA),
-(2024),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv4] Anton Antonov, ["LLaMA models running guide (Raku)"](https://www.youtube.com/watch?v=zVX-SqRfFPA), (2024), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
-[AAv5] Anton Antonov,
-["Conversion and evaluation of Raku files"](https://www.youtube.com/watch?v=GJO7YqjGn6o),
-(2024),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv5] Anton Antonov, ["Conversion and evaluation of Raku files"](https://www.youtube.com/watch?v=GJO7YqjGn6o), (2024), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
-[AAv6] Anton Antonov,
-["Raku Literate Programming via command line pipelines"](https://www.youtube.com/watch?v=2UjAdQaKof8),
-(2024),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv6] Anton Antonov, ["Raku Literate Programming via command line pipelines"](https://www.youtube.com/watch?v=2UjAdQaKof8), (2024), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
-[AAv7] Anton Antonov,
-["Exploratory Data Analysis with Raku"](https://www.youtube.com/watch?v=YCnjMVSfT8w),
-(2024),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv7] Anton Antonov, ["Exploratory Data Analysis with Raku"](https://www.youtube.com/watch?v=YCnjMVSfT8w), (2024), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
-[AAv8] Anton Antonov,
-["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k),
-(2024),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv8] Anton Antonov, ["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k), (2024), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
-[AAv9] Anton Antonov,
-["Raku RAG demo"](https://www.youtube.com/watch?v=JHO2Wk1b-Og),
-(2024),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction). 
+[AAv9] Anton Antonov, ["Raku RAG demo"](https://www.youtube.com/watch?v=JHO2Wk1b-Og), (2024), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction). 
 
-[AAv10] Anton Antonov,
-["Robust LLM pipelines (Mathematica, Python, Raku)"](https://www.youtube.com/watch?v=QOsVTCQZq_s),
-(2024),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+[AAv10] Anton Antonov, ["Robust LLM pipelines (Mathematica, Python, Raku)"](https://www.youtube.com/watch?v=QOsVTCQZq_s), (2024), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction).
+
+[AAv11] Anton Antonov, ["TRC 2022 Implementation of ML algorithms in Raku"](https://youtu.be/efRHfjYebs4?si=J5P8pK1TgGSxdlmD&t=193), (2022), [YouTube/antononcube](https://www.youtube.com/@AAA4prediction).
