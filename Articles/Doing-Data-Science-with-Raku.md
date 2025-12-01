@@ -282,6 +282,8 @@ dsl-translation -l=Raku "use @dsTitanic; group by passengerSex; show the counts"
 At this point Raku is fully equipped to do Exploratory Data Analysis (EDA) over small to moderate size datasets.
 (E.g. less than 100,000 rows.) See [AA4, AAv5].
 
+[![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Exploratory-data-analysis-with-Raku-YouTube.png)](https://www.youtube.com/watch?v=YCnjMVSfT8w)
+
 Here are EDA stages and related Raku packages:
 
 - Easy data ingestion
@@ -314,7 +316,7 @@ Here are EDA stages and related Raku packages:
 ## Machine Learning & Statistics
 
 The topics of Machine Learning (ML) and Statistics are too big to be described with more than
-an outline in this document. The curious or studious reader can check or read and re-run the notebooks [AAn2, AAn3, AAn4]. 
+an outline in this document. The curious or studious readers can check or read and re-run the notebooks [AAn2, AAn3, AAn4]. 
 
 Here are Raku packages for doing ML and Statistics: 
 - Unsupervised learning
@@ -373,6 +375,8 @@ The published version of this document was obtained by "executing it" with the c
 file-code-chunks-eval Raku-for-Data-Science-and-LLMs.md
 ```
 
+[![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Conversion-and-evaluation-of-Raku-files-YouTube.png)](https://www.youtube.com/watch?v=GJO7YqjGn6o)
+
 ------
 
 ## Interconnections
@@ -386,6 +390,8 @@ to Python, R, and WL via [ZeroMQ](https://zeromq.org); see [AAv3].
 The package ["WWW::WolframAlpha"](https://raku.land/zef:antononcube/WWW::WolframAlpha) 
 can be used to get query answers from [WolframAlpha (W|A)](https://www.wolframalpha.com).
 Raku chatbooks have also magic cells for accessing W|A; see [AA3].
+
+[![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Using-Wolfram-Engine-in-Raku-sessions-YouTube.png)](https://www.youtube.com/watch?v=nWeGkJU3wdM)
 
 ------
 
