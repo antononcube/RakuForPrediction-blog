@@ -50,6 +50,8 @@
     - References: ["Notebook transformations"](https://rakuforprediction.wordpress.com/2024/02/17/notebook-transformations/) [post], ["Raku Literate Programming via command line pipelines"](https://www.youtube.com/watch?v=2UjAdQaKof8) [video], ["Conversion and evaluation of Raku files"](https://www.youtube.com/watch?v=GJO7YqjGn6o) [video] 
 - Data generation and retrieval
     - Comment: For didactical and development purposes random data generation and retrieval of well known dataset is needed.
+    - Pre-2021: Nothing more than the build in Raku random generators. (`pick`, `roll`)
+    - 2025: Generators of random strings, words, pet names, date-times, distribution variates, tabular datasets. Popular datasets from the R-ecosystem can be downloaded and cached.
     - Essential: 𖧋
     - Current status: ★★★★ (3.5)
     - References: ["Data::Generators"](https://raku.land/zef:antononcube/Data::Generators), ["Data::ExampleDatasets"](https://raku.land/zef:antononcube/Data::ExampleDatasets), ["Data::Geographics"](https://raku.land/zef:antononcube/Data::Geographics), ["Geographics data in Raku demo"](https://www.youtube.com/watch?v=Rkk_MeqLj_k) [video]
