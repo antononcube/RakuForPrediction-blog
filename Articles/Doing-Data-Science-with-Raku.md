@@ -34,7 +34,11 @@ It is analytical work analysts, researchers, or scientists would do over raw in 
 
 **Remark:** "Insights utilization" would mean "machine Learning" to many.
 
-Assume you have a general purpose language very good at dealing with text and an package ecosystem with *well maintained* part dedicated to doing various Web development tasks and workflows. (I.e. trying to re-live Perl's glory days.) What new components the ecosystem of that programming language has to be endowed with in order to make it useful for doing Data Science?
+This is the general workflow (or loop) for doing DS:
+
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Data-analysis-cycles.jpg)
+
+Assume you have a general purpose language very good at dealing with text and a package ecosystem with *well maintained* part dedicated to doing various Web development tasks and workflows. (I.e. trying to re-live Perl's glory days.) What new components the ecosystem of that programming language has to be endowed with in order to make it useful for doing Data Science?
 
 The list below gives such components. They are ranked by importance (most important first), but all are important -- i.e. each is "un-skippable" or indispensable.
 
@@ -83,7 +87,7 @@ We refer to related blog posts, videos, and package READMEs for more details.
 
 ### How to read it?
 
-There are two ways to read this document:
+There are three ways to read this document:
 
 - Just look (or maybe, download) the mind map in the next section.
 - Just browse or read the summary list in the next section and skim over the rest of the sections.
@@ -95,7 +99,7 @@ There are two ways to read this document:
 
 The list below summarizes Raku covering the DS components listed above.
 Each component-item has sub-items for its "previous" state (pre-2021), current state (2025), essential or not mark, a star 1-5 star rating of its current state, and references. 
-There are also corresponding [table]() and [mind-map]().
+There are also corresponding [table](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-table.md) and [mind-map](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.pdf).
 
 - Data ingestion
     - Comment: That is fundamental and all programming systems have such functionalities to various degrees.
@@ -170,22 +174,32 @@ There are also corresponding [table]() and [mind-map]().
 
 ## Code generation
 
-It can be said that the most frequently used Machine Learning (ML) workflows are in:
+For a few years I used Raku to "only" make parser-interpreters for Data Science (DS) and Machine Learning (ML) 
+workflows specified with natural language commands. This is the "Raku for prediction" of "cloths have no emperor" approach; see [AA2].
+At some point I decided that Raku has to have its own, _useful_ DS and ML packages. (This document proclaims the consequences of that decision.)
+
+Consider the problem:
+
+> Develop conversational agents for Machine Learning workflows that generate correct and executable code 
+> using natural language specifications.
+
+The problem is simplified with the observation that the most frequently used ML workflows are in the ML subdomains of:
+
 - Classification
 - Latent Semantic Analysis (LSA),
 - Regression
 - Recommendations
 
-In the broader field of Data Science (DS) we also add Data Wrangling.
+In the broader field of DS we also add Data Wrangling.
 
 Each of these ML or DS sub-fields has it own Domain Specific Language (DSL).
 
-There is a set of Raku packages for facilitate the creation of Data Science workflows in _other_ programming languages.
+There is a set of Raku packages that facilitate the creation of Data Science workflows in _other_ programming languages.
 (Julia, Python, R, Wolfram Language.)
 
 The grammar-based ones have the "DSL::" prefix -- see, for example, ["DSL::English::*"](https://raku.land/?q=DSL%3A%3AEnglish) at [raku.land](https://raku.land/).
 
-The LLM based one is ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine).
+The LLM based ones are ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine) and ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples).
 
 ### Examples 
 
@@ -211,7 +225,7 @@ Most data scientists spend most of their time doing data acquisition and data wr
 Not data science, or AI, or whatever “really learned” work. 
 (For a more elaborated rant, see ["Introduction to data wrangling with Raku"](https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/), [AA2].)
 
-Data wrangling, summarization, and generation is done with that packages:
+Data wrangling, summarization, and generation is done with the packages:
 
 - ["Data::Reshapers"](https://raku.land/zef:antononcube/Data::Reshapers)
 - ["Data::Summarizers"](https://raku.land/zef:antononcube/Data::Summarizers)
@@ -294,8 +308,9 @@ Here are EDA stages and related Raku packages:
 ## Machine Learning & Statistics
 
 The topics of Machine Learning (ML) and Statistics are too big to be described with more than
-an outline in this document.
+an outline in this document. The curious or studious reader can check or read and re-run the notebooks [AAn2, AAn3, AAn4]. 
 
+Here are Raku packages for doing ML and Statistics: 
 - Unsupervised learning
   - ["ML::Clustering"](https://raku.land/zef:antononcube/ML::Clustering)
   - ["ML::TriesWithFrequencies"](https://raku.land/zef:antononcube/ML::TriesWithFrequencies)
@@ -309,6 +324,7 @@ an outline in this document.
 - Fitting / regression
   - ["Math::Fitting"](https://raku.land/zef:antononcube/Math::Fitting)
 - Distributions 
+  - ["Statistics"](https://raku.land/zef:sumankhanal/Statistics)
   - ["Statistics::Distributions"](https://raku.land/zef:antononcube/Statistics::Distributions)
 - Outliers
   - ["Statistics::OutlierIdentifiers"](https://raku.land/cpan:ANTONOV/Statistics::OutlierIdentifiers)
@@ -422,6 +438,13 @@ support and demonstrate computational workflows that work across different progr
 ["Connecting Raku with Wolfram Language and Mathematica"](https://community.wolfram.com/groups/-/m/t/2434981),
 (2021),
 [Wolfram Community](https://community.wolfram.com).
+
+[AAn2] Anton Antonov, ["Data science over small movie dataset -- Part 1"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-1.ipynb), (2025), [RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
+
+[AAn3] Anton Antonov, ["Data science over small movie dataset -- Part 1"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-2.ipynb), (2025), [RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
+
+[AAn4] Anton Antonov, ["Data science over small movie dataset -- Part 3"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-3.ipynb), (2025), [RakuForPrediction-blog at GitHub](https://github.com/antononcube/RakuForPrediction-blog/).
+
 
 ### Videos
 
