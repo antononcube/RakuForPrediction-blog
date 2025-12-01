@@ -56,7 +56,7 @@
   },
   {
     "title": "Визуализации свързани с хипотезата на Колац",
-    "url": "https://rakuforprediction.wordpress.com/2025/05/24/визуализации-свързани-с-хипотезата-н/",
+    "url": "https://rakuforprediction.wordpress.com/2025/05/24/%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-%D1%81%D0%B2%D1%8A%D1%80%D0%B7%D0%B0%D0%BD%D0%B8-%D1%81-%D1%85%D0%B8%D0%BF%D0%BE%D1%82%D0%B5%D0%B7%D0%B0%D1%82%D0%B0-%D0%BD/",
     "publish_date": "2025-05-24"
   },
   {
@@ -111,7 +111,7 @@
   },
   {
     "title": "Статистики върху възрастта на създателите на езици за програмиране",
-    "url": "https://rakuforprediction.wordpress.com/2024/05/24/%d1%81%d1%82%d0%b0%d1%82%d0%b8%d1%81%d1%82%d0%b8%d0%ba%d0%b8-%d0%b2%d1%8a%d1%80%d1%85%d1%83-%d0%b2%d1%8a%d0%b7%d1%80%d0%b0%d1%81%d1%82%d1%82%d0%b0-%d0%bd%d0%b0-%d1%81%d1%8a%d0%b7%d0%b4%d0%b0%d1%82/",
+    "url": "https://rakuforprediction.wordpress.com/2024/05/24/%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B8-%D0%B2%D1%8A%D1%80%D1%85%D1%83-%D0%B2%D1%8A%D0%B7%D1%80%D0%B0%D1%81%D1%82%D1%82%D0%B0-%D0%BD%D0%B0-%D1%81%D1%8A%D0%B7%D0%B4%D0%B0%D1%82/",
     "publish_date": "2024-05-24"
   },
   {
@@ -175,7 +175,7 @@
     "publish_date": "2024-03-05"
   },
   {
-    "title": "LLM aids for processing Putin’s State-Of-Nation speech",
+    "title": "LLM aids for processing Putin’s State-Of-The-Nation speech",
     "url": "https://rakuforprediction.wordpress.com/2024/03/03/llm-aids-for-processing-putins-state-of-the-nation-speech/",
     "publish_date": "2024-03-03"
   },
@@ -250,9 +250,14 @@
     "publish_date": "2023-08-01"
   },
   {
-    "title": "Literate programming via CLI",
-    "url": "https://rakuforprediction.wordpress.com/2023/03/06/literate-programming-via-cli/",
-    "publish_date": "2023-03-06"
+    "title": "Text::SubParsers",
+    "url": "https://rakuforprediction.wordpress.com/2023/07/25/textsubparsers/",
+    "publish_date": "2023-07-25"
+  },
+  {
+    "title": "LLM::Functions",
+    "url": "https://rakuforprediction.wordpress.com/2023/07/21/llmfunctions/",
+    "publish_date": "2023-07-21"
   },
   {
     "title": "Generating documents via templates and LLMs",
@@ -263,16 +268,6 @@
     "title": "Graph representation of grammars",
     "url": "https://rakuforprediction.wordpress.com/2023/07/06/graph-representation-of-grammars/",
     "publish_date": "2023-07-06"
-  },
-  {
-    "title": "Text::SubParsers",
-    "url": "https://rakuforprediction.wordpress.com/2023/07/25/textsubparsers/",
-    "publish_date": "2023-07-25"
-  },
-  {
-    "title": "LLM::Functions",
-    "url": "https://rakuforprediction.wordpress.com/2023/07/21/llmfunctions/",
-    "publish_date": "2023-07-21"
   },
   {
     "title": "EBNF::Grammar",
@@ -313,6 +308,11 @@
     "title": "WWW::OpenAI (for ChatGPT and other statistical gimmicks)",
     "url": "https://rakuforprediction.wordpress.com/2023/03/10/wwwopenai-for-chatgpt-and-other-statistical-gimmicks/",
     "publish_date": "2023-03-10"
+  },
+  {
+    "title": "Literate programming via CLI",
+    "url": "https://rakuforprediction.wordpress.com/2023/03/06/literate-programming-via-cli/",
+    "publish_date": "2023-03-06"
   },
   {
     "title": "Gherkin::Grammar",
@@ -375,11 +375,6 @@
     "publish_date": "2022-11-05"
   },
   {
-    "title": "Markdown::Grammar",
-    "url": "https://rakuforprediction.wordpress.com/2022/09/24/markdowngrammar/",
-    "publish_date": "2022-09-24"
-  },
-  {
     "title": "DSL::English::DataQueryWorkflows",
     "url": "https://rakuforprediction.wordpress.com/2022/08/28/dslenglishdataqueryworkflows/",
     "publish_date": "2022-08-28"
@@ -400,14 +395,59 @@
     "publish_date": "2022-07-31"
   },
   {
+    "title": "Trie based classifiers evaluation",
+    "url": "https://rakuforprediction.wordpress.com/2022/07/07/trie-based-classifiers-evaluation/",
+    "publish_date": "2022-07-07"
+  },
+  {
+    "title": "Text::Plot",
+    "url": "https://rakuforprediction.wordpress.com/2022/07/05/textplot/",
+    "publish_date": "2022-07-05"
+  },
+  {
+    "title": "ML::ROCFunctions",
+    "url": "https://rakuforprediction.wordpress.com/2022/06/30/mlrocfunctions/",
+    "publish_date": "2022-06-30"
+  },
+  {
+    "title": "Data::Generators",
+    "url": "https://rakuforprediction.wordpress.com/2022/06/25/datagenerators/",
+    "publish_date": "2022-06-25"
+  },
+  {
+    "title": "ML::TriesWithFrequencies",
+    "url": "https://rakuforprediction.wordpress.com/2022/06/22/mltrieswithfrequencies/",
+    "publish_date": "2022-06-22"
+  },
+  {
+    "title": "ML::AssociationRuleLearning",
+    "url": "https://rakuforprediction.wordpress.com/2022/06/20/mlassociationrulelearning/",
+    "publish_date": "2022-06-20"
+  },
+  {
+    "title": "Generating UML diagrams for Raku namespaces",
+    "url": "https://rakuforprediction.wordpress.com/2022/06/12/generating-uml-diagrams-for-raku-namespaces/",
+    "publish_date": "2022-06-12"
+  },
+  {
+    "title": "Outlier detection in a list of numbers",
+    "url": "https://rakuforprediction.wordpress.com/2022/05/29/outlier-detection-in-a-list-of-numbers/",
+    "publish_date": "2022-05-29"
+  },
+  {
+    "title": "Увод в обработката на данни с Raku",
+    "url": "https://rakuforprediction.wordpress.com/2022/05/24/%D1%83%D0%B2%D0%BE%D0%B4-%D0%B2-%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%D1%82%D0%B0-%D0%BD%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D0%B8-%D1%81-raku/",
+    "publish_date": "2022-05-24"
+  },
+  {
     "title": "Introduction to data wrangling with Raku",
     "url": "https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/",
     "publish_date": "2021-12-31"
   },
   {
     "title": "Connecting Mathematica and Raku",
-    "url": "https://rakuforprediction.wordpress.com/2021/12/31/connecting-mathematica-and-raku/",
-    "publish_date": "2021-12-31"
+    "url": "https://rakuforprediction.wordpress.com/2021/12/30/connecting-mathematica-and-raku/",
+    "publish_date": "2021-12-30"
   },
   {
     "title": "Multi-language Data Wrangling and Acquisition Conversational Agents presentation",
@@ -427,6 +467,6 @@
   {
     "title": "Raku Lingua::NumericWordForms",
     "url": "https://rakuforprediction.wordpress.com/2021/05/04/raku-lingua-numericwordforms/",
-    "publish_date": "2021-05-24"
+    "publish_date": "2021-05-04"
   }
 ]
