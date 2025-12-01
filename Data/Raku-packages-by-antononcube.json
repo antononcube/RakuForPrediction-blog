@@ -1,0 +1,427 @@
+[
+  {
+    "package_name": "Algorithm::KDimensionalTree",
+    "url": "https://raku.land/zef:antononcube/Algorithm::KDimensionalTree",
+    "latest_version": null
+  },
+  {
+    "package_name": "Chemistry::Stoichiometry",
+    "url": "https://raku.land/zef:antononcube/Chemistry::Stoichiometry",
+    "latest_version": "0.1.10"
+  },
+  {
+    "package_name": "Clipboard",
+    "url": "https://raku.land/zef:antononcube/Clipboard",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::Cryptocurrencies",
+    "url": "https://raku.land/zef:antononcube/Data::Cryptocurrencies",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::ExampleDatasets",
+    "url": "https://raku.land/zef:antononcube/Data::ExampleDatasets",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::Generators",
+    "url": "https://raku.land/zef:antononcube/Data::Generators",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::Geographics",
+    "url": "https://raku.land/zef:antononcube/Data::Geographics",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::Importers",
+    "url": "https://raku.land/zef:antononcube/Data::Importers",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::Reshapers",
+    "url": "https://raku.land/zef:antononcube/Data::Reshapers",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::Summarizers",
+    "url": "https://raku.land/zef:antononcube/Data::Summarizers",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::Translators",
+    "url": "https://raku.land/zef:antononcube/Data::Translators",
+    "latest_version": null
+  },
+  {
+    "package_name": "Data::TypeSystem",
+    "url": "https://raku.land/zef:antononcube/Data::TypeSystem",
+    "latest_version": null
+  },
+  {
+    "package_name": "DateTime::Grammar",
+    "url": "https://raku.land/zef:antononcube/DateTime::Grammar",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::Bulgarian",
+    "url": "https://raku.land/zef:antononcube/DSL::Bulgarian",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::English::ClassificationWorkflows",
+    "url": "https://raku.land/zef:antononcube/DSL::English::ClassificationWorkflows",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::English::DataQueryWorkflows",
+    "url": "https://raku.land/zef:antononcube/DSL::English::DataQueryWorkflows",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::English::LatentSemanticAnalysisWorkflows",
+    "url": "https://raku.land/zef:antononcube/DSL::English::LatentSemanticAnalysisWorkflows",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::English::QuantileRegressionWorkflows",
+    "url": "https://raku.land/zef:antononcube/DSL::English::QuantileRegressionWorkflows",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::English::RecommenderWorkflows",
+    "url": "https://raku.land/zef:antononcube/DSL::English::RecommenderWorkflows",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::English::SearchEngineQueries",
+    "url": "https://raku.land/zef:antononcube/DSL::English::SearchEngineQueries",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::Entity::AddressBook",
+    "url": "https://raku.land/zef:antononcube/DSL::Entity::AddressBook",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::Entity::Geographics",
+    "url": "https://raku.land/zef:antononcube/DSL::Entity::Geographics",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::Entity::MachineLearning",
+    "url": "https://raku.land/zef:antononcube/DSL::Entity::MachineLearning",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::Entity::Metadata",
+    "url": "https://raku.land/zef:antononcube/DSL::Entity::Metadata",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::Entity::WeatherData",
+    "url": "https://raku.land/zef:antononcube/DSL::Entity::WeatherData",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::Examples",
+    "url": "https://raku.land/zef:antononcube/DSL::Examples",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::FiniteStateMachines",
+    "url": "https://raku.land/zef:antononcube/DSL::FiniteStateMachines",
+    "latest_version": null
+  },
+  {
+    "package_name": "DSL::Shared",
+    "url": "https://raku.land/zef:antononcube/DSL::Shared",
+    "latest_version": null
+  },
+  {
+    "package_name": "EBNF::Grammar",
+    "url": "https://raku.land/zef:antononcube/EBNF::Grammar",
+    "latest_version": null
+  },
+  {
+    "package_name": "FunctionalParsers",
+    "url": "https://raku.land/zef:antononcube/FunctionalParsers",
+    "latest_version": null
+  },
+  {
+    "package_name": "Getopt::Long::Grammar",
+    "url": "https://raku.land/zef:antononcube/Getopt::Long::Grammar",
+    "latest_version": null
+  },
+  {
+    "package_name": "Gherkin::Grammar",
+    "url": "https://raku.land/zef:antononcube/Gherkin::Grammar",
+    "latest_version": null
+  },
+  {
+    "package_name": "Grammar::TokenProcessing",
+    "url": "https://raku.land/zef:antononcube/Grammar::TokenProcessing",
+    "latest_version": null
+  },
+  {
+    "package_name": "Graph",
+    "url": "https://raku.land/zef:antononcube/Graph",
+    "latest_version": null
+  },
+  {
+    "package_name": "Graphviz::DOT::Chessboard",
+    "url": "https://raku.land/zef:antononcube/Graphviz::DOT::Chessboard",
+    "latest_version": null
+  },
+  {
+    "package_name": "Graphviz::DOT::Grammar",
+    "url": "https://raku.land/zef:antononcube/Graphviz::DOT::Grammar",
+    "latest_version": null
+  },
+  {
+    "package_name": "Image::Markup::Utilities",
+    "url": "https://raku.land/zef:antononcube/Image::Markup::Utilities",
+    "latest_version": null
+  },
+  {
+    "package_name": "JavaScript::D3",
+    "url": "https://raku.land/zef:antononcube/JavaScript::D3",
+    "latest_version": null
+  },
+  {
+    "package_name": "JavaScript::Google::Charts",
+    "url": "https://raku.land/zef:antononcube/JavaScript::Google::Charts",
+    "latest_version": null
+  },
+  {
+    "package_name": "Jupyter::Chatbook",
+    "url": "https://raku.land/zef:antononcube/Jupyter::Chatbook",
+    "latest_version": null
+  },
+  {
+    "package_name": "Lingua::NumericWordForms",
+    "url": "https://raku.land/zef:antononcube/Lingua::NumericWordForms",
+    "latest_version": null
+  },
+  {
+    "package_name": "Lingua::Stem::Portuguese",
+    "url": "https://raku.land/zef:antononcube/Lingua::Stem::Portuguese",
+    "latest_version": null
+  },
+  {
+    "package_name": "Lingua::Stem::Russian",
+    "url": "https://raku.land/zef:antononcube/Lingua::Stem::Russian",
+    "latest_version": null
+  },
+  {
+    "package_name": "Lingua::Translation::DeepL",
+    "url": "https://raku.land/zef:antononcube/Lingua::Translation::DeepL",
+    "latest_version": null
+  },
+  {
+    "package_name": "LLM::Containerization",
+    "url": "https://raku.land/zef:antononcube/LLM::Containerization",
+    "latest_version": null
+  },
+  {
+    "package_name": "LLM::Functions",
+    "url": "https://raku.land/zef:antononcube/LLM::Functions",
+    "latest_version": null
+  },
+  {
+    "package_name": "LLM::Graph",
+    "url": "https://raku.land/zef:antononcube/LLM::Graph",
+    "latest_version": "0.0.8"
+  },
+  {
+    "package_name": "LLM::Prompts",
+    "url": "https://raku.land/zef:antononcube/LLM::Prompts",
+    "latest_version": "0.2.11"
+  },
+  {
+    "package_name": "LLM::RetrievalAugmentedGeneration",
+    "url": "https://raku.land/zef:antononcube/LLM::RetrievalAugmentedGeneration",
+    "latest_version": "0.0.6"
+  },
+  {
+    "package_name": "Markdown::Grammar",
+    "url": "https://raku.land/zef:antononcube/Markdown::Grammar",
+    "latest_version": null
+  },
+  {
+    "package_name": "Markup::Calendar",
+    "url": "https://raku.land/zef:antononcube/Markup::Calendar",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::DistanceFunctions",
+    "url": "https://raku.land/zef:antononcube/Math::DistanceFunctions",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::DistanceFunctions::Edit",
+    "url": "https://raku.land/zef:antononcube/Math::DistanceFunctions::Edit",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::DistanceFunctions::Native",
+    "url": "https://raku.land/zef:antononcube/Math::DistanceFunctions::Native",
+    "latest_version": null
+  },
+  {
+    "package_name": "Mathematica::Serializer",
+    "url": "https://raku.land/zef:antononcube/Mathematica::Serializer",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::Fitting",
+    "url": "https://raku.land/zef:antononcube/Math::Fitting",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::Nearest",
+    "url": "https://raku.land/zef:antononcube/Math::Nearest",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::NumberTheory",
+    "url": "https://raku.land/zef:antononcube/Math::NumberTheory",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::Polynomial::Chebyshev",
+    "url": "https://raku.land/zef:antononcube/Math::Polynomial::Chebyshev",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::SparseMatrix",
+    "url": "https://raku.land/zef:antononcube/Math::SparseMatrix",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::SparseMatrix::Native",
+    "url": "https://raku.land/zef:antononcube/Math::SparseMatrix::Native",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::SpecialFunctions",
+    "url": "https://raku.land/zef:antononcube/Math::SpecialFunctions",
+    "latest_version": null
+  },
+  {
+    "package_name": "Math::Splines",
+    "url": "https://raku.land/zef:antononcube/Math::Splines",
+    "latest_version": null
+  },
+  {
+    "package_name": "ML::AssociationRuleLearning",
+    "url": "https://raku.land/zef:antononcube/ML::AssociationRuleLearning",
+    "latest_version": null
+  },
+  {
+    "package_name": "ML::Clustering",
+    "url": "https://raku.land/zef:antononcube/ML::Clustering",
+    "latest_version": null
+  },
+  {
+    "package_name": "ML::FindTextualAnswer",
+    "url": "https://raku.land/zef:antononcube/ML::FindTextualAnswer",
+    "latest_version": null
+  },
+  {
+    "package_name": "ML::NLPTemplateEngine",
+    "url": "https://raku.land/zef:antononcube/ML::NLPTemplateEngine",
+    "latest_version": null
+  },
+  {
+    "package_name": "ML::ROCFunctions",
+    "url": "https://raku.land/zef:antononcube/ML::ROCFunctions",
+    "latest_version": null
+  },
+  {
+    "package_name": "ML::SparseMatrixRecommender",
+    "url": "https://raku.land/zef:antononcube/ML::SparseMatrixRecommender",
+    "latest_version": null
+  },
+  {
+    "package_name": "ML::TriesWithFrequencies",
+    "url": "https://raku.land/zef:antononcube/ML::TriesWithFrequencies",
+    "latest_version": null
+  },
+  {
+    "package_name": "Proc::ZMQed",
+    "url": "https://raku.land/zef:antononcube/Proc::ZMQed",
+    "latest_version": null
+  },
+  {
+    "package_name": "Statistics::Distributions",
+    "url": "https://raku.land/zef:antononcube/Statistics::Distributions",
+    "latest_version": null
+  },
+  {
+    "package_name": "Text::Calendar",
+    "url": "https://raku.land/zef:antononcube/Text::Calendar",
+    "latest_version": null
+  },
+  {
+    "package_name": "Text::CodeProcessing",
+    "url": "https://raku.land/zef:antononcube/Text::CodeProcessing",
+    "latest_version": null
+  },
+  {
+    "package_name": "Text::Plot",
+    "url": "https://raku.land/zef:antononcube/Text::Plot",
+    "latest_version": null
+  },
+  {
+    "package_name": "Text::SubParsers",
+    "url": "https://raku.land/zef:antononcube/Text::SubParsers",
+    "latest_version": null
+  },
+  {
+    "package_name": "UML::Translators",
+    "url": "https://raku.land/zef:antononcube/UML::Translators",
+    "latest_version": null
+  },
+  {
+    "package_name": "WWW::Gemini",
+    "url": "https://raku.land/zef:antononcube/WWW::Gemini",
+    "latest_version": null
+  },
+  {
+    "package_name": "WWW::LLaMA",
+    "url": "https://raku.land/zef:antononcube/WWW::LLaMA",
+    "latest_version": null
+  },
+  {
+    "package_name": "WWW::MermaidInk",
+    "url": "https://raku.land/zef:antononcube/WWW::MermaidInk",
+    "latest_version": null
+  },
+  {
+    "package_name": "WWW::MistralAI",
+    "url": "https://raku.land/zef:antononcube/WWW::MistralAI",
+    "latest_version": null
+  },
+  {
+    "package_name": "WWW::OpenAI",
+    "url": "https://raku.land/zef:antononcube/WWW::OpenAI",
+    "latest_version": null
+  },
+  {
+    "package_name": "WWW::PaLM",
+    "url": "https://raku.land/zef:antononcube/WWW::PaLM",
+    "latest_version": "0.1.9"
+  },
+  {
+    "package_name": "WWW::WolframAlpha",
+    "url": "https://raku.land/zef:antononcube/WWW::WolframAlpha",
+    "latest_version": null
+  },
+  {
+    "package_name": "WWW::YouTube",
+    "url": "https://raku.land/zef:antononcube/WWW::YouTube",
+    "latest_version": "0.0.9"
+  }
+]
