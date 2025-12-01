@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Raku Data Science &amp; ML Capabilities</title>
+  </head>
+  <body>
+
+    <outline text="Data ingestion">
+      <outline text="Comment: That is fundamental and all programming systems have such functionalities to various degrees."/>
+      <outline text="Pre-2021: Robust JSON, CSV, CBOR files ingestion; XML and other formats can be ingested, but not in a robust manner."/>
+      <outline text="2025: Various (improved) packages for working with JSON, CSC, markup images, PDF, etc. Umbrella ingestion function for them."/>
+      <outline text="Essential: ✓"/>
+      <outline text="Current status: ★★★ (2.5)"/>
+      <outline text="References">
+        <outline text="Data::Importers" _link="https://raku.land/zef:antononcube/Data::Importers"/>
+        <outline text="Data::Translators" _link="https://raku.land/zef:antononcube/Data::Translators"/>
+        <outline text="Omni-slurping with LLMing [post]" _link="https://rakuforprediction.wordpress.com/2024/03/26/omni-slurping-with-llming/"/>
+      </outline>
+    </outline>
+
+    <outline text="Data wrangling facilitation">
+      <outline text="Comment: Slicing, splitting, combining, aggregating, summarizing data can be difficult and time consuming."/>
+      <outline text="Pre-2021: No serious efforts, especially, in terms of streamlining data wrangling workflows."/>
+      <outline text="2025: Two major efforts for streamlining data wrangling workflows one using &quot;pure&quot; Raku (good for exploration) and other interfaces &quot;outside&quot; systems."/>
+      <outline text="Essential: ✓"/>
+      <outline text="Current status: ★★★ (3.25)"/>
+      <outline text="References">
+        <outline text="Data::Reshapers" _link="https://raku.land/zef:antononcube/Data::Reshapers"/>
+        <outline text="Dan" _link="https://raku.land/zef:librasteve/Dan"/>
+        <outline text="Introduction to data wrangling with Raku [post]" _link="https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/"/>
+      </outline>
+    </outline>
+
+    <outline text="Statistics for data exploration">
+      <outline text="Comment: This includes descriptive statistics (mean, median, 5-point summary), summarization, outlier identification, and statistical distribution functions."/>
+      <outline text="Pre-2021: Various attempts, some are basic and &quot;plain-Raku&quot; (e.g. Stats), some connect to GSL (and do not work on macOS.)"/>
+      <outline text="2025: A couple of major efforts exist, one is all-in-one package, the other has is spread out in various packages."/>
+      <outline text="Essential: ✓"/>
+      <outline text="Current status: ★★★ (2.5)"/>
+      <outline text="References">
+        <outline text="Statistics" _link="https://raku.land/zef:sumankhanal/Statistics"/>
+        <outline text="Statistics::Distributions" _link="https://raku.land/zef:antononcube/Statistics::Distributions"/>
+        <outline text="Statistics::OutlierIdentifiers" _link="https://raku.land/cpan:ANTONOV/Statistics::OutlierIdentifiers"/>
+        <outline text="Data::Summarizers" _link="https://raku.land/zef:antononcube/Data::Summarizers"/>
+        <outline text="Data::TypeSystem" _link="https://raku.land/zef:antononcube/Data::TypeSystem"/>
+      </outline>
+    </outline>
+
+    <outline text="Machine Learning (ML) algorithms (both unsupervised and supervised)">
+      <outline text="Comment: Unsupervised ML is often used for Exploratory Data Analysis (EDA); supervised ML is used to leverage data patterns in some way, but also for certain type of EDA."/>
+      <outline text="Pre-2021: A few packages for doing unsupervised Machine Learning (ML) (like Text::Markov.)"/>
+      <outline text="2025: At least supervised ML package connecting (binding) to external systems, a set of unsupervised ML packages for clustering, associating rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with tries with frequencies can be used as classifiers."/>
+      <outline text="Essential: ✓"/>
+      <outline text="Current status: ★★★ (2.5)"/>
+      <outline text="References">
+        <outline text="Algorithm::XGBoost" _link="https://github.com/titsuki/raku-Algorithm-XGBoost"/>
+        <outline text="ML::* packages" _link="https://raku.land/?q=ML%3A%3A"/>
+      </outline>
+    </outline>
+
+    <outline text="Data visualization facilitation">
+      <outline text="Comment: Insightful plots over data are used in Data Science most of the time."/>
+      <outline text="Pre-2021: A few small packages for plotting, at least one connecting external systems (like GnuPlot), none of them that useful for Data Science."/>
+      <outline text="2025: There are two &quot;solid&quot; packages Data Science visualizations, JavaScript::D3, JavaScript::Google::Charts; there is also an ASCI-plots package Text::Plot which is useful when basic, coarse plots are sufficient."/>
+      <outline text="Essential: ✓"/>
+      <outline text="Current status: ★★★★"/>
+      <outline text="References">
+        <outline text="JavaScript::D3" _link="https://raku.land/zef:antononcube/JavaScript::D3"/>
+        <outline text="JavaScript::Google::Charts" _link="https://raku.land/zef:antononcube/JavaScript::Google::Charts"/>
+        <outline text="Text::Plot" _link="https://raku.land/zef:antononcube/Text::Plot"/>
+        <outline text="The Raku-ju hijack hack for D3.js [video]" _link="https://www.youtube.com/watch?v=YIhx3FBWayo"/>
+        <outline text="Geographics data in Raku demo [video]" _link="https://www.youtube.com/watch?v=Rkk_MeqLj_k"/>
+      </outline>
+    </outline>
+
+    <outline text="Interactive computing environment(s)">
+      <outline text="Comment: Any data exploration is done in interactive manner with multiple changes of the data, and analysis or pattern finding workflows."/>
+      <outline text="Pre-2021: The (basic) Raku REPL, related Emacs major-mode, and the notebook environment Jupyter::Kernel."/>
+      <outline text="2025: In addition to pre-2021 work there are RakuMode for Wolfram Notebooks, Jupyter::Chatbook for seamless integration with LLMs."/>
+      <outline text="Essential: ✓"/>
+      <outline text="Current status: ★★★★"/>
+      <outline text="References">
+        <outline text="Connecting Mathematica and Raku [post]" _link="https://rakuforprediction.wordpress.com/2021/12/30/connecting-mathematica-and-raku/"/>
+        <outline text="Exploratory Data Analysis with Raku [video]" _link="https://www.youtube.com/watch?v=YCnjMVSfT8w"/>
+      </outline>
+    </outline>
+
+    <outline text="Literate programming (LT)">
+      <outline _link="https://en.wikipedia.org/wiki/Literate_programming"/>
+      <outline text="Comment: LT is very important for Data Science (DS) because of the DS needs for Reproducible Research."/>
+      <outline text="Pre-2021: None, except Jupyter::Kernel, but that not useful because of the lack of good graphics."/>
+      <outline text="2025: LT is fully supported due to having multiple LT solutions, strong graphics capabilities, LLM integration, and computational documents converters."/>
+      <outline text="Essential: ✓"/>
+      <outline text="Current status: ★★★★★ (4.5)"/>
+      <outline text="References">
+        <outline text="Notebook transformations [post]" _link="https://rakuforprediction.wordpress.com/2024/02/17/notebook-transformations/"/>
+        <outline text="Raku Literate Programming via command line pipelines [video]" _link="https://www.youtube.com/watch?v=2UjAdQaKof8"/>
+        <outline text="Conversion and evaluation of Raku files [video]" _link="https://www.youtube.com/watch?v=GJO7YqjGn6o"/>
+      </outline>
+    </outline>
+
+    <outline text="Data generation and retrieval">
+      <outline text="Comment: For didactical and development purposes random data generation and retrieval of well known dataset is needed."/>
+      <outline text="Pre-2021: Nothing more than the build in Raku random generators. (pick, roll)"/>
+      <outline text="2025: Generators of random strings, words, pet names, date-times, distribution variates, tabular datasets. Popular datasets from the R-ecosystem can be downloaded and cached."/>
+      <outline text="Essential: 𖧋"/>
+      <outline text="Current status: ★★★★ (3.5)"/>
+      <outline text="References">
+        <outline text="Data::Generators" _link="https://raku.land/zef:antononcube/Data::Generators"/>
+        <outline text="Data::ExampleDatasets" _link="https://raku.land/zef:antononcube/Data::ExampleDatasets"/>
+        <outline text="Data::Geographics" _link="https://raku.land/zef:antononcube/Data::Geographics"/>
+        <outline text="Geographics data in Raku demo [video]" _link="https://www.youtube.com/watch?v=Rkk_MeqLj_k"/>
+      </outline>
+    </outline>
+
+    <outline text="External Data Science (DS) and Machine Learning (ML) orchestration">
+      <outline text="Comment: Effective way to do DS and ML _and_ easily move the developed computations to other systems. Allows reuse and having confidence that the utilized DS or ML algorithms are properly implemented and fast."/>
+      <outline text="Pre-2021: Various projects connecting to database systems (e.g. MySQL.)"/>
+      <outline text="2025: The project Dan provides bindings to the data wrangling library Polars. The project H2O::Client aims at providing both data wrangling and ML orchestrations to H2O.ai."/>
+      <outline text="Essential: 𖧋"/>
+      <outline text="Current status: ★★★ (2.5)"/>
+      <outline text="References">
+        <outline text="Dan" _link="https://raku.land/zef:librasteve/Dan"/>
+        <outline text="Proc::ZMQed" _link="https://raku.land/zef:antononcube/Proc::ZMQed"/>
+        <outline text="WWW::WolframAlpha" _link="https://raku.land/zef:antononcube/WWW::WolframAlpha"/>
+        <outline text="H2O::Client" _link="https://github.com/antononcube/Raku-H2O-Client"/>
+      </outline>
+    </outline>
+
+    <outline text="Interactive interfaces to parameterized workflows (dashboards)">
+      <outline text="Comment: Very useful for getting data insights by dynamically changing different statistics based on parameters."/>
+      <outline text="Pre-2021: None."/>
+      <outline text="2025: An effort, Air::Examples, that brings interactivity via HTMX is using the Cro package set and templates; since Google Charts provides interactivity JavaScript::Google::Charts can be extended to have those kind of controls and dashboards."/>
+      <outline text="Essential: 𖧋"/>
+      <outline text="Current status: ★"/>
+      <outline text="References">
+        <outline text="Air::Examples" _link="https://raku.land/zef:librasteve/Air::Examples"/>
+        <outline text="JavaScript::Google::Charts" _link="https://raku.land/zef:antononcube/JavaScript::Google::Charts"/>
+      </outline>
+    </outline>
+
+  </body>
+</opml>
