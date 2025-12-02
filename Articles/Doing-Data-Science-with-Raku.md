@@ -9,13 +9,13 @@ November 2025
 ## Introduction 
 
 This document provides an overview of Raku packages, as well as related documents and presentations, 
-for doing Data Science (DS) using Raku.
+for doing Data Science using Raku.
 
 This simple mnemonic can be utilized for what Data Science (DS) is while this document is being read:
 
 > Data Science = Programming + Statistics + *Curiosity*
 
-**Remark:** By definition anytime we deal with data we do Statistics.
+**Remark:** By definition, anytime we deal with data we do Statistics.
 
 We are mostly interested in DS workflows -- the Raku facilitation of using 
 Large Language Models (LLMs) is seen here as:
@@ -38,7 +38,10 @@ This is the general workflow (or loop) for doing DS:
 
 ![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Data-science-over-a-small-movie-dataset-Part-1/Data-analysis-cycles.jpg)
 
-Assume you have a general purpose language which is very good at dealing with text and a package ecosystem with *well maintained* part dedicated to doing various Web development tasks and workflows. (I.e. trying to re-live Perl's glory days.) What new components the ecosystem of that programming language has to be endowed with in order to make it useful for doing Data Science?
+Assume you have a general purpose language which is very good at dealing with text and a package ecosystem with 
+a *well maintained* part dedicated to doing various Web development tasks and workflows.
+(I.e. trying to re-live Perl's glory days.) 
+What new components the ecosystem of that programming language has to be endowed with in order to make it useful for doing DS?
 
 The list below gives such components. They are ranked by importance (most important first), but all are important -- i.e. each is "un-skippable" or indispensable.
 
@@ -60,14 +63,13 @@ Additional, really nice to have, but not indispensable components are:
 ### Just an overview of packages
 
 This document contains overlapping lists of Raku packages that are used for
-performing various types of workflows in Data Science (DS) and related utilization
-of Large Language Models (LLMs).
+performing various types of workflows in DS and related utilization of LLMs.
 
 **Remark:** [The original version](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Raku-for-Data-Science-and-LLMs.md) 
-of this document written a year ago had mostly 
-the purpose of proclaiming (and showing off) Raku's tooling for DS, ML, and LLMs.
+of this document, written a year ago, had mostly the purpose of proclaiming 
+(and showing off) Raku's tooling for DS, ML, and LLMs.
 
-At least half a dozen packages for performing ML or Data wrangling 
+At least half a dozen packages for performing ML or data wrangling 
 in Raku have not been included for three reasons:
 
 1. Those packages cannot be installed.
@@ -90,18 +92,23 @@ We refer to related blog posts, videos, and package READMEs for more details.
 There are three ways to read this document:
 
 - Just look (or maybe, download) the mind map in the next section.
+  - And the section "Machine Learning & Statistics".
 - Just browse or read the summary list in the next section and skim over the rest of the sections.
 - Read all sections and read or browse the linked articles and notebooks. 
 
-Actually, it is assumed that many readers would read one random section, hence, 
+Actually, it is assumed that many readers would read one random section of this document, hence, 
 most of the sections are mostly self-contained.
 
 ------
 
 ## Summary of Data Science components and status in Raku 
 
-The list below summarizes how Raku covers the DS components listed above. Each component-item has sub-items for its "previous" state (pre-2021), current state (2025), essential or not mark, a 1-5 star rating of its current state, and references.
+The list below summarizes how Raku covers the Data Science (DS) components listed above. 
+Each component-item has sub-items for its "previous" state (pre-2021), current state (2025), essential-or-not mark, current state 1-to-5 star rating, and references.
 There are also corresponding [table](https://rawcdn.githack.com/antononcube/RakuForPrediction-blog/9df544c29920f90321ce3c521326f538c371cedb/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-table.html) and [mind-map](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Doing-Data-Science-with-Raku-status-mind-map-light.pdf).
+
+**Remark:** Current-state star ratings are, of course, subjective. But I do compare the Raku's DS ecosystem with
+those of Python, R, and Wolfram Language, and try to be intellectually honest about it.
 
 - Data ingestion
     - Comment: That is fundamental and all programming systems have such functionalities to various degrees.
@@ -182,7 +189,7 @@ There are also corresponding [table](https://rawcdn.githack.com/antononcube/Raku
 ## Code generation
 
 For a few years I used Raku to "only" make parser-interpreters for Data Science (DS) and Machine Learning (ML) 
-workflows specified with natural language commands. This is the "Raku for prediction" of "cloths have no emperor" approach; see [AA2].
+workflows specified with natural language commands. This is the "Raku for prediction" or "cloths have no emperor" approach; see [AA2].
 At some point I decided that Raku has to have its own, _useful_ DS and ML packages. 
 Mostly, to speed up and streamline the parser-interpreters and for data acquisition purposes -- not so much to do DS and ML _with_ Raku.
 (This document proclaims the consequences of that decision.)
@@ -208,7 +215,7 @@ There is a set of Raku packages that facilitate the creation of Data Science wor
 
 The grammar-based ones have the "DSL::" prefix -- see, for example, ["DSL::English::*"](https://raku.land/?q=DSL%3A%3AEnglish) at [raku.land](https://raku.land/).
 
-The LLM based ones are ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine) and ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples).
+The LLM based packages are ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine) and ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples).
 
 ### Examples 
 
@@ -231,7 +238,7 @@ concretize --l=Python make a quantile regression pipeline over dfTemperature usi
 ## Data wrangling 
 
 Most data scientists spend most of their time doing data acquisition and data wrangling. 
-Not data science, or AI, or whatever “really learned” work. 
+Not Data Science, or AI, or whatever “really learned” work. 
 (For a more elaborated rant, see ["Introduction to data wrangling with Raku"](https://rakuforprediction.wordpress.com/2021/12/31/introduction-to-data-wrangling-with-raku/), [AA2].)
 
 Data wrangling, summarization, and generation is done with the packages:
@@ -356,6 +363,9 @@ I call RS based on SMA Sparse Matrix Recommenders (SMRs) and I have implemented 
 **Remark:** The main reason I did not publish [the original version](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Articles/Raku-for-Data-Science-and-LLMs.md)
 of this document a year ago is because Raku did not have SMA and SMR packages.
 
+**Remark:** The making of LLM-based RS is supported in Raku via Retrieval Augment Generation (RAG); 
+see ["Raku RAG demo"](https://www.youtube.com/watch?v=JHO2Wk1b-Og), [AAv9]
+
 I implemented a Raku recommender without SMA,
 ["ML::StreamsBlendingRecommender"](https://github.com/antononcube/Raku-ML-StreamsBlendingRecommender),
 but it is too slow for "serious" datasets. Still useful; see [AAv1].
@@ -364,7 +374,7 @@ SMA is a "must have" for many computational workflows. Since I really like havin
 named rows and columns and I have implemented packages for sparse matrices with named rows and columns in
 Python, Raku, and WL. 
 
-**Remark:** Having data frames and matrices with named rows and columns is central feature of R programming language.
+**Remark:** Having data frames and matrices with named rows and columns is central feature of R.
 Since I find that really useful from both DS-analytical and software-engineering-architectural points of view 
 I made corresponding implementations in other programming languages.
 
@@ -373,7 +383,7 @@ After implementing the SMA package ["Math::SparseMatrix"](https://raku.land/zef:
 
 ### Examples
 
-Here is an example of using Raku to generate code for one my SMR packages:
+Here is an example of using Raku to generate code for one of my SMR packages:
 
 ```shell
 dsl-translation -t=Python "
@@ -395,7 +405,7 @@ recommend by profile for passengerSex:male, and passengerClass:1st;"
 
 ["Literate Programming (LP)"](https://en.wikipedia.org/wiki/Literate_programming)
 tooling is very important for doing Data Science (DS). 
-At this point Raku has four LP solutions (or "notebook solutions"):
+At this point Raku has four LP solutions (three of them are "notebook solutions"):
 
 - ["Jupyter::Kernel"](https://raku.land/zef:bduggan/Jupyter::Kernel)
 - ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook)
@@ -455,7 +465,7 @@ support and demonstrate computational workflows that work across different progr
 - Data wrangling workflows code generation is for Julia, Python, R, Raku, SQL, and Wolfram Language (WL).
 - Raku's data wrangling functionalities adhere the DSLs and workflows of the popular [Python "pandas"](https://pandas.pydata.org) and [R "tidyverse"](https://www.tidyverse.org).
 - More generally, ML workflows code generators as a rule target R, Python, and WL.
-  - At this point Raku does not have specialized ML software monads.
+  - At this point, only recommender systems Raku-code is generated.
 - The Raku DSL for interacting with LLMs is also implemented in Python and WL; see [AAv8].
   - To be clear, WL's design of LLM functions was copied (or transferred) to Raku.
 
