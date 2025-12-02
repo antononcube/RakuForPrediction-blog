@@ -127,11 +127,11 @@ There are also corresponding [table](https://rawcdn.githack.com/antononcube/Raku
 - Machine Learning (ML) algorithms (both unsupervised and supervised)
     - Comment: Unsupervised ML is often used for Exploratory Data Analysis (EDA); supervised ML is used to leverage data patterns in some way, but also for certain type of EDA.
     - Pre-2021: A few packages for doing unsupervised Machine Learning (ML) (like ["Text::Markov"](https://raku.land/zef:bbkr/Text::Markov).)
-    - 2025: At least supervised ML package connecting (binding) to external systems, a set of unsupervised ML packages for clustering, associating rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with tries with frequencies can be used as classifiers.
+    - 2025: At least one supervised ML package connecting (binding) to external systems, a set of unsupervised ML packages for clustering, associating rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with frequencies can be used as classifiers.
     - Essential: ✓
     - Current status: ★★★ (2.5)
-    - References: ["Algorithm::XGBoost](https://github.com/titsuki/raku-Algorithm-XGBoost), [ML::* packages](https://raku.land/?q=ML%3A%3A)
-- Data visualization facilitation
+    - References: ["Algorithm::XGBoost](https://github.com/titsuki/raku-Algorithm-XGBoost), [ML::* packages](https://raku.land/?q=ML%3A%3A), ["Fast and compact classifier of DSL commands"](https://rakuforprediction.wordpress.com/2022/07/31/fast-and-compact-classifier-of-dsl-commands/) [post], ["Chebyshev Polynomials and Fitting Workflows"](https://raku-advent.blog/2024/12/17/day-17-chebyshev-polynomials-and-fitting-workflows/) [post]
+  Data visualization facilitation
     - Comment: Insightful plots over data are used in Data Science most of the time.
     - Pre-2021: A few small packages for plotting, at least one connecting external systems (like GnuPlot), none of them that useful for Data Science.
     - 2025: There are two "solid" packages Data Science visualizations, ["JavaScript::D3"](https://raku.land/zef:antononcube/JavaScript::D3), ["JavaScript::Google::Charts"](https://raku.land/zef:antononcube/JavaScript::Google::Charts); there is also an ASCI-plots package ["Text::Plot"](https://raku.land/zef:antononcube/Text::Plot) which is useful when basic, coarse plots are sufficient.
