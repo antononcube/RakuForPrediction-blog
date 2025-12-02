@@ -340,6 +340,7 @@ Here are Raku packages for doing ML and Statistics:
 - Outliers
   - ["Statistics::OutlierIdentifiers"](https://raku.land/cpan:ANTONOV/Statistics::OutlierIdentifiers)
 
+[![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Raku-ML-packages-mind-map-light.png)](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Raku-ML-packages-mind-map-light.pdf)
 
 ----
 
