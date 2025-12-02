@@ -49,12 +49,14 @@
     <outline text="Machine Learning (ML) algorithms (both unsupervised and supervised)">
       <outline text="Comment: Unsupervised ML is often used for Exploratory Data Analysis (EDA); supervised ML is used to leverage data patterns in some way, but also for certain type of EDA."/>
       <outline text="Pre-2021: A few packages for doing unsupervised Machine Learning (ML) (like Text::Markov.)"/>
-      <outline text="2025: At least supervised ML package connecting (binding) to external systems, a set of unsupervised ML packages for clustering, associating rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with tries with frequencies can be used as classifiers."/>
+      <outline text="2025: At least one supervised ML package connecting (binding) to external systems, a set of unsupervised ML packages for clustering, associating rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with frequencies can be used as classifiers."/>
       <outline text="Essential: ✓"/>
       <outline text="Current status: ★★★ (2.5)"/>
       <outline text="References">
         <outline text="Algorithm::XGBoost" _link="https://github.com/titsuki/raku-Algorithm-XGBoost"/>
         <outline text="ML::* packages" _link="https://raku.land/?q=ML%3A%3A"/>
+        <outline text="Fast and compact classifier of DSL commands" _link="https://rakuforprediction.wordpress.com/2022/07/31/fast-and-compact-classifier-of-dsl-commands/"/>
+        <outline text="Chebyshev Polynomials and Fitting Workflows" _link="https://raku-advent.blog/2024/12/17/day-17-chebyshev-polynomials-and-fitting-workflows/"/>
       </outline>
     </outline>
 
