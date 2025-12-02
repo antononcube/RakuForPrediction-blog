@@ -342,6 +342,8 @@ Here are Raku packages for doing ML and Statistics:
 
 [![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Raku-ML-packages-mind-map-light.png)](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Doing-Data-Science-with-Raku/Raku-ML-packages-mind-map-light.pdf)
 
+**Remark:** Again, mind-map's PDF file has "life" hyperlinks.
+
 ----
 
 ## Recommender systems and sparse matrices
