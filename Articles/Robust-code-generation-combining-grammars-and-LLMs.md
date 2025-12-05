@@ -466,7 +466,7 @@ Here is a visualization of the LLM graph defined above:
 $gBestCode.dot(engine => 'dot', :9graph-size, node-width => 1.7, node-color => 'grey', edge-color => 'grey', edge-width => 0.4, theme => 'default'):svg
 ```
 
-![](./Diagrams/Robust-code-generation-combining-grammars-and-LLMs/LLM-graph-parallel-run-with-judge.svg)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Robust-code-generation-combining-grammars-and-LLMs/LLM-graph-parallel-run-with-judge-light.png)
 
 For details on LLM-graphs making and their visualization representations see blog posts:
 
@@ -635,8 +635,7 @@ Here is the corresponding graph plot:
 $gRobust.dot(engine => 'dot', :9graph-size, node-width => 1.7, node-color => 'grey', edge-color => 'grey', edge-width => 0.4, theme => 'default'):svg
 ```
 
-![](./Diagrams/Robust-code-generation-combining-grammars-and-LLMs/LLM-graph-fallback-LLM-examples.svg)
-
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Robust-code-generation-combining-grammars-and-LLMs/LLM-graph-fallback-LLM-examples-light.png)
 
 Let us specify another workflow -- for ML-classification with Wolfram Language -- an run the graph: 
 
