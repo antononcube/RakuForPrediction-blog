@@ -13,9 +13,9 @@
     <tbody>
     <tr>
         <td>Data ingestion</td>
-        <td>That is fundamental and all programming systems have such functionalities to various degrees.</td>
-        <td>Robust JSON, CSV, CBOR files ingestion; XML and other formats can be ingested, but not in a robust manner.</td>
-        <td>Various (improved) packages for working with JSON, CSC, markup images, PDF, etc. Umbrella ingestion function for them.</td>
+        <td>This is fundamental, and all programming systems have such functionalities to varying degrees.</td>
+        <td>Robust JSON, CSV, CBOR file ingestion; XML and other formats can be ingested, but not in a robust manner.</td>
+        <td>Various (improved) packages for working with JSON, CSV, markup, images, PDF, etc. An umbrella ingestion function for them.</td>
         <td>✓</td>
         <td>★★★ (2.5)</td>
         <td>
@@ -26,9 +26,9 @@
     </tr>
     <tr>
         <td>Data wrangling facilitation</td>
-        <td>Slicing, splitting, combining, aggregating, summarizing data can be difficult and time consuming.</td>
-        <td>No serious efforts, especially, in terms of streamlining data wrangling workflows.</td>
-        <td>Two major efforts for streamlining data wrangling workflows one using "pure" Raku (good for exploration) and other interfaces "outside" systems.</td>
+        <td>Slicing, splitting, combining, aggregating, and summarizing data can be difficult and time-consuming.</td>
+        <td>No serious efforts, especially in terms of streamlining data wrangling workflows.</td>
+        <td>Two major efforts for streamlining data wrangling workflows: one using “pure” Raku (good for exploration), and another interfacing with “outside” systems.</td>
         <td>✓</td>
         <td>★★★ (3.25)</td>
         <td>
@@ -39,9 +39,9 @@
     </tr>
     <tr>
         <td>Statistics for data exploration</td>
-        <td>This includes descriptive statistics (mean, median, 5-point summary), summarization, outlier identification, and statistical distribution functions.</td>
-        <td>Various attempts, some are basic and "plain-Raku" (e.g. <a href="https://raku.land/github:MattOates/Stats">Stats</a>), some connect to <a href="https://www.gnu.org/software/gsl/">GSL</a> (and do not work on macOS.)</td>
-        <td>A couple of major efforts exist, one is all-in-one package, the other has is spread out in various packages.</td>
+        <td>This includes descriptive statistics (mean, median, five-point summary), summarization, outlier identification, and statistical distribution functions.</td>
+        <td>Various attempts: some are basic and “plain Raku” (e.g. <a href="https://raku.land/github:MattOates/Stats">Stats</a>); some connect to <a href="https://www.gnu.org/software/gsl/">GSL</a> (and do not work on macOS).</td>
+        <td>A couple of major efforts exist: one is an all-in-one package, the other is spread across various packages.</td>
         <td>✓</td>
         <td>★★★ (2.5)</td>
         <td>
@@ -54,23 +54,23 @@
     </tr>
     <tr>
         <td>Machine Learning (ML) algorithms (both unsupervised and supervised)</td>
-        <td>Unsupervised ML is often used for Exploratory Data Analysis (EDA); supervised ML is used to leverage data patterns in some way, but also for certain type of EDA.</td>
-        <td>A few packages for doing unsupervised Machine Learning (ML) (like <a href="https://raku.land/zef:bbkr/Text::Markov">Text::Markov</a>.)</td>
-        <td>At least one supervised ML package connecting (binding) to external systems, a set of unsupervised ML packages for clustering, associating rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with frequencies can be used as classifiers.</td>
+        <td>Unsupervised ML is often used for Exploratory Data Analysis (EDA); supervised ML is used to leverage data patterns in some way, but also for certain types of EDA.</td>
+        <td>A few packages for doing unsupervised Machine Learning (ML) (like <a href="https://raku.land/zef:bbkr/Text::Markov">Text::Markov</a>).</td>
+        <td>At least one supervised ML package connecting (binding) to external systems, and a set of unsupervised ML packages for clustering, association rules learning, fitting, tries with frequencies, and Recommendation Systems (RS). The RS and tries with frequencies can be used as classifiers.</td>
         <td>✓</td>
         <td>★★★ (2.5)</td>
         <td>
             <a href="https://github.com/titsuki/raku-Algorithm-XGBoost">Algorithm::XGBoost</a>,
-            <a href="https://raku.land/?q=ML%3A%3A">ML::* packages</a>
-            <a href="https://rakuforprediction.wordpress.com/2022/07/31/fast-and-compact-classifier-of-dsl-commands/">Fast and compact classifier of DSL commands</a> [post]
+            <a href="https://raku.land/?q=ML%3A%3A">ML::* packages</a>,
+            <a href="https://rakuforprediction.wordpress.com/2022/07/31/fast-and-compact-classifier-of-dsl-commands/">Fast and compact classifier of DSL commands</a> [post],
             <a href="https://raku-advent.blog/2024/12/17/day-17-chebyshev-polynomials-and-fitting-workflows/">Chebyshev Polynomials and Fitting Workflows</a> [post]
         </td>
     </tr>
     <tr>
         <td>Data visualization facilitation</td>
         <td>Insightful plots over data are used in Data Science most of the time.</td>
-        <td>A few small packages for plotting, at least one connecting external systems (like GnuPlot), none of them that useful for Data Science.</td>
-        <td>There are two "solid" packages Data Science visualizations, <a href="https://raku.land/zef:antononcube/JavaScript::D3">JavaScript::D3</a>, <a href="https://raku.land/zef:antononcube/JavaScript::Google::Charts">JavaScript::Google::Charts</a>; there is also an ASCI-plots package <a href="https://raku.land/zef:antononcube/Text::Plot">Text::Plot</a> which is useful when basic, coarse plots are sufficient.</td>
+        <td>A few small packages for plotting, at least one connecting to external systems (like Gnuplot), none of them that useful for Data Science.</td>
+        <td>There are two “solid” packages for Data Science visualizations, <a href="https://raku.land/zef:antononcube/JavaScript::D3">JavaScript::D3</a> and <a href="https://raku.land/zef:antononcube/JavaScript::Google::Charts">JavaScript::Google::Charts</a>. There is also an ASCII-plots package, <a href="https://raku.land/zef:antononcube/Text::Plot">Text::Plot</a>, which is useful when basic, coarse plots are sufficient.</td>
         <td>✓</td>
         <td>★★★★</td>
         <td>
@@ -83,9 +83,9 @@
     </tr>
     <tr>
         <td>Interactive computing environment(s)</td>
-        <td>Any data exploration is done in interactive manner with multiple changes of the data, and analysis or pattern finding workflows.</td>
-        <td>The (basic) Raku REPL, related Emacs major-mode, and the notebook environment <a href="https://raku.land/zef:bduggan/Jupyter::Kernel">Jupyter::Kernel</a>.</td>
-        <td>In addition to pre-2021 work there are <a href="https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/RakuMode/">RakuMode</a> for <a href="https://www.wolfram.com/notebooks/">Wolfram Notebooks</a>, <a href="https://raku.land/zef:antononcube/Jupyter::Chatbook">Jupyter::Chatbook</a> for seamless integration with LLMs.</td>
+        <td>Any data exploration is done in an interactive manner, with multiple changes of the data and analysis or pattern-finding workflows.</td>
+        <td>The (basic) Raku REPL, related Emacs major mode, and the notebook environment <a href="https://raku.land/zef:bduggan/Jupyter::Kernel">Jupyter::Kernel</a>.</td>
+        <td>In addition to pre-2021 work there are <a href="https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/RakuMode/">RakuMode</a> for <a href="https://www.wolfram.com/notebooks/">Wolfram Notebooks</a>, and <a href="https://raku.land/zef:antononcube/Jupyter::Chatbook">Jupyter::Chatbook</a> for seamless integration with LLMs.</td>
         <td>✓</td>
         <td>★★★★</td>
         <td>
@@ -95,9 +95,9 @@
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Literate_programming">Literate programming (LT)</a></td>
-        <td>LT is very important for Data Science (DS) because of the DS needs for <a href="https://en.wikipedia.org/wiki/Reproducibility#Reproducible_research">Reproducible Research</a>.</td>
-        <td>None, except <a href="https://raku.land/zef:bduggan/Jupyter::Kernel">Jupyter::Kernel</a>, but that not useful because of the lack of good graphics.</td>
-        <td>LT is fully supported due to having multiple LT solutions, strong graphics capabilities, LLM integration, and computational documents converters.</td>
+        <td>LT is very important for Data Science (DS) because of DS needs for <a href="https://en.wikipedia.org/wiki/Reproducibility#Reproducible_research">Reproducible Research</a>.</td>
+        <td>None, except <a href="https://raku.land/zef:bduggan/Jupyter::Kernel">Jupyter::Kernel</a>, but that is not useful because of the lack of good graphics.</td>
+        <td>LT is fully supported due to having multiple LT solutions, strong graphics capabilities, LLM integration, and computational document converters.</td>
         <td>✓</td>
         <td>★★★★★ (4.5)</td>
         <td>
@@ -108,9 +108,9 @@
     </tr>
     <tr>
         <td>Data generation and retrieval</td>
-        <td>For didactical and development purposes random data generation and retrieval of well known dataset is needed.</td>
-        <td>Nothing more than the build in Raku random generators, (<code>pick</code> and <code>roll</code>.)</td>
-        <td>Generators of random strings, words, pet names, date-times, distribution variates, tabular datasets. Popular datasets from the R-ecosystem can be downloaded and cached.</td>
+        <td>For didactic and development purposes, random data generation and retrieval of well-known datasets is needed.</td>
+        <td>Nothing more than the built-in Raku random generators (<code>pick</code> and <code>roll</code>).</td>
+        <td>Generators of random strings, words, pet names, date-times, distribution variates, and tabular datasets. Popular datasets from the R ecosystem can be downloaded and cached.</td>
         <td>𖧋</td>
         <td>★★★★ (3.5)</td>
         <td>
@@ -122,9 +122,9 @@
     </tr>
     <tr>
         <td>External Data Science (DS) and Machine Learning (ML) orchestration</td>
-        <td>Effective way to do DS and ML <em>and</em> easily move the developed computations to other systems. Allows reuse and having confidence that the utilized DS or ML algorithms are properly implemented and fast.</td>
-        <td>Various projects connecting to database systems (e.g. MySQL.)</td>
-        <td>The project <a href="https://raku.land/zef:librasteve/Dan">"Dan"</a> provides bindings to the data wrangling library <a href="https://docs.pola.rs">Polars</a>. The project <a href="https://github.com/antononcube/Raku-H2O-Client">"H2O::Client"</a> aims at providing both data wrangling and ML orchestrations to <a href="https://h2o.ai">H2O.ai</a>.</td>
+        <td>An effective way to do DS and ML and easily move the developed computations to other systems. This allows reuse and provides confidence that the utilized DS or ML algorithms are properly implemented and fast.</td>
+        <td>Various projects connecting to database systems (e.g. MySQL).</td>
+        <td>The project <a href="https://raku.land/zef:librasteve/Dan">Dan</a> provides bindings to the data wrangling library <a href="https://docs.pola.rs">Polars</a>. The project <a href="https://github.com/antononcube/Raku-H2O-Client">H2O::Client</a> aims to provide both data wrangling and ML orchestrations to <a href="https://h2o.ai">H2O.ai</a>.</td>
         <td>𖧋</td>
         <td>★★★ (2.5)</td>
         <td>
@@ -138,7 +138,7 @@
         <td>Interactive interfaces to parameterized workflows (dashboards)</td>
         <td>Very useful for getting data insights by dynamically changing different statistics based on parameters.</td>
         <td>None.</td>
-        <td>An effort, <a href="https://raku.land/zef:librasteve/Air::Examples">Air::Examples</a>, that brings interactivity via <a href="https://htmx.org">HTMX</a> is using the <a href="https://cro.raku.org">Cro</a> package set and templates; since <a href="https://developers.google.com/chart/interactive/docs/gallery/controls">Google Charts provides interactivity</a> <a href="https://raku.land/zef:antononcube/JavaScript::Google::Charts">JavaScript::Google::Charts</a> can be extended to have those kind of controls and dashboards.</td>
+        <td>An effort, <a href="https://raku.land/zef:librasteve/Air::Examples">Air::Examples</a>, that brings interactivity via <a href="https://htmx.org">HTMX</a> is using the <a href="https://cro.raku.org">Cro</a> package set and templates. Since <a href="https://developers.google.com/chart/interactive/docs/gallery/controls">Google Charts provides interactivity</a>, <a href="https://raku.land/zef:antononcube/JavaScript::Google::Charts">JavaScript::Google::Charts</a> can be extended to have those kinds of controls and dashboards.</td>
         <td>𖧋</td>
         <td>★</td>
         <td>
