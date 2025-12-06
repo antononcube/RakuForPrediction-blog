@@ -15,17 +15,19 @@ discusses different combinations of Grammar-Based Parser-Interpreters (GBPI) and
 We want to do such combinations because:
 
 - GBPI are fast, precise, but with a narrow DSL scope
-- LLMs can be unreliable and slow, but a wide DSL scope 
+- LLMs can be unreliable and slow, but with a wide DSL scope 
 
-Because of GBPI and LLMs complementary technologies with similar and overlapping goals the possible combinations are many. 
-We concentrate on two of the most straightforward designs: (1) judged parallel methods execution, and (2) using LLMs as a fallback method if grammar parsing fails. We show [asynchronous programming](https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)) implementations for both designs using the package [LLM::Graph](https://raku.land/zef:antononcube/LLM::Graph).
+Because of GBPI and LLMs are complementary technologies with similar and overlapping goals the possible combinations are many. 
+We concentrate on two of the most straightforward designs: 
+(1) judged parallel race of methods execution, and 
+(2) using LLMs as a fallback method if grammar parsing fails. 
+We show [asynchronous programming](https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)) implementations for both designs using the package [LLM::Graph](https://raku.land/zef:antononcube/LLM::Graph).
 
-The Machine Learning (ML) package ["ML::SparseMatrixRecommender"](https://raku.land/zef:antononcube/ML::SparseMatrixRecommender) is used to demonstrate that the generated code is executable. (Here that package is used not as much as a recommender but as a search engine.) 
-
+The Machine Learning (ML) package ["ML::SparseMatrixRecommender"](https://raku.land/zef:antononcube/ML::SparseMatrixRecommender) is used to demonstrate that the generated code is executable. 
 
 The rest of the document is structured as follows:
 
-- Initial grammars-LLMs combinations
+- Initial grammar-LLM combinations
     - Assumptions, straightforward designs, and trade-offs
 - Comprehensive combinations enumeration (attempt)
     - Tabular and morphological analysis breakdown
@@ -33,7 +35,7 @@ The rest of the document is structured as follows:
     - One grammar-based, two LLM-based
 - Parallel execution with an LLM judge
     - Straightforward, but computationally wasteful and expensive
-- Grammar-to-LLMs fallback mechanism
+- Grammar-to-LLM fallback mechanism
     - The easiest and most robust solution
 - Concluding comments and observations
 
@@ -66,7 +68,7 @@ Here are some example combinations of these approaches:
 4. If the grammar method fails, an LLM normalizer for user commands is invoked to generate specifications that the grammar can parse.
 
 5. It is important to distinguish between declarative specifications and those that prescribe specific steps. 
-   - The grammar parser may successfully parse most steps, but LLMs may be required for a few exceptions.
+   - For a workflow given as a list of steps the grammar parser may successfully parse most steps, but LLMs may be required for a few exceptions.
 
 The main trade-off in these approaches is as follows:
 
@@ -150,22 +152,18 @@ Here are LLM-models access configurations:
 sink my $conf41-mini = llm-configuration('ChatGPT', model => 'gpt-4.1-mini', temperature => 0.45);
 sink my $conf41 = llm-configuration('ChatGPT', model => 'gpt-4.1', temperature => 0.45);
 sink my $conf51 = llm-configuration('ChatGPT', model => 'gpt-5.1', reasoning-effort => 'none');
-sink my $conf51-codex = llm-configuration('ChatGPT', path => 'responses', model => 'gpt-5.1-codex');
-sink my $conf51-codex-mini = llm-configuration('ChatGPT', path => 'responses', model => 'gpt-5.1-codex-mini');
 sink my $conf-gemini20-flash = llm-configuration('Gemini', model => 'gemini-2.0-flash');
-sink my $conf-gemini25-flash = llm-configuration('Gemini', model => 'gemini-2.5-flash');
-sink my $conf-gemini25-pro = llm-configuration('Gemini', model => 'gemini-2.5-pro');
 ```
 
 ----
 
 ## Three DSL translations
 
-This section demonstrates the use of tree different translation methods:
+This section demonstrates the use of three different translation methods:
 
 1. Grammar-based parser-interpreter of computational workflows
 2. LLM-based translator using few-shot learning with relevant DSL examples
-3. Natural Language Processing interpreter using code templates and LLMs to fill-in the corresponding parameters
+3. Natural Language Processing (NLP) interpreter using code templates and LLMs to fill-in the corresponding parameters
 
 The translators are ordered according of their faithfulness, most faithful first. 
 It can be said that at the same time, the translators are ordered according to their coverage -- widest coverage is by the last.
@@ -204,7 +202,10 @@ For more details of the grammar-based approach see the presentations:
 
 ### Via LLM examples
 
-LLM translations can be done using a set of from-to rules. This is the so called *few shot learning* of LLMs. The package ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples) has a collection of such examples for different computational workflows. (Mostly ML at this point.) The examples are hierarchically organized by programming language and workflow name; see the resource file ["dsl-examples.json"](https://github.com/antononcube/Raku-DSL-Examples/blob/main/resources/dsl-examples.json), execute `dsl-examples`.
+LLM translations can be done using a set of from-to rules. 
+This is the so-called *few shot learning* of LLMs. The package ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples) has a collection of such examples for different computational workflows. 
+(Mostly ML at this point.) The examples are hierarchically organized by programming language and workflow name; 
+see the resource file ["dsl-examples.json"](https://github.com/antononcube/Raku-DSL-Examples/blob/main/resources/dsl-examples.json), or execute `dsl-examples`.
 
 Here is a table that shows the known DSL translation examples in ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples):
 
@@ -224,13 +225,6 @@ Here is the definition of an LLM translation function that uses examples:
 ```raku
 my &llm-pipeline-segment = llm-example-function(dsl-examples()<Raku><SMRMon>);
 ```
-
-
-
-
-    LLM::Function(-> **@args, *%args { #`(Block|4277107090152) ... }, 'chatgpt')
-
-
 
 Here is a recommender pipeline specified with natural language commands:
 
@@ -294,7 +288,7 @@ Or translate by just calling the function over the whole `$spec`:
 
 ### By NLP Template Engine
 
-Here the "free text" recommender pipeline specification is translated to Raku code using the sub `concretize` of the package ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine):
+Here a "free text" recommender pipeline specification is translated to Raku code using the sub `concretize` of the package ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine):
 
 
 ```raku
@@ -312,7 +306,9 @@ Here the "free text" recommender pipeline specification is translated to Raku co
 ```
 
 
-The package ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine) uses a Question Answering System (QAS) implemented in ["ML::FindTextualAnswer"](https://raku.land/zef:antononcube/ML::FindTextualAnswer). QAS can be implemented in different ways, with different conceptual and computation complexity. Currently, "ML::FindTextualAnswer" has only an LLM based implementation of QAS.
+The package ["ML::NLPTemplateEngine"](https://raku.land/zef:antononcube/ML::NLPTemplateEngine) uses a Question Answering System (QAS) implemented in ["ML::FindTextualAnswer"](https://raku.land/zef:antononcube/ML::FindTextualAnswer). 
+A QAS can be implemented in different ways, with different conceptual and computation complexity. 
+Currently, "ML::FindTextualAnswer" has only an LLM based implementation of QAS.
 
 For more details of the NLP template engine approach see the presentations:
 
@@ -327,14 +323,12 @@ For more details of the NLP template engine approach see the presentations:
 In this section we implement the first, most obvious, and conceptually simplest combination of grammar-based- with LLM-based translations:
 
 - All translators -- grammar-based and LLM-based are run in parallel 
-- An LLM judges selects the one that best adhering to the given specification
+- An LLM judge selects the one that adheres best to the given specification
 
 The implementation of this strategy with an LLM graph (say, by using ["LLM::Graph"](https://raku.land/zef:antononcube/LLM::Graph)) is straightforward.
 
 Here is such a LLM graph that:
-- Tries all three translation methods above
-- If the DSL grammar-based method does not work then the LLM-based ones are tried
-- The LLM methods are tried in parallel
+- Runs all three translation methods above
 - There is a judge that picks which on of the LLM methods produced better result
 - Judge's output is used to make a Markdown report
 
@@ -460,7 +454,7 @@ ML::SparseMatrixRecommender.new(@dsData)
 
 ### LLM-graph visualization 
 
-Here is a visualization of the LLM graph defined above:
+Here is a visualization of the LLM graph defined and run above:
 
 
 ```raku
@@ -479,11 +473,16 @@ For details on LLM-graphs making and their visualization representations see blo
 
 ## Fallback: DSL-grammar to LLM-examples
 
-Instead of having DSL-grammar and LLM computations running in parallel, we can make LLM-graph in which the LLM computations are invoked if the DSL-grammar parsing-and-interpretation fails. In this section we make such a graph:
+Instead of having DSL-grammar- and LLM computations running in parallel, 
+we can make an LLM-graph in which the LLM computations are invoked if the DSL-grammar parsing-and-interpretation fails. 
+In this section we make such a graph.
 
-Before making the graph let us also generalize it to work with other Machine Learning workflows, not just recommendations. The function `ToDSLCode` (of the package "DSL::Translators") has an ML workflow classifier (based on prefix trees.) 
+Before making the graph let us also generalize it to work with other ML workflows, not just recommendations. 
+The function `ToDSLCode` (of the package "DSL::Translators") has an ML workflow classifier based on prefix trees; see [AA1]. 
 
-Let us make an LLM function with a similar functionality. I.e. an LLM-function that classifies a natural language computation specification into workflow labels used by "DSL::Examples". Here is such a function using the `llm-classify` provided by ["ML::FindTextualAnswer"](https://raku.land/zef:antononcube/ML::FindTextualAnswer):
+Let us make an LLM function with a similar functionality. 
+I.e. an LLM-function that classifies a natural language computation specification into workflow labels used by "DSL::Examples". 
+Here is such a function using the sub `llm-classify` provided by ["ML::FindTextualAnswer"](https://raku.land/zef:antononcube/ML::FindTextualAnswer):
 
 
 ```raku
@@ -512,7 +511,7 @@ In addition, we have to specify a pipeline "separator" for the different program
 sink my %langSeparator = Python => "\n.", Raku => "\n.", R => "%>%\n", WL => "⟹\n";
 ```
 
-Here is the graph:
+Here is the LLM-graph:
 
 
 ```raku
@@ -560,7 +559,7 @@ my $gRobust = LLM::Graph.new(%rules):!async
 ```
 
 
-Here the LLM graph run over a spec that can be parsed by DSL-grammar (notice the very short computation time):
+Here the LLM graph is run over a spec that can be parsed by DSL-grammar (notice the very short computation time):
 
 
 ```raku
@@ -591,7 +590,7 @@ $gRobust.nodes<code><result>
 ```
 
 
-Here is a spec that cannot be parsed by DSL-grammar interpreter -- note there is just a small language change in the first line:
+Here is a spec that cannot be parsed by the DSL-grammar interpreter -- note that there is just a small language change in the first line:
 
 
 ```raku
@@ -639,7 +638,7 @@ $gRobust.dot(engine => 'dot', :9graph-size, node-width => 1.7, node-color => 'gr
 
 ![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Robust-code-generation-combining-grammars-and-LLMs/LLM-graph-fallback-LLM-examples-light.png)
 
-Let us specify another workflow -- for ML-classification with Wolfram Language -- an run the graph: 
+Let us specify another workflow -- for ML-classification with Wolfram Language -- and run the graph: 
 
 
 ```raku
@@ -679,17 +678,17 @@ $gRobust.nodes<code><result>
 
 - Using LLM graphs gives the ability to impose desired orchestration and collaboration between deterministic programs and LLMs.
 
-    - By contrast, the "inversion of control" of LLM-tools makes "capricious."
+    - By contrast, the "inversion of control" of LLM-tools is "capricious."
 
 - LLM-graphs are both a generalization of LLM-tools, and a lower level infrastructural functionality than LLM-tools.
 
-- The LLM-graph for the parallel-race for translation is very similar to the LLM-graph for comprehensive document summarization described in [AA4].
+- The LLM-graph for the parallel-race translation is very similar to the LLM-graph for comprehensive document summarization described in [AA4].
 
 - The expectation that DSL examples would provide both fast and faithful results is mostly confirmed in ≈20 experiments.
 
-- Using NLP template engine is also fast because LLMs are harnessed through QAS.
+- Using the NLP template engine is also fast because LLMs are harnessed through QAS.
 
-- The DSL examples translation had to be completed with a workflow classifier
+- The DSL examples translation had to be completed with a workflow classifier.
 
     - Such classifiers are also part of the implementations of the other two approaches.
 
