@@ -130,6 +130,12 @@ A few summary points (for table's content/subject):
 - That said, the fallback pattern implemented below can be considered the "best option" from certain development perspectives because it is simple, effective, and has fast execution times.
 
 
+See the corresponding 
+[Morphological Analysis table](./Diagrams/Robust-code-generation-combining-grammars-and-LLMs/Grammar-LLM-combintations-morphological-analysis-table.md) 
+which correspond to this taxonomy mind-map:
+
+![](./Diagrams/Robust-code-generation-combining-grammars-and-LLMs/Grammar-LLM-combinations-taxonomy-mind-map.png)
+
 ----
 
 ## Setup
