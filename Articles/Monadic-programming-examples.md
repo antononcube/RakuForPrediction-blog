@@ -23,7 +23,7 @@ As mentioned in [AA2], here is a list of the applications of monadic programming
 
 **Remark:** Those applications are discussed in [AAv5] (and its future Raku version.)
 
-As [a tools maker for Data Science (DS) and Machine Learning (ML)](https://raku-advent.blog/2025/12/02/day-2-doing-data-science-with-raku/), [AA3], 
+As [a tools maker for Data Science (DS) and Machine Learning (ML)](https://raku-advent.blog/2025/12/02/day-2-doing-data-science-with-raku/), [AA3],
 I am very interested in Point 1; but as a "simple data scientist" I am mostly interested in Point 2.
 
 That said, a large part of my Raku programming has been dedicated to rapid and reliable code generation for DS and ML by leveraging the algebraic structure of corresponding software monads, i.e. Point 3. (See [AAv2, AAv3, AAv4].) For me, first and foremost, ***monadic programming pipelines are just convenient interfaces to computational workflows***. Often I make software packages that allow "easy", linear workflows that can have very involved computational steps and multiple tuning options.
@@ -34,10 +34,10 @@ That said, a large part of my Raku programming has been dedicated to rapid and r
   A method for organizing computations as a series of steps, where each step generates a value along with additional information about the computation, such as possible failures, non-determinism, or side effects. See [Wk1].
 
 - **Monadic pipeline**   
-  Chaining of operations with a certain syntax. Monad laws apply loosely (or strongly) to that chaining. 
+  Chaining of operations with a certain syntax. Monad laws apply loosely (or strongly) to that chaining.
 
 - **Uniform Function Call Syntax (UFCS)**  
-  A feature that allows both free functions and member functions to be called using the same `object.function()` method call syntax. 
+  A feature that allows both free functions and member functions to be called using the same `object.function()` method call syntax.
 
 - **Method-like call**   
   Same as UFCS. A Raku example: `[3, 4, 5].&f1.$f2`.
@@ -46,7 +46,7 @@ That said, a large part of my Raku programming has been dedicated to rapid and r
 
 ## Setup
 
-Here are loaded packages used in this notebook:
+Here are loaded packages used in this document (notebook):
 
 
 ```raku
@@ -69,8 +69,8 @@ use Hilite::Simple;
 
 Here is a list of steps:
 
-- Make a prefix tree (trie) with frequencies using word splitting over `@words2`
-- Merge the trie with the another trie made over `@words3`
+- Make a prefix tree (trie) with frequencies by splitting words into characters over `@words2`
+- Merge the trie with another trie made over `@words3`
 - Convert the node frequencies into probabilities
 - Shrink the trie (i.e. find the "prefixes")
 - Show the tree-form of the trie
@@ -163,8 +163,8 @@ andthen .form
 
 ## Data wrangling
 
-One appealing way to show that monadic pipelines result in clean and readable code, is to demonstrate their use in Raku through data wrangling operations.
-Here we load "data packages", get the Titanic dataset, show its structure, and show a sample of its rows:
+One appealing way to show that monadic pipelines result in clean and readable code, is to demonstrate their use in Raku through data wrangling operations. (See the "data packages" loaded above.)
+Here we get the Titanic dataset, show its structure, and show a sample of its rows:
 
 
 ```raku
@@ -217,7 +217,7 @@ andthen $_».elems
 
 
 
-**Remark:** The `andthen` pipeline corresponds to the R pipeline in the second section.
+**Remark:** The `andthen` pipeline corresponds to the R pipeline in the next section.
 
 Similar result can be obtained via cross-tabulation and using a pipeline with the feed (`==>`) operator:
 
@@ -241,7 +241,7 @@ Similar result can be obtained via cross-tabulation and using a pipeline with th
 
 
 
-Tries with frequencies can be also used for this kind of data (deep) contingency tensors (not just some shallow tables):
+Tries with frequencies can be also used for finding this kind of (*deep*) contingency tensors (not just some shallow tables):
 
 
 ```raku
@@ -276,7 +276,7 @@ andthen .form
 
 
 
-**Remark:** This application of Tries with frequencies can leveraged in making [mosaic plots](https://en.wikipedia.org/wiki/Mosaic_plot). (See this [`MosaicPlot` implementation in Wolfram Language](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/MosaicPlot/), [AAp6].)
+**Remark:** This application of Tries with frequencies can be leveraged in making [mosaic plots](https://en.wikipedia.org/wiki/Mosaic_plot). (See this [`MosaicPlot` implementation in Wolfram Language](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/MosaicPlot/), [AAp8].)
 
 ----
 
@@ -297,7 +297,7 @@ END
 
 ### Grammar based interpreters
 
-Here is a table with the generated codes for different programming languages according to the spec above (using ["DSL::English::DataQueryWorkflows"](https://raku.land/zef:antononcube/DSL::English::DataQueryWorkflows), [AAp3]): 
+Here is a table with the generated codes for different programming languages according to the spec above (using ["DSL::English::DataQueryWorkflows"](https://raku.land/zef:antononcube/DSL::English::DataQueryWorkflows), [AAp3]):
 
 
 ```raku
@@ -337,7 +337,7 @@ That is not monadic, of course -- see the monadic version above.
 
 ## LLM generated (via DSL examples)
 
-Here we define an LLM-examples function for translation of natural language commands into code using DSL examples (provided by "DSL::Examples"):
+Here we define an LLM-examples function for translation of natural language commands into code using DSL examples (provided by ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples), [AAp6]):
 
 
 ```raku
@@ -426,7 +426,7 @@ andthen hilite($_)
 
 
 
-Here we execute a slightly modified version of the pipeline:
+Here we execute a slightly modified version of the pipeline (based on ["ML::SparseMatrixRecommender"](https://raku.land/zef:antononcube/ML::SparseMatrixRecommender), [AAp7]):
 
 
 ```raku
@@ -460,7 +460,7 @@ sink my $obj = ML::SparseMatrixRecommender.new
 
 ## Functional parsers (multi-operation pipelines)
 
-In can be said that the package ["FunctionalParsers"](https://raku.land/zef:antononcube/FunctionalParsers), [AAp4], implements multi-operator monadic pipelines the creation of parsers and interpreters. "FunctionalParsers" achieves that using special infix implementations.
+In can be said that the package ["FunctionalParsers"](https://raku.land/zef:antononcube/FunctionalParsers), [AAp4], implements multi-operator monadic pipelines for the creation of parsers and interpreters. "FunctionalParsers" achieves that using special infix implementations.
 
 
 ```raku
@@ -475,7 +475,7 @@ my &pM = {10**6} ⨀ symbol('million');
 sink my &pNoun = symbol('things') ⨁ symbol('objects');
 ```
 
-Here is a parser -- all three monad operations are used:
+Here is a parser -- all three monad operations (`⨁`, `⨂`, `⨀`) are used:
 
 
 ```raku
@@ -510,18 +510,18 @@ The last sentence is not parsed because the parser `&p` knows only the digits fr
 
 ### Articles, blog posts
 
-[Wk1] Wikipedia entry: [Monad (functional programming)](https://en.wikipedia.org/wiki/Monad_(functional_programming)), URL: [https://en.wikipedia.org/wiki/Monad_(functional_programming)](https://en.wikipedia.org/wiki/Monad_(functional_programming)) . 
+[Wk1] Wikipedia entry: [Monad (functional programming)](https://en.wikipedia.org/wiki/Monad_(functional_programming)), URL: [https://en.wikipedia.org/wiki/Monad_(functional_programming)](https://en.wikipedia.org/wiki/Monad_(functional_programming)) .
 
 [Wk2] Wikipedia entry: [Monad transformer](https://en.wikipedia.org/wiki/Monad_transformer), URL: [https://en.wikipedia.org/wiki/Monad_transformer](https://en.wikipedia.org/wiki/Monad_transformer) .
 
-[H1] Haskell.org article: [Monad laws,](https://wiki.haskell.org/Monad_laws) URL: [https://wiki.haskell.org/Monad_laws](https://wiki.haskell.org/Monad_laws). 
+[H1] Haskell.org article: [Monad laws,](https://wiki.haskell.org/Monad_laws) URL: [https://wiki.haskell.org/Monad_laws](https://wiki.haskell.org/Monad_laws).
 
 [SH2] Sheng Liang, Paul Hudak, Mark Jones, ["Monad transformers and modular interpreters",](http://haskell.cs.yale.edu/wp-content/uploads/2011/02/POPL96-Modular-interpreters.pdf) (1995), Proceedings of the 22nd ACM SIGPLAN-SIGACT symposium on Principles of programming languages. New York, NY: ACM. pp. 333--343. doi:10.1145/199448.199528.
 
 [PW1] Philip Wadler, ["The essence of functional programming"](https://page.mi.fu-berlin.de/scravy/realworldhaskell/materialien/the-essence-of-functional-programming.pdf), (1992), 19'th Annual Symposium on Principles of Programming Languages, Albuquerque, New Mexico, January 1992.
 
 [RW1] Hadley Wickham et al., [dplyr: A Grammar of Data Manipulation](https://github.com/tidyverse/dplyr), (2014), [tidyverse at GitHub](https://github.com/tidyverse), URL: [https://github.com/tidyverse/dplyr](https://github.com/tidyverse/dplyr) .
-       (See also, [http://dplyr.tidyverse.org](http://dplyr.tidyverse.org) .)
+(See also, [http://dplyr.tidyverse.org](http://dplyr.tidyverse.org) .)
 
 [AA1] Anton Antonov, ["Monad code generation and extension"](https://mathematicaforprediction.wordpress.com/2017/06/23/monad-code-generation-and-extension/), (2017), [MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com).
 
@@ -533,19 +533,25 @@ The last sentence is not parsed because the parser `&p` knows only the digits fr
 
 [AAp1] Anton Antonov, [MonadMakers](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/MonadMakers/), Wolfram Language paclet, (2023), [Wolfram Language Paclet Repository](https://resources.wolframcloud.com/PacletRepository/).
 
-[AAp2] Anton Antonov, [StatStateMonadCodeGeneratoreNon](https://github.com/antononcube/R-packages/tree/master/StateMonadCodeGenerator), R package, (2019-2024), 
+[AAp2] Anton Antonov, [StatStateMonadCodeGeneratoreNon](https://github.com/antononcube/R-packages/tree/master/StateMonadCodeGenerator), R package, (2019-2024),
 [GitHub/@antononcube](https://github.com/antononcube/).
 
-[AAp3] Anton Antonov, [DSL::English::DataQueryWorkflows](https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows), Raku package, (2020-2024), 
+[AAp3] Anton Antonov, [DSL::English::DataQueryWorkflows](https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows), Raku package, (2020-2024),
 [GitHub/@antononcube](https://github.com/antononcube/).
 
-[AAp4] Anton Antonov, [FunctionalParsers](https://github.com/antononcube/Raku-FunctionalParsers), Raku package, (2023-2024), 
+[AAp4] Anton Antonov, [FunctionalParsers](https://github.com/antononcube/Raku-FunctionalParsers), Raku package, (2023-2024),
 [GitHub/@antononcube](https://github.com/antononcube/).
 
-[AAp5] Anton Antonov, [ML::TriesWithFrequencies](https://github.com/antononcube/Raku-ML-TriesWithFrequencies), Raku package, (2021-2024), 
+[AAp5] Anton Antonov, [ML::TriesWithFrequencies](https://github.com/antononcube/Raku-ML-TriesWithFrequencies), Raku package, (2021-2024),
 [GitHub/@antononcube](https://github.com/antononcube/).
 
-[AAp6] Anton Antonov, [MosaicPlot](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/MosaicPlot/), Wolfram Language paclet, (2023), [Wolfram Language Paclet Repository](https://resources.wolframcloud.com/PacletRepository/).
+[AAp6] Anton Antonov, [DSL::Examples](https://github.com/antononcube/Raku-DSL-Examples), Raku package, (2024-2025),
+[GitHub/@antononcube](https://github.com/antononcube/).
+
+[AAp7] Anton Antonov, [ML::SparseMatrixRecommender](https://github.com/antononcube/Raku-ML-SparseMatrixRecommender), Raku package, (2025),
+[GitHub/@antononcube](https://github.com/antononcube/).
+
+[AAp8] Anton Antonov, [MosaicPlot](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/MosaicPlot/), Wolfram Language paclet, (2023), [Wolfram Language Paclet Repository](https://resources.wolframcloud.com/PacletRepository/).
 
 ### Videos
 
@@ -558,6 +564,3 @@ The last sentence is not parsed because the parser `&p` knows only the digits fr
 [AAv4] Anton Antonov, [Simplified Machine Learning Workflows Overview (Raku-centric)](https://www.youtube.com/watch?v=p3iwPsc6e74), (2022), Wolfram Technology Conference 2022 presentation. [YouTube/@AAA4prediction](https://www.youtube.com/@AAA4prediction).
 
 [AAv5] Anton Antonov, [Applications of Monadic Programming, Part 1, Questions & Answers](https://www.youtube.com/watch?v=Xz5B4B0kVco), (2025), [YouTube/@AAA4prediction](https://www.youtube.com/@AAA4prediction).
-
-
-
