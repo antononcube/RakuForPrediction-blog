@@ -187,7 +187,7 @@ $gTrails.dot(
 ):svg
 ```
 
-![](./Diagrams/Numerically-2026-is-unremarkable-yet-happy/Happy-number-trails-upto-2026-graph.png)
+![](./Diagrams/Numerically-2026-is-unremarkable-yet-happy/Happy-number-trails-upto-2026-graph.svg)
 
 ----
 
@@ -306,7 +306,7 @@ reduce(
     ]
 ).dot(engine => 'neato'):svg
 ```
-![](./Diagrams/Numerically-2026-is-unremarkable-yet-happy/Quartic-graph-1-dark.png)
+![](./Diagrams/Numerically-2026-is-unremarkable-yet-happy/Quartic-graph-1.svg)
 
 And here is another one:
 
@@ -323,7 +323,7 @@ my $g = reduce(
 $g.dot(engine => 'neato', splines => 'curved'):svg
 ```
 
-![](./Diagrams/Numerically-2026-is-unremarkable-yet-happy/Quartic-graph-2-dark.png)
+![](./Diagrams/Numerically-2026-is-unremarkable-yet-happy/Quartic-graph-2.svg)
 
 Here, we check that all vertices have degree 4:
 
