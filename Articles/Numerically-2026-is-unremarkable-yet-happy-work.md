@@ -30,9 +30,6 @@ use Data::TypeSystem;
 use Graph;
 use JavaScript::D3;
 ```
-```
-# (Any)
-```
 
 Notebook priming code:
 
@@ -58,18 +55,12 @@ First, 2026 is obviously not prime—it is divisible by `2`—but dividing it by
 ```raku
 is-prime(2026 / 2)
 ```
-```
-# True
-```
 
 Hence, `2026` is a [**semiprime**](https://en.wikipedia.org/wiki/Semiprime). The integer `1013` is not a [Gaussian prime](https://en.wikipedia.org/wiki/Gaussian_integer#Gaussian_primes), though:
 
 
 ```raku
 is-prime(1013, :gaussian-integers)
-```
-```
-# False
 ```
 
 A [**happy number**](https://en.wikipedia.org/wiki/Happy_number) is a number for which iteratively summing the squares of its digits eventually reaches 1 (e.g., 13 → 10 → 1).  
@@ -79,9 +70,6 @@ Here is a check that `2026` is happy:
 ```raku
 is-happy-number(2026)
 ```
-```
-# True
-```
 
 Here is the corresponding trail of digit-square sums:
 
@@ -89,18 +77,12 @@ Here is the corresponding trail of digit-square sums:
 ```raku
 is-happy-number(2026, :trail).tail.head(*-1).join(' → ')
 ```
-```
-# 2026 → 44 → 32 → 13 → 10 → 1
-```
 
 Not many years in this century are happy numbers:
 
 
 ```raku
 (2000...2100).grep({ is-happy-number($_) })
-```
-```
-# (2003 2008 2019 2026 2030 2036 2039 2062 2063 2080 2091 2093)
 ```
 
 The decomposition of `2026` as `2 * 1013` means the multiplicative group modulo `2026` has primitive roots. A primitive root exists for an integer $n$ if and only if $n$ is $1$, $2$, $4$, $p^k$, or $2 p^k$, where $p$ is an odd prime and $k > 0$.
@@ -140,8 +122,6 @@ my &divisors-count = { divisors($_).elems };
 <is-prime is-composite divisors-count prime-omega euler-phi is-square-free is-happy-number is-harshad-number is-deficient-number primitive-root>.map({ %(sub => $_, '2025' => ::("&$_")(2025), '2026' => ::("&$_")(2026) ) })
 ==> to-html(field-names => ['sub', '2025', '2026'], align => 'left')
 ```
-<table border="1"><thead><tr><th>sub</th><th>2025</th><th>2026</th></tr></thead><tbody><tr><td align=left>is-prime</td><td align=left>False</td><td align=left>False</td></tr><tr><td align=left>is-composite</td><td align=left>True</td><td align=left>True</td></tr><tr><td align=left>divisors-count</td><td align=left>15</td><td align=left>4</td></tr><tr><td align=left>prime-omega</td><td align=left>6</td><td align=left>2</td></tr><tr><td align=left>euler-phi</td><td align=left>1080</td><td align=left>1012</td></tr><tr><td align=left>is-square-free</td><td align=left>False</td><td align=left>True</td></tr><tr><td align=left>is-happy-number</td><td align=left>False</td><td align=left>True</td></tr><tr><td align=left>is-harshad-number</td><td align=left>True</td><td align=left>False</td></tr><tr><td align=left>is-deficient-number</td><td align=left>True</td><td align=left>True</td></tr><tr><td align=left>primitive-root</td><td align=left>(Any)</td><td align=left>3</td></tr></tbody></table>
-
 
 ---
 
@@ -153,18 +133,12 @@ Digits of 2026 represented in the [Phi number system](https://mathworld.wolfram.
 ```raku
 my @res = phi-number-system(2026);
 ```
-```
-# [15 13 10 6 -6 -11 -16]
-```
 
 Verification:
 
 
 ```raku
 @res.map({ ϕ ** $_ }).sum.round(10e-11);
-```
-```
-# 2026
 ```
 
 ---
@@ -180,9 +154,6 @@ my @ns = 1...2026;
 my @trails = @ns.map({ is-happy-number($_):trail }).grep(*.head);
 
 deduce-type(@trails)
-```
-```
-# Vector((Any), 302)
 ```
 
 Here is the corresponding trails graph, highlighting the primes and happy numbers:
@@ -229,9 +200,6 @@ There is a theorem by Gauss stating that any integer can be represented as a sum
 #% bash
 wolframscript -code 'FindInstance[{2026 == PolygonalNumber[i] + PolygonalNumber[j] + PolygonalNumber[k], i > 10, j > 10, k > 10}, {i, j, k}, Integers]'
 ```
-```
-# {{i -> 11, j -> 19, k -> 59}}
-```
 
 Here, we verify the result using Raku:
 
@@ -239,10 +207,6 @@ Here, we verify the result using Raku:
 ```raku
 say "Triangular numbers : ", <11 19 59>.&polygonal-number(:3sides);
 say "Sum : ", <11 19 59>.&polygonal-number(:3sides).sum;
-```
-```
-# Triangular numbers : (66 190 1770)
-# Sum : 2026
 ```
 
 ---
@@ -254,9 +218,6 @@ Here is the number of primitive roots of the [multiplication group modulo](https
 
 ```raku
 primitive-root-list(2026).elems
-```
-```
-# 440
 ```
 
 Here are chord plots [AA2, AAp1, AAp2, AAv1] corresponding to a few selected primitive roots:
@@ -294,9 +255,6 @@ my $n = 2026;
 ```raku
 (2000...2100).hyper(:4degree).grep({ 365 ∈ primitive-root-list($_) })
 ```
-```
-# (2003 2026 2039 2053 2063 2078 2089)
-```
 
 ---
 
@@ -309,18 +267,12 @@ The number `2026` appears in [18 results of the search "2026 graphs"](https://oe
 my $internal = data-import('https://oeis.org/A033483/internal', 'plaintext');
 text-stats($internal)
 ```
-```
-# (chars => 2928 words => 383 lines => 98)
-```
 
 Here, we verify the title:
 
 
 ```raku
 with $internal.match(/ '%' N (<-[%]>*)? <?before '%'> /) { $0.Str.trim }
-```
-```
-# Number of disconnected 4-valent (or quartic) graphs with n nodes.
 ```
 
 Here, we get the corresponding sequence:
@@ -331,18 +283,12 @@ my @seq = do with data-import('https://oeis.org/A033483/list', 'plaintext').matc
     $0.Str.split(',')».trim
 }
 ```
-```
-# [0 0 0 0 0 0 0 0 0 0 1 1 3 8 25 88 378 2026 13351 104595 930586 9124662 96699987 1095469608 13175272208 167460699184 2241578965849 31510542635443 464047929509794 7143991172244290 114749135506381940 1919658575933845129 33393712487076999918 603152722419661386031]
-```
 
 Here we find the position of `2026` in that sequence:
 
 
 ```raku
 @seq.grep(2026):k
-```
-```
-# (17)
 ```
 
 Given the title of the sequence and the extracted position of `2026`, this means that the number of disconnected [4-regular graphs](https://mathworld.wolfram.com/QuarticGraph.html) with 17 vertices is 2026. Let us create a few graphs from that set by using the [5-vertex complete graph ($K_5$)](https://mathworld.wolfram.com/CompleteGraph.html) and [circulant graphs]().  
@@ -384,9 +330,6 @@ Here, we check that all vertices have degree 4:
 
 ```raku
 $g.vertex-degree.sum / $g.vertex-count
-```
-```
-# 4
 ```
 
 **Remark:** Note that although the plots show disjoint graphs, each graph plot represents a single graph object.
