@@ -28,11 +28,10 @@ use Data::Translators;
 use Data::TypeSystem;
 
 use Graph;
+use Graph::Classes;
 use JavaScript::D3;
 ```
-```
-# (Any)
-```
+
 
 Notebook priming code:
 
@@ -420,6 +419,20 @@ This section has a few additional (leftover) comments.
 
 - Another implementation effort was to finally come up with a Command Line Interface (CLI). 
     - I advocate that a CLI should be considered for _all_ Raku packages, and _most_ should have one.
+
+```shell
+number-theory is happy number 2026
+```
+```
+# True
+```
+
+```shell
+number-theory primitive root list 2026 | grep 365
+```
+```
+# 365
+```
 
 ---
 
