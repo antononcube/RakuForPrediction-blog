@@ -28,6 +28,7 @@ use Data::Translators;
 use Data::TypeSystem;
 
 use Graph;
+use Graph::Classes;
 use JavaScript::D3;
 ```
 
@@ -159,7 +160,7 @@ deduce-type(@trails)
 Here is the corresponding trails graph, highlighting the primes and happy numbers:
 
 
-```raku, eval=FALSE
+```raku, results=asis, eval=FALSE
 #% html
 my @prime-too = @trails.grep(*.head).map(*.tail.head).grep(*.&is-prime);
 my @happy-too = @ns.grep(*.&is-harshad-number).grep(*.&is-happy-number);
@@ -295,7 +296,7 @@ Given the title of the sequence and the extracted position of `2026`, this means
 Here is an example of such a graph:
 
 
-```raku, eval=FALSE
+```raku, results=asis, eval=FALSE
 #% html
 reduce(    
     { $^a.union($^b) },
@@ -311,7 +312,7 @@ reduce(
 And here is another one:
 
 
-```raku, eval=FALSE
+```raku, results=asis, eval=FALSE
 #% html
 my $g = reduce(    
     { $^a.union($^b) },
@@ -363,6 +364,14 @@ This section has a few additional (leftover) comments.
 
 - Another implementation effort was to finally come up with a Command Line Interface (CLI). 
     - I advocate that a CLI should be considered for _all_ Raku packages, and _most_ should have one.
+
+```shell
+number-theory is happy number 2026
+```
+
+```shell
+number-theory primitive root list 2026 | grep 365
+```
 
 ---
 
