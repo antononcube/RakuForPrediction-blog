@@ -353,7 +353,7 @@ This section has a few additional (leftover) comments.
     - Often, I visualize associated graphs using the DOT language specs provided by the package ["Graph"](https://raku.land/zef:antononcube/Graph), [AAp4] (as seen above). 
         - The [Graphviz engines](https://graphviz.org/download/) generate images in different formats using [DOT](https://graphviz.org/doc/info/lang.html) specs.
 
-- The number of years this century that have primitive roots and have 365 as a primitive root is less than the number of years that are happy numbers.
+- The number of years in this century that have primitive roots and have 365 as a primitive root is less than the number of years that are happy numbers.
 
 - I would say I spent too much time finding a good, suitable, Christmas-themed combination of colors for the trails graph.
 
