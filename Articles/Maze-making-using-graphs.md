@@ -167,7 +167,7 @@ my %opts =
 $simpleMaze.dot(|%opts):svg
 ```
 
-![](./Diagrams/Maze-making-using-graphs/Simple-maze-1.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Simple-maze-1.png)
 
 The "maze" above looks like a maze because the vertices and edges are rectangular with matching sizes, and they are thicker than the spaces between them. In other words, we are cheating.
 
@@ -180,7 +180,7 @@ my $gPath = Graph::Path.new(@path);
 $simpleMaze.dot(highlight => {Salmon => $gPath.edge-list, Red => $gPath.vertex-list}, |%opts):svg
 ```
 
-![](./Diagrams/Maze-making-using-graphs/Simple-maze-2-path.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Simple-maze-2-path.png)
 
 ----
 
@@ -266,7 +266,7 @@ $g3.dot(
 ):svg
 ```
 
-![](./Diagrams/Maze-making-using-graphs/Proper-regular-grid-maze-1.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Proper-regular-grid-maze-1.png)
 
 Remove wall edges using a formula:
 
@@ -320,7 +320,7 @@ $g4.dot(
 ):svg
 ```
 
-![](./Diagrams/Maze-making-using-graphs/Proper-regular-grid-maze-2.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Proper-regular-grid-maze-2.png)
 
 Fancier maze presentation with rectangular vertices and edges (with matching sizes):
 
@@ -349,7 +349,7 @@ $g4.dot(
 ):svg
 ```
 
-![](./Diagrams/Maze-making-using-graphs/Proper-regular-grid-maze-3.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Proper-regular-grid-maze-3.png)
 
 ---
 
@@ -399,7 +399,7 @@ $g1.union($g2).dot(
 ):svg
 ```
 
-![](./Diagrams/Maze-making-using-graphs/Hexagonal-grid-maze-1.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Hexagonal-grid-maze-1.png)
 
 Maze Path Graph:
 
@@ -442,7 +442,7 @@ $g3.dot(
 ):svg
 ```
 
-![](./Diagrams/Maze-making-using-graphs/Hexagonal-grid-maze-2.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Hexagonal-grid-maze-2.png)
 
 Make a nearest neighbor points finder functor:
 
@@ -564,9 +564,9 @@ my %opts =
 $g4.dot(highlight => {'#1F1F1F' => @mazeStartEnd}, |%opts):svg
 ```
 
-![](./Diagrams/Maze-making-using-graphs/Hexagonal-grid-maze-3.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Hexagonal-grid-maze-3.png)
 
-([Here is the solution of the maze](./Diagrams/Maze-making-using-graphs/Hexagonal-grid-maze-4.png)).  
+([Here is the solution of the maze](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Maze-making-using-graphs/Hexagonal-grid-maze-4.png)).  
 
 ----
 
