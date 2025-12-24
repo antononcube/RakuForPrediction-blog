@@ -63,6 +63,7 @@ use Math::Nearest;
 
 use Data::TypeSystem;
 use Data::Translators;
+use Data::Generators;
 ```
 
 ### Conversion
@@ -574,27 +575,27 @@ $g4.dot(highlight => {'#1F1F1F' => @mazeStartEnd}, |%opts):svg
 
 - The initial (and unfinished) version of this document was created 13 months ago.
 
-    - Its completion was postponed because the blog post ["Day 12 – Graphs in Raku"](https://raku-advent.blog/2024/12/12/day-12-graphs-in-raku/), [AA1], featured many of the graph operations in "Graph", [AAp1]. 
+  - Its completion was postponed because the blog post ["Day 12 – Graphs in Raku"](https://raku-advent.blog/2024/12/12/day-12-graphs-in-raku/), [AA1], featured many of the graph operations in "Graph", [AAp1]. 
 
-        - (Well, until this Raku Advent effort...)
+    - (Well, until this Raku Advent effort...)
 
 - The document demonstrates how feature-rich the package "Graph" is.
 
 - Here are the special graph functionalities used to create the mazes:
 
-    - Construction of [regular grid graphs](https://mathworld.wolfram.com/GridGraph.html)
-    - Construction of [hexagonal grid graphs](https://mathworld.wolfram.com/HexagonalGridGraph.html)
-    - Construction of [triangular grid graphs](https://mathworld.wolfram.com/TriangularGridGraph.html)
-    - [Subgraph](https://mathworld.wolfram.com/Subgraph.html) extraction
-    - [Neighborhood graphs](https://mathworld.wolfram.com/NeighborhoodGraph.html)
-    - [Graph difference](https://mathworld.wolfram.com/GraphDifference.html)
-    - Edge deletion
-    - Graph plotting via Graphviz DOT using:
-        - Customized styling of various elements
-        - Vertex coordinates
-        - Specified vertex labels (see the top of the tree)
-    - Graph highlighting
-        - Multiple sets of vertices and edges with different colors can be specified
+  - Construction of [regular grid graphs](https://mathworld.wolfram.com/GridGraph.html)
+  - Construction of [hexagonal grid graphs](https://mathworld.wolfram.com/HexagonalGridGraph.html)
+  - Construction of [triangular grid graphs](https://mathworld.wolfram.com/TriangularGridGraph.html)
+  - [Subgraph](https://mathworld.wolfram.com/Subgraph.html) extraction
+  - [Neighborhood graphs](https://mathworld.wolfram.com/NeighborhoodGraph.html)
+  - [Graph difference](https://mathworld.wolfram.com/GraphDifference.html)
+  - Edge deletion
+  - Graph plotting via Graphviz DOT using:
+    - Customized styling of various elements
+    - Vertex coordinates
+    - Specified vertex labels (see the top of the tree)
+  - Graph highlighting
+      - Multiple sets of vertices and edges with different colors can be specified
 
 ----
 
