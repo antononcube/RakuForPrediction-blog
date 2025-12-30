@@ -1,0 +1,291 @@
+<svg width="144pt" height="144pt"
+ viewBox="0.00 0.00 144.00 144.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.453401 0.453401) rotate(0) translate(4 313.6)">
+<polygon fill="none" stroke="none" points="-4,4 -4,-313.6 313.6,-313.6 313.6,4 -4,4"/>
+<!-- w1_4 -->
+<g id="node1" class="node">
+<title>w1_4</title>
+<polygon fill="SteelBlue" stroke="Black" points="309.6,-93.6 288,-93.6 288,-72 309.6,-72 309.6,-93.6"/>
+</g>
+<!-- w2_4 -->
+<g id="node8" class="node">
+<title>w2_4</title>
+<polygon fill="SteelBlue" stroke="Black" points="309.6,-165.6 288,-165.6 288,-144 309.6,-144 309.6,-165.6"/>
+</g>
+<!-- w1_4&#45;&#45;w2_4 -->
+<g id="edge14" class="edge">
+<title>w1_4&#45;&#45;w2_4</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M298.8,-94.05C298.8,-107.66 298.8,-130.4 298.8,-143.86"/>
+</g>
+<!-- w3_2 -->
+<g id="node2" class="node">
+<title>w3_2</title>
+<polygon fill="SteelBlue" stroke="Black" points="165.6,-237.6 144,-237.6 144,-216 165.6,-216 165.6,-237.6"/>
+</g>
+<!-- w3_3 -->
+<g id="node29" class="node">
+<title>w3_3</title>
+<polygon fill="SteelBlue" stroke="Black" points="237.6,-237.6 216,-237.6 216,-216 237.6,-216 237.6,-237.6"/>
+</g>
+<!-- w3_2&#45;&#45;w3_3 -->
+<g id="edge5" class="edge">
+<title>w3_2&#45;&#45;w3_3</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M166.05,-226.8C179.66,-226.8 202.4,-226.8 215.86,-226.8"/>
+</g>
+<!-- 3_3 -->
+<g id="node3" class="node">
+<title>3_3</title>
+<polygon fill="DarkOrange" stroke="DarkOrange" points="273.6,-273.6 252,-273.6 252,-252 273.6,-252 273.6,-273.6"/>
+</g>
+<!-- w0_4 -->
+<g id="node4" class="node">
+<title>w0_4</title>
+<polygon fill="SteelBlue" stroke="Black" points="309.6,-21.6 288,-21.6 288,0 309.6,0 309.6,-21.6"/>
+</g>
+<!-- w0_4&#45;&#45;w1_4 -->
+<g id="edge15" class="edge">
+<title>w0_4&#45;&#45;w1_4</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M298.8,-22.05C298.8,-35.66 298.8,-58.4 298.8,-71.86"/>
+</g>
+<!-- 1_0 -->
+<g id="node5" class="node">
+<title>1_0</title>
+<polygon fill="DarkOrange" stroke="DarkOrange" points="57.6,-129.6 36,-129.6 36,-108 57.6,-108 57.6,-129.6"/>
+</g>
+<!-- 2_0 -->
+<g id="node6" class="node">
+<title>2_0</title>
+<polygon fill="DarkOrange" stroke="DarkOrange" points="57.6,-201.6 36,-201.6 36,-180 57.6,-180 57.6,-201.6"/>
+</g>
+<!-- 1_0&#45;&#45;2_0 -->
+<g id="edge25" class="edge">
+<title>1_0&#45;&#45;2_0</title>
+<path fill="none" stroke="DarkOrange" stroke-width="12" d="M46.8,-130.05C46.8,-143.66 46.8,-166.4 46.8,-179.86"/>
+</g>
+<!-- 2_1 -->
+<g id="node15" class="node">
+<title>2_1</title>
+<polygon fill="DarkOrange" stroke="DarkOrange" points="129.6,-201.6 108,-201.6 108,-180 129.6,-180 129.6,-201.6"/>
+</g>
+<!-- 2_0&#45;&#45;2_1 -->
+<g id="edge26" class="edge">
+<title>2_0&#45;&#45;2_1</title>
+<path fill="none" stroke="DarkOrange" stroke-width="12" d="M58.05,-190.8C71.66,-190.8 94.4,-190.8 107.86,-190.8"/>
+</g>
+<!-- w0_2 -->
+<g id="node7" class="node">
+<title>w0_2</title>
+<polygon fill="SteelBlue" stroke="Black" points="165.6,-21.6 144,-21.6 144,0 165.6,0 165.6,-21.6"/>
+</g>
+<!-- w0_3 -->
+<g id="node17" class="node">
+<title>w0_3</title>
+<polygon fill="SteelBlue" stroke="Black" points="237.6,-21.6 216,-21.6 216,0 237.6,0 237.6,-21.6"/>
+</g>
+<!-- w0_2&#45;&#45;w0_3 -->
+<g id="edge7" class="edge">
+<title>w0_2&#45;&#45;w0_3</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M166.05,-10.8C179.66,-10.8 202.4,-10.8 215.86,-10.8"/>
+</g>
+<!-- w3_4 -->
+<g id="node16" class="node">
+<title>w3_4</title>
+<polygon fill="SteelBlue" stroke="Black" points="309.6,-237.6 288,-237.6 288,-216 309.6,-216 309.6,-237.6"/>
+</g>
+<!-- w2_4&#45;&#45;w3_4 -->
+<g id="edge10" class="edge">
+<title>w2_4&#45;&#45;w3_4</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M298.8,-166.05C298.8,-179.66 298.8,-202.4 298.8,-215.86"/>
+</g>
+<!-- w4_3 -->
+<g id="node9" class="node">
+<title>w4_3</title>
+<polygon fill="SteelBlue" stroke="Black" points="237.6,-309.6 216,-309.6 216,-288 237.6,-288 237.6,-309.6"/>
+</g>
+<!-- w2_1 -->
+<g id="node10" class="node">
+<title>w2_1</title>
+<polygon fill="SteelBlue" stroke="Black" points="93.6,-165.6 72,-165.6 72,-144 93.6,-144 93.6,-165.6"/>
+</g>
+<!-- w2_2 -->
+<g id="node18" class="node">
+<title>w2_2</title>
+<polygon fill="SteelBlue" stroke="Black" points="165.6,-165.6 144,-165.6 144,-144 165.6,-144 165.6,-165.6"/>
+</g>
+<!-- w2_1&#45;&#45;w2_2 -->
+<g id="edge17" class="edge">
+<title>w2_1&#45;&#45;w2_2</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M94.05,-154.8C107.66,-154.8 130.4,-154.8 143.86,-154.8"/>
+</g>
+<!-- 0_0 -->
+<g id="node11" class="node">
+<title>0_0</title>
+<polygon fill="DarkOrange" stroke="DarkOrange" points="57.6,-57.6 36,-57.6 36,-36 57.6,-36 57.6,-57.6"/>
+</g>
+<!-- 0_0&#45;&#45;1_0 -->
+<g id="edge22" class="edge">
+<title>0_0&#45;&#45;1_0</title>
+<path fill="none" stroke="DarkOrange" stroke-width="12" d="M46.8,-58.05C46.8,-71.66 46.8,-94.4 46.8,-107.86"/>
+</g>
+<!-- 2_3 -->
+<g id="node12" class="node">
+<title>2_3</title>
+<polygon fill="DarkOrange" stroke="DarkOrange" points="273.6,-201.6 252,-201.6 252,-180 273.6,-180 273.6,-201.6"/>
+</g>
+<!-- 2_3&#45;&#45;3_3 -->
+<g id="edge27" class="edge">
+<title>2_3&#45;&#45;3_3</title>
+<path fill="none" stroke="DarkOrange" stroke-width="12" d="M262.8,-202.05C262.8,-215.66 262.8,-238.4 262.8,-251.86"/>
+</g>
+<!-- w3_0 -->
+<g id="node13" class="node">
+<title>w3_0</title>
+<polygon fill="SteelBlue" stroke="Black" points="21.6,-237.6 0,-237.6 0,-216 21.6,-216 21.6,-237.6"/>
+</g>
+<!-- w4_0 -->
+<g id="node19" class="node">
+<title>w4_0</title>
+<polygon fill="SteelBlue" stroke="Black" points="21.6,-309.6 0,-309.6 0,-288 21.6,-288 21.6,-309.6"/>
+</g>
+<!-- w3_0&#45;&#45;w4_0 -->
+<g id="edge1" class="edge">
+<title>w3_0&#45;&#45;w4_0</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M10.8,-238.05C10.8,-251.66 10.8,-274.4 10.8,-287.86"/>
+</g>
+<!-- w1_2 -->
+<g id="node14" class="node">
+<title>w1_2</title>
+<polygon fill="SteelBlue" stroke="Black" points="165.6,-93.6 144,-93.6 144,-72 165.6,-72 165.6,-93.6"/>
+</g>
+<!-- w1_2&#45;&#45;w2_2 -->
+<g id="edge18" class="edge">
+<title>w1_2&#45;&#45;w2_2</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M154.8,-94.05C154.8,-107.66 154.8,-130.4 154.8,-143.86"/>
+</g>
+<!-- w1_3 -->
+<g id="node27" class="node">
+<title>w1_3</title>
+<polygon fill="SteelBlue" stroke="Black" points="237.6,-93.6 216,-93.6 216,-72 237.6,-72 237.6,-93.6"/>
+</g>
+<!-- w1_2&#45;&#45;w1_3 -->
+<g id="edge16" class="edge">
+<title>w1_2&#45;&#45;w1_3</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M166.05,-82.8C179.66,-82.8 202.4,-82.8 215.86,-82.8"/>
+</g>
+<!-- 2_2 -->
+<g id="node23" class="node">
+<title>2_2</title>
+<polygon fill="DarkOrange" stroke="DarkOrange" points="201.6,-201.6 180,-201.6 180,-180 201.6,-180 201.6,-201.6"/>
+</g>
+<!-- 2_1&#45;&#45;2_2 -->
+<g id="edge24" class="edge">
+<title>2_1&#45;&#45;2_2</title>
+<path fill="none" stroke="DarkOrange" stroke-width="12" d="M130.05,-190.8C143.66,-190.8 166.4,-190.8 179.86,-190.8"/>
+</g>
+<!-- w0_3&#45;&#45;w0_4 -->
+<g id="edge9" class="edge">
+<title>w0_3&#45;&#45;w0_4</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M238.05,-10.8C251.66,-10.8 274.4,-10.8 287.86,-10.8"/>
+</g>
+<!-- w0_3&#45;&#45;w1_3 -->
+<g id="edge8" class="edge">
+<title>w0_3&#45;&#45;w1_3</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M226.8,-22.05C226.8,-35.66 226.8,-58.4 226.8,-71.86"/>
+</g>
+<!-- w4_1 -->
+<g id="node26" class="node">
+<title>w4_1</title>
+<polygon fill="SteelBlue" stroke="Black" points="93.6,-309.6 72,-309.6 72,-288 93.6,-288 93.6,-309.6"/>
+</g>
+<!-- w4_0&#45;&#45;w4_1 -->
+<g id="edge2" class="edge">
+<title>w4_0&#45;&#45;w4_1</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M22.05,-298.8C35.66,-298.8 58.4,-298.8 71.86,-298.8"/>
+</g>
+<!-- w3_1 -->
+<g id="node20" class="node">
+<title>w3_1</title>
+<polygon fill="SteelBlue" stroke="Black" points="93.6,-237.6 72,-237.6 72,-216 93.6,-216 93.6,-237.6"/>
+</g>
+<!-- w3_1&#45;&#45;w3_2 -->
+<g id="edge6" class="edge">
+<title>w3_1&#45;&#45;w3_2</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M94.05,-226.8C107.66,-226.8 130.4,-226.8 143.86,-226.8"/>
+</g>
+<!-- w4_2 -->
+<g id="node21" class="node">
+<title>w4_2</title>
+<polygon fill="SteelBlue" stroke="Black" points="165.6,-309.6 144,-309.6 144,-288 165.6,-288 165.6,-309.6"/>
+</g>
+<!-- w4_2&#45;&#45;w4_3 -->
+<g id="edge19" class="edge">
+<title>w4_2&#45;&#45;w4_3</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M166.05,-298.8C179.66,-298.8 202.4,-298.8 215.86,-298.8"/>
+</g>
+<!-- w1_0 -->
+<g id="node22" class="node">
+<title>w1_0</title>
+<polygon fill="SteelBlue" stroke="Black" points="21.6,-93.6 0,-93.6 0,-72 21.6,-72 21.6,-93.6"/>
+</g>
+<!-- w2_0 -->
+<g id="node30" class="node">
+<title>w2_0</title>
+<polygon fill="SteelBlue" stroke="Black" points="21.6,-165.6 0,-165.6 0,-144 21.6,-144 21.6,-165.6"/>
+</g>
+<!-- w1_0&#45;&#45;w2_0 -->
+<g id="edge11" class="edge">
+<title>w1_0&#45;&#45;w2_0</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M10.8,-94.05C10.8,-107.66 10.8,-130.4 10.8,-143.86"/>
+</g>
+<!-- 2_2&#45;&#45;2_3 -->
+<g id="edge23" class="edge">
+<title>2_2&#45;&#45;2_3</title>
+<path fill="none" stroke="DarkOrange" stroke-width="12" d="M202.05,-190.8C215.66,-190.8 238.4,-190.8 251.86,-190.8"/>
+</g>
+<!-- w2_3 -->
+<g id="node24" class="node">
+<title>w2_3</title>
+<polygon fill="SteelBlue" stroke="Black" points="237.6,-165.6 216,-165.6 216,-144 237.6,-144 237.6,-165.6"/>
+</g>
+<!-- w1_1 -->
+<g id="node25" class="node">
+<title>w1_1</title>
+<polygon fill="SteelBlue" stroke="Black" points="93.6,-93.6 72,-93.6 72,-72 93.6,-72 93.6,-93.6"/>
+</g>
+<!-- w1_1&#45;&#45;w2_1 -->
+<g id="edge13" class="edge">
+<title>w1_1&#45;&#45;w2_1</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M82.8,-94.05C82.8,-107.66 82.8,-130.4 82.8,-143.86"/>
+</g>
+<!-- w4_1&#45;&#45;w4_2 -->
+<g id="edge3" class="edge">
+<title>w4_1&#45;&#45;w4_2</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M94.05,-298.8C107.66,-298.8 130.4,-298.8 143.86,-298.8"/>
+</g>
+<!-- w1_3&#45;&#45;w2_3 -->
+<g id="edge4" class="edge">
+<title>w1_3&#45;&#45;w2_3</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M226.8,-94.05C226.8,-107.66 226.8,-130.4 226.8,-143.86"/>
+</g>
+<!-- w0_1 -->
+<g id="node28" class="node">
+<title>w0_1</title>
+<polygon fill="SteelBlue" stroke="Black" points="93.6,-21.6 72,-21.6 72,0 93.6,0 93.6,-21.6"/>
+</g>
+<!-- w0_1&#45;&#45;w0_2 -->
+<g id="edge20" class="edge">
+<title>w0_1&#45;&#45;w0_2</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M94.05,-10.8C107.66,-10.8 130.4,-10.8 143.86,-10.8"/>
+</g>
+<!-- w3_3&#45;&#45;w4_3 -->
+<g id="edge21" class="edge">
+<title>w3_3&#45;&#45;w4_3</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M226.8,-238.05C226.8,-251.66 226.8,-274.4 226.8,-287.86"/>
+</g>
+<!-- w2_0&#45;&#45;w3_0 -->
+<g id="edge12" class="edge">
+<title>w2_0&#45;&#45;w3_0</title>
+<path fill="none" stroke="SteelBlue" stroke-width="12" d="M10.8,-166.05C10.8,-179.66 10.8,-202.4 10.8,-215.86"/>
+</g>
+</g>
+</svg>
