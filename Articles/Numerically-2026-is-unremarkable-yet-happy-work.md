@@ -335,6 +335,30 @@ $g.vertex-degree.sum / $g.vertex-count
 
 **Remark:** Note that although the plots show disjoint graphs, each graph plot represents a single graph object.
 
+-----
+
+## Ways to compute 2026
+
+Here are a few ways to compute 2026:
+
+```raku
+sub postfix:<!>(UInt:D $n) { [*] 1..$n }
+
+[ 
+    2**11 - 22,
+    1 + 2 * 3 / 4 / 5 / 6 * 7! * 8 + 9,
+    1 + 2 + 3 * 4! + 5 / 6! * 7 * 8! - 9,
+    1 + 2 + 345 * 6 - 7 * 8 + 9,
+    1 - 2 * 3! * 456 * 7 + 8! + 9,
+    12 / 3! * 4**5 + 67 - 89,
+    12**3 + 45 / 6! * 7! - 8 - 9,
+    123 / 4! * 56 * 7 + 8 + 9,
+    9! / 8 / 7 / 6 + 5**4 + 321,  
+    9 * 8 - 7 + 654 * 3 - 2 + 1,
+    987 + 6! + 5 * 4**3 - 2 + 1
+]
+```
+
 ---
 
 ## Additional Comments
