@@ -10,7 +10,8 @@ October÷December 2025
 ## Introduction
 
 This document ([notebook](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Data-science-over-a-small-movie-dataset-Part-2.ipynb)) 
-shows transformation of movie dataset into a form more suitable for making a movie recommender system. 
+shows transformation of movie dataset into a form more suitable for making a ***movie recommender system***.
+(It builds upon [Part 1](./Data-science-over-a-small-movie-dataset-Part-1.md) of the blog posts series.)
 
 The movie data was downloaded from ["IMDB Movie Ratings Dataset"](https://www.kaggle.com/datasets/thedevastator/imdb-movie-ratings-dataset). That dataset was chosen because:
 
