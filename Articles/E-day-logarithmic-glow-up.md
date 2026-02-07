@@ -173,7 +173,7 @@ The maximum of the function $x^\frac{1}{x}$ is attained at `e`:
 js-d3-list-line-plot((1, 1.01 ... 5).map({ [$_, $_ ** (1/$_)] }), :$background, stroke-width => 4, :grid-lines)
 ```
 
-![](./Diagrams/E-day-logarithmic-glow-up/Max-at-Exp-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/E-day-logarithmic-glow-up/Max-at-Exp-dark.png)
 
 The Exponential spiral is based on the exponential function (and below it is compared to the [Archimedean spiral](https://en.wikipedia.org/wiki/Archimedean_spiral)):
 
@@ -186,7 +186,7 @@ js-d3-list-line-plot(@log-spiral, :$background, color => 'red', title => 'Expone
 js-d3-list-line-plot(@arch-spiral, :$background, color => 'blue', title => 'Archimedean spiral', |%opts)
 ```
 
-![](./Diagrams/E-day-logarithmic-glow-up/Exp-and-Archemedian-spirals-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/E-day-logarithmic-glow-up/Exp-and-Archemedian-spirals-dark.png)
 
 [Catenary](https://mathworld.wolfram.com/Catenary.html) is the curve a hanging flexible wire or chain assumes when supported at its ends and acted upon by a uniform gravitational force. It is given with the formula:
 
@@ -201,7 +201,7 @@ Here is a corresponding plot:
 js-d3-list-line-plot((-1, -0.99 ... 1).map({ [$_, e ** $_ + e ** (-$_)] }), :$background, stroke-width => 4, :grid-lines, title => 'Catenary curve', :$title-color)
 ```
 
-![](./Diagrams/E-day-logarithmic-glow-up/Catenary-curve-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/E-day-logarithmic-glow-up/Catenary-curve-dark.png)
 
 ----
 
@@ -214,7 +214,7 @@ The exponential curlicue fractal:
 js-d3-list-line-plot(angle-path(e <<*>> (1...15_000)), :$background, :!axes, :400width, :600height)
 ```
 
-![](./Diagrams/E-day-logarithmic-glow-up/Curlicue-fractal-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/E-day-logarithmic-glow-up/Curlicue-fractal-dark.png)
 
 Here is a plot of exponential Mandelbrot set:
 
@@ -240,7 +240,7 @@ deduce-type(@table)
 js-d3-matrix-plot(@table, :!grid-lines, color-palette => 'Rainbow', :!tooltip, :!mesh)
 ```
 
-![](./Diagrams/E-day-logarithmic-glow-up/Exp-Mandelbrot-fractal-1.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/E-day-logarithmic-glow-up/Exp-Mandelbrot-fractal-1.png)
 
 A fractal variant using reciprocal:
 
@@ -266,4 +266,4 @@ deduce-type(@table)
 js-d3-matrix-plot(@table, :!grid-lines, color-palette => 'Rainbow', :!tooltip, :!mesh)
 ```
 
-![](./Diagrams/E-day-logarithmic-glow-up/Exp-reciprocal-fractal.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/E-day-logarithmic-glow-up/Exp-reciprocal-fractal.png)
