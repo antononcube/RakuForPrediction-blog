@@ -125,7 +125,7 @@ $$
 e = 2 + \cfrac{1}{1 + \cfrac{1}{2 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{4 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{6 + \ddots}}}}}}}}
 $$
 
-To make the corresponding continuous fraction we first generate its sequence using Philippe Deléham formula for [OEIS sequence A003417](https://oeis.org/A003417):
+To make the corresponding continued fraction we first generate its sequence using Philippe Deléham formula for [OEIS sequence A003417](https://oeis.org/A003417):
 
 ```raku
 my @rec = 2, 1, 2, 1, 1, 4, 1, 1, -1 * * + 0 * * + 0 * * + 2 * * + 0 * * + 0 * * ... Inf;
@@ -136,7 +136,7 @@ my @rec = 2, 1, 2, 1, 1, 4, 1, 1, -1 * * + 0 * * + 0 * * + 2 * * + 0 * * + 0 * *
 # (2 1 2 1 1 4 1 1 6 1 1 8 1 1 10 1 1 12 1 1)
 ```
 
-Here is a function that computes the continuous fraction formula:
+Here is a function that computes the continued fraction formula:
 
 ```raku
 sub e-by-cf(UInt:D $i) { @rec[^$i].reverse».FatRat.reduce({$^b + 1 / $^a}) }
@@ -146,7 +146,7 @@ sub e-by-cf(UInt:D $i) { @rec[^$i].reverse».FatRat.reduce({$^b + 1 / $^a}) }
 # &e-by-cf
 ```
 
-**Remark:** A more generic continuous fraction computation is given in [the Raku entry](https://rosettacode.org/wiki/Continued_fraction#Raku) for ["Continuous fraction"](https://rosettacode.org/wiki/Continued_fraction).
+**Remark:** A more generic continued fraction computation is given in [the Raku entry](https://rosettacode.org/wiki/Continued_fraction#Raku) for ["Continued fraction"](https://rosettacode.org/wiki/Continued_fraction).
 
 Let us compare all three results:
 
