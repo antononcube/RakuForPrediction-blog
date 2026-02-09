@@ -8,7 +8,8 @@ February 2026
 
 ## Introduction
 
-Every year on February 7th, math enthusiasts worldwide (should) consider celebrating Euler’s Day or E-day. Among Euler’s many gifts to the (currently known) math universe is the ever-popular number **e**, the natural logarithm base that’s basically the rock star of calculus, complex analysis, continuous growth models, compound interest, and (much) more. That irrational number shows up in places we might or might not expect. This blog post explores some formulas and plots related to Euler's constant, **e**.
+Every year on February 7th, math enthusiasts worldwide (should) consider celebrating Euler’s Day or E-day. Among Euler’s many gifts to the (currently known) math universe is the ever-popular number **e**, the natural logarithm base that’s basically the rock star of calculus, complex analysis, continuous growth models, compound interest, and (much) more. That irrational number shows up in places we might or might not expect. 
+This blog post explores some formulas and plots related to [Euler's number](https://en.wikipedia.org/wiki/E_(mathematical_constant)), **e**.
 
 **Remark:** The code of the fractal plots is Raku translation of the Wolfram Language code in the notebook ["Celebrating Euler's day: algorithms for derangements, branch cuts, and exponential fractals"](https://community.wolfram.com/groups/-/m/t/3634481) by Ed Pegg.
 
