@@ -2,7 +2,7 @@
 
 ### Introduction
 
-In this document ([notebook](https://github.com/antononcube/Raku-Math-SalvoCombatModeling/blob/main/docs/Battle-of-Coronel.ipynb)) we calibrate the Heterogeneous Salvo Combat Model (HSCM), [MJ1, AAp1, AAp2], to the First World War [Battle of Coronel](https://en.wikipedia.org/wiki/Battle_of_Coronel), [Wk1]. Our goal is to exemplify the usage of the functionalities of the package [Math::SalvoCombatModeling](https://raku.land/zef:antononcube/Math::SalvoCombatModeling), [AAp1]. We closely follow the Section B of Chapter III of [MJ1]. The calibration data used in [MJ1] is taken from [TB1].
+In this document ([notebook](https://github.com/antononcube/Raku-Math-SalvoCombatModeling/blob/main/docs/Battle-of-Coronel.ipynb)) we calibrate the Heterogeneous Salvo Combat Model (HSCM), [MJ1, AAp1, AAp2], to the First World War [Battle of Coronel](https://en.wikipedia.org/wiki/Battle_of_Coronel), [Wk1]. Our goal is to exemplify the usage of the functionalities of the package ["Math::SalvoCombatModeling"](https://raku.land/zef:antononcube/Math::SalvoCombatModeling), [AAp1]. We closely follow the Section B of Chapter III of [MJ1]. The calibration data used in [MJ1] is taken from [TB1].
 
 **Remark:** The implementation of the Raku package ["Math::SalvoCombatModeling"](https://raku.land/zef:antononcube/Math::SalvoCombatModeling), [AAp1], closely follows the implementation of the Wolfram Language (WL) paclet ["SalvoCombatModeling"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/SalvoCombatModeling), [AAp2]. Since WL has (i) symbolic builtin computations and (ii) a mature notebook system the salvo models computation, representation, and study with WL is much more convenient.
 
