@@ -1,4 +1,4 @@
-![](./Diagrams/Pi-day-celebration/headline-image-binary-continued-fraction-terms-512x64-dark.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Pi-day-celebration/headline-image-binary-continued-fraction-terms-512x64-dark.png)
 
 # Pi Day 2026: Formulas, Series, and Algorithms for π
 
@@ -138,7 +138,7 @@ my $max-digits = @mat».elems.max;
 dot-matrix-plot(transpose(@mat), size => 10):svg
 ```
 
-<img src="./Diagrams/Pi-day-celebration/pi-continued-fraction-terms-128.svg" alt="cell 26 output 1 svg 1">
+<img src="https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Pi-day-celebration/pi-continued-fraction-terms-128.svg" alt="cell 26 output 1 svg 1">
 
 Next, we show the Pareto principle manifestation of for the continued fraction terms. First we observe that the terms a distribution similar to [Benford's law](https://en.wikipedia.org/wiki/Benford%27s_law):
 
@@ -158,7 +158,7 @@ js-d3-bar-chart(
     :$background)
 ```
 
-![](./Diagrams/Pi-day-celebration/continued-fraction-terms-vs-benford-law.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Pi-day-celebration/continued-fraction-terms-vs-benford-law.png)
 
 Here is the Pareto principle plot -- ≈5% of the unique term values correspond to ≈80% of the terms:
 
@@ -174,7 +174,7 @@ js-d3-list-line-plot(
 )
 ```
 
-![](./Diagrams/Pi-day-celebration/pareto-principle-for-continued-fraction-terms.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Pi-day-celebration/pareto-principle-for-continued-fraction-terms.png)
 
 ----
 
@@ -398,7 +398,7 @@ my %opts = color-scheme => 'Observable10', background => '#1F1F1F', :!axes, :!le
 js-d3-list-line-plot(@path, :800width, :500height, |%opts)
 ```
 
-![](./Diagrams/Pi-day-celebration/random-walk-continued-fraction-terms-dark-mode.png)
+![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Pi-day-celebration/random-walk-continued-fraction-terms-dark-mode.png)
 
 In the plot above the blue segments correspond to origin terms ≤ 100, yellow segments to terms between 100 and 1000, and red segment for origin terms greater than 1000. 
 
