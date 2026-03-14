@@ -10,7 +10,7 @@
 - Happy Pi Day! Today (3/14) we celebrate the most famous mathematical constant: π ≈ 3.141592653589793…
 - π is irrational and transcendental, appears in circles, waves, probability, physics, and even random walks.
 - Raku (with its built-in `π` constant, excellent rational support, lazy lists, and unicode operators) makes experimenting with π especially enjoyable.
-- In this blog post (notebook) we explore a selection of beautiful formulas and clever algorithms — with short Raku snippets to try yourself.
+- In this blog post ([notebook](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Pi-day-celebration.ipynb)) we explore a selection of beautiful formulas and clever algorithms — with short Raku snippets to try yourself.
 
 
 ---
@@ -44,34 +44,8 @@ require(['d3'], function(d3) {
 ```
 
 ```raku
-#%js
-js-d3-list-line-plot(10.rand xx 30, background => 'none')
-```
-
-```raku
 my $title-color = 'Ivory';
 my $stroke-color = 'SlateGray';
-my $tooltip-color = 'LightBlue';
-my $tooltip-background-color = 'none';
-my $background = '#1F1F1F';
-my $color-scheme = 'schemeTableau10';
-my $edge-thickness = 3;
-my $vertex-size = 3;
-my $mmd-theme = q:to/END/;
-%%{
-  init: {
-    'theme': 'forest',
-    'themeVariables': {
-      'lineColor': 'Ivory'
-    }
-  }
-}%%
-END
-my %force = charge => {strength => -30, iterations => 4}, collision => {radius => 50, iterations => 4}, link => {distance => 30};
-```
-
-```
-# {charge => {iterations => 4, strength => -30}, collision => {iterations => 4, radius => 50}, link => {distance => 30}}
 ```
 
 ----
@@ -210,7 +184,9 @@ Many ways to express π as an infinite sum — some converge slowly, others surp
 
 **Leibniz–Gregory series** (1671/ Madhava earlier)
 
-$$\pi = 4 \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1} = 4 \left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots \right)$$
+$$
+\pi = 4 \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1} = 4 \left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots \right)
+$$
 
 Raku implementation:
 
@@ -243,7 +219,9 @@ andthen .out.slurp(:close)
 
 **Nilakantha series** (faster convergence):
 
-$$\pi = 3 + \sum_{n=1}^{\infty} \frac{(-1)^{n+1} \cdot 4}{(2n)(2n+1)(2n+2)}$$
+$$
+\pi = 3 + \sum_{n=1}^{\infty} \frac{(-1)^{n+1} \cdot 4}{(2n)(2n+1)(2n+2)}
+$$
 
 Raku:
 
@@ -310,7 +288,9 @@ for 1 .. 1_000 -> $n {
 
 One of the fastest-converging series used in record computations:
 
-$$\frac{1}{\pi} = 12 \sum_{k=0}^{\infty} \frac{(-1)^k (6k)! (13591409 + 545140134k)}{(3k)! (k!)^3 640320^{3k + 3/2}}$$
+$$
+\frac{1}{\pi} = 12 \sum_{k=0}^{\infty} \frac{(-1)^k (6k)! (13591409 + 545140134k)}{(3k)! (k!)^3 640320^{3k + 3/2}}
+$$
 
 Each term adds roughly 14 correct digits. Cannot be implemented easily in Raku, since Raku does not have bignum `sqrt` and `power` operations.
 
@@ -368,7 +348,9 @@ andthen .out.slurp(:close)
 
 [Bailey–Borwein–Plouffe (1995) formula](https://en.wikipedia.org/wiki/Bailey–Borwein–Plouffe_formula) lets you compute the nth hexadecimal digit of π directly (without earlier digits):
 
-$$\pi = \sum_{k=0}^{\infty} \left[ \frac{1}{16^k} \left( \frac{4}{8k+1} - \frac{2}{8k+4} - \frac{1}{8k+5} - \frac{1}{8k+6} \right) \right]$$
+$$
+\pi = \sum_{k=0}^{\infty} \left[ \frac{1}{16^k} \left( \frac{4}{8k+1} - \frac{2}{8k+4} - \frac{1}{8k+5} - \frac{1}{8k+6} \right) \right]
+$$
 
 Very popular for distributed π-hunting projects. The best known [digit-extraction algorithm](https://mathworld.wolfram.com/Digit-ExtractionAlgorithm.html).
 
