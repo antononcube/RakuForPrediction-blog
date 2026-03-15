@@ -1,6 +1,4 @@
-![](https://raw.githubusercontent.com/antononcube/RakuForPrediction-blog/refs/heads/main/Articles/Diagrams/Pi-day-celebration/headline-image-binary-continued-fraction-terms-512x64-dark.png)
-
-# Pi Day 2026: Formulas, Series, and Algorithms for π
+# Pi Day 2026: Formulas, Series, and Plots for π
 
 ***...Explored in Raku***
 
@@ -19,11 +17,15 @@
 
 ```raku
 use Math::NumberTheory;
-use BigRoot;
 
 use Image::Markup::Utilities;
 use Graphviz::DOT::Chessboard;
+
 use Data::Reshapers;
+use Data::Importers;
+use Data::Summarizers;
+use Data::TypeSystem;
+use Statistics::Distributions;
 
 use JavaScript::D3;
 use JavaScript::D3::Utilities;
@@ -166,7 +168,7 @@ Here is the Pareto principle plot -- ≈5% of the unique term values correspond 
 #% js
 js-d3-list-line-plot(
     pareto-principle-statistic(@terms), 
-    plot-label => "Pi continued fraction terms vs. Benford's law",
+    plot-label => "Pareto principle for Pi continued fraction terms",
     :$title-color,
     :$background,
     stroke-width => 5,
