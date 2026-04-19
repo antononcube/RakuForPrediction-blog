@@ -1,0 +1,699 @@
+All right. So this presentation is
+titled applications of monotic
+programming. My name is Antonov. Today
+is November 7th, 2025. This is a
+presentation for the Wol from technology
+conference 2025. I'm going to be
+discussing um moni programming
+introducing monaric programming and moni
+pipelines. I'm going to use questions
+and answers in order to make that easier
+and I'm going to use variety of
+examples. Uh before going further, I
+would like to mention that I have these
+two screens. Um and I'm going to be
+switching this is the screen with the
+presentation and I'm going to be
+switching to to this screen here to show
+some other stuff. So before kind of like
+I would like to clarify a little bit but
+um I'm a little bit beyond monaric
+programming. I I program it. I use it a
+lot. I'm not enamored by and um so it
+kind of please take this into account
+when I listen my exposition.
+So monaric programming is a relatively
+simple concept.
+Some people introduce it and think and
+introduce it as a very complicated
+concept and I don't think it is the
+case. It was invented long time ago
+during the cold war. uh some people
+think that it was um given to us by
+aliens
+and um I really hope that with this
+question answer is kind of you know
+informal introduction or formal uh it's
+going to be somewhat somewhat easier to
+digest what it is. So um this is a
+little bit again about my attitude.
+Yeah, we can monet you can don't monet.
+Yeah, it's like you can live happily
+without knowing about monots or you can
+know know them but you know not
+necessarily understand them. Again, you
+can probably even be happier. Maybe your
+life is not going to be that interesting
+if you don't know about mon but yeah
+that's another another story. So this
+talk is an advertisement for a cycle of
+lectures which I have started in um and
+you can find them in YouTube. So there
+it's a it's a serious most serious
+endeavor. Each of these lectures around
+40 45 minutes. So I'm going to start
+with the the questions here. I'm going
+to stop um after 10 minutes to see uh
+any other questions in the in the chat
+in the Q&A
+panels. So who is this about right? So
+which is the audience of this talk. So
+these are people who want to be informed
+to other software monitor also
+experienced from language of America
+users developer wannabes um and probably
+other other software language uh
+developers
+who want to know how to do what are what
+are monots how they look like in wra
+language
+also of course uh these are the LLM
+supported programmers or code baristas.
+So uh what is a good showcase for Monari
+programming? So this is a scrolling
+scrolling presentation and I'm going to
+be going up and down depending on the on
+the on the questions where you know what
+I want to show. So let's do a showcase.
+Uh because it's quite a long um a lot of
+lot of questions and answers I have
+gathered. I'm not going to to do that
+much of a live presentation so to speak.
+So this is the famous u titanic data
+set. So here I create uh certain a
+certain monaric pipeline right. So I'm
+starting a monot software monot and this
+software monot I'm splitting it into 80
+80 and 20% for the training and testing
+data showing some data summary. This
+what you see here then training nearest
+neighbors classifier showing accuracy
+and precision and so forth. And also
+when I say here I want to see the
+receive operating characteristic plots.
+This is what is happening here. These
+are the plots. Now I can also take the
+actual classifier. I can take it out of
+the monot. And this is what it is. So I
+can use it for some other computations.
+What I'm actually showing it's something
+like this. Right? So um we do this very
+often in mathematics like say for
+reanalysis you transfer your problem
+into some certain other domain in some
+other space you navigate the
+computations in that space and then you
+transfer you know then you map it back
+right and so something like that is
+happening here I'm taking the data set
+I'm putting it into the monadic space
+I'm navigating some computations there
+and then I'm getting the classifier back
+all right so Um as I going back to the
+to the questions here.
+So how are the mon which applications of
+monic program? Yeah of course very
+important since this is the title of my
+talk. So um monic programming can be
+seen in uh from multiple perspectives.
+What first what applications mean right?
+But I I mean something here a little bit
+more conceptual and more theoretical.
+And so uh from my perspective uh say as
+a software engineer software architect I
+might be very interested into graceful
+uh failure handling. If you are making
+conversational agents for example most
+of the time your system you know you
+know whatever you're doing dealing with
+user input you're failing. So you need
+to be uh gracefully failing. Uh another
+application is rapid specification of
+computational workflows. This is more
+for data scientists or data engineers
+and uh very interesting uh which is much
+more on the probably for the software
+architects but also for people who are
+theoretically inclined this is the
+algebraic structure of the written code
+and now I'm talking about the the actual
+syntax here the actual combination of
+symbols not necessarily the objects
+which are which the underlying objects
+and computations they might be algebraic
+might be not but I'm saying that this
+here this pipeline uh it's actually has
+algebraic structure and because of this
+it can be leveraged in variety of ways.
+All right. So um how software monets
+defined uh let's see there are several
+uh several kind of definitions that can
+be done. Let me bring one here. So uh
+I'm not going to make a live example of
+this but the Unix pipeline right. So
+it's again this is the cold war kind of
+thing what I was saying. Yeah, you can
+you can you can use the Unix pipeline to
+in this way, right? And whatever
+computations you have, they're staged so
+to speak. They're like they like they
+they go through a certain pipeline and
+then you kind of modify what the output
+of the of the previous command. So I'm
+going to get some some files which are
+finished with the letters NB. I'm going
+to filter them in order to to get the
+names which are with monot and then I'm
+going to do I'm going to see the dates
+of those. Now there's a calculator
+called desktop calculator again one of
+the oldest Unix programs and basically
+it's using um reverse polish notation
+and you know like I'm not going to
+expand on this but basically yeah this
+is like very much like a monaric
+pipeline and if you look at uh a package
+uh or system a constellation of packages
+called tidiverse in a in the ecosystem
+they do they do apply uh this uh uh
+pipelines Well, it's not exactly a
+monot, you know, but this is like a
+monotic pipeline. And you can see this
+is actually fairly easy to understand.
+We take the Titanic data, we rename some
+of the some of the columns, we filter
+them, then group by, you know, but what
+we have renamed class and sex and then
+we and then we show the counts of the of
+the corresponding um corresponding rows
+in each group.
+So this is more like informal uh
+formally and I'm not going to go through
+the formal definition but we can uh
+define a unit uh unit operation or
+function and a bind operation in some
+sense probably this is this is uh I mean
+if you're experienced mathematical user
+this should be telling you a lot. So
+basically you start with certain type of
+um object which has um which has a head
+uh m and then you your binding operation
+it knows how to bind this kind of
+objects with whatever functions are
+given. If you want a easy implementation
+this is it right so you just fold with
+bind and right um mathematica has always
+had monots by the way right since
+version 0.01 01. So um you can uh this
+can be verified using the monet laws
+again this is like the the algebraic
+structure of the code which I was
+talking about and um and this can be can
+be seen can be verified. So you can see
+here with the postfix um application of
+um postfix operation sorry postfix
+function this is the infix version of
+the postfix application of functions
+right we have like this kind of monaric
+pipeline but the monaric pipeline I'm
+talking about for mathematica from 0.01
+01 is this right? I mean this is the
+proof here. So if you use if your inputs
+are lists and the outputs are lists you
+can actually prove that you have a a
+monot. All right so going back to the to
+the questions. So how to explain monari
+pipelines in an easy to understand
+manner. So um let me see somewhere here.
+Yeah, monot monots. Um, I thought I had
+some some dedicated uh slide for this.
+Let me actually go here. Uh, yeah, this
+is it. Uh, so
+all right. Uh, so here, right? I mean,
+in case you haven't haven't understood
+what I'm saying, it's really just some
+kind of pipeline, right? There's a
+pipeline and you're working on the thing
+which this pipeline brings, right? So we
+basically have the pipeline and you're
+doing whatever kind of manipulations
+this is this corresponds here to the
+classifier right to the classifier
+workflow I was showing here right so
+basically there's like a certain
+pipeline value maybe this is the it's
+actually a context right it's a context
+with variety of things in it but then we
+manipulate that context right we we
+apply different operations on it and
+then at some point we get to the result
+not sure is this better just more
+artistic not necessarily better all All
+right. So, um what is the
+um how the monaric programming can be
+invented? That's actually a very
+interesting question. So, let me see uh
+where's my uh invention of uh
+of the of the monot. So, um I think it
+was here. No. All right. Yeah. Uh as I
+as I want, I'm going to be scrolling.
+And yes, this is what this is what this
+slide is. This is the invention slide.
+Okay, so um again no let let's let's
+start with the uh Titanic data and um
+so imagine I have this natural language
+specification use Titanic filter by
+passenger age greater than 10 group by
+passenger class and passenger sex counts
+right show counts. Now uh if I this is
+these are different codes which is you
+can see actually there's some some
+function here some pucklet which
+actually makes this translation from
+natural language to code but um you can
+see for example in python and wra
+language how we have this assignments
+here right so after the first line you
+see object it's on the left hand side
+but also it's on the right hand side and
+we might ask especially here right and
+especially I don't know like you can see
+it also here maybe that's not needed.
+Maybe you can stage uh your
+computations, you can define your
+functions in such a way that you don't
+need to have this assignment, right? And
+so and this is more or less what is
+happening here with this app code,
+right? So this again from tverse uh it's
+a package dlyier right and yeah I mean
+so we take Titanic we filter it we group
+it show the counts uh so uh this is
+actually uh this this kind of reduction
+of uh of the syntax sugar can be enough
+of a motivation but it also has some
+kind of further uh further implications
+and so uh I'm yeah this here is just uh
+just showing the different computational
+examples all All right. So, let me go to
+the questions which um again I'm
+scrolling here. Um how to explain monot
+in the easily understand we moved
+through that is knowing monary
+programming required um no I mentioned
+this I'm going to mention this again
+right so uh you can live happily without
+u without knowing about monots right
+now monots they if depending what what
+you're trying to I mean what is your
+goal for knowing or utilizing them I use
+them mostly as a user interface and uh
+from that perspective they serve very
+well but um in some languages like if
+programming hasll even if you don't know
+what monot exactly is monot being used
+to actually you know develop the
+language you know conceptually and so uh
+since um and I answered this question is
+monic programming supported inflamm
+language let me uh look at the questions
+here
+I see in the qu Q&A uh section very
+basic question can you explain the yes
+can you explain the double right arrow
+symbol that you often use in your
+presentations I'm not familiar with it
+and wra syntax so um yeah uh basically
+and this is related to how monets are
+programmed right so I was saying that
+monot are programmed in a very easy
+manner you just fold in this way and to
+some extent this is what is happening so
+if If I if I kind of go here, let me
+see.
+I'm simply I'm simply overloading. It's
+like an algebraic operation. This is
+like uh one of the operators which you
+can overload. And uh so basically I'm
+saying if you see if you see this uh uh
+if you see this double right arrow, this
+is going to be expanded into some
+application of fold. Right. So whatever
+we're showing here with fold. Yeah. It's
+just it's just that. So it is a I mean
+it's a little bit more than that but if
+you are really curious how this is done
+there's a package called uh monot
+makers. This monet makers is used into
+you can see I have a bunch of monot
+monaric packages you know in
+the packet repository.
+uh basically every conference wrote
+technology conference I submit one or
+two packets before the conference and
+this is the case for this package event
+records transformation which is helps
+managing time series and this is DSL
+examples which actually can be used to
+use LMS to translate to translate
+commands and you can see if you
+translate I mean if you translate this
+with us like if you use this pipeline
+segment right it's uh you see I mean I I
+use the LLMs to translate command by
+command whatever the specification is
+and then I just concatenate them with
+this uh double right arrow. Now the
+double right arrow when you kind of have
+this whole expression here let me zoom
+if when you have this whole expression
+you is just converted to fault right and
+so and this is many of my pockets
+internally very often uh because the the
+six syntax highlighting they don't
+understand necessary the application of
+the double right arrow I actually use
+the fault you know I implemented with
+fault because it's kind of more clear
+and supported by the corresponding um
+corresponding highlighting uh software
+modules. All right. Uh so they hopefully
+answered this. Let's actually go back to
+the questions and see um right what else
+uh is monaric programming um support in
+warm language. I already explained this
+but again I would like to mention this
+at some point I mean like few years ago
+10 you know people like hey you know
+when Mathematica is going to support
+mons well always has supported mons. So
+I mean obviously Mathematica is a big
+language and you know not necessarily
+everybody knows all properties in it but
+this is actually fundamental in some
+sense right and it is somewhat
+fundamental to lisp like programming
+languages. So uh okay the what are the
+limitations of programming using
+software monets? Uh this is an
+interesting question from from a
+conceptual perspective.
+So um it is a I mean do people think uh
+in a linear manner right? I mean
+somebody might tell me no we don't we
+don't necessarily use um use think in
+monatic pipelines. Uh well I don't know
+I mean in my my experience most people
+especially nowadays right they don't
+necessarily want to program right they
+program but it's inflicted on them.
+they're basically doing I don't know
+like say data science engineering
+whatever right and then they kind of
+rely on recipes and they rely on this
+kind of simple staged staged type of
+workflows and another thing here one of
+the easiest things to automate with
+machine learning is machine learning
+workflows and you can see it here right
+so you can see that how this uh how this
+machine learning workflow uh here it's
+pretty well pipelined now There are
+certain there are certain situations in
+which I mean if you are using uh if
+you're using wolf from language to
+express some kind of ideas which were
+not even clarified you know in your head
+and you're using programming in order to
+understand and clarify better uh what is
+going on right I mean yeah well there's
+no pipelining per se although you can
+use uh you can use like the monots as an
+interface the interface perspective as a
+brainstorming technique okay uh So yeah
+and this is what I was saying um if you
+if you want to if you want to use the
+monots as a software interface actually
+it's not say in vol language this
+actually means that you have to do quite
+a lot of work let me actually show you
+this um so I'm going to go to this
+package packlet and the pucklet has a
+github um GitHub link and I'm going to
+go to through the code the of the
+packlet
+and so yeah so you can see it's actually
+this is not necessarily that elegant or
+that concise right I mean in some sense
+I'm doing quite a lot of definitions in
+order to have this kind of nice pipeline
+behavior handle handle errors gracefully
+and so forth right so and uh you can see
+also like um if I go to the beginning of
+this package uh somewhere way here the
+actual monot uh the core of the monot is
+being generated using this monot makers
+which I was okay so just a moment here
+all right yeah so I have so this
+generate state monot code right this
+comes from this pocket monot makers
+which I was mentioning earlier and I'm
+saying well this is how my monot is
+supposed to be what is the the the
+prefix symbol and some of the elements
+of it what are the context of that monot
+and then you know then I'm back
+basically
+um implementing different operations
+right in the monadic space and so and
+these are these are functions which can
+be pipeline so it's very similar to say
+the the add star operator right like say
+if I do okay maybe not here but if I do
+something like I don't know like say uh
+uh identity maybe like this and then
+sign and then x right so I mean It's
+somewhat somewhat like that in a sense
+like I'm you see this is this is an
+operation between two functions. So I
+know part of it is is that now is that
+easy to do in mathemately
+from language you can do this relatively
+easily but you need to spend you need to
+spend the time testing testing the the
+software monots and kind of seeing do
+they do they actually produce the
+experience do they actually uh handle
+gracefully what you're doing. One
+interesting way to do it actually is to
+generate random pipelines and you this
+another thing which you can do easily
+with this monic perspective. I mean
+imagine that I basically I know that in
+a a pipeline I might say it has like say
+five or six elements or between between
+three and six I can generate the the
+segments randomly. I can put them
+together and basically I either should
+get the failure symbol the failure
+symbol of the monot or I should get some
+result for example right and this is how
+how this packlets how they have been
+tested right I have like some uh some
+special special kind of packages about
+this and I I probably kind of spent too
+time too much time on this but okay let
+me since I started uh answering u or
+answering that question in that way let
+me see where it is here So I'm going to
+go to my GitHub repository. Initially
+before uh the pucklet repository was uh
+established created I had I had this in
+a se separate uh separate um uh part
+here and one of the things uh here well
+uh maybe it's in unit tests right yeah
+so let monarics uh monic
+unit tests somewhere here you might see
+uh these are actually
+This is not the random random uh random
+generation but I guess you have to
+believe me. I thought I can find this
+very easily. Anyway, somewhere somewhere
+here I do have like say um okay yeah I
+do have it right random pipelines right.
+So I'm generating a bunch of like say
+300 400 random pipelines and I'm
+actually testing do I get do I get
+results which are which I expect. This
+has been actually a way to a very good
+way to stress test the the system. And
+yeah, you can see here these are the
+different stages at which I'm selecting
+the segments and then I'm kind of um you
+know making the random pipelines and
+then I run them. All right. So um I'm
+not I'm not going to let me kind of
+return to here. I have only a few
+questions more to answer and um
+uh yes. So why do I use Monari
+programming? This actually a big um a
+big question and I'm going to uh I'm
+going to just scroll down and find find
+the visual aid this one here. So let me
+see should I slightly at least maybe
+zoom out. Um okay so there's a certain
+problem domain right I I or whoever we
+um we develop a software monot for it
+monet software monot for it this package
+or packlet or whatever and then we uh in
+parallel we develop certain domain
+specific language of commands which
+actually clarifies you know what exactly
+we're trying to do and um I mean in a
+sense like you should be able to to kind
+of do you should be able to kind of
+formulate the the operation in order to
+you know if you understand at all what
+this problem domain you know you're
+trying to um to get to internalize or
+you're trying to understand or you know
+make tools for and so and this is an
+iter iterative process right so you make
+this monots you make this DSL and etc
+right at some point um yeah unit testing
+unit testing for the parsers for the
+grammarss at some point you marry the
+two and you can make a conversational
+agent for that and so this here like
+this here Maybe this is live. Let me
+actually do a live life live evaluation
+here. So basically what is happening
+right now this ars right it's a bunch of
+um it's basically yeah for each of these
+commands here I have generated the
+pipelines right and this this um this um
+uh table you see here it has this kind
+of pipelines. Another thing to kind of
+do um is um let me actually this is
+related but you see for example this
+pipeline here which is with um with the
+uh again classification I can actually
+do it say with LLMs in this way and this
+related to what I was saying I have some
+grammar grammar or I have some um
+commands which I have developed and I I
+can evaluate this I mean in like what
+I'm doing right now I think I'm eval
+Yeah. Yeah. So each of these commands
+right now is being translated by an LLM
+and I claim or I hope that this is
+actually going to produce an executable
+code that's actually not at random at
+all in a sense. I mean I know to be
+guaranteed if I evaluate this in place
+you see I called an LLM the LM
+translated this in place into into into
+that command right or if I do show
+classify measurements. This actually is
+going to be bit yeah it's supposed to be
+somewhat more complicated. This is
+related to this uh algebraic properties
+of the monotic code, right? I can plug
+and play different elements of this
+pipeline, right? And make more
+complicated pipelines. So um so
+basically I would say uh I mean this is
+one of the the ways to answer it. Uh I
+had some other other kind of example
+here. Now why I'm using I'm still
+answering why I'm using monot. So you
+can see this here this uh okay for some
+reason I cannot I cannot copy this. So
+uh let me show you this here right now.
+This here is a is a monaric pipeline
+which doesn't avoid the monots right for
+doing quantile regression and I can
+request uh an code generation with
+avoiding the monots very often people
+tell me well I don't want to use your
+packets I give me just you know
+mathematical code with whatever kind of
+tools I have which do code generation.
+Yeah, this is the mathematical code for
+it. And you can see it's actually quite
+messy. It's actually it's doing exactly
+the same thing. I mean, if I if I
+evaluate this code, it's going to
+produce, you know, it's going to produce
+the more or less the same results as as
+this one, right? But you know, like
+which one is more convenient or easier
+to see? I mean, you can see it here is
+taking the data, giving the summary,
+doing the regression, doing the plot.
+Yes, you can find the corresponding
+elements here. It's just messy. All
+right. So, I think I have one or two
+questions more. I wanted to answer let
+me kind of see here
+maybe I I think I answered the most
+important ones well yeah I mean yeah
+I've been developing software mods um
+involved from language more or less
+since uh year 2017 I was teaching a
+class for digital humanities in Oxford
+and at the time this is before the LLM
+revolution right so at the time it was
+it was kind of obvious and the this
+digital student digital humanities
+students or graduate students they could
+understand the workflows but because of
+the too much code you need to kind of go
+through and understand it need to be
+basically a a fairly developed
+programmer it was very hard for them to
+do anything related to data science now
+this is not not necessarily the case all
+right I mean you can yes we can uh we
+can do um I mean with LLMs with this
+kind of systems like what I'm showing
+this can be very easily done all right
+so I think I mentioned everything here I
+wanted to do quite a lot of references
+in this uh notebook there where also
+every section it has its own its own
+kind of uh its own references and you
+can see some topics I didn't talk about
+but yes this doesn't need to be about
+machine learning it can be about
+epidemological
+systems and another thing is that yeah
+it can be nonlinear we can have some
+very nonlinear non-pipelinable type of
+monots and this is one of the examples
+of this is using functional parsers all
+right so let me see any questions Here
+I don't see any kind of questions. So
+let let me let me then u for the rest
+one minute explain.
+So you can see this algebraic uh these
+are algebraic operations circle plus
+circle multiply and circle dot right and
+I'm using those to
+I'm using those to uh to kind of make
+some kind of complicated parsers. But
+these parsers each of these are
+functions. So basically this here it's a
+very complicated algebraic expression
+between functions. So this this is
+another way to kind of show why monets
+are being used. See another question
+here is the presentation notebook
+available. Oh yeah yeah I'll I'll upload
+it immediately after this. All right. So
+I don't I don't see any other questions.
+So
+feel free to contact me after the
+presentation.
+Guess that's it. like, well, thank you
+for attention.
