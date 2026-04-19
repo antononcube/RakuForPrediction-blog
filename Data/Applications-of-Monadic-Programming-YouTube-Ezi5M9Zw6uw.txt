@@ -1,11 +1,11 @@
 All right. So this presentation is
-titled applications of monotic
+titled applications of monadic
 programming. My name is Antonov. Today
 is November 7th, 2025. This is a
 presentation for the Wol from technology
 conference 2025. I'm going to be
 discussing um moni programming
-introducing monaric programming and moni
+introducing monadic programming and moni
 pipelines. I'm going to use questions
 and answers in order to make that easier
 and I'm going to use variety of
@@ -17,12 +17,12 @@ presentation and I'm going to be
 switching to to this screen here to show
 some other stuff. So before kind of like
 I would like to clarify a little bit but
-um I'm a little bit beyond monaric
+um I'm a little bit beyond monadic
 programming. I I program it. I use it a
 lot. I'm not enamored by and um so it
 kind of please take this into account
 when I listen my exposition.
-So monaric programming is a relatively
+So monadic programming is a relatively
 simple concept.
 Some people introduce it and think and
 introduce it as a very complicated
@@ -44,7 +44,7 @@ know know them but you know not
 necessarily understand them. Again, you
 can probably even be happier. Maybe your
 life is not going to be that interesting
-if you don't know about mon but yeah
+if you don't know about monads but yeah
 that's another another story. So this
 talk is an advertisement for a cycle of
 lectures which I have started in um and
@@ -81,7 +81,7 @@ gathered. I'm not going to to do that
 much of a live presentation so to speak.
 So this is the famous u titanic data
 set. So here I create uh certain a
-certain monaric pipeline right. So I'm
+certain monadic pipeline right. So I'm
 starting a monot software monot and this
 software monot I'm splitting it into 80
 80 and 20% for the training and testing
@@ -111,10 +111,10 @@ I'm navigating some computations there
 and then I'm getting the classifier back
 all right so Um as I going back to the
 to the questions here.
-So how are the mon which applications of
-monic program? Yeah of course very
+So how are the monads which applications of
+monadic programming? Yeah of course very
 important since this is the title of my
-talk. So um monic programming can be
+talk. So um monadic programming can be
 seen in uh from multiple perspectives.
 What first what applications mean right?
 But I I mean something here a little bit
@@ -171,14 +171,14 @@ the oldest Unix programs and basically
 it's using um reverse polish notation
 and you know like I'm not going to
 expand on this but basically yeah this
-is like very much like a monaric
+is like very much like a monadic
 pipeline and if you look at uh a package
 uh or system a constellation of packages
 called tidiverse in a in the ecosystem
 they do they do apply uh this uh uh
 pipelines Well, it's not exactly a
 monot, you know, but this is like a
-monotic pipeline. And you can see this
+monadic pipeline. And you can see this
 is actually fairly easy to understand.
 We take the Titanic data, we rename some
 of the some of the columns, we filter
@@ -214,8 +214,8 @@ here with the postfix um application of
 um postfix operation sorry postfix
 function this is the infix version of
 the postfix application of functions
-right we have like this kind of monaric
-pipeline but the monaric pipeline I'm
+right we have like this kind of monadic
+pipeline but the monadic pipeline I'm
 talking about for mathematica from 0.01
 01 is this right? I mean this is the
 proof here. So if you use if your inputs
@@ -250,7 +250,7 @@ then at some point we get to the result
 not sure is this better just more
 artistic not necessarily better all All
 right. So, um what is the
-um how the monaric programming can be
+um how the monadic programming can be
 invented? That's actually a very
 interesting question. So, let me see uh
 where's my uh invention of uh
@@ -315,7 +315,7 @@ what monot exactly is monot being used
 to actually you know develop the
 language you know conceptually and so uh
 since um and I answered this question is
-monic programming supported inflamm
+monadic programming supported inflamm
 language let me uh look at the questions
 here
 I see in the qu Q&A uh section very
@@ -346,7 +346,7 @@ you are really curious how this is done
 there's a package called uh monot
 makers. This monet makers is used into
 you can see I have a bunch of monot
-monaric packages you know in
+monadic packages you know in
 the packet repository.
 uh basically every conference wrote
 technology conference I submit one or
@@ -380,7 +380,7 @@ corresponding highlighting uh software
 modules. All right. Uh so they hopefully
 answered this. Let's actually go back to
 the questions and see um right what else
-uh is monaric programming um support in
+uh is monadic programming um support in
 warm language. I already explained this
 but again I would like to mention this
 at some point I mean like few years ago
@@ -488,7 +488,7 @@ gracefully what you're doing. One
 interesting way to do it actually is to
 generate random pipelines and you this
 another thing which you can do easily
-with this monic perspective. I mean
+with this monadic perspective. I mean
 imagine that I basically I know that in
 a a pipeline I might say it has like say
 five or six elements or between between
@@ -512,7 +512,7 @@ established created I had I had this in
 a se separate uh separate um uh part
 here and one of the things uh here well
 uh maybe it's in unit tests right yeah
-so let monarics uh monic
+so let monadics uh monadic
 unit tests somewhere here you might see
 uh these are actually
 This is not the random random uh random
@@ -598,7 +598,7 @@ classify measurements. This actually is
 going to be bit yeah it's supposed to be
 somewhat more complicated. This is
 related to this uh algebraic properties
-of the monotic code, right? I can plug
+of the monadic code, right? I can plug
 and play different elements of this
 pipeline, right? And make more
 complicated pipelines. So um so
@@ -610,7 +610,7 @@ answering why I'm using monot. So you
 can see this here this uh okay for some
 reason I cannot I cannot copy this. So
 uh let me show you this here right now.
-This here is a is a monaric pipeline
+This here is a is a monadic pipeline
 which doesn't avoid the monots right for
 doing quantile regression and I can
 request uh an code generation with
