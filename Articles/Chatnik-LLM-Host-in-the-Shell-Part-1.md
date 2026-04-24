@@ -31,8 +31,7 @@ The rest of this document is organized as follows:
 - Introductory (toy) examples
 - Why make another LLM-CLI system?
 - Architectural design
-- Implementation details
-- Further discussions plan
+- Related and alternative packages
 
 ----
 
@@ -180,6 +179,10 @@ This enables reuse of existing tooling (pipes, redirects, scripts) and aligns LL
 **Remark:** Related to the last point above the following quote is attributed to [Ken Thompson](https://en.wikiquote.org/wiki/Ken_Thompson) about UNIX:
 
 > We have persistent objects, they're called files.
+
+**Remark:** Less obnoxiously, instead of saying that LLM providers expose messy, non-uniform APIs, we can say that their APIs "are individually reasonable, but collectively inconsistent."
+Because of the popularity of OpenAI's models many LLM providers adhere to a degree with OpenAI's API.
+Still, the APIs -- collectively -- have inconsistent schemas, authorization, streaming, tool-calling, roles, etc.
 
 ### Why is it useful?
 
@@ -331,9 +334,24 @@ aligning conversational AI with the philosophy of UNIX pipelines rather than app
 
 -----
 
-## Implementation details
+## Related and alternative packages
 
-### Leveraged LLM packages
+In this section we point Raku package that are both ingredients of- and alternatives to "Chatnik". 
+
+### Main ingredients
+
+The creation and interaction LLM-chat object functionalities are provided by ["LLM::Functions"](https://raku.land/zef:antononcube/LLM::Functions), [AAp1].
+
+Prompt collection, prompt spec DSL and related prompt expansion are provided by ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts), [AAp2].
+The CLI script `llm-prompt` of "LLM::Prompts" can be used examine, retrieve, and concretize prompts. 
+For example, here it can be seen the full text of the function prompt "MermaidDiagram" with given arguments:
+
+```
+llm-prompt MermaidDiagram MYTEXT MY_DIAGRAM_TYPE
+```
+
+
+### Underlying and alternative
 
 The access to LLMs is provided by the packages 
 ["WWWW::OpenAI"](https://github.com/antononcube/Raku-WWW-OpenAI), 
@@ -342,10 +360,59 @@ The access to LLMs is provided by the packages
 ["WWW::LLaMA"](https://github.com/antononcube/Raku-WWW-LLaMA),
 ["WWW::Ollama"](https://github.com/antononcube/Raku-WWW-Ollama).
 
-The creation and interaction LLM-chat object functionalities are provided by ["LLM::Functions"](), [AAp1].
+Each of these packages have corresponding CLI scripts which are *alternatives* to `llm-chat`:
 
-Prompt collection, prompt spec DSL and related prompt expansion by ["LLM::Prompts"](https://github.com/antononcube/Raku-LLM-Prompts), [AAp2]:
+| Package        | CLI                    |
+|----------------|------------------------|
+| WWW::OpenAI    | `openai-playground`    |
+| WWW::Gemini    | `gemini-prompt`        |
+| WWW::MistralAI | `mistralai-playground` |
+| WWW::LLaMA     | `llama-playground`     |
+| WWW::Ollama    | `ollama-client`        |
 
+
+### Related alternative
+
+The package ["LLM::DWIM"](https://raku.land/zef:bduggan/LLM::DWIM), [BDp1], is very similar in spirit to "Chatnik".
+"LLM::DWIM" does not use prompt expansion, uses only one chat object, and, although it saves chat history, it does not create chat objects with that history.
+Both packages are based on the LLM packages "LLM::Functions", [AAp1], and "LLM::Prompts", [AAp2].
+
+### Summarizing graph
+
+Here is a graph summarizes the relationships:
+
+```mermaid
+flowchart LR
+    Chatnik[Chatnik] --> |ingredient| LLMFunc[LLM::Functions] 
+    Chatnik --> |ingredient| LLMPrompts[LLM::Prompts] 
+    LLMFunc --> |LLM access via| OpenAI[WWW::OpenAI]
+    LLMFunc --> |LLM access via| Gemini[WWW::Gemini]
+    LLMFunc --> |LLM access via| MistralAI[WWW::MistralAI]
+    LLMFunc --> |LLM access via| LLaMA[WWW::LLaMA]
+    LLMFunc --> |LLM access via| Ollama[WWW::Ollama]
+
+    DWIM[LLM::DWIM] --> |ingredient| LLMFunc
+    DWIM --> |ingredient| LLMPrompts
+
+    subgraph LA[Limited Alternatives]
+        
+      subgraph CLI
+          OpenAI
+          Gemini
+          MistralAI
+          LLaMA
+          Ollama
+      end
+    
+      subgraph SCO[Single chat object]
+          DWIM
+      end
+      
+    end
+    
+    style CLI fill:DimGray,stroke:#333,stroke-width:2px
+    style SCO fill:DimGray,stroke:#333,stroke-width:2px
+```
 
 ----
 
@@ -372,6 +439,11 @@ Prompt collection, prompt spec DSL and related prompt expansion by ["LLM::Prompt
 [Data::Translators, Raku package](https://github.com/antononcube/Raku-Data-Translators),
 (2023-2026),
 [GitHub/antononcube](https://github.com/antononcube).
+
+[BDp1] Brian Duggan,
+[LLM::DWIM, Raku package](https://github.com/bduggan/raku-llm-dwim),
+(2024-2025),
+[GitHub/bduggan](https://github.com/bduggan).
 
 ### Videos
 
