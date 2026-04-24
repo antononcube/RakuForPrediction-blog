@@ -199,7 +199,7 @@ Still, the APIs -- collectively -- have inconsistent schemas, authorization, str
 
 ## Architectural design
 
-The following flowchart summarizes fairly well components and their interaction:
+The following flowchart summarizes fairly well the computational components and their interaction:
 
 ```mermaid
 flowchart TD
