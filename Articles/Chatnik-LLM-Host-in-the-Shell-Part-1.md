@@ -2,23 +2,336 @@
 
 ## Introduction
 
-["Chatnik"](https://raku.land/zef:antononcube/Chatnik) is Raku package that provides Command Line Interface (CLI) 
-scripts for conversing with multiple, persistent Large Language Model (LLM) personas. 
+["Chatnik"](https://raku.land/zef:antononcube/Chatnik) is a Raku package that provides Command Line Interface (CLI) 
+scripts for conversing with multiple, persistent, Large Language Model (LLM) personas. 
 Files of the host Operating System (OS) are used to maintain persistency.
 
-Chatnik features:
+Most importantly, "Chatnik" does not try to entrench users in its own user experience (loop) for interaction with LLMs.
+Instead, it brings advanced LLM invocations and conversations into the Unix shell -- 
+making them composable, integratable, and scriptable with existing workflows.
 
-- UNIX Shell pipelining for LLM interaction
-- Has a database of LLM-chat objects
-- Can conenct to different models from different LLM providers
-- Has access to a large repository of prompts
-- Provides convenient access to interaction history messages
-- Has management tools for the LLM chat objects database
-- Preprocesses prompts based on a simple Domain Specific Language (DSL)
-- Supports the loading of user LLM personas specified in JSON file
+In other words, the tag line "LLM Host in the Shell" should be understood as "LLMs, not as an app -- but as a Unix shell primitive." 
+
+Here are the most notable "Chatnik" features:
+
+- Provides UNIX shell pipelining for LLM interactions
+- Maintains a database of LLM chat objects
+- Connects to multiple models across different LLM providers
+- Offers access to a large repository of prompts
+- Enables convenient retrieval of interaction history
+- Includes management tools for the LLM chat object database
+- Preprocesses prompts using a simple domain-specific language (DSL)
+- Supports loading user-defined LLM personas from JSON files
 
 **Remark:** "Chatnik" closely follows the LLM-chat objects interaction system of the Raku package ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AAp3].
 (Using OS Shell instead of Jupyter notebooks.)
+
+The rest of this document is organized as follows:
+
+- Introductory (toy) examples
+- Why make another LLM-CLI system?
+- Architectural design
+- Implementation details
+- Further discussions plan
+
+----
+
+## Introductory examples
+
+The examples in this section demonstrate how the CLI scripts `llm-chat` and `llm-chat-meta` -- provided by "Chatnik" -- 
+are used to have multi-turn LLM conversations and compose Unix shell pipelines with LLM interaction messages. 
+
+**Remark:** Instead of `llm-chat` and `llm-chat-meta`, the CLI script `chatnik` can be used:
+`chatnik` invokes `llm-chat`, `chatnik meta` invokes `llm-chat-meta`.
+
+### Chat with Yoda
+
+Here we create an LLM persona -- by naming it and "priming it" with a prompt -- and start interacting with it:
+
+```shell
+llm-chat --chat-id=yoda --prompt=@Yoda 'Hi! Who are you?'
+```
+
+Here we continue the conversation -- using the `-i` synonym of `--chat-id` and no-quotes message argument:
+
+```shell
+llm-chat -i=yoda How many students did you have
+```
+
+And continue the discussion some more: 
+
+```shell
+llm-chat -i=yoda 'Which student is the best?'
+```
+
+### Fortune-echo-limerick pipeline
+
+Here we specify a pipeline for
+1. Getting a fortune
+2. Echoing it
+3. Using the fortune to make a limerick
+
+
+```
+fortune | tee /dev/tty | llm-chat --prompt="Make a limeric from the given text:"
+```
+
+```text
+Space is big.  You just won't believe how vastly, hugely, mind-bogglingly
+big it is.  I mean, you may think it's a long way down the road to the
+drug store, but that's just peanuts to space.
+		-- The Hitchhiker's Guide to the Galaxy
+		
+There once was a space vast and wide,  
+Whose scale no one could quite abide.  
+Though the drug store seems near,  
+Space’s size is sincere—  
+Mind-bogglingly big can’t be denied!
+```
+
+**Remark:** In the shell command above, `llm-chat` created (or reused) a chat object with the default identifier "NONE". 
+
+### Make a diagram over previous results
+
+Here we use prompt expansion to request the creation of a [Mermaid-JS diagram](https://mermaid.js.org) via the
+prompt "CodeWriterX":
+
+```
+llm-chat '!CodeWriterX|"Mermaid-JS code of the concepts"^'
+```
+
+````
+```mermaid
+sequenceDiagram
+    participant User
+    participant Space
+    User->>Space: Thinks space is big
+    Note right of Space: Space is vastly, hugely, mind-bogglingly big
+    User->>Space: Compares to drug store distance
+    Note right of Space: Drug store distance is just peanuts to space
+```
+````
+
+Since the result is given in Markdown code fences we take the last message via the CLI script `llm-meta-chat`, 
+then use `sed` to remove the first and last lines, and then pass that text to the terminal 
+Mermaid-JS visualizer [`mmdflux`](https://github.com/kevinswiber/mmdflux):
+
+```
+llm-chat-meta last-message | sed '1d; $d' | mmdflux
+```
+
+```text
+
+┌──────┐                           ┌───────┐
+│ User │                           │ Space │
+└───┬──┘                           └───┬───┘
+    │                                  │
+    │─Thinks space is big─────────────>│
+    │                                  │
+    │                                  │ ┌──────────────────────────────────────────────┐
+    │                                  │ │ Space is vastly, hugely, mind-bogglingly big │
+    │                                  │ └──────────────────────────────────────────────┘
+    │                                  │
+    │─Compares to drug store distance─>│
+    │                                  │
+    │                                  │ ┌──────────────────────────────────────────────┐
+    │                                  │ │ Drug store distance is just peanuts to space │
+    │                                  │ └──────────────────────────────────────────────┘
+    │                                  │
+```
+
+**Remark:** Since the result is usually given in Markdown code fences we did not make a pipeline to plot the diagram.
+We used two shell commands in order to observer the intermediate result.
+
+**Remark:** The default object identifier for both `llm-chat` and `llm-chat-object` is "NONE".
+
+----
+
+Here is a filled-in version that matches the tone and positioning of the rest:
+
+---
+
+## Why make another LLM-CLI system?
+
+### Some questions to answer
+
+* Why do it?
+* Why was it relatively easy to do?
+* Why is it useful?
+
+### Why do it?
+
+Most LLM interfaces -- both "big" popular ones and those built by developers experimenting with LLMs -- default to an application-centric design: a closed interaction loop with implicit state. 
+This pattern is convenient, but very limiting. It can be cynically seen as an intentional effort for user lock-in or just as an attempt to impose certain user experience views.
+It works against the "freedom enabling" Unix design principles. (Like, composability, transparency, and scriptability.)
+
+With "Chatnik" instead of adapting workflows to fit an LLM application, LLM capabilities are brought into the shell as first-class primitives. 
+This enables reuse of existing tooling (pipes, redirects, scripts) and aligns LLM interaction with long-established UNIX practices.
+
+### Why was it relatively easy to do?
+
+"Chatnik" is a composition of existing capabilities rather than a ground-up implementation:
+
+* Modern LLM providers (e.g., OpenAI, Google, Ollama) expose messy, non-uniform APIs that should be abstracted behind a single interface
+* The Raku ecosystem already provides flexible text processing, DSL making and usage, and CLI tooling
+* The "LLM::Functions" package encapsulates model interaction patterns, reducing knowledge of concrete APIs
+* Persistency can be implemented with simple file-based storage, avoiding the need for complex infrastructure
+
+**Remark:** Related to the last point above the following quote is attributed to [Ken Thompson](https://en.wikiquote.org/wiki/Ken_Thompson) about UNIX:
+
+> We have persistent objects, they're called files.
+
+### Why is it useful?
+
+"Chatnik" is useful because it places LLM capabilities in a natural manner into Unix shell workflows:
+
+* LLM calls can be embedded into shell pipelines, enabling automation and chaining
+* Conversations are persistent and inspectable via the file system
+* Prompt reuse and DSL preprocessing reduce repetition and keep workflows clear
+* Multiple providers can be used interchangeably without changing workflows
+* Existing UNIX tools (e.g., `grep`, `awk`, `sed`) can be combined with LLM outputs
+  * Also, additional "widgets", like, Markdown viewers, Mermaid-JS renderers, etc. 
+
+----
+
+## Architectural design
+
+The following flowchart summarizes fairly well components and their interaction:
+
+```mermaid
+flowchart TD
+    OpenAI{{OpenAI}}
+    Gemini{{Gemini}}
+    Ollama{{Ollama}}
+    LLMFunc[[LLM::Functions]]
+    LLMProm[[LLM::Prompts]]
+    CODBOS[(Chat objects<br>file)]
+    CODB[(Chat objects)]
+    PDB[(Prompts)]
+    CCommand[/Chat command/]
+    CCommandOutput[/Chat result/]
+    CIDQ{Chat ID<br>specified?}
+    CIDEQ{Chat ID<br>exists in DB?}
+    IngestCODB[Chat objects file<br>ingestion]
+    UpdateCODB[Chat objects file<br>update]
+    RECO[Retrieve existing<br>chat object]
+    COEval[Message<br>evaluation]
+    PromParse[Prompt<br>DSL spec parsing]
+    KPFQ{Known<br>prompts<br>found?}
+    PromExp[Prompt<br>expansion]
+    CNCO[Create new<br>chat object]
+    CIDNone["Assume chat ID<br>is 'NONE'"] 
+    subgraph "OS Shell"    
+        CCommand
+        CCommandOutput
+    end
+    subgraph OS file system
+        CODBOS
+    end
+    subgraph PromptProc[Prompt processing]
+        PDB
+        LLMProm
+        PromParse
+        KPFQ
+        PromExp 
+    end
+    subgraph LLMInteract[LLM interaction]
+      COEval
+      LLMFunc
+      Gemini
+      OpenAI
+      Ollama
+    end
+    subgraph Chatnik backend
+        IngestCODB
+        CODB
+        CIDQ
+        CIDEQ
+        CIDNone
+        RECO
+        CNCO
+        UpdateCODB
+        PromptProc
+        LLMInteract
+    end
+    CCommand --> IngestCODB
+    CODBOS -.-> IngestCODB 
+    UpdateCODB -.-> CODBOS 
+    IngestCODB -.-> CODB
+    IngestCODB --> CIDQ
+    CIDQ --> |yes| CIDEQ
+    CIDEQ --> |yes| RECO
+    RECO --> PromParse
+    COEval --> CCommandOutput
+    CIDEQ -.- CODB
+    CIDEQ --> |no| CNCO
+    LLMFunc -.- CNCO -.- CODB
+    CNCO --> PromParse --> KPFQ
+    KPFQ --> |yes| PromExp
+    KPFQ --> |no| COEval
+    PromParse -.- LLMProm 
+    PromExp -.- LLMProm
+    PromExp --> COEval 
+    LLMProm -.- PDB
+    CIDQ --> |no| CIDNone
+    CIDNone --> CIDEQ
+    COEval -.- LLMFunc
+    COEval --> UpdateCODB
+    LLMFunc <-.-> OpenAI
+    LLMFunc <-.-> Gemini
+    LLMFunc <-.-> Ollama
+
+    style PromptProc fill:DimGray,stroke:#333,stroke-width:2px
+    style LLMInteract fill:DimGray,stroke:#333,stroke-width:2px
+```
+
+Here is a (concise) narration of the flow:
+
+- A chat command is issued from the OS shell, triggering ingestion of the chat objects file into an in-memory chat database.
+
+- If a chat ID is specified and exists, the corresponding chat object is retrieved; otherwise, a new chat object is created (with a default “NONE” ID if unspecified).
+
+- The input is then processed through prompt parsing using a DSL. If known prompts are detected, they are expanded via the prompt repository; otherwise, the raw input proceeds directly.
+
+- The resulting message is evaluated through "LLM::Functions", which mediates interaction with external providers such as OpenAI (ChatGPT), Google (Gemini), and Ollama.
+
+- The evaluation produces a chat result returned to the shell, while the updated chat state is written back to the chat objects file, ensuring persistence.
+
+### Expanded narration
+
+**Chatnik is built around the principle that LLM interaction should behave like a native shell capability, not a siloed application.**   
+A command issued in the OS shell is treated as the entry point into a composable pipeline, where LLM calls can participate alongside standard UNIX tools.
+
+**State is externalized and file-backed, not hidden in process memory.**   
+Chat sessions are represented as chat objects that are ingested from and persisted to the file system. 
+This makes conversations durable, inspectable, and naturally versionable using existing OS tools.
+
+**Chat identity is explicit but optional.**   
+When a chat ID is provided, the corresponding conversation is resumed; when absent or unknown, a new chat object is created. 
+This allows both ad-hoc interactions and long-lived conversational contexts without friction.
+
+**Prompting is treated as a programmable layer.**   
+Inputs are not passed directly to models; they are first parsed through a lightweight DSL. 
+Known prompts are expanded from a prompt repository, enabling reuse, parameterization, and standardization of interactions.
+
+**LLM invocation is abstracted but not obscured.**   
+Evaluation is delegated to "LLM::Functions", which provides a uniform interface over multiple providers, including OpenAI (ChatGPT), Google (Gemini), and Ollama. 
+This keeps provider choice flexible while preserving a consistent workflow.
+
+**The system is designed for composability and integration.**   
+Each stage—state ingestion, prompt processing, evaluation, and persistence—can be understood as part of a pipeline. 
+This makes LLM interactions scriptable, chainable, and interoperable with existing command-line utilities.
+
+**Persistence is a first-class outcome of every interaction.**  
+Every evaluation both returns a result to the shell and updates the underlying chat object store, ensuring that conversational context evolves incrementally and reliably.
+
+
+**In short** to reiterate the point in the introduction, "Chatnik" treats LLMs as *shell-native, stateful, and programmable primitives* -- 
+aligning conversational AI with the philosophy of UNIX pipelines rather than application-bound interfaces.
+
+-----
+
+## Implementation details
 
 ### Leveraged LLM packages
 
@@ -31,66 +344,7 @@ The access to LLMs is provided by the packages
 
 The creation and interaction LLM-chat object functionalities are provided by ["LLM::Functions"](), [AAp1].
 
-Prompt collection, prompt spec DSL and related prompt expansion by ["LLM::Prompts"], [AAp2]:
-
-### Some questions to answer
-
-- Why do it?
-- Why it was relatively easy to do?
-- Why it is useful?
-
-Before answering those questions, let us first look at a few introductory (toy) examples.
-
-----
-
-## Introductory examples
-
-
-### Chat with Yoda
-
-Here we create an LLM persona -- by naming it and "priming it" with a prompt -- and start interacting with it:
-
-```shell
-llm-chat --chat-id=yoda --prompt=@Yoda 'Hi! Who are you?'
-```
-
-### MOTD pipeline
-
-Here we specify a pipeline for 
-1. Getting a fortune
-2. Echoing it
-3. Using the fortune to make a limerick
-
-
-```
-fortune | tee /dev/tty | llm-chat --prompt="make a limeric from the given text"
-```
-
-```
-Good judgement comes from experience.  Experience comes from bad judgement.
-		-- Jim Horning
-		
-There once was a man named Jim,
-Whose wisdom was never too slim.
-He said with a grin,
-“Good judgment comes in,
-From mistakes that look rather grim.”
-```
-
-
-----
-
-## Architectural design
-
-----
-
-## Basic (serious) examples
-
-----
-
-## Chat objects management (preview)
-
-----
+Prompt collection, prompt spec DSL and related prompt expansion by ["LLM::Prompts"](https://github.com/antononcube/Raku-LLM-Prompts), [AAp2]:
 
 
 ----
@@ -114,10 +368,10 @@ From mistakes that look rather grim.”
 (2023-2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
-[JSp1] Jonathan Stowe,
-[XDG::BaseDirectory, Raku package](https://github.com/jonathanstowe/XDG-BaseDirectory),
-(2016-2026),
-[GitHub/jonathanstowe](https://github.com/jonathanstowe).
+[AAp4] Anton Antonov
+[Data::Translators, Raku package](https://github.com/antononcube/Raku-Data-Translators),
+(2023-2026),
+[GitHub/antononcube](https://github.com/antononcube).
 
 ### Videos
 
