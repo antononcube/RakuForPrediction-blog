@@ -409,9 +409,9 @@ flowchart LR
     DWIM[LLM::DWIM] --> |ingredient| LLMFunc
     DWIM --> |ingredient| LLMPrompts
 
-    subgraph LA[Limited Alternatives]
+    subgraph LA[CLI Alternatives]
         
-      subgraph CLI
+      subgraph WWW[ ]
           OpenAI
           Gemini
           MistralAI
@@ -425,8 +425,17 @@ flowchart LR
       
     end
     
-    style CLI fill:DimGray,stroke:#333,stroke-width:2px
+    subgraph NA[Notebook Alternatives]
+        RakuJupyter["Jupyter::Chatbook"]
+        PythonJupyter["JupyterChatbook"]
+        WLChatbook["Chatbook"]
+    end
+
+    Chatnik -.- RakuJupyter
+
+    style WWW fill:DimGray,stroke:#333,stroke-width:2px
     style SCO fill:DimGray,stroke:#333,stroke-width:2px
+    style NA fill:SlateGray,stroke:#333,stroke-width:2px
 ```
 
 ----
