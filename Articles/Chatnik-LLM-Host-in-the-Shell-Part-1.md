@@ -144,9 +144,19 @@ We used two shell commands in order to observe the intermediate result.
 
 **Remark:** The default object identifier for both `llm-chat` and `llm-chat-object` is "NONE".
 
-----
+### Copy-editing
 
-Here is a filled-in version that matches the tone and positioning of the rest:
+Here is a very practical example --
+this document was copy-edited with the prompt ["CopyEdit"](https://resources.wolframcloud.com/PromptRepository/resources/CopyEdit) 
+using following commands:
+
+```
+cat Chatnik-LLM-Host-in-the-Shell-Part-1.md | llm-chat -i=ce --prompt=@CopyEdit --model=gpt-5.4-mini --max-tokens=16384
+llm-chat-meta -i=ce last-message > Chatnik-LLM-Host-in-the-Shell-Part-1_edited.md
+open Chatnik-LLM-Host-in-the-Shell-Part-1_edited.md
+```
+
+(And, yes, the LLM copy-edited version was evaluated, and some edits were rejected.)
 
 ---
 
