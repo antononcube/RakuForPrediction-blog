@@ -350,6 +350,11 @@ For example, here it can be seen the full text of the function prompt "MermaidDi
 llm-prompt MermaidDiagram MYTEXT MY_DIAGRAM_TYPE
 ```
 
+In some cases it is more convenient to use `llm-prompt` than prompt expansion. For example:
+
+```
+llm-chat "@CodeWriterX|Raku 2D random walk." | llm-chat -i=ch --prompt="$(llm-prompt CodeHighlighter --format=HTML)"
+```
 
 ### Underlying and alternative
 
@@ -371,11 +376,21 @@ Each of these packages have corresponding CLI scripts which are *alternatives* t
 | WWW::Ollama    | `ollama-client`        |
 
 
-### Related alternative
+### Related alternatives
 
-The package ["LLM::DWIM"](https://raku.land/zef:bduggan/LLM::DWIM), [BDp1], is very similar in spirit to "Chatnik".
-"LLM::DWIM" does not use prompt expansion, uses only one chat object, and, although it saves chat history, it does not create chat objects with that history.
-Both packages are based on the LLM packages "LLM::Functions", [AAp1], and "LLM::Prompts", [AAp2].
+The package ["LLM::DWIM"](https://raku.land/zef:bduggan/LLM::DWIM), [BDp1], is similar in spirit to "Chatnik" and 
+it is also based on the LLM packages "LLM::Functions", [AAp1], and "LLM::Prompts", [AAp2].
+
+There are significant differences are that "LLM::DWIM":
+1. Has its own loop for the user-LLM chat 
+2. Does not use prompt expansion
+3. Uses only one chat object
+4. Although chat history is saved, no new chat objects are created with it
+
+The Raku package ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook) use the same evaluation
+mechanisms as "Chatnik", but its interactive environment is a Jupyter notebook. (Instead of an OS shell.)
+The Python package ["JupyterChatbook"](https://pypi.org/project/JupyterChatbook/) and the Wolfram Language paclet ["Chatbook"](https://resources.wolframcloud.com/PacletRepository/resources/Wolfram/Chatbook/)
+are also notebook alternatives to "Chatnik".
 
 ### Summarizing graph
 
