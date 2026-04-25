@@ -155,7 +155,7 @@ We used two shell commands in order to observe the intermediate result.
 
 Here is a very practical example --
 this document was copy-edited with the prompt ["CopyEdit"](https://resources.wolframcloud.com/PromptRepository/resources/CopyEdit) 
-using following commands:
+using the following commands:
 
 ```
 cat Chatnik-LLM-Host-in-the-Shell-Part-1.md | llm-chat -i=ce --prompt=@CopyEdit --model=gpt-5.4-mini --max-tokens=16384
