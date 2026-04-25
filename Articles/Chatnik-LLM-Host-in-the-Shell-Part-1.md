@@ -2,12 +2,12 @@
 
 ## Introduction
 
-["Chatnik"](https://raku.land/zef:antononcube/Chatnik) is a Raku package that provides Command Line Interface (CLI) 
-scripts for conversing with multiple, persistent, Large Language Model (LLM) personas. 
-Files of the host Operating System (OS) are used to maintain persistency.
+["Chatnik"](https://raku.land/zef:antononcube/Chatnik) is a Raku package that provides Command Line Interface (CLI)
+scripts for conversing with multiple, persistent Large Language Model (LLM) personas. 
+Files of the host Operating System (OS) are used to maintain persistence.
 
 Most importantly, "Chatnik" does not try to entrench users in its own user experience (loop) for interaction with LLMs.
-Instead, it brings advanced LLM invocations and conversations into the Unix shell -- 
+Instead, it brings customizable LLM invocations and conversations into the Unix shell -- 
 making them composable, integratable, and scriptable with existing workflows.
 
 In other words, the tag line "LLM Host in the Shell" should be understood as "LLMs, not as an app -- but as a Unix shell primitive." 
@@ -24,11 +24,11 @@ Here are the most notable "Chatnik" features:
 - Supports loading user-defined LLM personas from JSON files
 
 **Remark:** "Chatnik" closely follows the LLM-chat objects interaction system of the Raku package ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AAp3].
-(Using OS Shell instead of Jupyter notebooks.)
+(Using OS shell instead of Jupyter notebooks.)
 
 The rest of this document is organized as follows:
 
-- Introductory (toy) examples
+- Introductory examples
 - Why make another LLM-CLI system?
 - Architectural design
 - Related and alternative packages
@@ -38,10 +38,10 @@ The rest of this document is organized as follows:
 ## Introductory examples
 
 The examples in this section demonstrate how the CLI scripts `llm-chat` and `llm-chat-meta` -- provided by "Chatnik" -- 
-are used to have multi-turn LLM conversations and compose Unix shell pipelines with LLM interaction messages. 
+are used to have multi-turn LLM conversations and compose Unix shell pipelines with LLM interaction messages.
 
 **Remark:** Instead of `llm-chat` and `llm-chat-meta`, the CLI script `chatnik` can be used:
-`chatnik` invokes `llm-chat`, `chatnik meta` invokes `llm-chat-meta`.
+`chatnik` invokes `llm-chat`, and `chatnik meta` invokes `llm-chat-meta`.
 
 ### Chat with Yoda
 
@@ -72,7 +72,7 @@ Here we specify a pipeline for
 
 
 ```
-fortune | tee /dev/tty | llm-chat --prompt="Make a limeric from the given text:"
+fortune | tee /dev/tty | llm-chat --prompt="Make a limerick from the given text:"
 ```
 
 ```text
@@ -90,7 +90,7 @@ Mind-bogglingly big can’t be denied!
 
 **Remark:** In the shell command above, `llm-chat` created (or reused) a chat object with the default identifier "NONE". 
 
-### Make a diagram over previous results
+### Make a diagram from previous results
 
 Here we use prompt expansion to request the creation of a [Mermaid-JS diagram](https://mermaid.js.org) via the
 prompt "CodeWriterX":
@@ -111,7 +111,7 @@ sequenceDiagram
 ```
 ````
 
-Since the result is given in Markdown code fences we take the last message via the CLI script `llm-meta-chat`, 
+Since the result is given in Markdown code fences we take the last message via the CLI script `llm-meta-chat`,
 then use `sed` to remove the first and last lines, and then pass that text to the terminal 
 Mermaid-JS visualizer [`mmdflux`](https://github.com/kevinswiber/mmdflux):
 
@@ -139,8 +139,8 @@ llm-chat-meta last-message | sed '1d; $d' | mmdflux
     │                                  │
 ```
 
-**Remark:** Since the result is usually given in Markdown code fences we did not make a pipeline to plot the diagram.
-We used two shell commands in order to observer the intermediate result.
+**Remark:** Since the result is usually given in Markdown code fences, we did not make a pipeline to plot the diagram.
+We used two shell commands in order to observe the intermediate result.
 
 **Remark:** The default object identifier for both `llm-chat` and `llm-chat-object` is "NONE".
 
@@ -161,10 +161,10 @@ Here is a filled-in version that matches the tone and positioning of the rest:
 ### Why do it?
 
 Most LLM interfaces -- both "big" popular ones and those built by developers experimenting with LLMs -- default to an application-centric design: a closed interaction loop with implicit state. 
-This pattern is convenient, but very limiting. It can be cynically seen as an intentional effort for user lock-in or just as an attempt to impose certain user experience views.
-It works against the "freedom enabling" Unix design principles. (Like, composability, transparency, and scriptability.)
+This pattern is convenient, but very limiting. It can be cynically seen as an intentional effort for user lock-in or just as an attempt to impose certain user-experience views.
+It works against the "freedom enabling" Unix design principles. (Such as composability, transparency, and scriptability.)
 
-With "Chatnik" instead of adapting workflows to fit an LLM application, LLM capabilities are brought into the shell as first-class primitives. 
+With "Chatnik", instead of adapting workflows to fit an LLM application, LLM capabilities are brought into the shell as first-class primitives.
 This enables reuse of existing tooling (pipes, redirects, scripts) and aligns LLM interaction with long-established UNIX practices.
 
 ### Why was it relatively easy to do?
@@ -174,14 +174,14 @@ This enables reuse of existing tooling (pipes, redirects, scripts) and aligns LL
 * Modern LLM providers (e.g., OpenAI, Google, Ollama) expose messy, non-uniform APIs that should be abstracted behind a single interface
 * The Raku ecosystem already provides flexible text processing, DSL making and usage, and CLI tooling
 * The "LLM::Functions" package encapsulates model interaction patterns, reducing knowledge of concrete APIs
-* Persistency can be implemented with simple file-based storage, avoiding the need for complex infrastructure
+* Persistence can be implemented with simple file-based storage, avoiding the need for complex infrastructure
 
-**Remark:** Related to the last point above the following quote is attributed to [Ken Thompson](https://en.wikiquote.org/wiki/Ken_Thompson) about UNIX:
+**Remark:** Related to the last point above, the following quote is attributed to [Ken Thompson](https://en.wikiquote.org/wiki/Ken_Thompson) about UNIX:
 
 > We have persistent objects, they're called files.
 
 **Remark:** Less obnoxiously, instead of saying that LLM providers expose messy, non-uniform APIs, we can say that their APIs "are individually reasonable, but collectively inconsistent."
-Because of the popularity of OpenAI's models many LLM providers adhere to a degree with OpenAI's API.
+Because of the popularity of OpenAI's models, many LLM providers adhere to a degree with OpenAI's API.
 Still, the APIs -- collectively -- have inconsistent schemas, authorization, streaming, tool-calling, roles, etc.
 
 ### Why is it useful?
@@ -193,13 +193,13 @@ Still, the APIs -- collectively -- have inconsistent schemas, authorization, str
 * Prompt reuse and DSL preprocessing reduce repetition and keep workflows clear
 * Multiple providers can be used interchangeably without changing workflows
 * Existing UNIX tools (e.g., `grep`, `awk`, `sed`) can be combined with LLM outputs
-  * Also, additional "widgets", like, Markdown viewers, Mermaid-JS renderers, etc. 
+  * Also, additional "widgets", like Markdown viewers, Mermaid-JS renderers, etc. 
 
 ----
 
 ## Architectural design
 
-The following flowchart summarizes fairly well the computational components and their interaction:
+The following flowchart summarizes the computational components and their interactions fairly well:
 
 ```mermaid
 flowchart TD
@@ -288,7 +288,7 @@ flowchart TD
     style LLMInteract fill:DimGray,stroke:#333,stroke-width:2px
 ```
 
-Here is a (concise) narration of the flow:
+Here is a concise narration of the flow:
 
 - A chat command is issued from the OS shell, triggering ingestion of the chat objects file into an in-memory chat database.
 
@@ -328,22 +328,21 @@ This makes LLM interactions scriptable, chainable, and interoperable with existi
 **Persistence is a first-class outcome of every interaction.**  
 Every evaluation both returns a result to the shell and updates the underlying chat object store, ensuring that conversational context evolves incrementally and reliably.
 
-
-**In short** to reiterate the point in the introduction, "Chatnik" treats LLMs as *shell-native, stateful, and programmable primitives* -- 
+**In short.** To reiterate the point in the introduction, "Chatnik" treats LLMs as *shell-native, stateful, and programmable primitives* -- 
 aligning conversational AI with the philosophy of UNIX pipelines rather than application-bound interfaces.
 
 -----
 
 ## Related and alternative packages
 
-In this section we point Raku package that are both ingredients of- and alternatives to "Chatnik". 
+In this section, we point to Raku packages that are both ingredients of, and alternatives to, "Chatnik".
 
 ### Main ingredients
 
 The creation and interaction LLM-chat object functionalities are provided by ["LLM::Functions"](https://raku.land/zef:antononcube/LLM::Functions), [AAp1].
 
-Prompt collection, prompt spec DSL and related prompt expansion are provided by ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts), [AAp2].
-The CLI script `llm-prompt` of "LLM::Prompts" can be used examine, retrieve, and concretize prompts. 
+Prompt collection, prompt spec DSL, and related prompt expansion are provided by ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts), [AAp2].
+The CLI script `llm-prompt` of "LLM::Prompts" can be used to examine, retrieve, and concretize prompts. 
 For example, here it can be seen the full text of the function prompt "MermaidDiagram" with given arguments:
 
 ```
@@ -358,14 +357,14 @@ llm-chat "@CodeWriterX|Raku 2D random walk." | llm-chat -i=ch --prompt="$(llm-pr
 
 ### Underlying and alternative
 
-The access to LLMs is provided by the packages 
+Access to LLMs is provided by the packages
 ["WWWW::OpenAI"](https://github.com/antononcube/Raku-WWW-OpenAI), 
 ["WWWW::Gemini"](https://github.com/antononcube/Raku-WWW-Gemini), 
 ["WWW::MistralAI"](https://github.com/antononcube/Raku-WWW-MistralAI),
 ["WWW::LLaMA"](https://github.com/antononcube/Raku-WWW-LLaMA),
 ["WWW::Ollama"](https://github.com/antononcube/Raku-WWW-Ollama).
 
-Each of these packages have corresponding CLI scripts which are *alternatives* to `llm-chat`:
+Each of these packages has a corresponding CLI script that is an *alternative* to `llm-chat`:
 
 | Package        | CLI                    |
 |----------------|------------------------|
@@ -378,23 +377,23 @@ Each of these packages have corresponding CLI scripts which are *alternatives* t
 
 ### Related alternatives
 
-The package ["LLM::DWIM"](https://raku.land/zef:bduggan/LLM::DWIM), [BDp1], is similar in spirit to "Chatnik" and 
+The package ["LLM::DWIM"](https://raku.land/zef:bduggan/LLM::DWIM), [BDp1], is similar in spirit to "Chatnik", and 
 it is also based on the LLM packages "LLM::Functions", [AAp1], and "LLM::Prompts", [AAp2].
 
-There are significant differences are that "LLM::DWIM":
-1. Has its own loop for the user-LLM chat 
+There are significant differences, however, in that "LLM::DWIM":
+1. Has its own loop for the user-LLM chat
 2. Does not use prompt expansion
 3. Uses only one chat object
 4. Although chat history is saved, no new chat objects are created with it
 
-The Raku package ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook) use the same evaluation
-mechanisms as "Chatnik", but its interactive environment is a Jupyter notebook. (Instead of an OS shell.)
+The Raku package ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook) uses the same evaluation
+mechanisms as "Chatnik", but its interactive environment is a Jupyter notebook instead of an OS shell.
 The Python package ["JupyterChatbook"](https://pypi.org/project/JupyterChatbook/) and the Wolfram Language paclet ["Chatbook"](https://resources.wolframcloud.com/PacletRepository/resources/Wolfram/Chatbook/)
 are also notebook alternatives to "Chatnik".
 
 ### Summarizing graph
 
-Here is a graph summarizes the relationships:
+Here is a graph that summarizes the relationships:
 
 ```mermaid
 flowchart LR
@@ -444,22 +443,22 @@ flowchart LR
 
 ### Packages
 
-[AAp1] Anton Antonov
+[AAp1] Anton Antonov,
 [LLM::Functions, Raku package](https://github.com/antononcube/Raku-LLM-Functions),
 (2023-2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
-[AAp2] Anton Antonov
+[AAp2] Anton Antonov,
 [LLM::Prompts, Raku package](https://github.com/antononcube/Raku-LLM-Prompts),
 (2023-2025),
 [GitHub/antononcube](https://github.com/antononcube).
 
-[AAp3] Anton Antonov
+[AAp3] Anton Antonov,
 [Jupyter::Chatbook, Raku package](https://github.com/antononcube/Raku-Jupyter-Chatbook),
 (2023-2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
-[AAp4] Anton Antonov
+[AAp4] Anton Antonov,
 [Data::Translators, Raku package](https://github.com/antononcube/Raku-Data-Translators),
 (2023-2026),
 [GitHub/antononcube](https://github.com/antononcube).
