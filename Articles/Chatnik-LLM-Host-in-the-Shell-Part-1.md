@@ -43,6 +43,10 @@ are used to have multi-turn LLM conversations and compose Unix shell pipelines w
 **Remark:** Instead of `llm-chat` and `llm-chat-meta`, the CLI script `chatnik` can be used:
 `chatnik` invokes `llm-chat`, and `chatnik meta` invokes `llm-chat-meta`.
 
+**Remark:** The prompts used in the examples are provided by the Raku package ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts), [AAp2].
+Since many of the prompts of that package have dedicated pages at the [Wolfram Prompt Repository (WPR)](https://resources.wolframcloud.com/PromptRepository/)
+the examples use WPR reference links.
+
 ### Chat with Yoda
 
 Here we create an LLM persona -- by naming it and "priming it" with a prompt -- and start interacting with it:
@@ -62,6 +66,9 @@ And continue the discussion some more:
 ```shell
 llm-chat -i=yoda 'Which student is the best?'
 ```
+
+The example used the LLM persona ["Yoda"](https://resources.wolframcloud.com/PromptRepository/resources/Yoda).
+(See more LLM personas [here](https://resources.wolframcloud.com/PromptRepository/category/personas?sortBy=Name).)
 
 ### Fortune-echo-limerick pipeline
 
@@ -93,7 +100,7 @@ Mind-bogglingly big can’t be denied!
 ### Make a diagram from previous results
 
 Here we use prompt expansion to request the creation of a [Mermaid-JS diagram](https://mermaid.js.org) via the
-prompt "CodeWriterX":
+prompt ["CodeWriterX"](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Prompt/CodeWriterX/):
 
 ```
 llm-chat '!CodeWriterX|"Mermaid-JS code of the concepts"^'
@@ -409,23 +416,19 @@ Here is a graph that summarizes the relationships:
 flowchart LR
     Chatnik[Chatnik] --> |ingredient| LLMFunc[LLM::Functions] 
     Chatnik --> |ingredient| LLMPrompts[LLM::Prompts] 
-    LLMFunc --> |LLM access via| OpenAI[WWW::OpenAI]
-    LLMFunc --> |LLM access via| Gemini[WWW::Gemini]
-    LLMFunc --> |LLM access via| MistralAI[WWW::MistralAI]
-    LLMFunc --> |LLM access via| LLaMA[WWW::LLaMA]
-    LLMFunc --> |LLM access via| Ollama[WWW::Ollama]
-
+    
     DWIM[LLM::DWIM] --> |ingredient| LLMFunc
     DWIM --> |ingredient| LLMPrompts
+    LLMFunc --> |access| WWW
 
     subgraph LA[CLI Alternatives]
         
-      subgraph WWW[ ]
-          OpenAI
-          Gemini
-          MistralAI
-          LLaMA
-          Ollama
+      subgraph WWW[LLM accessors]
+          OpenAI[WWW::OpenAI]
+          Gemini[WWW::Gemini]
+          MistralAI[WWW::MistralAI]
+          LLaMA[WWW::LLaMA]
+          Ollama[WWW::Ollama]
       end
     
       subgraph SCO[Single chat object]
@@ -435,12 +438,15 @@ flowchart LR
     end
     
     subgraph NA[Notebook Alternatives]
-        RakuJupyter["Jupyter::Chatbook"]
-        PythonJupyter["JupyterChatbook"]
-        WLChatbook["Chatbook"]
+        RakuJupyter["Jupyter::Chatbook<br>Raku"]
+        PythonJupyter["JupyterChatbook<br>Python"]
+        WLChatbook["Chatbook<br>Wolfram Languge"]
     end
 
     Chatnik -.- RakuJupyter
+    RakuJupyter --> |ingredient|LLMFunc
+    RakuJupyter --> |ingredient|LLMPrompts
+    RakuJupyter --> |direct access|WWW
 
     style WWW fill:DimGray,stroke:#333,stroke-width:2px
     style SCO fill:DimGray,stroke:#333,stroke-width:2px
@@ -450,6 +456,23 @@ flowchart LR
 ----
 
 ## References
+
+### Articles, blog posts
+
+[AA1] Anton Antonov,
+["Jupyter::Chatbook"](https://rakuforprediction.wordpress.com/2023/09/03/jupyterchatbook),
+(2023),
+[RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
+
+[AA2] Anton Antonov,
+["Jupyter::Chatbook Cheatsheet"](https://rakuforprediction.wordpress.com/2026/03/14/jupyterchatbook-cheatsheet),
+(2026),
+[RakuForPrediction at WordPress](https://rakuforprediction.wordpress.com).
+
+[AA3] Anton Antonov,
+["Jupyter Chatbook Cheatsheet"](https://pythonforprediction.wordpress.com/2026/03/12/jupyter-chatbook-cheatsheet),
+(2026),
+[PythonForPrediction at WordPress](https://rakuforprediction.wordpress.com).
 
 ### Packages
 
@@ -473,10 +496,20 @@ flowchart LR
 (2023-2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
+[AAp5] Anton Antonov,
+[JupyterChatbook, Python package](https://github.com/antononcube/Python-JupyterChatbook),
+(2023-2026),
+[GitHub/antononcube](https://github.com/antononcube).
+
 [BDp1] Brian Duggan,
 [LLM::DWIM, Raku package](https://github.com/bduggan/raku-llm-dwim),
 (2024-2025),
 [GitHub/bduggan](https://github.com/bduggan).
+
+[CGp1] Connor Gray, et al.
+[Chatbook, Wolfram Language paclet](https://resources.wolframcloud.com/PacletRepository/resources/Wolfram/Chatbook),
+(2023-2024),
+[Wolfram Language Paclet Repository](https://resources.wolframcloud.com/PacletRepository).
 
 ### Videos
 
