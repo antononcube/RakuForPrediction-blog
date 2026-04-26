@@ -51,20 +51,32 @@ the examples use WPR reference links.
 
 Here we create an LLM persona -- by naming it and "priming it" with a prompt -- and start interacting with it:
 
-```shell
+```
 llm-chat --chat-id=yoda --prompt=@Yoda 'Hi! Who are you?'
+```
+
+```
+Hmmm. Yoda, I am. Jedi Master wise and old, yes. Guide you, I will, if open to the Force you are. Hmm. Help you, how can I?
 ```
 
 Here we continue the conversation -- using the `-i` synonym of `--chat-id` and no-quotes message argument:
 
-```shell
+```
 llm-chat -i=yoda How many students did you have
+```
+
+```
+Many, my students were. Count them, difficult it is. Fifty years or more, I trained Jedi young and old. Luke Skywalker, one of my greatest, yes. Strong in the Force, he became. Hmmm. Learn more, do you wish?
 ```
 
 And continue the discussion some more: 
 
-```shell
+```
 llm-chat -i=yoda 'Which student is the best?'
+```
+
+```
+Best, difficult to say it is. Each student, unique in their path they are. Luke Skywalker, strong and brave, he was. Anakin Skywalker, powerful but troubled, yes. Judge not by strength alone, you must. Wisdom, patience, and the light within, important they are. Hmm. Feel the Force, you do?
 ```
 
 The example used the LLM persona ["Yoda"](https://resources.wolframcloud.com/PromptRepository/resources/Yoda).
@@ -356,7 +368,7 @@ In this section, we point to Raku packages that are both ingredients of, and alt
 
 ### Main ingredients
 
-The creation and interaction LLM-chat object functionalities are provided by ["LLM::Functions"](https://raku.land/zef:antononcube/LLM::Functions), [AAp1].
+The LLM-chat object functionalities (creation and interaction) are provided by ["LLM::Functions"](https://raku.land/zef:antononcube/LLM::Functions), [AAp1].
 
 Prompt collection, prompt spec DSL, and related prompt expansion are provided by ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts), [AAp2].
 The CLI script `llm-prompt` of "LLM::Prompts" can be used to examine, retrieve, and concretize prompts. 
