@@ -161,10 +161,9 @@ graph TD
 
 ## Related Mathematica, Python, and R packages
 
-### Mathematica
+### Wolfram Language (aka Mathematica)
 
-The Raku pipeline above corresponds to the following pipeline for the Mathematica package
-[AAp1]:
+The Raku pipeline above corresponds to the following pipeline for the Mathematica package [AAp1]:
 
 ```wl
 lsaObj =
