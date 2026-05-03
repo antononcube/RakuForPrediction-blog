@@ -18,7 +18,9 @@ in the Raku "native call" package ["Math::SparseMatrix::Native"](https://raku.la
 
 - The package ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix), [AAp6], has an adapter class to "Math::SparseMatrix::Native".
 
-- The package "Math::SparseMatrix" provides matrices with named rows and columns which makes especially convenient for implementing LSA and recommender systems based on sparse linear algebra. See [AAv5];  
+- The package "Math::SparseMatrix" provides matrices with named rows and columns which are especially convenient for implementing LSA and recommender systems based on sparse linear algebra. See [AAv6];  
+
+- Before the implementation of "ML::LatentSemanticAnalyzer" the only streamlined way to LSA with Raku was through Retrieval Augmented Generation (RAG). See [AAp11, AAv5].
 
 ----- 
 
@@ -98,7 +100,7 @@ This package is based on the Raku package
 ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix), [AAp5]
 
 The package 
-["ML::SparseMatrixRecommender"](https://raku.land/zef:antononcube/ML::SparseMatrixRecommender), [AAp6],
+["ML::SparseMatrixRecommender"](https://raku.land/zef:antononcube/ML::SparseMatrixRecommender), [AAp7],
 also uses LSI functions -- this package uses LSI methods of the class `ML::SparseMatrixRecommender`.
 The statistical thesaurus derivation with the method "cosine-distance" use `ML::SparseMatrixRecommender` recommender.
 
@@ -219,7 +221,7 @@ to propagate (image) data generated in Python into those systems.
 
 ### Using grammar-based interpreters
 
-The project "Raku for Prediction", [AAr2, AAv2, AAp8], has a Domain Specific Language (DSL) grammar and interpreters 
+The project "Raku for Prediction", [AAr2, AAv2, AAp9], has a Domain Specific Language (DSL) grammar and interpreters 
 that allow the generation of LSA code for corresponding Mathematica, Python, R, and Raku packages. 
 
 Here is Command Line Interface (CLI) invocation example that generate code for this package:
@@ -236,7 +238,7 @@ dsl-translation -t=Raku 'create from aDocs; apply LSI functions IDF, None, Cosin
 
 ### NLP Template Engine
 
-Here is an example using the NLP Template Engine, [AAr2, AAv3, AAp9]:
+Here is an example using the NLP Template Engine, [AAr2, AAv3, AAp10]:
 
 ```raku
 use ML::NLPTemplateEngine;
@@ -261,25 +263,6 @@ concretize('create from aDocs; apply LSI functions IDF, None, Cosine; extract 20
 ```
 
 **Remark:** For more LSA-code generation examples see the Jupyter notebook ["Code-generation.ipynb"](./docs/Code-generation.ipynb).  
-
-------
-
-## Implementation details
-
-- The initial version was translated to Raku from the Python package ["LatentSemanticAnalyzer"](https://pypi.org/project/LatentSemanticAnalyzer/), [AAp3].
-  - See ["prompts.txt"](./docs/prompts.md).
-- Multiple changes of the initial translation had to be made:
-  - Proper use of the (fast) `Math::SparseMatrix::NativeAdapter` matrices 
-  - Proper topic extraction implementation (using SVD)
-  - Correct statistical thesaurus shaping
-  - Using "ML::SparseMatrixRecommender" for statistical thesaurus with Cosine distance
-  - Refactoring by moving multiple subs to `ML::LatentSemanticAnalyzer::Utilities`
-  - Correct (simplistic) resources data ingestion
-  - Correct automatic topic names derivation
-  - Profiling and re-implementation of `impose-row-names` and `impose-column-names` in "Math::SparseMatrix"
-  - Fixing a bug "Math::SparseMatrix" related to LSI application using a global weights list
-  - (Other changes...) 
-- Testing against Python and Mathematica implementations with the same data and parameters.
 
 ------
 
@@ -357,6 +340,11 @@ concretize('create from aDocs; apply LSI functions IDF, None, Cosine; extract 20
 (2023-2025),
 [GitHub/antononcube](https://github.com/antononcube).
 
+[AAp11] Anton Antonov,
+[LLM::RetrievalAugmentedGeneration, Raku package](https://github.com/antononcube/Raku-LLM-RetrievalAugmentedGeneration),
+(2024-2025),
+[GitHub/antononcube](https://github.com/antononcube).
+
 ### Repositories
 
 [AAr1] Anton Antonov,
@@ -393,11 +381,11 @@ concretize('create from aDocs; apply LSI functions IDF, None, Cosine; extract 20
 [Anton A. Antonov's channel at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
 
 [AAv5] Anton Antonov,
-["Sparse matrix neat examples in Raku"](https://www.youtube.com/watch?v=JHO2Wk1b-Og),
+["Raku RAG demo"](https://www.youtube.com/watch?v=kQo3wpiUu6w),
 (2024),
 [Anton A. Antonov's channel at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
 
 [AAv6] Anton Antonov,
-["Raku RAG demo"](https://www.youtube.com/watch?v=kQo3wpiUu6w),
+["Sparse matrix neat examples in Raku"](https://www.youtube.com/watch?v=JHO2Wk1b-Og),
 (2024),
 [Anton A. Antonov's channel at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
