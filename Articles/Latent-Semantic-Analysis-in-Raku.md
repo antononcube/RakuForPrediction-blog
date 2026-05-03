@@ -2,29 +2,31 @@
 
 ## Introduction
 
-The Raku package, ["ML::LatentSemanticAnalyzer"](https://raku.land/zef:antononcube/ML::LatentSemanticAnalyzer), 
-has different functions for computations of Latent Semantic Analysis (LSA) workflows
-using Sparse Matrix Linear Algebra (SMLA). The design and implementation of the package is based on those of Python package, 
+In this document we discuss how to do "classical machine learning" Latent Semantic Analysis (LSA) with Raku for collections of documents, and how to generate the code for the related LSA workflows.
+
+The Raku package, ["ML::LatentSemanticAnalyzer"](https://raku.land/zef:antononcube/ML::LatentSemanticAnalyzer), [AAp12], 
+facilitates the construction and execution of computational LSA workflows using Sparse Matrix Linear Algebra (SMLA). 
+The design and implementation of the package are based on those of the Python package, 
 ["LatentSemanticAnalyser"](https://pypi.org/project/LatentSemanticAnalyzer/), [AAp3]. 
-(There are also corresponding implementations in R and Wolfram Language (WL); see [AAp3, AAp1]. The WL one implemented first.) 
+(There are also corresponding implementations in R and Wolfram Language; see [AAp3, AAp1]. The Wolfram Language one was implemented first.) 
 
 Before continuing further with examples of LSA pipelines and code generation of such pipelines, a few important points:
 
-- With this LSA package, Raku is nearly fully equipped for Machine Learning (ML).
+- With the LSA package, Raku is nearly fully equipped for Machine Learning (ML).
   
   - I would say what is missing is Quantile Regression. See the blog post ["Doing Data Science with Raku"](https://raku-advent.blog/2025/12/02/day-2-doing-data-science-with-raku/), [AA3], for more details.
 
 - The LSA package implementation became justifiable (or possible) because of the C-implementation of one of the sparse matrix algorithms for Singular Value Decomposition (SVD)
 in the Raku "native call" package ["Math::SparseMatrix::Native"](https://raku.land/zef:antononcube/Math::SparseMatrix::Native), [AAp6].
 
-  - The package ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix), [AAp6], has an adapter class to "Math::SparseMatrix::Native".
+  - The package ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix), [AAp6], is a wrapper of- or, has an adapter class to "Math::SparseMatrix::Native".
   - The native, i.e. C-implementation of SMLA is needed in order to achieve satisfactory speed of SMLA operations.    
 
-- The package "Math::SparseMatrix" provides matrices with named rows and columns which are especially convenient for implementing LSA and recommender systems based on sparse linear algebra. See [AAv6];  
+- The package "Math::SparseMatrix" provides matrices with named rows and columns which are especially convenient for implementing LSA and recommender systems based on SMLA. See [AAv6];  
 
 - Before the implementation of "ML::LatentSemanticAnalyzer" the only streamlined way to do LSA with Raku was through Retrieval Augmented Generation (RAG). See [AAp11, AAv5].
 
-- As all other ML workflows in Raku, [AA3, AAp9, AAv2], the code for LSA workflows can be generated with in several different ways.
+- As all other _main_ ML workflows in Raku, [AA3, AAp9, AAv2], the code for LSA workflows can be generated with in several different ways.
   - Using both grammars and Large Language Models (LLMs). (As discussed below.)
 
 ----- 
@@ -343,6 +345,11 @@ concretize('create from aDocs; apply LSI functions IDF, None, Cosine; extract 20
 [AAp11] Anton Antonov,
 [LLM::RetrievalAugmentedGeneration, Raku package](https://github.com/antononcube/Raku-LLM-RetrievalAugmentedGeneration),
 (2024-2025),
+[GitHub/antononcube](https://github.com/antononcube).
+
+[AAp12] Anton Antonov,
+[ML::LatentSemanticAnalyzer, Raku package](https://github.com/antononcube/Raku-ML-LatentSemanticAnalyzer),
+(2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
 ### Repositories
