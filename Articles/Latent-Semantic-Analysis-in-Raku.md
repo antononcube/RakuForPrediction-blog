@@ -10,17 +10,19 @@ has different functions for computations of Latent Semantic Analysis (LSA) workf
 
 Before continuing further with examples of LSA pipelines and code generation of such pipelines, a few important points:
 
-- With this LSA package, Raku is nearly fully equipped for Machine Learning (ML). 
-(See the blog post ["Doing Data Science with Raku"](https://raku-advent.blog/2025/12/02/day-2-doing-data-science-with-raku/) for more details.)
+- With this LSA package, Raku is nearly fully equipped for Machine Learning (ML).
+  
+  - I would say what is missing is Quantile Regression. See the blog post ["Doing Data Science with Raku"](https://raku-advent.blog/2025/12/02/day-2-doing-data-science-with-raku/) for more details.
 
-- The LSA package was made possible because of the C-implementation of one of the sparse matrix algorithms for Singular Value Decomposition (SVD)
+- The LSA package implementation became justifiable (or possible) because of the C-implementation of one of the sparse matrix algorithms for Singular Value Decomposition (SVD)
 in the Raku "native call" package ["Math::SparseMatrix::Native"](https://raku.land/zef:antononcube/Math::SparseMatrix::Native), [AAp6].
 
-- The package ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix), [AAp6], has an adapter class to "Math::SparseMatrix::Native".
+  - The package ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix), [AAp6], has an adapter class to "Math::SparseMatrix::Native".
+  - The native, i.e. C-implementation of Sparse Matrix Algebra (SMA) is needed in order to achieve satisfactory speed of SMA operations.    
 
 - The package "Math::SparseMatrix" provides matrices with named rows and columns which are especially convenient for implementing LSA and recommender systems based on sparse linear algebra. See [AAv6];  
 
-- Before the implementation of "ML::LatentSemanticAnalyzer" the only streamlined way to LSA with Raku was through Retrieval Augmented Generation (RAG). See [AAp11, AAv5].
+- Before the implementation of "ML::LatentSemanticAnalyzer" the only streamlined way to do LSA with Raku was through Retrieval Augmented Generation (RAG). See [AAp11, AAv5].
 
 ----- 
 
