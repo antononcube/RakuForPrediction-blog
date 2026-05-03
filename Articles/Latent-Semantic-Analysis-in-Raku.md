@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This Raku package, ["ML::LatentSemanticAnalyzer"](https://raku.land/zef:antononcube/ML::LatentSemanticAnalyzer), 
+The Raku package, ["ML::LatentSemanticAnalyzer"](https://raku.land/zef:antononcube/ML::LatentSemanticAnalyzer), 
 has different functions for computations of Latent Semantic Analysis (LSA) workflows
-(using Sparse matrix Linear Algebra.) The design and implementation of the package is based on those of Python package, 
+using Sparse Matrix Linear Algebra (SMLA). The design and implementation of the package is based on those of Python package, 
 ["LatentSemanticAnalyser"](https://pypi.org/project/LatentSemanticAnalyzer/), [AAp3]. 
 (There are also corresponding implementations in R and Wolfram Language (WL); see [AAp3, AAp1]. The WL one implemented first.) 
 
@@ -12,30 +12,30 @@ Before continuing further with examples of LSA pipelines and code generation of 
 
 - With this LSA package, Raku is nearly fully equipped for Machine Learning (ML).
   
-  - I would say what is missing is Quantile Regression. See the blog post ["Doing Data Science with Raku"](https://raku-advent.blog/2025/12/02/day-2-doing-data-science-with-raku/) for more details.
+  - I would say what is missing is Quantile Regression. See the blog post ["Doing Data Science with Raku"](https://raku-advent.blog/2025/12/02/day-2-doing-data-science-with-raku/), [AA3], for more details.
 
 - The LSA package implementation became justifiable (or possible) because of the C-implementation of one of the sparse matrix algorithms for Singular Value Decomposition (SVD)
 in the Raku "native call" package ["Math::SparseMatrix::Native"](https://raku.land/zef:antononcube/Math::SparseMatrix::Native), [AAp6].
 
   - The package ["Math::SparseMatrix"](https://raku.land/zef:antononcube/Math::SparseMatrix), [AAp6], has an adapter class to "Math::SparseMatrix::Native".
-  - The native, i.e. C-implementation of Sparse Matrix Algebra (SMA) is needed in order to achieve satisfactory speed of SMA operations.    
+  - The native, i.e. C-implementation of SMLA is needed in order to achieve satisfactory speed of SMLA operations.    
 
 - The package "Math::SparseMatrix" provides matrices with named rows and columns which are especially convenient for implementing LSA and recommender systems based on sparse linear algebra. See [AAv6];  
 
 - Before the implementation of "ML::LatentSemanticAnalyzer" the only streamlined way to do LSA with Raku was through Retrieval Augmented Generation (RAG). See [AAp11, AAv5].
 
+- As all other ML workflows in Raku, [AA3, AAp9, AAv2], the code for LSA workflows can be generated with in several different ways.
+  - Using both grammars and Large Language Models (LLMs). (As discussed below.)
+
 ----- 
 
 ## LSA workflows
 
-The scope of the package is to facilitate the creation and execution of the workflows encompassed in this
-flow chart:
+The scope of the package is to facilitate the creation and execution of the workflows encompassed in this flow chart:
 
 ![LSA-workflows](https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MarkdownDocuments/Diagrams/A-monad-for-Latent-Semantic-Analysis-workflows/LSA-workflows.jpg)
 
-For more details see the article 
-["A monad for Latent Semantic Analysis workflows"](https://mathematicaforprediction.wordpress.com/2019/09/13/a-monad-for-latent-semantic-analysis-workflows/),
-[AA1].
+For more details see the article ["A monad for Latent Semantic Analysis workflows"](https://mathematicaforprediction.wordpress.com/2019/09/13/a-monad-for-latent-semantic-analysis-workflows/), [AA1].
 
 The package provides:
 - Class `ML::LatentSemanticAnalyzer`
@@ -199,9 +199,7 @@ lsaObj = (LatentSemanticAnalyzer()
 
 ### R 
 
-The package 
-[`LSAMon-R`](https://github.com/antononcube/R-packages/tree/master/LSAMon-R), 
-[AAp2], implements a software monad for LSA workflows. 
+The package [`LSAMon-R`](https://github.com/antononcube/R-packages/tree/master/LSAMon-R), [AAp2], implements a software monad for LSA workflows. 
 
 ------
 
@@ -213,8 +211,8 @@ has documents, diagrams, and (code) notebooks for comparison of LSA application 
 
 A big part of the motivation to make the Python package 
 ["RandomMandala"](https://pypi.org/project/RandomMandala), [AAp4], 
-was to make easier the LSA package comparison. 
-Mathematica and R have fairly streamlined connections to Python, hence it is easier
+was to make easier the LSA package comparison.
+Wolfram Language (aka Mathematica) and R have fairly streamlined connections to Python, hence it is easier
 to propagate (image) data generated in Python into those systems. 
 
 ------
@@ -282,7 +280,7 @@ concretize('create from aDocs; apply LSI functions IDF, None, Cosine; extract 20
 (2022),
 [MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com).
 
-[AA3] Anton Antonov
+[AA3] Anton Antonov,
 ["Day 2 – Doing Data Science with Raku"](https://raku-advent.blog/2025/12/02/day-2-doing-data-science-with-raku/),
 (2025),
 [Raku Advent Calendar at WordPress](https://raku-advent.blog).
@@ -351,7 +349,7 @@ concretize('create from aDocs; apply LSI functions IDF, None, Cosine; extract 20
 
 [AAr1] Anton Antonov,
 ["Random mandalas deconstruction with R, Python, and Mathematica" presentation project](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/Presentations/Greater-Boston-useR-Group-Meetup-2022/RandomMandalasDeconstruction),
-(2022)
+(2022),
 [SimplifiedMachineLearningWorkflows-book at GitHub/antononcube](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book).
 
 [AAr2] Anton Antonov,
@@ -377,7 +375,7 @@ concretize('create from aDocs; apply LSI functions IDF, None, Cosine; extract 20
 (2021),
 [Anton A. Antonov's channel at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
 
-[AAv4] Anton Antonov
+[AAv4] Anton Antonov,
 ["Random Mandalas Deconstruction in R, Python, and Mathematica (Greater Boston useR Meetup, Feb 2022)"](https://www.youtube.com/watch?v=nKlcts5aGwY),
 (2022),
 [Anton A. Antonov's channel at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
