@@ -381,11 +381,11 @@ concretize('create from aDocs; apply LSI functions IDF, None, Cosine; extract 20
 [Anton A. Antonov's channel at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
 
 [AAv5] Anton Antonov,
-["Raku RAG demo"](https://www.youtube.com/watch?v=kQo3wpiUu6w),
+["Raku RAG demo"](https://www.youtube.com/watch?v=JHO2Wk1b-Og),
 (2024),
 [Anton A. Antonov's channel at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
 
 [AAv6] Anton Antonov,
-["Sparse matrix neat examples in Raku"](https://www.youtube.com/watch?v=JHO2Wk1b-Og),
+["Sparse matrix neat examples in Raku"](https://www.youtube.com/watch?v=kQo3wpiUu6w),
 (2024),
 [Anton A. Antonov's channel at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
