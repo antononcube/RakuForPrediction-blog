@@ -29,6 +29,8 @@ Here are the most notable "Chatnik" features:
 **Remark:** The [Raku package “Chatnik”](https://raku.land/zef:antononcube/Chatnik) was ported to the [Python package "Chatnik"](https://pypi.org/project/Chatnik/). 
 While the interface remains the same, the CLI commands have switched to snake_case, such as `llm_chat` and `llm_chat_meta`.
 
+**Remark:** Based on the previous remark, much of this document should be understood as describing the *"Chatnik system"* rather than a specific Python package.
+
 The rest of this document is organized as follows:
 
 - Introductory examples
@@ -164,7 +166,7 @@ llm-chat-meta last-message | sed '1d; $d' | mmdflux
 **Remark:** Since the result is usually given in Markdown code fences, we did not make a pipeline to plot the diagram.
 We used two shell commands in order to observe the intermediate result.
 
-**Remark:** The default object identifier for both `llm-chat` and `llm-chat-object` is "NONE".
+**Remark:** The default object identifier for both `llm-chat` and `llm-chat-meta` is "NONE".
 
 ### Copy-editing
 
