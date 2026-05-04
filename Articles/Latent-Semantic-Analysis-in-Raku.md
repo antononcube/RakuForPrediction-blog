@@ -96,6 +96,8 @@ my $lsaObj =
                 :echo)
 ```
 
+**Remark:** See this [Jupyter notebook](https://github.com/antononcube/Raku-ML-LatentSemanticAnalyzer/blob/main/docs/Usage-example.ipynb) for the execution results of the LSA pipeline above.
+
 ------
 
 ## Related Raku packages
