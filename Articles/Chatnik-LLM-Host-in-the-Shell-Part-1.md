@@ -26,6 +26,9 @@ Here are the most notable "Chatnik" features:
 **Remark:** "Chatnik" closely follows the LLM-chat objects interaction system of the Raku package ["Jupyter::Chatbook"](https://raku.land/zef:antononcube/Jupyter::Chatbook), [AAp3].
 (Using OS shell instead of Jupyter notebooks.)
 
+**Remark:** The [Raku package “Chatnik”](https://raku.land/zef:antononcube/Chatnik) was ported to the [Python package "Chatnik"](https://pypi.org/project/Chatnik/). 
+While the interface remains the same, the CLI commands have switched to snake_case, such as `llm_chat` and `llm_chat_meta`.
+
 The rest of this document is organized as follows:
 
 - Introductory examples
