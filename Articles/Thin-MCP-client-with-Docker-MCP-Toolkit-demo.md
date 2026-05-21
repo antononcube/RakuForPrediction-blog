@@ -15,7 +15,7 @@ The MCP server is run in Docker -- see ["Docker MCP Toolkit"](https://docs.docke
 
 *Because the client is thin and its implementation concise, it is designed to allow both (i) quick, "on-the-spot" MCP utilization and (ii) easy understanding of MCP principles.*
 
-**Remark:** Similar workflow based on a "simple" Python MCP server is given in the file ["MCP-client-demo.raku"](https://github.com/antononcube/Raku-MCP-Client/blob/main/examples/MCP-client-demo.raku) and corresponding notebook ["Thin-MCP-client-demo.ipynb"](https://github.com/antononcube/Raku-MCP-Client/blob/main/docs/Thin-MCP-client-demo.ipynb).
+**Remark:** Similar workflow based with a "simple" Python MCP server is given in the file ["MCP-client-demo.raku"](https://github.com/antononcube/Raku-MCP-Client/blob/main/examples/MCP-client-demo.raku) and corresponding notebook ["Thin-MCP-client-demo.ipynb"](https://github.com/antononcube/Raku-MCP-Client/blob/main/docs/Thin-MCP-client-demo.ipynb).
 
 **Remark:** The Wolfram Language (WL) paclet ["MCPClient"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/MCPClient/), [AAp2], has the same mission of the (Raku) package "MCP::Client", but WL's "MCPClient" uses a Functional Programming implementation instead of an Object-Oriented Programming one (as "MCP::Client" does.)
 
