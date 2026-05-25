@@ -132,22 +132,22 @@ There are several ways to organize the DSL examples with respect to the from-lan
 ### Packages
 
 [AAp1] Anton Antonov,
-[DSL::Examples Raku package](https://github.com/antononcube/Raku-DSL-Examples),
+[DSL::Examples, Raku package](https://github.com/antononcube/Raku-DSL-Examples),
 (2024-2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
 [AAp2] Anton Antonov,
-[DSL::Translators Raku package](https://github.com/antononcube/Raku-DSL-Translators),
+[DSL::Translators, Raku package](https://github.com/antononcube/Raku-DSL-Translators),
 (2020-2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
 [AAp3] Anton Antonov,
-[LLM::Functions Raku package](https://github.com/antononcube/Raku-LLM-Functions), 
+[LLM::Functions, Raku package](https://github.com/antononcube/Raku-LLM-Functions), 
 (2023-2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
 [AAp4] Anton Antonov,
-[LLM::Resources Raku package](https://github.com/antononcube/Raku-LLM-Resources),
+[LLM::Resources, Raku package](https://github.com/antononcube/Raku-LLM-Resources),
 (2026),
 [GitHub/antononcube](https://github.com/antononcube).
 

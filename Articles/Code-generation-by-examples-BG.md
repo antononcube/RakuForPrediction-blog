@@ -3,7 +3,7 @@
 Раку пакетът [DSL::Examples](https://raku.land/zef:antononcube/DSL::Examples?utm_source=chatgpt.com), [AAp1],
 е „даннов пакет“ с примери за превод на DSL команди към програмен код.
 
-Послучай 24-ти май аз реших да обогатя този пакет с примери на български и руски езици.
+Послучай 24-ти май аз реших да обогатя този пакет с примери на български и руски.
 
 DSL примерите в пакета са подходящи за
 [LLM few-shot обучение](https://www.prompthub.us/blog/the-few-shot-prompting-guide?utm_source=chatgpt.com).
@@ -160,22 +160,22 @@ my @commands =
 ### Пакети
 
 [AAp1] Anton Antonov,
-[DSL::Examples Raku package](https://github.com/antononcube/Raku-DSL-Examples?utm_source=chatgpt.com),
+[DSL::Examples, Raku package](https://github.com/antononcube/Raku-DSL-Examples?utm_source=chatgpt.com),
 (2024-2026),
 [GitHub/antononcube](https://github.com/antononcube?utm_source=chatgpt.com).
 
 [AAp2] Anton Antonov,
-[DSL::Translators Raku package](https://github.com/antononcube/Raku-DSL-Translators?utm_source=chatgpt.com),
+[DSL::Translators, Raku package](https://github.com/antononcube/Raku-DSL-Translators?utm_source=chatgpt.com),
 (2020-2026),
 [GitHub/antononcube](https://github.com/antononcube?utm_source=chatgpt.com).
 
 [AAp3] Anton Antonov,
-[LLM::Functions Raku package](https://github.com/antononcube/Raku-LLM-Functions?utm_source=chatgpt.com),
+[LLM::Functions, Raku package](https://github.com/antononcube/Raku-LLM-Functions?utm_source=chatgpt.com),
 (2023-2026),
 [GitHub/antononcube](https://github.com/antononcube?utm_source=chatgpt.com).
 
 [AAp4] Anton Antonov,
-[LLM::Resources Raku package](https://github.com/antononcube/Raku-LLM-Resources?utm_source=chatgpt.com),
+[LLM::Resources, Raku package](https://github.com/antononcube/Raku-LLM-Resources?utm_source=chatgpt.com),
 (2026),
 [GitHub/antononcube](https://github.com/antononcube?utm_source=chatgpt.com).
 
@@ -183,5 +183,4 @@ my @commands =
 
 [AAv1] Anton Antonov,
 [Robust LLM pipelines (Mathematica, Python, Raku)](https://youtu.be/QOsVTCQZq_s?utm_source=chatgpt.com),
-(2024),
-[YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction?utm_source=chatgpt.com).
+(2024), [YouTube/AAA4prediction](https://www.youtube.com/@AAA4prediction?utm_source=chatgpt.com).
