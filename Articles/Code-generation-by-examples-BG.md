@@ -1,6 +1,6 @@
 # Генериране на код чрез DSL примери
 
-Раку пакетът [DSL::Examples](https://raku.land/zef:antononcube/DSL::Examples?utm_source=chatgpt.com), [AAp1],
+Раку пакетът ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples?utm_source=chatgpt.com), [AAp1],
 е „даннов пакет“ с примери за превод на DSL команди към програмен код.
 
 Послучай 24-ти май аз реших да обогатя този пакет с примери на български и руски.
@@ -8,21 +8,21 @@
 DSL примерите в пакета са подходящи за
 [LLM few-shot обучение](https://www.prompthub.us/blog/the-few-shot-prompting-guide?utm_source=chatgpt.com).
 Подпрограмата `llm-example-function`, предоставена от
-[LLM::Functions](https://github.com/antononcube/Raku-LLM-Functions?utm_source=chatgpt.com), [AAp3],
+["LLM::Functions"](https://github.com/antononcube/Raku-LLM-Functions?utm_source=chatgpt.com), [AAp3],
 може ефективно да се използва за създаване на функции за превод, използващи тези примери.
 
 Използването на такива LLM-функции за превод е показано по-долу.
 Също и в презентацията
-[Robust LLM pipelines (Mathematica, Python, Raku)](https://youtu.be/QOsVTCQZq_s?utm_source=chatgpt.com):
+["Robust LLM pipelines (Mathematica, Python, Raku)"](https://youtu.be/QOsVTCQZq_s?utm_source=chatgpt.com), [AAv1]:
 
 * [Кратко въведение](https://youtu.be/QOsVTCQZq_s?t=89&utm_source=chatgpt.com)
 * [Подробни обяснения](https://www.youtube.com/watch?v=QOsVTCQZq_s&t=2840s&utm_source=chatgpt.com)
 
 Подобни преводи — с много по-малко изчислителни ресурси — се постигат с
 граматично-базирани DSL преводачи; вижте
-[DSL::Translators](https://github.com/antononcube/Raku-DSL-Translators?utm_source=chatgpt.com), [AAp2].
+["DSL::Translators"](https://github.com/antononcube/Raku-DSL-Translators?utm_source=chatgpt.com), [AAp2].
 Пакетът
-[LLM::Resources](https://github.com/antononcube/Raku-LLM-Resources?utm_source=chatgpt.com), [AAp4],
+["LLM::Resources"](https://github.com/antononcube/Raku-LLM-Resources?utm_source=chatgpt.com), [AAp4],
 съдържа LLM-графи за генериране на код, които използват DSL примерите от този пакет.
 
 ---
@@ -152,6 +152,8 @@ my @commands =
 | Отделен файл за всеки изходен език                                                                   | Удобно редактиране и усъвършенстване        | Да                            |
 | Един файл с всички примери; изходният език е ключ за всеки работен поток                             | Може да бъде генериран от отделните файлове | Не                            |
 | Запазване само на английски DSL примери и използване на речници за превод на командите към английски | Не обучава директно LLM с изходния език     | Речниците се пазят за справка |
+
+Тази [тетрадка на Jupyter](https://github.com/antononcube/Raku-DSL-Examples/blob/main/docs/DSL-examples-dev.ipynb) има процедура за превода на английските примери към други езици.
 
 ---
 
