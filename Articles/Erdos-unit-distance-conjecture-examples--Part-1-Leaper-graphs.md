@@ -35,7 +35,7 @@ This is closely related to (but distinct from) the chromatic number of the plane
 Graph::Complete.new([2,3]).dot(vertex-shape => 'point'):svg
 ```
 
-<img src="./img/cell-5-output-1.svg" alt="cell 5 output 1 svg 1">
+![](./Diagrams/Erdos-unit-distance-conjecture-examples/K_2_3-graph-dark-mode.png)
 
 The OpenAI-vs-Erdős discussions "triggered" a particular path of learning-by-doing activities for me, which is outlined here:
 
@@ -172,7 +172,7 @@ $g.dot(
 ):svg
 ```
 
-![](./Diagrams/Erdos-unit-distance-conjecture-examples/25-powers-representations-grid-graph.svg)
+![](./Diagrams/Erdos-unit-distance-conjecture-examples/25-powers-representations-grid-graph-dark-mode.png)
 
 Let us convince ourselves that the edges of that graph have unit length:
 
@@ -231,7 +231,7 @@ Plot the graph:
 $g.dot(engine => 'neato', graph-size => 8, edge-thickness => 0.5, vertex-shape => 'point', vertex-width => 0.1, vertex-height => 0.1, :!vertex-labels ):svg
 ```
 
-![](./Diagrams/Erdos-unit-distance-conjecture-examples/289-powers-representations-grid-graph.svg)
+![](./Diagrams/Erdos-unit-distance-conjecture-examples/289-powers-representations-grid-graph-dark-mode.png)
 
 ---
 
@@ -245,7 +245,7 @@ my $g = Graph::Leaper.new(moves => [31, 21], :45rows, :45columns);
 $g.dot(engine => 'neato', :8graph-size, edge-thickness => 0.4, vertex-shape => 'point', :0vertex-width, :0vertex-height):svg
 ```
 
-![](./Diagrams/Erdos-unit-distance-conjecture-examples/45x45-leaps-31-21-pattern.svg)
+![](./Diagrams/Erdos-unit-distance-conjecture-examples/45x45-leaps-31-21-pattern-dark-mode.png)
 
 ### Animation
 
