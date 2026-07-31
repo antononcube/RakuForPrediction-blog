@@ -146,7 +146,7 @@ The current XlAI models can be found with the function `xai-models`:
 
 ## Code generation
 
-There are two types of completions : text and chat. Let us illustrate the differences of their usage by Raku code generation. Here is a text completion:
+XAI'API provides a special endpoint for code generation which is used if `xai-console`'s argument "path" is set to "code". Here is a Raku code generation example:
 
 ```raku
 #% markdown
@@ -161,7 +161,7 @@ xai-console(
 
 ## Images
 
-Images can be generated with the sub `xai-console` with the path argument being set to "image". For example, here an image is generated and a URL to is returned: 
+Images can be generated with the sub `xai-console` with the argument "path" being set to "image". For example, here an image is generated and a URL to is returned: 
 
 ```raku
 my $res = xai-console('Generate an image of a raccoon chasing a butterfly.', path => 'image', format => 'raku');
@@ -228,8 +228,8 @@ The package provides a Command Line Interface (CLI) script. Here is usage messag
 
 ```shell
 Usage:
-  xai-console.raku <text> [--path=<Str>] [--mt|--max-tokens[=UInt]] [-m|--model=<Str>] [-r|--role=<Str>] [-t|--temperature[=Real]] [--response-format=<Str>] [--video-id=<Str>] [-a|--auth-key=<Str>] [--timeout[=UInt]] [-f|--format=<Str>] [--method=<Str>] -- API access to XAI LLMs.
-  xai-console.raku [<words> ...] [--path=<Str>] [--mt|--max-tokens[=UInt]] [-m|--model=<Str>] [-r|--role=<Str>] [-t|--temperature[=Real]] [--response-format=<Str>] [--video-id=<Str>] [-a|--auth-key=<Str>] [--timeout[=UInt]] [-f|--format=<Str>] [--method=<Str>]
+  xai-console <text> [--path=<Str>] [--mt|--max-tokens[=UInt]] [-m|--model=<Str>] [-r|--role=<Str>] [-t|--temperature[=Real]] [--response-format=<Str>] [--video-id=<Str>] [-a|--auth-key=<Str>] [--timeout[=UInt]] [-f|--format=<Str>] [--method=<Str>] -- API access to XAI LLMs.
+  xai-console [<words> ...] [--path=<Str>] [--mt|--max-tokens[=UInt]] [-m|--model=<Str>] [-r|--role=<Str>] [-t|--temperature[=Real]] [--response-format=<Str>] [--video-id=<Str>] [-a|--auth-key=<Str>] [--timeout[=UInt]] [-f|--format=<Str>] [--method=<Str>]
   
     <text>                      Text to be processed or audio file name.
     --path=<Str>                Path, one of "chat", "code", "image", "video", "voice", or "Whatever". [default: 'Whatever']
