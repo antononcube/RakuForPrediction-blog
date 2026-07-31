@@ -10,17 +10,11 @@ For more details of the XAI's API usage see [the documentation](https://docs.x.a
 
 **Remark:** To use XAI's API one has to register and obtain authorization key.
 
-This package is very similar to the packages 
-["WWW::OpenAI"](https://github.com/antononcube/Raku-WWW-OpenAI), [AAp1], and 
-["WWW::Gemini"](https://github.com/antononcube/Raku-WWW-Gemini), [AAp2]. 
+This package is very similar to the packages ["WWW::OpenAI"](https://github.com/antononcube/Raku-WWW-OpenAI), [AAp1], and ["WWW::Gemini"](https://github.com/antononcube/Raku-WWW-Gemini), [AAp2]. 
 
-"WWW::XAI" can be used with (is integrated with) 
-["LLM::Functions"](https://github.com/antononcube/Raku-LLM-Functions), [AAp3], and
-["Jupyter::Chatbook"](https://github.com/antononcube/Raku-Jupyter-Chatbook), [AAp5].
+"WWW::XAI" can be used with (is integrated with) ["LLM::Functions"](https://github.com/antononcube/Raku-LLM-Functions), [AAp3], and ["Jupyter::Chatbook"](https://github.com/antononcube/Raku-Jupyter-Chatbook), [AAp5].
 
-Also, of course, prompts from 
-["LLM::Prompts"](https://github.com/antononcube/Raku-LLM-Prompts), [AAp4],
-can be used with XAI's functions.
+Also, of course, prompts from ["LLM::Prompts"](https://github.com/antononcube/Raku-LLM-Prompts), [AAp4], can be used with XAI's functions.
 
 ---
 
@@ -152,8 +146,7 @@ The current XlAI models can be found with the function `xai-models`:
 
 ## Code generation
 
-There are two types of completions : text and chat. Let us illustrate the differences
-of their usage by Raku code generation. Here is a text completion:
+There are two types of completions : text and chat. Let us illustrate the differences of their usage by Raku code generation. Here is a text completion:
 
 ```raku
 #% markdown
@@ -168,8 +161,7 @@ xai-console(
 
 ## Images
 
-Images can be generated with the sub `xai-console` with the path argument being set to "image". 
-For example, here an image is generated and a URL to is returned: 
+Images can be generated with the sub `xai-console` with the path argument being set to "image". For example, here an image is generated and a URL to is returned: 
 
 ```raku
 my $res = xai-console('Generate an image of a raccoon chasing a butterfly.', path => 'image', format => 'raku');
@@ -253,8 +245,7 @@ Usage:
     --method=<Str>              Method for the HTTP POST query; one of "tiny" or "curl". [default: 'tiny']
 ```
 
-**Remark:** When the authorization key argument "auth-key" is specified set to "Whatever"
-then `xai-console` attempts to use the env variable `XAI_API_KEY`.
+**Remark:** When the authorization key argument "auth-key" is specified set to `Whatever` then `xai-console` attempts to use the env variable `XAI_API_KEY`.
 
 Here we submit a video request via the CLI script:
 
@@ -356,13 +347,13 @@ llm-synthesize('Hi! What model are you? From which service? When you were traine
 
 ## Integration with "Jupyter::Chatbook"
 
-Jupyter chatbooks -- i.e., LLM-enabled Jupyter notebooks are integrated with the package "WWW::XAI" in three ways: 
+**Jupyter chatbook** (i.e., LLM-enabled Jupyter notebook) is integrated with the package "WWW::XAI" in three ways: 
 
-- The package loaded in each chatbook session
-- `%%xai` magic cells for accessing to XAI's LLMs via that package
-- `%%xai-images` magic cells for image generation with XAI's creation or editing models
+- "WWW::XAI" is loaded in each chatbook session
+- The magic cell `%%xai` can be used to access with XAI's LLMs
+- The magic cell `%%xai-images` can be used to generate images with XAI's creation or editing models
 
-Here is example of `%%xai` magic cell:
+Here is an example of an `%%xai` magic cell:
 
 ```raku
 #%xai > markdown
@@ -371,7 +362,7 @@ How many people climb mount/peak Everest per year? Answer quickly!
 
 > **Around 400-600 people attempt to summit Everest each year** (with ~300-500 usually succeeding in a typical season).
 
-Here is an example of image creation with `%%xai-images` magic cell:
+Here is an example of image creation with the `%%xai-images` magic cell:
 
 ```raku
 #% xai-images, model=grok-imagine-image-quality, resolution=2k, aspect_ratio='16:9'
