@@ -6,7 +6,15 @@
 
 See the notebook ["LLM-graph-creation-demo.ipynb"](./LLM-graph-creation-demo.ipynb).
 
+```text
+Create an LLM-graph for "progressive disclosure" ingestion of an AI-agent skill.
 
+- The input of the graph is a (user) command and a skill directory 
+- The LLM-graph has a dispatcher / classifier as a top node
+    - The classification labels are: 'skill-info', 'skill-description', and 'code generation' 
+- Next level of the graph has a nodes for each classification label
+- The bottom note formulates the final result
+```
 
 ---
 
