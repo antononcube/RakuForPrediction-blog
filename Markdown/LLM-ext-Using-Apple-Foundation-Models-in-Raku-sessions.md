@@ -7,20 +7,21 @@
 
 ## 📦 Quick Start
 
-1. **Install `fm`** (macOS) and ensure it’s in `$PATH`.
-2. **Run `fm serve`** (default `http://127.0.0.1:1976`). If already running from a previous session, shell/`qx` calls work immediately; otherwise start it first.
-3. **In your Raku file/notebook**, load the required modules and set the base URL:
-   ```raku  
-   use WWW::LLaMA;  
-   llama-base-url('http://127.0.0.1:1976')  
-   ```  
-4. **Try the simplest FM call**:
-   ```shell  
-   fm respond 'How many total countries in the world?'  
-   ```  
-   Expected: `# There are 195 countries in the world.`
-5. **Consult the companion Jupyter notebook** for live, executable examples:  
-   <https://github.com/antononcube/Raku-WWW-LLaMA/blob/main/docs/Apple-Foundation-Models-usage-examples.ipynb>
+1. **Run `fm serve`** (default `http://127.0.0.1:1976`). If already running from a previous session, shell/`qx` calls work immediately; otherwise start it first.
+2. **In your Raku file/notebook**, load the required modules and set the base URL:
+
+```raku  
+use WWW::LLaMA;  
+'What is the speed of a rocket leaving the Moon?' ==>
+    llama-playground(path => 'chat/completion', model => 'system', base-url => 'http://127.0.0.1:1976', format => 'values');  
+```  
+3. **Try the simplest FM call** (in a shell cell):
+```shell  
+fm respond 'How many total countries in the world?'  
+# There are 195 countries in the world.`
+```  
+4. **Consult the companion Jupyter notebook** for live, executable examples:  
+   ["Apple-Foundation-Models-usage-examples.ipynb"](https://github.com/antononcube/Raku-WWW-LLaMA/blob/main/docs/Apple-Foundation-Models-usage-examples.ipynb)
 
 
 ---
@@ -48,7 +49,8 @@ Raku’s computational Markdown and Jupyter notebooks support evaluation of OS s
 
 ```shell
 fm respond 'How many total countries in the world?'
-```  
+```
+
 ```raku
 qx{fm respond 'Which are most used writing systems?'}
 ```  
@@ -77,9 +79,6 @@ my $proc = shell "fm respond --image $lpath 'Describe the image.'", :out;
 $proc.out.slurp(:close);
 ```  
 
-**Result (example output):**
-> The image features a woman wearing a colorful dress with blue, yellow, and red geometric patterns. The dress has a black belt and puffed sleeves. She stands in front of a scenic landscape with rolling hills, trees, and mountains under a blue sky with clouds.
-
 ---
 
 ## 2. Setup
@@ -104,7 +103,8 @@ use Math::SparseMatrix;
 *Usage note:* 
 - `WWW::LLaMA` and `WWW::LLaMA::Models` are used in Setup and Generation via `WWW::LLaMA` subs. 
 - `LLM::Functions`, `LLM::Prompts`, and `Text::SubParsers` drive the LLM‑functions framework.
-- `Data::Reshapers`, `Data::Translators`, `Data::TypeSystem`, and `Math::SparseMatrix` support the cross‑tabulation appendix.
+- `Data::Translators` and `Data::TypeSystem` provide data display and summarization. 
+- `Data::Reshapers` and `Math::SparseMatrix` support the data wrangling and analysis.
 
 ### Start Apple’s Foundation Model server
 
@@ -160,19 +160,13 @@ Set the base URL for the FM server (once per session):
 llama-base-url('http://127.0.0.1:1976')
 ```  
 
-```raku
-# http://127.0.0.1:1976
-```  
 
 ### Chat completion with `llama-playground`
 
 ```raku
-'What is the speed of a rocket leaving the Moon?' ==>
-    llama-playground(path => 'chat/completion', model => 'system', format => 'values');
+'What is the speed of a rocket leaving the Moon?' ==> 
+        llama-playground(path => 'chat/completion', model => 'system', format => 'values');
 ```  
-
-**Output:**
-> The speed of a rocket leaving the Moon can vary significantly depending on the mission, rocket type, and specific trajectory. However, a general estimate for a typical lunar ascent might range from about 1,000 km/h (620 mph) to 3,000 km/h (1,860 mph). For precise calculations, you would need details about the rocket and mission parameters.
 
 > **Remark:** The `base-url` option can also be passed directly to `llama-playground`: `llama-playground(base-url => 'http://127.0.0.1:1976', ...)`.
 
@@ -184,12 +178,7 @@ llama-base-url('http://127.0.0.1:1976')
 
 ```raku
 my $conf-fm = llm-configuration('LLaMA', model => 'system', base-url => 'http://127.0.0.1:1976', :max-tokens(4096), temperature => 0.4);
-```  
-
-**Configuration comment (for reference):**
-```raku
-# LLM::Configuration(:name("llama"), :model("system"), :module("WWW::LLaMA"), :max-tokens(4096))
-```  
+```
 
 ### Simple LLM generation requests
 
@@ -201,9 +190,6 @@ llm-synthesize([
 ], e => $conf-fm);
 ```  
 
-**Output:**
-> Approximately 33 million people live in Peru.
-
 **Raku code generation** (note: current FM output for code tasks is approximate):
 
 ```raku
@@ -213,12 +199,6 @@ llm-synthesize([
 ], e => $conf-fm);
 ```  
 
-**Output (example):**
-```raku
-# ```rakudo
-# @rand(0..10, 100).each { print $_ }
-# ```
-```  
 
 ### Complex queries
 
@@ -238,22 +218,15 @@ llm-function( -> $what {[
 ], e => $conf-fm, form => sub-parser('JSON'):drop);
 ```  
 
-```raku
-# LLM::Function(-> **@args, *%args { #`(Block|6052521274984) ... }, 'llama')
-```  
 
 ```raku
 my @data = |&ctFunc('Top 10 largest by area countries');
 deduce-type(@data);
-```  
-
-```raku
-# Vector(Struct([area, country, time-zone], [Int, Str, Str]), 10)
-```  
+```
 
 > **Approximate results:** FM outputs for complex queries (tabulation, code generation, natural‑language tasks) are inherently approximate. Validate results against authoritative sources when precision is critical, and use post‑processing (JSON parsing, `cross-tabulate`, unit conversion) to improve reliability.
 
-Here is the cross‑tabulation using `cross-tabulate` of [Data::Reshapers](https://github.com/antononcube/Raku-Data-Reshapers) given as a sparse matrix (see [Math::SparseMatrix](https://github.com/antononcube/Raku-Math-SparseMatrix)):
+Here is the cross‑tabulation using `cross-tabulate` of ["Data::Reshapers"](https://github.com/antononcube/Raku-Data-Reshapers) given as a sparse matrix (see ["Math::SparseMatrix"](https://github.com/antononcube/Raku-Math-SparseMatrix)):
 
 ```raku
 my $mat = cross-tabulate(@data, <country>, <time-zone>, :sparse);
