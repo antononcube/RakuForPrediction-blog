@@ -55,28 +55,17 @@ fm respond 'How many total countries in the world?'
 qx{fm respond 'Which are most used writing systems?'}
 ```  
 
-**Output (qx example):**
-```
-# Some of the most commonly used writing systems include:
-# 
-# 1. **Latin script** – Used widely in Europe, North America, and parts of Africa and Asia.
-# 2. **Arabic script** – Used in the Middle East, North Africa, and parts of South Asia.
-# 3. **Chinese characters** – Used in China, Taiwan, and Singapore.
-# 4. **Japanese writing systems** – Including Kanji, Hiragana, and Katakana.
-# 5. **Indian scripts** – Such as Devanagari and Tamil.
-```  
-
-> **Remark:** For `llama-*` and `llm-*` subroutines the FM server must be running (`fm serve`). The bare `fm respond` command can work in isolated shell/Jupyter cells, but full integration requires the server.
+**Remark:** For `llama-*` and `llm-*` subroutines the FM server must be running (`fm serve`). The bare `fm respond` command can work in isolated shell/Jupyter cells, but full integration requires the server.
 
 ### Image description
 
 > **⚠️ Important:** `fm respond --image` requires a **local file path**, not a remote URL. Download the image first (e.g., via `curl -O`), then pass the local path.
 
 ```raku
-my $lpath = 'images/model-example.jpeg';   # local path after curl -O
-shell "curl -O https://i.imgur.com/CStKxkw.jpeg -o $lpath";
-my $proc = shell "fm respond --image $lpath 'Describe the image.'", :out;
-$proc.out.slurp(:close);
+my $url = 'https://i.imgur.com/CStKxkw.jpeg';
+shell "curl -O $url";
+my $proc = shell "fm respond --image {$url.split('/').tail} 'Describe the image.'", :out;
+$proc.out.slurp(:close)
 ```  
 
 ---
@@ -215,7 +204,9 @@ llm-function( -> $what {[
     'Numeric results should be computable,',
     'Do it quickly -- do not overthink it.',
     llm-prompt('NothingElse')('JSON')
-], e => $conf-fm, form => sub-parser('JSON'):drop);
+  ]}, 
+  e => $conf-fm, 
+  form => sub-parser('JSON'):drop);
 ```  
 
 
