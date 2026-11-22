@@ -39,6 +39,12 @@ ToIntegrationWorkflowCode($cmd, 'Raku::Ecosystem');
 
 **Remark:** The package "DSL::English::IntegrationWorkflows" supports the generation of Wolfram Language code and translation to Bulgarian and Russian. 
 
+### Use of LLMs
+
+I wanted to program most of this package myself -- especially, the all elements of the OOP design, the integration strategies, and the core connections between regions, rules, and variable transformers.
+For a few of the integration rules I used simple prompt code generation with LLMs. AI-agents were used to create some of the tests.
+The multidimensional rules were preprogrammed from FORTRAN to Raku, but had many mistakes, so the Raku code had to be manually corrected or re-generated. 
+
 ---
 
 ## Optimization
@@ -55,6 +61,13 @@ Here is the solution with `linear-programming` (provided by "Math::Optimization"
 use Math::Optimization;
 linear-programming([1, 1], [(1, 2),], [3,], [[-1, 2], [-1, 1]])
 ```
+
+### Use of LLMs
+
+The interface packages "COIN-OR" and "Gurobi" were generated with AI-agents using fairly generic, simple prompts.
+In order to generate the code "Math::Optimization" package with an AI-agent first a *complete* specification of `linear-programming` was prepared. (See ["LinearProgramming.md"](https://github.com/antononcube/Raku-Math-Optimization/blob/main/docs/LinearProgramming.md).)
+A few manual and AI-assisted manipulations of "COIN-OR" and "Math::Optimization" were done in order to speed up the computations with large, sparse constraint matrices.
+(That speed up made "Math::QuantileRegression" and "Math::Regressionizer" much more useful.)
 
 ---
 
@@ -97,7 +110,15 @@ Here is plot of the data and fitted *regression quantiles*:
 $obj.plot(title => "B-splines fit", template => "dark", format => 'html').take-value
 ```
 
-The package "DSL::English::QuantileRegressionWorkflows"
+The package "DSL::English::QuantileRegressionWorkflows" was extended to generate Raku code. 
+
+### Use of LLMs
+
+I wrote semi-manually the initial versions of the package "Math::QuantileRegression" using AI-agent assistance for translation of Wolfram Language code fragments.
+A fair amount of human programming was done while writing the guide ["Quantile-Regression-with-B-splines.md"](https://github.com/antononcube/Raku-Math-QuantileRegression/blob/main/docs/Quantile-Regression-with-B-splines.md) -- 
+both of the code of that document and "Math::QuantileRegression". 
+The initial version of the package "Math::Regressionizer" was generated from the code of the Python package ["Regressionizer"](https://pypi.org/project/Regressionizer).
+Again, multiple adjustments were made while writing the [guide for that package](https://github.com/antononcube/Raku-Math-Regressionizer/blob/main/docs/Rapid-specification-of-regression-workflows.ipynb).
 
 ## References
 
