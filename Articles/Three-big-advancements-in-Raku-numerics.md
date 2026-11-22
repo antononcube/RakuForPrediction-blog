@@ -1,7 +1,5 @@
 # Three big advancements in Raku numerics
 
-**Outline draft!!"
-
 Anton Antonov
 November 2026
 
@@ -13,7 +11,11 @@ This blog post describes three big advancements in Raku's numerical algorithms p
 - Optimization support
 - Quantile regression and regression workflows
 
+Each section below discusses the use of Large Language Models (LLMs) or Artificial Intelligence (AI) agents.
+
 (More detailed posts will follow in the next few months.)
+
+---
 
 ## Numerical integration
 
@@ -119,6 +121,8 @@ A fair amount of human programming was done while writing the guide ["Quantile-R
 both of the code of that document and "Math::QuantileRegression". 
 The initial version of the package "Math::Regressionizer" was generated from the code of the Python package ["Regressionizer"](https://pypi.org/project/Regressionizer).
 Again, multiple adjustments were made while writing the [guide for that package](https://github.com/antononcube/Raku-Math-Regressionizer/blob/main/docs/Rapid-specification-of-regression-workflows.ipynb).
+
+---
 
 ## References
 
