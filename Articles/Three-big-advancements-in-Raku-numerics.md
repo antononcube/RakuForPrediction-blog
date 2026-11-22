@@ -170,3 +170,14 @@ Again, multiple adjustments were made while writing the [guide for that package]
 [DSL::English::QuantileRegressionWorkflows, Raku package](https://github.com/antononcube/Raku-DSL-English-QuantileRegressionWorkflows),
 (2022-2026),
 [GitHub/antononcube](https://github.com/antononcube).
+
+---
+
+## Sources
+
+More details about the packages can be found in these Markdown files;
+
+- Math::NIntegrate : README.md
+- Math::QuanitleRegression : https://raw.githubusercontent.com/antononcube/Raku-Math-NIntegrate/refs/heads/main/README.md
+- Math::Optimization :  https://raw.githubusercontent.com/antononcube/Raku-Math-Optimization/refs/heads/main/README.md
+- Math::Regerssionizer : https://raw.githubusercontent.com/antononcube/Raku-Math-Regressionizer/refs/heads/main/README.md
