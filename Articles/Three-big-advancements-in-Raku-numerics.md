@@ -177,7 +177,7 @@ Again, multiple adjustments were made while writing the [guide for that package]
 
 More details about the packages can be found in these Markdown files;
 
-- Math::NIntegrate : README.md
-- Math::QuantileRegression : https://raw.githubusercontent.com/antononcube/Raku-Math-NIntegrate/refs/heads/main/README.md
+- Math::NIntegrate : https://raw.githubusercontent.com/antononcube/Raku-Math-NIntegrate/refs/heads/main/README.md
+- Math::QuantileRegression : https://raw.githubusercontent.com/antononcube/Raku-Math-QuantileRegression/refs/heads/main/README.md
 - Math::Optimization :  https://raw.githubusercontent.com/antononcube/Raku-Math-Optimization/refs/heads/main/README.md
 - Math::Regressionizer : https://raw.githubusercontent.com/antononcube/Raku-Math-Regressionizer/refs/heads/main/README.md
