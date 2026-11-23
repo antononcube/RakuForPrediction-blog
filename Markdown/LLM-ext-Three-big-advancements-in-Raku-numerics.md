@@ -30,24 +30,19 @@ More detailed articles about the individual packages will follow.
 
 ## Numerical integration
 
-[`Math::NIntegrate`](https://github.com/antononcube/Raku-Math-NIntegrate) is a Raku numerical-integration library whose main function, `nintegrate`, is architecturally modeled on Wolfram Language’s `NIntegrate`.
+[`Math::NIntegrate`](https://github.com/antononcube/Raku-Math-NIntegrate) is a Raku numerical-integration library whose main function, `nintegrate`, is functionally and architecturally modeled on Wolfram Language’s `NIntegrate`.
 
-The important development is not simply the presence of several quadrature algorithms. It is the attempt to provide an extensible framework in which integration rules, strategies, regions, variable transformations, stopping criteria, and monitors can be combined.
+The important development is not simply the presence of several quadrature algorithms. An extensible framework is provided in which integration rules, strategies, regions, variable transformations, stopping criteria, and monitors can be combined.
 
 ### Rules, composite rules, and strategies
 
-The package documentation describes one-dimensional rules such as:
-
-- Clenshaw–Curtis;
-- Gauss–Kronrod;
-- Newton–Cotes; and
-- trapezoidal rules.
+The package documentation describes one-dimensional rules such as Clenshaw–Curtis, Gauss–Kronrod, and Trapezoidal rules.
 
 It also describes multidimensional and composite approaches, including Cartesian, double-exponential, Monte Carlo, and quasi-Monte Carlo methods. A Cartesian rule can combine component rules across dimensions or regions.
 
 A **rule** supplies an approximation scheme. A **strategy** controls how that rule is applied—for example, how regions are subdivided, how estimates are adapted, or how termination is monitored. A **composite rule** is itself made from one or more component rules.
 
-The framework’s README summarizes its nesting model in this way:
+The framework has a nesting model of specifying integration algorithm instances:
 
 - a strategy decorator has a strategy;
 - a strategy that is not a decorator has a rule; and
@@ -55,11 +50,9 @@ The framework’s README summarizes its nesting model in this way:
 
 This distinction is useful because it separates numerical approximation from the control logic surrounding it.
 
-The README also discusses several object-oriented design patterns, including Strategy, Composite, Decorator, Template Method, Builder, Interpreter, and Abstract Factory. These descriptions characterize the framework’s architecture; they should not be interpreted as a claim that every pattern corresponds to a separately documented public class or that every algorithm is available in every release.
+Framework's architecture uses object-oriented [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns), including Strategy, Composite, Decorator, Template Method, Builder, Interpreter, and Abstract Factory. 
 
 The package supports multiple stopping criteria and integration monitors. Depending on the selected method, a computation may be controlled by accuracy goals, precision goals, recursion limits, region counts, or monitoring logic. User-defined rules and strategies can also be connected to the framework when they satisfy the relevant interfaces.
-
-The inventory of algorithms is version-sensitive. In particular, the README contains different indications about the status of adaptive Monte Carlo. It is therefore safer to describe `Math::NIntegrate` as having a growing collection of rules and strategies rather than to repeat an unqualified count such as “nine strategies.” Users should consult the algorithm inventory for the installed version.
 
 ### Natural-language integration workflows
 
