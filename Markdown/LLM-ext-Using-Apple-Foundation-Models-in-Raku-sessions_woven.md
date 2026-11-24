@@ -16,7 +16,7 @@ use WWW::LLaMA;
     llama-playground(path => 'chat/completion', model => 'system', base-url => 'http://127.0.0.1:1976', format => 'values');  
 ```
 ```
-# The speed of a rocket leaving the Moon depends on the rocket's design and mission specifics. Generally, the escape velocity from the Moon is about 2.38 kilometers per second (approximately 8,600 kilometers per hour). However, rockets may achieve higher speeds depending on the propulsion system and mission requirements. For precise information, you would need details about the specific rocket and mission.
+# The speed of a rocket leaving the Moon depends on several factors, including the rocket's design, thrust, and mission requirements. However, a typical escape velocity from the Moon—the speed needed to break free from the Moon's gravitational pull—is approximately 2.38 kilometers per second (about 8,600 kilometers per hour).
 ```  
 3. **Try the simplest FM call** (in a shell cell):
 ```shell  
@@ -64,17 +64,26 @@ fm respond 'How many total countries in the world?'
 qx{fm respond 'Which are most used writing systems?'}
 ```
 ```
-# The most widely used writing systems are:
+# The most widely used writing systems include:
 # 
-# 1. **Latin script** – Used in English, Spanish, French, German, and many other languages.
-# 2. **Arabic script** – Used in Arabic, Persian, Urdu, and other languages.
-# 3. **Chinese characters** – Used in Mandarin, Cantonese, and other Chinese languages.
-# 4. **Devanagari** – Used in Hindi and Nepali.
-# 5. **Bengali** – Used in Bengali and Assamese.
+# 1. **Latin script** – used in English, Spanish, French, German, and many other languages.
+# 2. **Arabic script** – used in Arabic, Persian, Urdu, and several other languages.
+# 3. **Chinese characters** – used in Mandarin, Cantonese, and other Chinese languages.
+# 4. **Devanagari script** – used in Hindi and Nepali.
+# 
+# These systems are used by billions of people worldwide.
 ```  
 
-
 **Remark:** For `llama-*` and `llm-*` subroutines the FM server must be running (`fm serve`). The bare `fm respond` command can work in isolated shell/Jupyter cells, but full integration requires the server.
+
+The Raku package ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts) provides a Command Line Interface (CLI) script for finding and retrieval of its prompts. That CLI script can be used together with `fm` via the option `--instructions` (`-i`):
+
+```shell
+fm respond 'How many people live in Brazil?' -i "$(llm-prompt NumericOnly)"
+```
+```
+# 213000000.
+```
 
 ### Image description
 
@@ -87,8 +96,8 @@ my $proc = shell "fm respond --image {$url.split('/').tail} 'Describe the image.
 $proc.out.slurp(:close)
 ```
 ```
-# The image shows a woman wearing a colorful dress with blue, yellow, and red geometric patterns. The dress has a high neckline and a black belt. She has red lips and her hair is styled in an updo. The background features a landscape with rolling hills, trees, and a blue sky with clouds.
-```  
+# The image shows a woman wearing a colorful dress with blue, yellow, and red geometric patterns. The dress features puffed sleeves, a wide black belt, and a fitted waist. She has red lips and is looking to the side. The background depicts a scenic landscape with rolling hills, trees, and a blue sky with clouds.
+```
 
 ---
 
@@ -185,9 +194,7 @@ llama-base-url('http://127.0.0.1:1976')
         llama-playground(path => 'chat/completion', model => 'system', format => 'values');
 ```
 ```
-# The speed of a rocket leaving the Moon depends on several factors, including the rocket’s design, mission objectives, and the specifics of the lunar environment. 
-# 
-# For a typical ascent from the lunar surface, a rocket might achieve a velocity of approximately 2,000–3,000 meters per second (about 7,200–10,800 kilometers per hour). This is a rough estimate and can vary significantly based on the mission’s requirements and the propulsion system used.
+# The speed of a rocket leaving the Moon depends on the rocket's design and the specific mission requirements. However, a typical lunar departure velocity might be around 2.4 kilometers per second (approximately 8,640 kilometers per hour). This is the velocity needed to escape the Moon's gravitational pull and enter the escape trajectory. For precise values, consult the rocket specifications or mission documentation.
 ```  
 
 > **Remark:** The `base-url` option can also be passed directly to `llama-playground`: `llama-playground(base-url => 'http://127.0.0.1:1976', ...)`.
@@ -228,7 +235,7 @@ llm-synthesize([
 ```
 ```
 # ```rakudo
-# @rand(0..1000, 100).each { say $_ }
+# say (0.5 .. 10.0).random.take(5);
 # ```
 ```  
 
@@ -253,7 +260,7 @@ llm-function( -> $what {[
   form => sub-parser('JSON'):drop);
 ```
 ```
-# LLM::Function(-> **@args, *%args { #`(Block|3207846872152) ... }, 'llama')
+# LLM::Function(-> **@args, *%args { #`(Block|5652539349176) ... }, 'llama')
 ```  
 
 
@@ -275,16 +282,16 @@ $mat.print
 ```
 ```
 # ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-#                 AEST ART  BRT  CST  EST  IST  KST  MSK  WAT 
+#                 AEST ART  BRT  CST  EEST EST  IST  KST  WAT 
 # ––––––––––––––┼–––––––––––––––––––––––––––––––––––––––––––––
 # Algeria       │ .    .    .    .    .    .    .    .    1   
 # Argentina     │ .    1    .    .    .    .    .    .    .   
 # Australia     │ 1    .    .    .    .    .    .    .    .   
 # Brazil        │ .    .    1    .    .    .    .    .    .   
-# Canada        │ .    .    .    .    1    .    .    .    .   
+# Canada        │ .    .    .    .    .    1    .    .    .   
 # China         │ .    .    .    1    .    .    .    .    .   
-# India         │ .    .    .    .    .    1    .    .    .   
-# Kazakhstan    │ .    .    .    .    .    .    1    .    .   
-# Russia        │ .    .    .    .    .    .    .    1    .   
-# United States │ .    .    .    .    1    .    .    .    .
+# India         │ .    .    .    .    .    .    1    .    .   
+# Kazakhstan    │ .    .    .    .    .    .    .    1    .   
+# Russia        │ .    .    .    .    1    .    .    .    .   
+# United States │ .    .    .    .    .    1    .    .    .
 ```

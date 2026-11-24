@@ -57,6 +57,12 @@ qx{fm respond 'Which are most used writing systems?'}
 
 **Remark:** For `llama-*` and `llm-*` subroutines the FM server must be running (`fm serve`). The bare `fm respond` command can work in isolated shell/Jupyter cells, but full integration requires the server.
 
+The Raku package ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts) provides a Command Line Interface (CLI) script for finding and retrieval of its prompts. That CLI script can be used together with `fm` via the option `--instructions` (`-i`):
+
+```shell
+fm respond 'How many people live in Brazil?' -i "$(llm-prompt NumericOnly)"
+```
+
 ### Image description
 
 > **⚠️ Important:** `fm respond --image` requires a **local file path**, not a remote URL. Download the image first (e.g., via `curl -O`), then pass the local path.
@@ -66,7 +72,7 @@ my $url = 'https://i.imgur.com/CStKxkw.jpeg';
 shell "curl -O $url";
 my $proc = shell "fm respond --image {$url.split('/').tail} 'Describe the image.'", :out;
 $proc.out.slurp(:close)
-```  
+```
 
 ---
 
