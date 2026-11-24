@@ -1,4 +1,4 @@
-# Three big advancements in Raku numerics
+# Three Big Advancements in Raku Numerics
 
 Anton Antonov
 November 2026
@@ -13,13 +13,16 @@ This blog post describes three big advancements in Raku's numerical algorithms p
 
 Each section below discusses the use of Large Language Models (LLMs) or Artificial Intelligence (AI) agents.
 
-(More detailed posts will follow in the next few months.)
+**Remark:** More detailed posts on these new(er) Raku functionalities will follow in the next few months.
+
+**Remark:** [Here](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Markdown/LLM-ext-Three-big-advancements-in-Raku-numerics.md) 
+is an extended, wordier version of blog post derived via a ["blog-writer"](https://github.com/antononcube/Python-GoogleADK-agents/tree/main/blog-writer) AI-agent. 
 
 ---
 
 ## Numerical integration
 
-The package "Math::NIntegrate" has 9 integration strategies and multiple one-dimensional integration rules, cartesian rule that can combine them, and a family of "orbit-based" multidimensional rules.
+The package ["Math::NIntegrate"](https://raku.land/zef:antononcube/Math::NIntegrate) has multiple integration strategies and multiple one-dimensional integration rules, a cartesian rule that can combine them, and a family of "orbit-based" multidimensional rules.
 Its framework has an object-oriented design and implementation allows the user-defined integration strategies and rules to be hooked-up to it.
 It several types of criteria for stopping the integration process and allows the use of integration monitors.
 Frameworks algorithms are nested depending on their type:
@@ -28,7 +31,7 @@ Frameworks algorithms are nested depending on their type:
 - A strategy that is not a decorator, has a rule
 - A composite rule (like Cartesian Rule) has one or more component rules
 
-In addition, the Raku package "DSL::English::IntegrationWorkflows" can be used to generate numerical integration commands
+In addition, the Raku package ["DSL::English::IntegrationWorkflows"](https://raku.land/zef:antononcube/DSL::English::IntegrationWorkflows) can be used to generate numerical integration commands
 using natural language specs. For example:
 
 ```raku
@@ -53,7 +56,7 @@ The multidimensional rules were preprogrammed from FORTRAN to Raku, but had many
 
 The optimization (or Operations Research) library COIN-OR can be used in Raku via the package "COIN-OR".
 
-The package "Math::Optimization" is based on "COIN-OR" (and at some point "Gurobi") and provides easier to use interface:
+The package ["Math::Optimization"](https://raku.land/zef:antononcube/Math::Optimization) is based on "COIN-OR" (and at some point "Gurobi") and provides easier to use interface:
 
 Consider this problem: minimize $x + y$, subject to constraint $x + 2 * y ≥ 3$ and lower bounds $2 ≥ x ≥ -1$, $1 ≥ y ≥ -1$.
 
@@ -78,22 +81,25 @@ A few manual and AI-assisted manipulations of "COIN-OR" and "Math::Optimization"
 QuantileRegression (QR) provides multiple advantages over the other types of regression, like, Least Squares, LOESS, and others.
 QR is robust to outliers, allows the finding of point- and variance anomalies, and can be used to compute conditional Cumulative Distribution Functions.  
 
-The core Raku package "Math::QuantileRegression" uses the packages "Math::Splines" and "Math::Polynomial::Chebyshev" to form function bases
+The core Raku package ["Math::QuantileRegression"]((https://raku.land/zef:antononcube/Math::QuantileRegression) uses the packages ["Math::Splines"]((https://raku.land/zef:antononcube/Math::Splines) and ["Math::Polynomial::Chebyshev"]((https://raku.land/zef:antononcube/Math::Polynomial::Chebyshev)) to form function bases
 and "Math::Optimization" to fit those bases to data.
 
-The package "Math::Regressionizer" provides monadic pipelines that allow rapid specification of regression workflows.
+The package ["Math::Regressionizer"](https://raku.land/zef:antononcube/Math::Regressionizer) provides monadic pipelines that allow rapid specification of regression workflows.
 
 Here is "noisy sinusoidal" random data:
 
 ```raku
 use Data::Generators;
+use Data::TypeSystem;
+
 srand(0);
 my @x = 0, 0 + 1/300 ... 2;
 my @y = @x.map({ sin(2 * pi * $_) }) <<+>> random-variate(NormalDistribution.new(0, 0.4), @x.elems);
 my @data = @x Z @y;
+deduce-type(@data):tally;
 ```
 
-Here is a pipeline that fits the B-spline basis of 8 knots to the probabilities 0.2, 0.5, and 0.5:
+Here is a pipeline that fits the B-spline basis of 8 knots to the probabilities 0.02, 0.5, and 0.98:
 
 ```raku
 use Math::Regressionizer;
@@ -101,18 +107,23 @@ use Math::Regressionizer;
 my $obj = 
   Math::Regressionizer.new(@data)
   .echo-data-summary
-  .quantile-regression(knots => 8, probs => [0.2, 0.5, 0.8])
-  .outliers
-  .take-value
+  .quantile-regression(knots => 8, probs => [0.02, 0.5, 0.98])
+  .outliers()
+  .echo-value(with => {say "outlier counts: ", $_>>.elems} )
 ```
 
 Here is plot of the data and fitted *regression quantiles*:
 
-```raku
+```raku, eval=FALSE
 $obj.plot(title => "B-splines fit", template => "dark", format => 'html').take-value
 ```
 
-The package "DSL::English::QuantileRegressionWorkflows" was extended to generate Raku code. 
+```raku
+$obj.plot(title => "B-splines fit", format => 'html').take-value
+==> spurt("qr-plot.html")
+```
+
+The package ["DSL::English::QuantileRegressionWorkflows"](https://raku.land/zef:antononcube/DSL::English::QuantileRegressionWorkflows) was extended to generate Raku code. 
 
 ### Use of LLMs
 
