@@ -21,9 +21,9 @@ A second theme is the role of large language models (LLMs) and Artificial Intell
 is an extended, wordier version of blog post derived via a ["blog-writer"](https://github.com/antononcube/Python-GoogleADK-agents/tree/main/blog-writer) AI-agent. 
 
 **Remark:** With my LLM-usage explanations below, I am not trying to imply that human work remains essential for API design, numerical validation, cross-language reconciliation, and documentation.
-So far, I have chosen to do those. But I would be very interested if that kind of work can be completely outsourced to AI-agents, and the related methodological and philosophical implications. 
+So far, I have chosen to do those by myself. But I would be very interested if that kind of work can be completely outsourced to AI-agents, and the related methodological and philosophical implications. 
 
-**Remark:** The headline image show regression quantiles fitted over numerical integration sampling points.
+**Remark:** The headline image shows regression quantiles fitted over numerical integration sampling points.
 
 ---
 
@@ -182,7 +182,7 @@ The practical lesson is that an AI agent can accelerate wrapper development, but
 QuantileRegression (QR) provides multiple advantages over the other types of regression, like, Least Squares Fitting, Local regression (LOESS), and others.
 QR is robust to outliers, allows the finding of point- and variance anomalies, and can be used to compute conditional Cumulative Distribution Functions.  
 
-The core Raku package ["Math::QuantileRegression"]((https://raku.land/zef:antononcube/Math::QuantileRegression) uses the packages ["Math::Splines"]((https://raku.land/zef:antononcube/Math::Splines) and ["Math::Polynomial::Chebyshev"]((https://raku.land/zef:antononcube/Math::Polynomial::Chebyshev)) for function bases construction and "Math::Optimization" to fit those bases to data.
+The core Raku package ["Math::QuantileRegression"](https://raku.land/zef:antononcube/Math::QuantileRegression) uses the packages ["Math::Splines"](https://raku.land/zef:antononcube/Math::Splines) and ["Math::Polynomial::Chebyshev"]((https://raku.land/zef:antononcube/Math::Polynomial::Chebyshev)) for function bases construction and "Math::Optimization" to fit those bases to data.
 
 The package ["Math::Regressionizer"](https://raku.land/zef:antononcube/Math::Regressionizer) provides monadic pipelines that allow rapid specification of regression workflows with operations including:
 
