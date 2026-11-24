@@ -23,6 +23,8 @@ is an extended, wordier version of blog post derived via a ["blog-writer"](https
 **Remark:** With my LLM-usage explanations below, I am not trying to imply that human work remains essential for API design, numerical validation, cross-language reconciliation, and documentation.
 So far, I have chosen to do those. But I would be very interested if that kind of work can be completely outsourced to AI-agents, and the related methodological and philosophical implications. 
 
+**Remark:** The headline image show regression quantiles fitted over numerical integration sampling points.
+
 ---
 
 ## Numerical integration
@@ -93,6 +95,25 @@ mindmap
       ⭕️ Symbolic Piecewise Subdivision
 ```
 
+Here is a fairly comprehensive numerical integration specification integrates a constant function over a region that is an ellipse:
+
+```raku
+use Math::NIntegrate;
+
+my ($c, $d) = 2.5, 1.5;
+nintegrate(
+        { (($^x / 2) ** 2 + ( $^y ) ** 2 < 1).Int }, 
+        ['x', -$c, $c], ['y', -$d, $d],
+        method => ('local-adaptive', singularity-depth => Inf, method => ('multidimensional-rule', generators => 9)),
+        max-recursion => 7,
+        min-recursion => 2,
+        precision-goal => 3.2
+    ):pairs
+```
+
+Here are the corresponding sampling points:
+
+![](./Diagrams/Three-big-advancements-in-Raku-numerics/Local-adaptive-integration-sampling-points.png)
 
 ### Natural-language integration workflows
 
@@ -100,10 +121,14 @@ mindmap
 
 ```raku
 use DSL::English::IntegrationWorkflows;
+use MONKEY-SEE-NO-EVAL;
 
 my $cmd= 'numerically integrate 1/sqrt(x) over the range [0,1] without singularity handling with up to 20 recursion levels';
 
-ToIntegrationWorkflowCode($cmd, 'Raku::Ecosystem');
+my $translated = ToIntegrationWorkflowCode($cmd, 'Raku::Ecosystem');
+
+say (:$translated);
+say $translated.EVAL
 ```
 
 **Remark:** The package "DSL::English::IntegrationWorkflows" supports the generation of Wolfram Language code and translation to Bulgarian and Russian. 
@@ -197,14 +222,13 @@ my $obj =
 
 Here is plot of the data and fitted *regression quantiles*:
 
-```raku, eval=FALSE
-$obj.plot(title => "B-splines fit", template => "dark", format => 'html').take-value
-```
 
 ```raku
 $obj.plot(title => "B-splines fit", format => 'html').take-value
 ==> spurt("qr-plot.html")
 ```
+
+![](./Diagrams/Three-big-advancements-in-Raku-numerics/B-splines-fit-over-sinosuidal-noise.png)
 
 The package ["DSL::English::QuantileRegressionWorkflows"](https://raku.land/zef:antononcube/DSL::English::QuantileRegressionWorkflows) was extended to generate Raku code.
 The package ["DSL::Examples"](https://raku.land/zef:antononcube/DSL::Examples) is also "Raku-aware" when comes to regression. 
