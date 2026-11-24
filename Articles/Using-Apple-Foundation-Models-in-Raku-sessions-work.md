@@ -34,7 +34,7 @@ qx{fm respond 'Which are most used writting systems?'}
 
 **Remark:** To use FM in this way does not require any setup. (Like the section below.)
 
-Here is a more complicated example in which an image:
+Here is a more complicated example in which an image is described:
 
 ```raku
 my $url = 'https://i.imgur.com/CStKxkw.jpeg';
@@ -43,7 +43,13 @@ my $proc = shell "fm respond --image {$url.split('/').tail} 'Describe the image.
 $proc.out.slurp(:close)
 ```
 
-**Remark:** `fm` does not work with image URLs -- (local) file paths must be used.  
+**Remark:** `fm` does not work with image URLs -- (local) file paths must be used.
+
+The Raku package ["LLM::Prompts"](https://raku.land/zef:antononcube/LLM::Prompts) provides a Command Line Interface (CLI) script for finding and retrieval of its prompts. That CLI script can be used together with `fm` via the option `--instructions` (`-i`):
+
+```shell
+fm respond 'How many people live in Brazil?' -i "$(llm-prompt NumericOnly)"
+```
 
 ---
 
