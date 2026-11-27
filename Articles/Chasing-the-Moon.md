@@ -1,3 +1,5 @@
+![](./Diagrams/Chasing-the-Moon/Moonscape-selfie-raccoon-1.JPG)
+
 # Chasing the Moon
 
 A short, Earth-centered view of the Moon and [Artemis II](https://en.wikipedia.org/wiki/Artemis_II) using [JPL Horizons](https://ssd.jpl.nasa.gov/horizons/), Raku, and [D3](https://d3js.org).  
