@@ -2,7 +2,7 @@
 
 # Chasing the Moon
 
-A short, Earth-centered view of the Moon and [Artemis II](https://en.wikipedia.org/wiki/Artemis_II) using [JPL Horizons](https://ssd.jpl.nasa.gov/horizons/), Raku, and [D3](https://d3js.org).  
+Views of the Moon and [Artemis II](https://en.wikipedia.org/wiki/Artemis_II) using [JPL Horizons](https://ssd.jpl.nasa.gov/horizons/) data, and 3D plots made with Raku and [D3](https://d3js.org).  
 *Data interval: 2–10 April 2026; coordinates are kilometres.*
 
 ----
