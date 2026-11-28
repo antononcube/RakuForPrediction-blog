@@ -219,7 +219,7 @@ With similar code we can produce a Moon-centered plot:
 
 ![](./Diagrams/Chasing-the-Moon/Moon-centered-combined-trajectories-plot.png)
 
-**Remark:** In can be seen from the plot that Earth rotates counter-clockwise from Moon's perspective.
+**Remark:** It can be seen from the plot that Earth rotates counter-clockwise from Moon's perspective.
 
 ---
 
