@@ -71,6 +71,7 @@ The free-return design used the Earth–Moon gravity field to provide a return p
 
 **Remark:** [NASA's mission report](https://assets.science.nasa.gov/content/dam/science/missions/artemis/artemis-ii-prelimsci-report-/Artemis%20II_Lunar%20Science%20Operations%20Report_2Oct2026.pdf) and [return announcement](https://www.nasa.gov/news-release/nasa-welcomes-record-setting-artemis-ii-moonfarers-back-to-earth/) give the mission chronology.
 
+<--- <img src="https://www.nasa.gov/wp-content/uploads/2026/04/55199878669-257ddff58b-o-1.jpg" width="600" alt="Image"> -->
 ![](./Diagrams/Chasing-the-Moon/Artemis-II-landing.jpg)
 
 ---
@@ -219,8 +220,30 @@ With similar code we can produce a Moon-centered plot:
 
 ![](./Diagrams/Chasing-the-Moon/Moon-centered-combined-trajectories-plot.png)
 
+**Remark:** In can be seen from the plot that Earth rotates counter-clockwise from Moon's perspective.
+
 ---
+
+## Leftover comments
+
+- For interactive graphics download and run the [corresponding notebook](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Chasing-the-Moon.ipynb), [AAn1].
+
+- This document closely follows the Wolfram notebooks [JBn1, JBn2] authored by Jeffrey Bryant on the same subject.
+
+- The JPL Horizons data retrieval and 3D graphics of this document were used to develop and test elements of the packages "WWW::HorizonsEphemerisSystem", [AAp1], and "JavaScript::D3", [AAp2].
+
+
+---
+
 ## References 
+
+### Notebooks
+
+[AAn1] Anton Antonov, ["Chasing the Moon"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Chasing-the-Moon.ipynb), (2026), [RakuForPrediction-blog at GitHub/antononcube](https://github.com/antononcube/RakuForPrediction-blog).
+
+[JBn1] Jeffrey Bryant, ["Artemis II trajectory: crewed lunar flyby to launch on April 1, 2026"](https://community.wolfram.com/groups/-/m/t/3672762), (2026), [Wolfram Community](https://community.wolfram.com/).
+
+[JBn2] Jeffrey Bryant, ["View of the Moon from Artemis II"](https://community.wolfram.com/groups/-/m/t/3673962), (2026), [Wolfram Community](https://community.wolfram.com/).
 
 ### Packages
 

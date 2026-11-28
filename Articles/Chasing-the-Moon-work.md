@@ -206,8 +206,30 @@ With similar code we can produce a Moon-centered plot:
 
 ![](./Diagrams/Chasing-the-Moon/Moon-centered-combined-trajectories-plot.png)
 
+**Remark:** In can be seen from the plot that Earth rotates counter-clockwise from Moon's perspective.
+
 ---
+
+## Leftover comments
+
+- For interactive graphics download and run the [corresponding notebook](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Chasing-the-Moon.ipynb), [AAn1].
+
+- This document closely follows the Wolfram notebooks [JBn1, JBn2] authored by Jeffrey Bryant on the same subject.
+
+- The JPL Horizons data retrieval and 3D graphics of this document were used to develop and test elements of the packages "WWW::HorizonsEphemerisSystem", [AAp1], and "JavaScript::D3", [AAp2].
+
+
+---
+
 ## References 
+
+### Notebooks
+
+[AAn1] Anton Antonov, ["Chasing the Moon"](https://github.com/antononcube/RakuForPrediction-blog/blob/main/Notebooks/Jupyter/Chasing-the-Moon.ipynb), (2026), [RakuForPrediction-blog at GitHub/antononcube](https://github.com/antononcube/RakuForPrediction-blog).
+
+[JBn1] Jeffrey Bryant, ["Artemis II trajectory: crewed lunar flyby to launch on April 1, 2026"](https://community.wolfram.com/groups/-/m/t/3672762), (2026), [Wolfram Community](https://community.wolfram.com/).
+
+[JBn2] Jeffrey Bryant, ["View of the Moon from Artemis II"](https://community.wolfram.com/groups/-/m/t/3673962), (2026), [Wolfram Community](https://community.wolfram.com/).
 
 ### Packages
 
