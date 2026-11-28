@@ -71,7 +71,6 @@ The free-return design used the Earth–Moon gravity field to provide a return p
 
 **Remark:** [NASA's mission report](https://assets.science.nasa.gov/content/dam/science/missions/artemis/artemis-ii-prelimsci-report-/Artemis%20II_Lunar%20Science%20Operations%20Report_2Oct2026.pdf) and [return announcement](https://www.nasa.gov/news-release/nasa-welcomes-record-setting-artemis-ii-moonfarers-back-to-earth/) give the mission chronology.
 
-<--- <img src="https://www.nasa.gov/wp-content/uploads/2026/04/55199878669-257ddff58b-o-1.jpg" width="600" alt="Image"> -->
 ![](./Diagrams/Chasing-the-Moon/Artemis-II-landing.jpg)
 
 ---
